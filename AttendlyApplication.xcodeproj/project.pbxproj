@@ -18,6 +18,7 @@
 		34145F5228CFE0E000B073ED /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 34145F5128CFE0E000B073ED /* FirebaseFirestoreSwift */; };
 		34145F5428CFE0E000B073ED /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 34145F5328CFE0E000B073ED /* FirebaseStorage */; };
 		34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34145F5528CFE15F00B073ED /* GoogleService-Info.plist */; };
+		34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34145F5828CFED5D00B073ED /* NFChelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		34145F4628CFDF3400B073ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34145F5528CFE15F00B073ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AttendlyApplication.entitlements; sourceTree = "<group>"; };
+		34145F5828CFED5D00B073ED /* NFChelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFChelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				34145F3A28CFDF3300B073ED /* SceneDelegate.swift */,
 				34145F3C28CFDF3300B073ED /* ViewController.swift */,
 				34145F3E28CFDF3300B073ED /* Main.storyboard */,
+				34145F5828CFED5D00B073ED /* NFChelper.swift */,
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
+				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
 				34145F3B28CFDF3300B073ED /* SceneDelegate.swift in Sources */,
 			);
