@@ -31,6 +31,7 @@
 		53415F4228D1E923005DFA19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4128D1E923005DFA19 /* Main.storyboard */; };
 		53415F4428D1E9B3005DFA19 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4328D1E9B3005DFA19 /* pic1.png */; };
 		53415F4628D1E9B9005DFA19 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4528D1E9B9005DFA19 /* pic2.png */; };
+		53415F4828D23721005DFA19 /* Att.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4728D23720005DFA19 /* Att.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		53415F4128D1E923005DFA19 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		53415F4328D1E9B3005DFA19 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic1.png; sourceTree = "<group>"; };
 		53415F4528D1E9B9005DFA19 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic2.png; sourceTree = "<group>"; };
+		53415F4728D23720005DFA19 /* Att.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Att.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
 				53415F4328D1E9B3005DFA19 /* pic1.png */,
 				53415F4528D1E9B9005DFA19 /* pic2.png */,
+				53415F4728D23720005DFA19 /* Att.jpg */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
 				34145F5528CFE15F00B073ED /* GoogleService-Info.plist */,
@@ -190,6 +193,7 @@
 				53415F4428D1E9B3005DFA19 /* pic1.png in Resources */,
 				53415F4228D1E923005DFA19 /* Main.storyboard in Resources */,
 				34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */,
+				53415F4828D23721005DFA19 /* Att.jpg in Resources */,
 				34145F4228CFDF3400B073ED /* Assets.xcassets in Resources */,
 				53415F4628D1E9B9005DFA19 /* pic2.png in Resources */,
 			);

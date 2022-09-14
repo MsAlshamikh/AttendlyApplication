@@ -35,6 +35,7 @@ class loginController: UIViewController {
     @IBOutlet weak var buttonlogin: UIButton!
     
     override func viewDidLoad() {
+        self.tabBarController?.tabBar.isHidden = true
         super.viewDidLoad()
         validationMassege.isHidden = true
         validationMessegepass.isHidden = true
