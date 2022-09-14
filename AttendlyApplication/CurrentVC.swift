@@ -33,8 +33,18 @@ class CurrentVC: UIViewController {
     }
     
     func getCourses() {
+        
+        
+        
+//        db.collection("classes").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments {[weak self] snapshot, error in
+//            guard let snapshot = snapshot else {
+//                return
+//            }
+//
+//            }
+        
         let db = Firestore.firestore()
-        db.collection("classes").getDocuments {[weak self] snapshot, error in
+        db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare).getDocuments {[weak self] snapshot, error in
             guard let snapshot = snapshot else {
                 return
             }
