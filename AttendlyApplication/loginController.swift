@@ -64,7 +64,7 @@ class loginController: UIViewController {
         }
         if password.count != 8 {
             validationMessegepass.isHidden = false
-            validationMessegepass.text = "Please enter password with 8 number is"
+            validationMessegepass.text = "Please enter password with 8 number "
             return (false, "", "")
         }
         
