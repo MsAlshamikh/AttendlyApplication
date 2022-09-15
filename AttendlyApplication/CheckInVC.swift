@@ -46,7 +46,7 @@ class CheckInVC: UIViewController {
         for (index, student) in students.enumerated() {
             let button = UIButton()
             let name = student["name"] as? String ?? "Unnamed"
-            let attended = student["attended"] as? Bool ?? false
+            let attended = student["attendance"] as? Bool ?? false
             button.heightAnchor.constraint(equalToConstant: 50).isActive = true
             button.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 1), for: .normal)
             button.backgroundColor = attended ? UIColor(red: 171/255, green: 200/255, blue: 148/255, alpha: 1) : UIColor(red: 255/255, green: 50/125, blue: 50/255, alpha: 1)
@@ -98,7 +98,7 @@ class CheckInVC: UIViewController {
             for document in snapshot.documents {
                 if document.documentID == documentId {
                     document.reference.updateData([
-                        "attended": true
+                        "attendance": true
                     ]) { error in
                         self?.fetchStudents()
                     }

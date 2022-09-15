@@ -20,7 +20,7 @@ import FirebaseAuth
 
 
 
-class loginController: UIViewController {
+class loginController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailTextfiled: UITextField!
@@ -35,11 +35,20 @@ class loginController: UIViewController {
     @IBOutlet weak var buttonlogin: UIButton!
     
     override func viewDidLoad() {
-        self.tabBarController?.tabBar.isHidden = true
         super.viewDidLoad()
         validationMassege.isHidden = true
         validationMessegepass.isHidden = true
+        self.emailTextfiled.delegate = self
         // Do any additional setup after loading the view.
+    }
+    //touch out
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    //return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return(true)
     }
     
     func isValid() -> (Bool, String, String) {
