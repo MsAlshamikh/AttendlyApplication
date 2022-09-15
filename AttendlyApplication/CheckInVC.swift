@@ -24,12 +24,12 @@ class CheckInVC: UIViewController {
         super.viewDidLoad()
 
         selectCourseBtn.layer.cornerRadius = selectCourseBtn.frame.height / 2
-        butsection1Collection.forEach{  (btn) in btn.layer.cornerRadius = btn.frame.height / 2
-            btn.layer.cornerRadius = btn.frame.height / 2
-            btn.isHidden = true
-            btn.alpha = 0
-        
-    }
+//        butsection1Collection.forEach{  (btn) in btn.layer.cornerRadius = btn.frame.height / 2
+//            btn.layer.cornerRadius = btn.frame.height / 2
+//            btn.isHidden = true
+//            btn.alpha = 0
+//
+//    }
         addStudents()
     }
     
@@ -57,6 +57,7 @@ class CheckInVC: UIViewController {
             button.addTarget(self, action: #selector(checkIn(sender:)), for: .touchUpInside)
             
             buttonsStackView.addArrangedSubview(button)
+            print("added")
         }
         
     }
