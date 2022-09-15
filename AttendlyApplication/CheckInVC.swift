@@ -66,6 +66,7 @@ class CheckInVC: UIViewController {
         self.fetchStudents()
     }
    func fetchStudents() {
+       print("fetchStudents")
         guard let course = courseName else { return }
         let db = Firestore.firestore()
         db.collection("studentsByCourse/\(course)/students").getDocuments {[weak self] snapshot, error in
@@ -96,6 +97,7 @@ class CheckInVC: UIViewController {
             guard let snapshot = snapshot else { return }
             
             for document in snapshot.documents {
+                print(document.documentID, documentId)
                 if document.documentID == documentId {
                     document.reference.updateData([
                         "attendance": true
