@@ -118,7 +118,7 @@ class CourseViewController: UIViewController {
                 let id = snapshot!.documents.first!.get("lecturerID") as! String
                 print(id)
                 
-                db.collection("Lectures").whereField("lecturesID", isEqualTo: id).getDocuments{
+                db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
                     (snapshot, error) in
                     if let error = error {
                         print("FAIL3 ")

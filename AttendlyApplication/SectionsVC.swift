@@ -24,9 +24,10 @@ class SectionsVC: UIViewController {
                    print(actual)
                    for i in 0..<actual.count {
 
-                       let label = UIButton(frame: .init(x: self.view.frame.midX-120 , y: 200 + ( Double(i) * 70 ), width: 250, height: 50))
+                       let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
                        label.setTitle(actual[i], for: .normal)
-                       label.setTitleColor(UIColor(red: 55/255, green: 84/255, blue: 151/255, alpha: 2), for: .normal)
+                       label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+                       label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                        label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                        //label.params["course"] = actual[i]
                        //!!!!!!
