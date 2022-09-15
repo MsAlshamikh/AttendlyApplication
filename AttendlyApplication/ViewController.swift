@@ -149,6 +149,18 @@ class ViewController: UIViewController {
                  self.present(dialogMessage, animated: true, completion: nil)
                  
             }
+            // Create new Alert
+            var dialogMessage = UIAlertController(title: "Confirm", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
+             // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                 print("Ok button tapped")
+              })
+             //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+             
+            // Present Alert to
+             self.present(dialogMessage, animated: true, completion: nil)
+
         }
     }
     
