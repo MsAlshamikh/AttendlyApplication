@@ -136,7 +136,18 @@ class ViewController: UIViewController {
                 guard let s_documentID = s_snapshot.documents.first?.documentID else { continue }
                 print("sdocID", s_documentID)
                 try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)
-                print("done")
+                // Create new Alert
+                var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
+                 // Create OK button with action handler
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                     print("Ok button tapped")
+                  })
+                 //Add OK button to a dialog message
+                dialogMessage.addAction(ok)
+                 
+                // Present Alert to
+                 self.present(dialogMessage, animated: true, completion: nil)
+                 
             }
         }
     }
