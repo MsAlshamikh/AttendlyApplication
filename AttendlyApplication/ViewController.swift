@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         var result = str.split(separator: "-")
         result.removeFirst()
         var str_arr: [String] = result.map { String($0) }
-        let tag = str_arr[0]
+         let tag = str_arr[0]
         
         let db = Firestore.firestore()
         
