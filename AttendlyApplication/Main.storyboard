@@ -333,7 +333,7 @@
         <!--View Controller-->
         <scene sceneID="4tf-a7-VkO">
             <objects>
-                <viewController id="p9d-UR-Rcb" sceneMemberID="viewController">
+                <viewController id="p9d-UR-Rcb" customClass="ViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vvq-4V-fYO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
