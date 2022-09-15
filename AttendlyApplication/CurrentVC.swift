@@ -31,20 +31,10 @@ class CurrentVC: UIViewController {
     }
         getCourses()
     }
-    
+
     func getCourses() {
-        
-        
-        
-//        db.collection("classes").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments {[weak self] snapshot, error in
-//            guard let snapshot = snapshot else {
-//                return
-//            }
-//
-//            }
-        
         let db = Firestore.firestore()
-        db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare).getDocuments {[weak self] snapshot, error in
+        db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare) .getDocuments {[weak self] snapshot, error in
             guard let snapshot = snapshot else {
                 return
             }
@@ -83,6 +73,9 @@ class CurrentVC: UIViewController {
     @objc func fetchStudentsFor(sender: UIButton) {
         let tag = sender.tag
         let course = courses[tag]
+        print("4")
+        Global.shared.Pressedsection=course
+        print(course) //course variable
         self.openCheckin(with: [], courseName: course)
 //        let db = Firestore.firestore()
 //        db.collection("studentsByCourse/\(course)/students").getDocuments {[weak self] snapshot, error in
