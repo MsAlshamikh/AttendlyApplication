@@ -25,6 +25,7 @@ class ViewController: UIViewController {
          payloadLabel.numberOfLines = 10
          //payloadLabel.text = "Scan an NFC Tag" //passed
          self.view.addSubview(payloadLabel) //passed */
+        //shamma
     }
     
     
