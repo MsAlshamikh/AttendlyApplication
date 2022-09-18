@@ -39,6 +39,7 @@ class loginController: UIViewController, UITextFieldDelegate {
         validationMassege.isHidden = true
         validationMessegepass.isHidden = true
         self.emailTextfiled.delegate = self
+        self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
     }
     //touch out
