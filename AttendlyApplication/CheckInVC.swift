@@ -24,12 +24,12 @@ class CheckInVC: UIViewController {
         super.viewDidLoad()
 
         selectCourseBtn.layer.cornerRadius = selectCourseBtn.frame.height / 2
-        butsection1Collection.forEach{  (btn) in btn.layer.cornerRadius = btn.frame.height / 2
-            btn.layer.cornerRadius = btn.frame.height / 2
-            btn.isHidden = true
-            btn.alpha = 0
-        
-    }
+//        butsection1Collection.forEach{  (btn) in btn.layer.cornerRadius = btn.frame.height / 2
+//            btn.layer.cornerRadius = btn.frame.height / 2
+//            btn.isHidden = true
+//            btn.alpha = 0
+//
+//    }
         addStudents()
     }
     
@@ -42,7 +42,7 @@ class CheckInVC: UIViewController {
             button.removeFromSuperview()
         }
         
-       
+       print("addStudents", students)
         for (index, student) in students.enumerated() {
             let button = UIButton()
             let name = student["name"] as? String ?? "Unnamed"
@@ -57,6 +57,7 @@ class CheckInVC: UIViewController {
             button.addTarget(self, action: #selector(checkIn(sender:)), for: .touchUpInside)
             
             buttonsStackView.addArrangedSubview(button)
+            print("added")
         }
         
     }
@@ -71,7 +72,7 @@ class CheckInVC: UIViewController {
         db.collection("studentsByCourse/\(course)/students").getDocuments {[weak self] snapshot, error in
         
             guard let snapshot = snapshot else { return }
-            
+            print(course, snapshot.count)
             var students: [[String: Any]] = []
             for document in snapshot.documents {
                 var student = document.data()
@@ -81,6 +82,7 @@ class CheckInVC: UIViewController {
                 students.append(student)
             }
             self?.students = students
+            print("students", self?.students)
             self?.addStudents()
         }
     }
@@ -94,7 +96,7 @@ class CheckInVC: UIViewController {
         let db = Firestore.firestore()
         db.collection("studentsByCourse/\(courseName)/students").getDocuments {[weak self] snapshot, error in
             guard let snapshot = snapshot else { return }
-            
+            print("test2222")
             for document in snapshot.documents {
                 if document.documentID == documentId {
                     document.reference.updateData([
