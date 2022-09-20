@@ -53,6 +53,7 @@ class CurrentVC: UIViewController {
                 let courses = data["coursess"] as? [String] ?? []
                 self?.courses = courses
                 self?.addButtons(for: courses)
+                
             }
         }
     }

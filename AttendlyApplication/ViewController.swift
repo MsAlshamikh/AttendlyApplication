@@ -121,6 +121,7 @@ class ViewController: UIViewController {
         
         Task {
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+           
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
             let name: String = snapshot.documents.first?.data()["name"] as! String
             
