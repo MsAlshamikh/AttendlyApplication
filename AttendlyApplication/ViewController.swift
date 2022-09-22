@@ -120,15 +120,25 @@ class ViewController: UIViewController {
         let db = Firestore.firestore()
         
         Task {
+            let date = Date()
+            let calunder = Calendar.current
+            let day = calunder.component(.day , from: date)
+            let month = calunder.component(.month , from: date)
+            let year = calunder.component(.year , from: date)
+            
+            let thed = "\(day)-\(month)-\(year) "
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
            
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
             let name: String = snapshot.documents.first?.data()["name"] as! String
-            
+            let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
             for section in sections {
                 print(section, str_arr)
                 if !str_arr.contains(section) { continue }
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).getDocuments()
+                print(thed)
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
+               // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
+
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
                 print("docID", documentID)
                 let data: [String: Any] = [

@@ -89,35 +89,28 @@ class SectionsVC: UIViewController {
     
     @objc func pressed(sender:UIButton)  {
         print("m")
+        let v =   sender.titleLabel?.text
+        print(v!)
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
         sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
         
         let db = Firestore.firestore()
         
         Task {
-            let snapshot = try await db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
-            let coursess: [String] = snapshot.documents.first?.data()["coursess"] as! [String]
-            
-        //    let name: String = snapshot.documents.first?.data()["name"] as! String
-            let t_snapshot = try await db.collection("Unistudent").getDocuments()
-          
-            let co: [String] = t_snapshot.documents.first?.data()["co"] as! [String]
-            
-            print(co)
-            print(coursess.count)
-            print(t_snapshot)
-            
+           
+            let t_snapshot = try await db.collection("Unistudent").whereField("co", arrayContains: v!).getDocuments()
+         //   let co: [String] = t_snapshot.documents.first?.data()["co"] as! [String]
+          //  print(co)
+           // print(coursess.count)
+         //   print(t_snapshot)
           //for course in 0..<t_snapshot.count   {
       //  for course in coursess {
+            var studentArry = [String]()
               for document in t_snapshot.documents {
                // print(course)
                 print("here")
-              //  if co.contains(coursess[1]){
-                //    let name = t_snapshot.documents.first!.get("name") as! String
-                  //  print(name)
-              //  }
-           // print(t_snapshot[course])
-             let name = t_snapshot.documents.first!.get("name") as! String
+             let name = document.get("name") as! String
+                  studentArry.append(name)
           //    let name = t_snapshot.course["name"] as? String??
 
               //  let name: String = snapshot.documents.first?.data()["name"] as! String
@@ -125,8 +118,14 @@ class SectionsVC: UIViewController {
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
                 print("docID", documentID)
                 print(coursess.count)
+                 
+        
             
             }
+            let stude = storyboard?.instantiateViewController(withIdentifier: "listAll") as! listAll
+            stude.nameStudent = studentArry
+            navigationController?.pushViewController(stude, animated: true)
+          //  present(stude, animated: true)
         }
 //        titleB2 = sender.title(for: .normal)!
 //

@@ -7,61 +7,39 @@
 
 import UIKit
 
-class listAll: UIViewController {
-
+class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableview: UITableView!
+    
    
+    
+    var nameStudent = [String]()
     // @IBOutlet weak var courseLabel: UILabel!
    // @IBOutlet weak var sectionLabel: UILabel!
    // @IBOutlet weak var lecturerLabel: UILabel!
     
-    
-    @IBOutlet weak var cours: UILabel!
-    
-    @IBOutlet weak var lec: UILabel!
-    @IBOutlet weak var sect: UILabel!
-    
-    
-    var section2: String = ""
-    var titleB2: String = ""
-    var name2: String = ""
+     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var str = "heellllooooo"
-//        var myMutableString = NSMutableAttributedString(string: str)
-//        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location:2,length:4))
-        let text1 = NSMutableAttributedString()
-        text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
-        text1.append(NSAttributedString(string: name2, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
+        print("now is try")
+        print(nameStudent)
+        tableview.delegate = self
+        tableview.dataSource = self
         
-        //
+        navigationController?.navigationItem.title = "ss"
         
-        let text2 = NSMutableAttributedString()
-        text2.append(NSAttributedString(string: "Section: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
-        text2.append(NSAttributedString(string: section2, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
-        
-        cours.text = titleB2
-   
-        
-        sect.attributedText = text2
 
-        
-        lec.attributedText = text1
-  
-        //
-        // Do any additional setup after loading the view.
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return nameStudent.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let my = tableView.dequeueReusableCell(withIdentifier: "cell")
+        my?.textLabel?.text = nameStudent[indexPath.row]
+        return my!
     }
-    */
-
+    
+    
 }
-
