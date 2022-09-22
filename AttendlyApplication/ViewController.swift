@@ -26,6 +26,8 @@ class ViewController: UIViewController {
          //payloadLabel.text = "Scan an NFC Tag" //passed
          self.view.addSubview(payloadLabel) //passed */
         //shamma
+    
+
     }
     
     
@@ -125,6 +127,8 @@ class ViewController: UIViewController {
             let day = calunder.component(.day , from: date)
             let month = calunder.component(.month , from: date)
             let year = calunder.component(.year , from: date)
+            let currentTime = getCurrentTime()
+            print(currentTime)
             //current date
             let thed = "\(day)-\(month)-\(year) "
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
@@ -204,7 +208,7 @@ class ViewController: UIViewController {
                  
             }
             // Create new Alert
-            var dialogMessage = UIAlertController(title: "Confirm", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
+            var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
              // Create OK button with action handler
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                  print("Ok button tapped")
@@ -222,7 +226,19 @@ class ViewController: UIViewController {
     //       for i in 1..<result.count{
     //print(result[i])
     //}
-    
+    func getCurrentTime() -> String{
+
+        let formater = DateFormatter()
+
+           // let formater = DateComponents()
+
+           formater.timeStyle = .short
+
+            let dateString =  formater.string(from: Date())
+
+            return dateString
+
+        }
 }
 
 
