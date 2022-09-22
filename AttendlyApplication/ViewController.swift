@@ -163,7 +163,7 @@ class ViewController: UIViewController {
                // print(timeMinfb2+30)
               var flag = ""
                // print(timeMinfb) 11:45
-                if ((timeHourfb == timeHourct)){ //8 == 8 
+                if ((timeHourfb == timeHourct)){ //8 == 8
                     if(timeMinct2 <= timeMinfb2+15) { //attended 8:15
                         flag = "attend"
                     }
@@ -191,7 +191,7 @@ class ViewController: UIViewController {
 
          //   guard let uid=Auth.auth().currentUser?.uid else {return }
 
-             
+           
 
                 Firestore.firestore().collection("studentsByCourse").document(documentID ).collection("students").addDocument(data: [
 
@@ -199,7 +199,8 @@ class ViewController: UIViewController {
 
                          "name": name ,
 
-                           "date": thed
+                           "date": thed,
+                         "State" : flag
 
                         //   "sectionID":
 
@@ -231,16 +232,44 @@ class ViewController: UIViewController {
                 print("sdocID", s_documentID)
                 try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)*/
                 // Create new Alert
-                var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
-                 // Create OK button with action handler
-                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                     print("Ok button tapped")
-                  })
-                 //Add OK button to a dialog message
-                dialogMessage.addAction(ok)
-                 
-                // Present Alert to
-                 self.present(dialogMessage, animated: true, completion: nil)
+                if(flag=="attend"){
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)
+                }
+                 if(flag=="late"){
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "Be careful You are late! but you Attended Successfully", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)
+                    
+                }
+                if(flag=="absent")
+                {   // Create new Alert
+                    var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You have exceeded the class time!you marked as Absent ", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)}
+                    
                  
             }
             // Create new Alert
