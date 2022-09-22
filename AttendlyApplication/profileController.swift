@@ -16,16 +16,26 @@ class profileContoller: UIViewController {
     //@IBAction func loUGout(_ sender: Any) {
 
    // @IBAction func loUGout(_ sender: UIButton) {
+    
     override func viewDidLoad() {
-
         super.viewDidLoad()
-
    //  navigationController.hidesBackButton = true
-
         // Do any additional setup after loading the view.
-
     }
     
+    
+    @IBAction func sname(_ sender: Any) {
+    }
+    
+    @IBAction func semail(_ sender: Any) {
+    }
+    
+    @IBAction func sid(_ sender: Any) {
+    }
+    
+    
+    @IBAction func sadv(_ sender: Any) {
+    }
     
     
     @IBAction func loUGout(_ sender: UIButton) {
