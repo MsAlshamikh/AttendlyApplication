@@ -125,7 +125,7 @@ class ViewController: UIViewController {
             let day = calunder.component(.day , from: date)
             let month = calunder.component(.month , from: date)
             let year = calunder.component(.year , from: date)
-            
+            //current date
             let thed = "\(day)-\(month)-\(year) "
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
            
@@ -141,13 +141,55 @@ class ViewController: UIViewController {
 
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
                 print("docID", documentID)
-                let data: [String: Any] = [
-                    "attendance": true
-                ]
-                let s_snapshot = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
+               // let data: [String: Any] = [
+                 //   "attendance": true
+               // ]
+                
+             //   func storeLecturesInformation(){
+
+             // var ref: DocumentReference? = nil
+
+         //   guard let uid=Auth.auth().currentUser?.uid else {return }
+
+             
+
+                Firestore.firestore().collection("studentsByCourse").document(documentID ).collection("students").addDocument(data: [
+
+                         "EmailStudent": Global.shared.useremailshare,
+
+                         "name": name ,
+
+                           "date": thed
+
+                        //   "sectionID":
+
+                          //"studentID": "" ,
+
+                   //   "time":""
+
+               
+
+                       ]) { err in
+
+                           if let err = err {
+
+                               print("Error adding Lecturer  : \(err)")
+
+                       } else {
+
+                            print("Lecturer added sucsseful ")
+
+                         }
+
+                     }
+
+               //    }
+
+
+                /*let s_snapshot = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
                 guard let s_documentID = s_snapshot.documents.first?.documentID else { continue }
                 print("sdocID", s_documentID)
-                try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)
+                try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)*/
                 // Create new Alert
                 var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
                  // Create OK button with action handler
