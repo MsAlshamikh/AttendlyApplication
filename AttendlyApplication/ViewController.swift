@@ -129,6 +129,15 @@ class ViewController: UIViewController {
             let year = calunder.component(.year , from: date)
             let currentTime = getCurrentTime()
             print(currentTime)
+            let currentTimeSplit = currentTime.split(separator: ":")
+           
+            let timeHourct = currentTimeSplit[0]
+            let timeMinct = Int(currentTimeSplit[1])
+            let timeMinct2 = Int(timeMinct ?? 0)
+            print("hour current" )
+            print(timeHourct)
+            print("Mins current" )
+           // print(timeMinct)
             //current date
             let thed = "\(day)-\(month)-\(year) "
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
@@ -142,8 +151,35 @@ class ViewController: UIViewController {
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
                // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
-
+                let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
+                let timeSplitfb = secTime.split(separator: ":")
+                print(timeSplitfb)
+                let timeHourfb = timeSplitfb[0]
+                let timeMinfb = Int(timeSplitfb[1])
+                let timeMinfb2 = Int(timeMinfb ?? 0)
+               // print("ff" )
+               // print(ff)
+                print("timeMinfb2+15" )
+               // print(timeMinfb2+30)
+              var flag = ""
+               // print(timeMinfb) 11:45
+                if ((timeHourfb == timeHourct)){ //8 == 8 
+                    if(timeMinct2 <= timeMinfb2+15) { //attended 8:15
+                        flag = "attend"
+                    }
+                    else if (timeMinct2 < timeMinfb2+30){ //late 8:30
+                        flag = "late"
+                    }
+                    else{
+                        flag = "absent"
+                    }
+                       
+                       
+                    
+                }
+                
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
+                
                 print("docID", documentID)
                // let data: [String: Any] = [
                  //   "attendance": true
@@ -231,11 +267,13 @@ class ViewController: UIViewController {
         let formater = DateFormatter()
 
            // let formater = DateComponents()
-
-           formater.timeStyle = .short
+      //  let dateFormatter = DateFormatter()
+        formater.dateFormat = "HH:mm"
+          // formater.timeStyle = .short
 
             let dateString =  formater.string(from: Date())
-
+        print("after formating")
+print(dateString)
             return dateString
 
         }
