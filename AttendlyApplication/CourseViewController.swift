@@ -34,7 +34,7 @@ class CourseViewController: UIViewController {
      }}}*/
     func get(){
         let db = Firestore.firestore()
-        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
+        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments{
             (snapshot, error) in
             if let error = error {
                 print("FAIL ")
@@ -59,19 +59,50 @@ class CourseViewController: UIViewController {
                 print(actual)
                 for i in 0..<actual.count {
 
-                    let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+                    let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
                     label.setTitle(actual[i], for: .normal)
                     label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                     label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-                    label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-                    //label.params["course"] = actual[i]
-                    //!!!!!!
+                   // label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+                    
+                    //line
+                    let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
+                    //
+                    line.layer.cornerRadius = 0.04 * label.bounds.size.width
+                    line.backgroundColor = .gray
+                    let z = 5
+                    
+                    let after = z*10
+                   
+                    let perc = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(i))) * 90 ), width: after, height: 26))
+                    //
+                    perc.layer.cornerRadius = 0.04 * label.bounds.size.width
+                    if (z>20)
+                    {perc.backgroundColor = UIColor(red: 355/255, green: 0/255, blue: 0/255, alpha: 0.75)}
+                    else if (z>15)
+                    {  perc.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)}//change
+                    else if (z>10)
+                    {   perc.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)}//change
+                    else
+                    { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
+ //
+                    let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 333 + ( Int((Double(i))) * 90 ), width: 50, height: 26))
+                    pt.text = String(z) + "%"
+                    
+                    self.view.addSubview(line)
+                    self.view.addSubview(perc)
+                    self.view.addSubview(pt)
+
+
+                        
                     label.tag = Int(sects[i]) ?? 0
                     label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
                     label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
                     label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
                     label.layer.cornerRadius = 0.07 * label.bounds.size.width
                     self.view.addSubview(label)
+                    
+                    
                 }}
                 
                //
@@ -84,13 +115,13 @@ class CourseViewController: UIViewController {
     }
     @objc func pressed1(sender:UIButton) {
         sender.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 2), for: .normal)
-        sender.backgroundColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 0.75)
+       // sender.backgroundColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 0.75)
         
     }
     
     @objc func pressed2(sender:UIButton) {
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-        sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+      //  sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
         
     }
     
