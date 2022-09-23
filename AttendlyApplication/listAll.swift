@@ -9,6 +9,7 @@ import UIKit
 
 class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var nostudent: UILabel!
     @IBOutlet weak var tableview: UITableView!
     
    
@@ -25,9 +26,20 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("now is try")
+       nostudent.isHidden = true
+
+        print("what pressed is ")
         print(v)
+        print("name of student")
         print(nameStudent)
+        if ( nameStudent.count == 0 )
+        {
+            nostudent.isHidden = false
+            print("no student")
+            
+         //   self.noC.text = "No courses \n registered!"
+            self.nostudent.text = "No Student Registered Yet "
+        }
         tableview.delegate = self
         tableview.dataSource = self
         //tableview.rowHeight = UITableView.automaticDimension
@@ -49,6 +61,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
         let my = tableView.dequeueReusableCell(withIdentifier: "cell")
         my?.textLabel?.text = nameStudent[indexPath.row]
      //   my?.imageView?.image = UIImage(named: "Att")

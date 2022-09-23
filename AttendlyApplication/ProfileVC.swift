@@ -7,6 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
+
+
 
 class ProfileVC: UIViewController {
     override func viewDidLoad() {
@@ -16,23 +20,35 @@ class ProfileVC: UIViewController {
     }
 
 
-    @IBAction func meout(_ sender: UIButton) {
+    @IBAction func meout(_ sender: Any) {
    
-              
+        print("pressed")
         
-        do{
-                try Auth.auth().signOut()
-            print("logout!")
-            }catch let signOutError as NSError{
+    
+        
+       let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+       do{
+           
+              try Auth.auth().signOut()
+           
+           print("logout!")
+          self.performSegue(withIdentifier: "logo2", sender: self)
+           } //do
+        
+        catch let signOutError as NSError{
             print("error",signOutError)
-            }
-       
+         }
+               
+        }))
+           alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+                self.present(alert, animated: true, completion: nil)
+     //   self.performSegue(withIdentifier: "logo2", sender: self)
+                                         
 
-        self.performSegue(withIdentifier: "logo2", sender: self)
-
-        }
         
         
+                                          }
         
         
     }
