@@ -33,6 +33,7 @@
 		53415F4E28D8DA54005DFA19 /* readCsv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F4D28D8DA54005DFA19 /* readCsv.swift */; };
 		53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8128DA475D00F77178 /* listOfstudent.swift */; };
 		53AF1B8428DAA95000F77178 /* listAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8328DAA95000F77178 /* listAll.swift */; };
+		53AF1B8C28DE46D500F77178 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 53AF1B8B28DE46D500F77178 /* girl.png */; };
 		A28E042428D2B088005065D9 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042328D2B087005065D9 /* pic1.png */; };
 		A28E042628D2B0BD005065D9 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042528D2B0BD005065D9 /* pic2.png */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		53415F4D28D8DA54005DFA19 /* readCsv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readCsv.swift; sourceTree = "<group>"; };
 		53AF1B8128DA475D00F77178 /* listOfstudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listOfstudent.swift; sourceTree = "<group>"; };
 		53AF1B8328DAA95000F77178 /* listAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listAll.swift; sourceTree = "<group>"; };
+		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
 		A28E042528D2B0BD005065D9 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
 				A28E042328D2B087005065D9 /* pic1.png */,
 				A28E042528D2B0BD005065D9 /* pic2.png */,
+				53AF1B8B28DE46D500F77178 /* girl.png */,
 				53415F4728D23720005DFA19 /* Att.jpg */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34145F4528CFDF3400B073ED /* LaunchScreen.storyboard in Resources */,
+				53AF1B8C28DE46D500F77178 /* girl.png in Resources */,
 				53415F4228D1E923005DFA19 /* Main.storyboard in Resources */,
 				A28E042628D2B0BD005065D9 /* pic2.png in Resources */,
 				34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */,

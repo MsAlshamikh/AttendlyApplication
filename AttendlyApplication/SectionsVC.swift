@@ -124,6 +124,7 @@ class SectionsVC: UIViewController {
             }
             let stude = storyboard?.instantiateViewController(withIdentifier: "listAll") as! listAll
             stude.nameStudent = studentArry
+            stude.v = v!
             navigationController?.pushViewController(stude, animated: true)
           //  present(stude, animated: true)
         }
