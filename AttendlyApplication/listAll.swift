@@ -30,7 +30,9 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(nameStudent)
         tableview.delegate = self
         tableview.dataSource = self
-        
+        //tableview.rowHeight = UITableView.automaticDimension
+        tableview.estimatedRowHeight = 50
+        tableview.rowHeight = 50
        // navigationController?.navigationItem.title = "ss"
         
         
@@ -49,10 +51,13 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "cell")
         my?.textLabel?.text = nameStudent[indexPath.row]
-       
+     //   my?.imageView?.image = UIImage(named: "Att")
         
         my?.imageView?.image = UIImage(named: "girl")
-//my?.textLabel!.font = UIFont(name: (my?.textLabel.font.fontName)! ?? );, size:15) // Change the font size as per your requirement
+      
+   //     my?.textLabel?.font = UIFont (name: my?.textLabel?.font.fontName , size:15)) // Change the font size as per your requirement
+
+    //my?.textLabel!.font = UIFont(name: (my?.textLabel.font.fontName)! ?? );, size:15) // Change the font size as per your requirement
 
         return my!
     }
