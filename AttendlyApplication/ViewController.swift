@@ -26,6 +26,8 @@ class ViewController: UIViewController {
          //payloadLabel.text = "Scan an NFC Tag" //passed
          self.view.addSubview(payloadLabel) //passed */
         //shamma
+    
+
     }
     
     
@@ -120,38 +122,158 @@ class ViewController: UIViewController {
         let db = Firestore.firestore()
         
         Task {
+            let date = Date()
+            let calunder = Calendar.current
+            let day = calunder.component(.day , from: date)
+            let month = calunder.component(.month , from: date)
+            let year = calunder.component(.year , from: date)
+            let currentTime = getCurrentTime()
+            print(currentTime)
+            let currentTimeSplit = currentTime.split(separator: ":")
+           
+            let timeHourct = currentTimeSplit[0]
+            let timeMinct = Int(currentTimeSplit[1])
+            let timeMinct2 = Int(timeMinct ?? 0)
+            print("hour current" )
+            print(timeHourct)
+            print("Mins current" )
+           // print(timeMinct)
+            //current date
+            let thed = "\(day)-\(month)-\(year) "
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+           
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
             let name: String = snapshot.documents.first?.data()["name"] as! String
-            
+            let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
             for section in sections {
                 print(section, str_arr)
                 if !str_arr.contains(section) { continue }
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).getDocuments()
+                print(thed)
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
+               // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
+                let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
+                let timeSplitfb = secTime.split(separator: ":")
+                print(timeSplitfb)
+                let timeHourfb = timeSplitfb[0]
+                let timeMinfb = Int(timeSplitfb[1])
+                let timeMinfb2 = Int(timeMinfb ?? 0)
+               // print("ff" )
+               // print(ff)
+                print("timeMinfb2+15" )
+               // print(timeMinfb2+30)
+              var flag = ""
+               // print(timeMinfb) 11:45
+                if ((timeHourfb == timeHourct)){ //8 == 8
+                    if(timeMinct2 <= timeMinfb2+15) { //attended 8:15
+                        flag = "attend"
+                    }
+                    else if (timeMinct2 < timeMinfb2+30){ //late 8:30
+                        flag = "late"
+                    }
+                    else{
+                        flag = "absent"
+                    }
+                       
+                       
+                    
+                }
+                
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
+                
                 print("docID", documentID)
-                let data: [String: Any] = [
-                    "attendance": true
-                ]
-                let s_snapshot = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
+               // let data: [String: Any] = [
+                 //   "attendance": true
+               // ]
+                
+             //   func storeLecturesInformation(){
+
+             // var ref: DocumentReference? = nil
+
+         //   guard let uid=Auth.auth().currentUser?.uid else {return }
+
+           
+
+                Firestore.firestore().collection("studentsByCourse").document(documentID ).collection("students").addDocument(data: [
+
+                         "EmailStudent": Global.shared.useremailshare,
+
+                         "name": name ,
+
+                           "date": thed,
+                         "State" : flag
+
+                        //   "sectionID":
+
+                          //"studentID": "" ,
+
+                   //   "time":""
+
+               
+
+                       ]) { err in
+
+                           if let err = err {
+
+                               print("Error adding Lecturer  : \(err)")
+
+                       } else {
+
+                            print("Lecturer added sucsseful ")
+
+                         }
+
+                     }
+
+               //    }
+
+
+                /*let s_snapshot = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
                 guard let s_documentID = s_snapshot.documents.first?.documentID else { continue }
                 print("sdocID", s_documentID)
-                try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)
+                try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)*/
                 // Create new Alert
-                var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
-                 // Create OK button with action handler
-                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                     print("Ok button tapped")
-                  })
-                 //Add OK button to a dialog message
-                dialogMessage.addAction(ok)
-                 
-                // Present Alert to
-                 self.present(dialogMessage, animated: true, completion: nil)
+                if(flag=="attend"){
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)
+                }
+                 if(flag=="late"){
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "Be careful You are late! but you Attended Successfully", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)
+                    
+                }
+                if(flag=="absent")
+                {   // Create new Alert
+                    var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You have exceeded the class time!you marked as Absent ", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)}
+                    
                  
             }
             // Create new Alert
-            var dialogMessage = UIAlertController(title: "Confirm", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
+            var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
              // Create OK button with action handler
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                  print("Ok button tapped")
@@ -169,7 +291,21 @@ class ViewController: UIViewController {
     //       for i in 1..<result.count{
     //print(result[i])
     //}
-    
+    func getCurrentTime() -> String{
+
+        let formater = DateFormatter()
+
+           // let formater = DateComponents()
+      //  let dateFormatter = DateFormatter()
+        formater.dateFormat = "HH:mm"
+          // formater.timeStyle = .short
+
+            let dateString =  formater.string(from: Date())
+        print("after formating")
+print(dateString)
+            return dateString
+
+        }
 }
 
 
