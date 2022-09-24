@@ -171,10 +171,10 @@ class ViewController: UIViewController {
               var flag = ""
                // print(timeMinfb) 11:45
                 if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
-                    if(timeMinct2 <= timeMinfb2+15) { //attended 8:15
+                    if(timeMinct2 <= timeMinfb2+1) { //attended 8:15
                         flag = "attend"
                     }
-                    else if (timeMinct2 < timeMinfb2+30){ //late 8:30
+                    else if (timeMinct2 < timeMinfb2+20){ //late 8:30
                         flag = "late"
                     }
                     else{
