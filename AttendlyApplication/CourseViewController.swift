@@ -67,9 +67,10 @@ class CourseViewController: UIViewController {
                     
                     //line
                     let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
+             
                     //
                     line.layer.cornerRadius = 0.04 * label.bounds.size.width
-                    line.backgroundColor = .gray
+                    line.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 0.75)
                     let z = 5
                     
                     let after = z*10
@@ -87,7 +88,12 @@ class CourseViewController: UIViewController {
                     { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
  //
                     let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 333 + ( Int((Double(i))) * 90 ), width: 50, height: 26))
-                    pt.text = String(z) + "%"
+                    pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
+                    
+                  
+                    pt.font = UIFont(name: "systemFont", size: 27.0)
+                    
+                    pt.text = " " + String(z) + "%"
                     
                     self.view.addSubview(line)
                     self.view.addSubview(perc)
@@ -114,7 +120,7 @@ class CourseViewController: UIViewController {
         
     }
     @objc func pressed1(sender:UIButton) {
-        sender.setTitleColor(UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 2), for: .normal)
+        sender.setTitleColor(UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 2), for: .normal)
        // sender.backgroundColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 0.75)
         
     }
@@ -129,7 +135,7 @@ class CourseViewController: UIViewController {
        
         
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-        sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+        //sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
         
         //1
         titleB = sender.title(for: .normal)!
