@@ -7,11 +7,20 @@
 
 import UIKit
 import AudioToolbox
+import CodableFirebase
 import Firebase
 
 
 class ProfileViewContoller: UIViewController {
+    @IBOutlet weak var emailLabel: UILabel!
     let firestore = Firestore.firestore()
+    
+    var user : User! {
+        didSet {
+            updateUI(for: user)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,36 +35,28 @@ class ProfileViewContoller: UIViewController {
         loadProfile()
     }
     
+    func updateUI(for user:User) {
+        //TODO: Update this data to your IBOutlets
+        print("User", user.name, user.email)
+        
+        //nameLabel.text = user.name
+        emailLabel.text = user.email
+        
+    }
+    
     func loadProfile() {
         guard let uid = Auth.auth().currentUser?.uid else {
             //TODO: inform user that he is not logged in any more and then take him to login page
             return
         }
-        
-        print("UID = ", uid)
-        
-        //PLEASE KEEP THIS CODE WE WILL FIGURE THIS LATER
-//        firestore.collection("users").document(uid).getDocument { document, error in
-//            guard let document = document else {
-//                //Inform user that there no document asscisated with the uid he have priovided
-//                print("Error loadin user profile", error?.localizedDescription ?? "Unknown Error")
-//                return
-//            }
-//
-//            print (document.exists, document.data())
-//
-//        }
-        
-        
-        firestore.collection("users").whereField("userID", isEqualTo: uid).getDocuments { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
+        firestore.collection("Users").document(uid).getDocument { document, error in
+            guard let doc = document, let userData  = document?.data() else {
+                //Inform user that there no document asscisated with the uid he have priovided
                 print("Error loadin user profile", error?.localizedDescription ?? "Unknown Error")
                 return
             }
-            
-            print(documents.last?.exists, documents.last?.data())
+            self.user = try! FirebaseDecoder().decode(User.self, from: userData)
         }
-        
     }
     
     @IBAction func loUGout(_ sender: UIButton) {

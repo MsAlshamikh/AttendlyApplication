@@ -21,7 +21,6 @@
 		53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2D28D1E878005DFA19 /* AdvisorVC.swift */; };
 		53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2F28D1E87E005DFA19 /* CurrentVC.swift */; };
 		53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3128D1E886005DFA19 /* CheckInVC.swift */; };
-		53415F3428D1E88C005DFA19 /* profileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3328D1E88C005DFA19 /* profileController.swift */; };
 		53415F3628D1E893005DFA19 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3528D1E892005DFA19 /* CourseViewController.swift */; };
 		53415F3828D1E899005DFA19 /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3728D1E899005DFA19 /* loginController.swift */; };
 		53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3928D1E8A2005DFA19 /* Global.swift */; };
@@ -30,8 +29,9 @@
 		53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */; };
 		53415F4228D1E923005DFA19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4128D1E923005DFA19 /* Main.storyboard */; };
 		53415F4828D23721005DFA19 /* Att.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4728D23720005DFA19 /* Att.jpg */; };
-		534470EE28DAAB89006DA3BA /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 534470ED28DAAB89006DA3BA /* pic1.png */; };
-		534470F028DAAB99006DA3BA /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 534470EF28DAAB99006DA3BA /* pic2.png */; };
+		564814B128DF9F8C00407C9E /* ProfileViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564814B028DF9F8B00407C9E /* ProfileViewContoller.swift */; };
+		564814B428DFAA0A00407C9E /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 564814B328DFAA0A00407C9E /* CodableFirebase */; };
+		564814B628DFAA3200407C9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564814B528DFAA3200407C9E /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,6 @@
 		53415F2D28D1E878005DFA19 /* AdvisorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvisorVC.swift; sourceTree = "<group>"; };
 		53415F2F28D1E87E005DFA19 /* CurrentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentVC.swift; sourceTree = "<group>"; };
 		53415F3128D1E886005DFA19 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
-		53415F3328D1E88C005DFA19 /* profileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileController.swift; sourceTree = "<group>"; };
 		53415F3528D1E892005DFA19 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		53415F3728D1E899005DFA19 /* loginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
 		53415F3928D1E8A2005DFA19 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -57,8 +56,8 @@
 		53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		53415F4128D1E923005DFA19 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		53415F4728D23720005DFA19 /* Att.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Att.jpg; sourceTree = "<group>"; };
-		534470ED28DAAB89006DA3BA /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../../Desktop/pic1.png; sourceTree = "<group>"; };
-		534470EF28DAAB99006DA3BA /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../../Desktop/pic2.png; sourceTree = "<group>"; };
+		564814B028DF9F8B00407C9E /* ProfileViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewContoller.swift; sourceTree = "<group>"; };
+		564814B528DFAA3200407C9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +68,7 @@
 				34145F4E28CFE0E000B073ED /* FirebaseAuth in Frameworks */,
 				34145F5428CFE0E000B073ED /* FirebaseStorage in Frameworks */,
 				34145F5028CFE0E000B073ED /* FirebaseFirestore in Frameworks */,
+				564814B428DFAA0A00407C9E /* CodableFirebase in Frameworks */,
 				34145F5228CFE0E000B073ED /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +95,7 @@
 		34145F3728CFDF3300B073ED /* AttendlyApplication */ = {
 			isa = PBXGroup;
 			children = (
+				564814B028DF9F8B00407C9E /* ProfileViewContoller.swift */,
 				34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */,
 				34145F3828CFDF3300B073ED /* AppDelegate.swift */,
 				34145F3A28CFDF3300B073ED /* SceneDelegate.swift */,
@@ -104,7 +105,6 @@
 				53415F3128D1E886005DFA19 /* CheckInVC.swift */,
 				53415F2F28D1E87E005DFA19 /* CurrentVC.swift */,
 				34145F5828CFED5D00B073ED /* NFChelper.swift */,
-				53415F3328D1E88C005DFA19 /* profileController.swift */,
 				53415F3728D1E899005DFA19 /* loginController.swift */,
 				53415F3928D1E8A2005DFA19 /* Global.swift */,
 				53415F3B28D1E8B6005DFA19 /* ProfileVC.swift */,
@@ -112,12 +112,11 @@
 				53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */,
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
-				534470ED28DAAB89006DA3BA /* pic1.png */,
-				534470EF28DAAB99006DA3BA /* pic2.png */,
 				53415F4728D23720005DFA19 /* Att.jpg */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
 				34145F5528CFE15F00B073ED /* GoogleService-Info.plist */,
+				564814B528DFAA3200407C9E /* User.swift */,
 			);
 			path = AttendlyApplication;
 			sourceTree = "<group>";
@@ -143,6 +142,7 @@
 				34145F4F28CFE0E000B073ED /* FirebaseFirestore */,
 				34145F5128CFE0E000B073ED /* FirebaseFirestoreSwift */,
 				34145F5328CFE0E000B073ED /* FirebaseStorage */,
+				564814B328DFAA0A00407C9E /* CodableFirebase */,
 			);
 			productName = AttendlyApplication;
 			productReference = 34145F3528CFDF3300B073ED /* AttendlyApplication.app */;
@@ -174,6 +174,7 @@
 			mainGroup = 34145F2C28CFDF3200B073ED;
 			packageReferences = (
 				34145F4C28CFE0E000B073ED /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				564814B228DFAA0900407C9E /* XCRemoteSwiftPackageReference "CodableFirebase" */,
 			);
 			productRefGroup = 34145F3628CFDF3300B073ED /* Products */;
 			projectDirPath = "";
@@ -189,9 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				534470EE28DAAB89006DA3BA /* pic1.png in Resources */,
 				34145F4528CFDF3400B073ED /* LaunchScreen.storyboard in Resources */,
-				534470F028DAAB99006DA3BA /* pic2.png in Resources */,
 				53415F4228D1E923005DFA19 /* Main.storyboard in Resources */,
 				34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */,
 				53415F4828D23721005DFA19 /* Att.jpg in Resources */,
@@ -210,16 +209,17 @@
 				53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */,
 				53415F3828D1E899005DFA19 /* loginController.swift in Sources */,
 				53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */,
+				564814B128DF9F8C00407C9E /* ProfileViewContoller.swift in Sources */,
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
 				53415F3628D1E893005DFA19 /* CourseViewController.swift in Sources */,
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
+				564814B628DFAA3200407C9E /* User.swift in Sources */,
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */,
 				34145F3B28CFDF3300B073ED /* SceneDelegate.swift in Sources */,
-				53415F3428D1E88C005DFA19 /* profileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +441,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		564814B228DFAA0900407C9E /* XCRemoteSwiftPackageReference "CodableFirebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alickbass/CodableFirebase";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -463,6 +471,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 34145F4C28CFE0E000B073ED /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		564814B328DFAA0A00407C9E /* CodableFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 564814B228DFAA0900407C9E /* XCRemoteSwiftPackageReference "CodableFirebase" */;
+			productName = CodableFirebase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
