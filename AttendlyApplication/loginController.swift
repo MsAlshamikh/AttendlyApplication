@@ -81,73 +81,74 @@ class loginController: UIViewController, UITextFieldDelegate {
         
         return (true, email, password)
     }
+    
+    
+    
+    
+    @IBAction func loginpressed(_ sender: Any) {
+        //  resetForm()
         
+        let validationResult = isValid()
+        if validationResult.0 == false {
+            return
+        }
         
-        
-        
-        @IBAction func loginpressed(_ sender: Any) {
-            //  resetForm()
-            
-            let validationResult = isValid()
-            if validationResult.0 == false {
-                return
-            }
-            
-            let email = validationResult.1
-            let password = validationResult.2
-            Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
-                if let e=error{   //if no connect with firebase
-                    print("failed")
-                    let alert = UIAlertController(title: "Error", message: "No exist user ,try agin", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                   // print(e)
-                }else{   //user Auth in firebase
-                    print("sucsses")
-                    
-                    Task {
-                        if await self.checkEmailExist(email: email, collection: "Unistudent", field: "StudentEmail") {
-                            // if self.isValidEmailSttudent (emailID: email) == true  {
-                            //   self.storeUserInformation()
-                            // }
-                            if await !self.checkEmailExist(email: email, collection: "Appstudent", field: "StudentEmail") {
-                                await self.storeUserInformation(collection: "Appstudent", data: ["StudentEmail": email])
-                            }
-                            
-                            print("student exists")
-                      self.performSegue(withIdentifier: "gotoStudents", sender: self)
-                            Global.shared.useremailshare = email
-                            print("this is the email amani: " + email)
-                            print("this is the global amani: " + Global.shared.useremailshare)
-                            // students view
+        let email = validationResult.1
+        let password = validationResult.2
+        Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
+            if let e=error{   //if no connect with firebase
+                print("failed")
+                let alert = UIAlertController(title: "Error", message: "No exist user ,try agin", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                // print(e)
+            }else{   //user Auth in firebase
+                print("sucsses")
+                
+                Task {
+                    if await self.checkEmailExist(email: email, collection: "Unistudent", field: "StudentEmail") {
+                        // if self.isValidEmailSttudent (emailID: email) == true  {
+                        //   self.storeUserInformation()
+                        // }
+                        if await !self.checkEmailExist(email: email, collection: "Appstudent", field: "StudentEmail") {
+                            await self.storeUserInformation(collection: "Appstudent", data: ["StudentEmail": email])
                         }
-                        else if await self.checkEmailExist(email: email, collection: "Lectures", field: "EmailLectures") {
+                        //let sutentdId =
                         
-                            if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
-                                await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
-                            }
-                            
-                            print("lectures exists")
-                          //  if self.isValidEmailLectures(emailID: email) == true  {
-                              //  self.storeLecturesInformation() }
-                         //MODHI & Y
-                          self.performSegue(withIdentifier: "gotoLecturers", sender: self)
-                            Global.shared.useremailshare = email
-                            // lectures view
-                        }
-                        else {
-                            print("not exists")
-                            let alert = UIAlertController(title: "Error", message: "No Exist User ,try agin", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                            //  self.storeUserInformation()
-                            // self.performSegue(withIdentifier: "gotoStudents", sender: self)
-                            // Global.shared.useremailshare = email
-                            
-                        }
+                        print("student exists")
+                        self.performSegue(withIdentifier: "gotoStudents", sender: self)
+                        Global.shared.useremailshare = email
+                        print("this is the email amani: " + email)
+                        print("this is the global amani: " + Global.shared.useremailshare)
+                        // students view
                     }
-                }}
-        }   //end if
+                    else if await self.checkEmailExist(email: email, collection: "Lectures", field: "EmailLectures") {
+                        
+                        if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
+                            await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
+                        }
+                        
+                        print("lectures exists")
+                        //  if self.isValidEmailLectures(emailID: email) == true  {
+                        //  self.storeLecturesInformation() }
+                        //MODHI & Y
+                        self.performSegue(withIdentifier: "gotoLecturers", sender: self)
+                        Global.shared.useremailshare = email
+                        // lectures view
+                    }
+                    else {
+                        print("not exists")
+                        let alert = UIAlertController(title: "Error", message: "No Exist User ,try agin", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        //  self.storeUserInformation()
+                        // self.performSegue(withIdentifier: "gotoStudents", sender: self)
+                        // Global.shared.useremailshare = email
+                        
+                    }
+                }
+            }}
+    }   //end if
     
     //
     
@@ -183,7 +184,7 @@ class loginController: UIViewController, UITextFieldDelegate {
     //end
     
     func checkEmailExist(email: String, collection: String, field: String) async -> Bool {
-       // print("what??")
+        // print("what??")
         let db = Firestore.firestore()
         do {
             let snapshot = try await db.collection(collection).whereField(field, isEqualTo: email).getDocuments()
@@ -213,26 +214,26 @@ class loginController: UIViewController, UITextFieldDelegate {
     
     
     
-//    func storeLecturesInformation(){
-//        //  var ref: DocumentReference? = nil
-//        // guard let uid=Auth.auth().currentUser?.uid else {return }
-//
-//        Firestore.firestore().collection("Lecturer").addDocument(data: [
-//            "EmailStudent": emailTextfiled.text,
-//            "counter": "" ,
-//            "date": ""  ,
-//            "sectionID": "" ,
-//            "studentID": "" ,
-//            "time":""
-//
-//        ]) { err in
-//            if let err = err {
-//                print("Error adding Lecturer  : \(err)")
-//            } else {
-//                print("Lecturer added sucsseful ")
-//            }
-//        }
-//    }
+    //    func storeLecturesInformation(){
+    //        //  var ref: DocumentReference? = nil
+    //        // guard let uid=Auth.auth().currentUser?.uid else {return }
+    //
+    //        Firestore.firestore().collection("Lecturer").addDocument(data: [
+    //            "EmailStudent": emailTextfiled.text,
+    //            "counter": "" ,
+    //            "date": ""  ,
+    //            "sectionID": "" ,
+    //            "studentID": "" ,
+    //            "time":""
+    //
+    //        ]) { err in
+    //            if let err = err {
+    //                print("Error adding Lecturer  : \(err)")
+    //            } else {
+    //                print("Lecturer added sucsseful ")
+    //            }
+    //        }
+    //    }
     
     
     

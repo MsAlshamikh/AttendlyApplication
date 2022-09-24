@@ -7,21 +7,18 @@
 
 import UIKit
 import FirebaseAuth
-
+import FirebaseFirestore
 
 class ProfileVC: UIViewController {
+    var messages : String = "" 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-
-
     
+   
     
-    
-    
-    
+  
     
     
     @IBAction func meout(_ sender: UIButton) {
@@ -41,16 +38,5 @@ class ProfileVC: UIViewController {
         }
         
         
-        
-        
     }
-
-    
-
-
-
-    
-    
-   
-    
 

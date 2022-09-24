@@ -16,6 +16,9 @@ class DetailsViewController: UIViewController {
     var section: String = ""
     var titleB: String = ""
     var name: String = ""
+    var email: String = ""
+    var adv: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
