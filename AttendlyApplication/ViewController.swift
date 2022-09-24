@@ -152,18 +152,25 @@ class ViewController: UIViewController {
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
                // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
                 let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
+                let secTimeEnd = t_snapshot.documents.first?.data()["endTime"] as! String
                 let timeSplitfb = secTime.split(separator: ":")
                 print(timeSplitfb)
                 let timeHourfb = timeSplitfb[0]
                 let timeMinfb = Int(timeSplitfb[1])
                 let timeMinfb2 = Int(timeMinfb ?? 0)
+                
+                let EndtimeSplitfb = secTimeEnd.split(separator: ":")
+                print(timeSplitfb)
+                let EndtimeHourfb = EndtimeSplitfb[0]
+                let EndtimeMinfb = Int(EndtimeSplitfb[1])
+                let EndtimeMinfb2 = Int(EndtimeMinfb ?? 0)
                // print("ff" )
                // print(ff)
                 print("timeMinfb2+15" )
                // print(timeMinfb2+30)
               var flag = ""
                // print(timeMinfb) 11:45
-                if ((timeHourfb == timeHourct)){ //8 == 8
+                if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
                     if(timeMinct2 <= timeMinfb2+15) { //attended 8:15
                         flag = "attend"
                     }
