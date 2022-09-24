@@ -153,6 +153,7 @@ class ViewController: UIViewController {
                // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
                 let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
                 let secTimeEnd = t_snapshot.documents.first?.data()["endTime"] as! String
+               
                 let timeSplitfb = secTime.split(separator: ":")
                 print(timeSplitfb)
                 let timeHourfb = timeSplitfb[0]
@@ -169,16 +170,20 @@ class ViewController: UIViewController {
                 print("timeMinfb2+15" )
                // print(timeMinfb2+30)
               var flag = ""
+                var attend = false
                // print(timeMinfb) 11:45
                 if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
                     if(timeMinct2 <= timeMinfb2+1) { //attended 8:15
                         flag = "attend"
+                        attend = true
                     }
                     else if (timeMinct2 < timeMinfb2+20){ //late 8:30
                         flag = "late"
+                        attend = true
                     }
                     else{
                         flag = "absent"
+                        
                     }
                        
                        
@@ -188,6 +193,7 @@ class ViewController: UIViewController {
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
                 
                 print("docID", documentID)
+          
                // let data: [String: Any] = [
                  //   "attendance": true
                // ]
@@ -198,7 +204,7 @@ class ViewController: UIViewController {
 
          //   guard let uid=Auth.auth().currentUser?.uid else {return }
 
-           
+         
 
                 Firestore.firestore().collection("studentsByCourse").document(documentID ).collection("students").addDocument(data: [
 
@@ -208,7 +214,9 @@ class ViewController: UIViewController {
 
                            "date": thed,
                          "State" : flag,
-                         "Attend time":currentTime
+                         "Attend time":currentTime,
+                         "attendORnot":true
+                         
 
                         //   "sectionID":
 
@@ -231,6 +239,7 @@ class ViewController: UIViewController {
                          }
 
                      }
+          
 
                //    }
 
@@ -278,8 +287,8 @@ class ViewController: UIViewController {
                     // Present Alert to
                      self.present(dialogMessage, animated: true, completion: nil)}
                     
-                 
             }
+            
             // Create new Alert
             var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
              // Create OK button with action handler
