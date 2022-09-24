@@ -207,7 +207,8 @@ class ViewController: UIViewController {
                          "name": name ,
 
                            "date": thed,
-                         "State" : flag
+                         "State" : flag,
+                         "Attend time":currentTime
 
                         //   "sectionID":
 
