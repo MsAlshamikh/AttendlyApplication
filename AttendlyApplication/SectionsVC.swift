@@ -11,9 +11,9 @@ class SectionsVC: UIViewController {
     var Sectionss: String = ""
    var coursess: String = ""
   
-    var name2: String = ""
-    var section2: String = ""
-    var titleB2: String = ""
+//    var name2: String = ""
+//    var section2: String = ""
+//    var titleB2: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,15 +80,14 @@ class SectionsVC: UIViewController {
         
     }
     
-    @objc func pressed2(sender:UIButton) {
-        print("S")
+    @objc func pressed2(sender:UIButton) {print("S")
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
         sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
         
     }
     
     @objc func pressed(sender:UIButton)  {
-        print("m")
+        
         let v =   sender.titleLabel?.text
         print(v!)
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
@@ -106,15 +105,21 @@ class SectionsVC: UIViewController {
           //for course in 0..<t_snapshot.count   {
       //  for course in coursess {
             var studentArry = [String]()
+            var studentID = [String]()
               for document in t_snapshot.documents {
                // print(course)
                 print("here")
              let name = document.get("name") as! String
+                  let ID = document.get("studentID") as! String
+                  
                   studentArry.append(name)
+                  studentID.append(ID)
+                  
           //    let name = t_snapshot.course["name"] as? String??
 
               //  let name: String = snapshot.documents.first?.data()["name"] as! String
-                print(name)
+                  print("ID of student/",ID)
+                  print("name of student/",name)
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
                 print("docID", documentID)
                 print(coursess.count)
@@ -124,6 +129,7 @@ class SectionsVC: UIViewController {
             }
             let stude = storyboard?.instantiateViewController(withIdentifier: "listAll") as! listAll
             stude.nameStudent = studentArry
+            stude.idStudent = studentID
             stude.v = v!
             navigationController?.pushViewController(stude, animated: true)
           //  present(stude, animated: true)

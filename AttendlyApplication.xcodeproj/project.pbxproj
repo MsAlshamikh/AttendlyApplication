@@ -35,6 +35,7 @@
 		53AF1B8428DAA95000F77178 /* listAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8328DAA95000F77178 /* listAll.swift */; };
 		53AF1B8C28DE46D500F77178 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 53AF1B8B28DE46D500F77178 /* girl.png */; };
 		53AF1B8F28DE67D900F77178 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 53AF1B8E28DE67D900F77178 /* FirebaseMessaging */; };
+		53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */; };
 		A28E042428D2B088005065D9 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042328D2B087005065D9 /* pic1.png */; };
 		A28E042628D2B0BD005065D9 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042528D2B0BD005065D9 /* pic2.png */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		53AF1B8128DA475D00F77178 /* listOfstudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listOfstudent.swift; sourceTree = "<group>"; };
 		53AF1B8328DAA95000F77178 /* listAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listAll.swift; sourceTree = "<group>"; };
 		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
+		53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableviewControolerTableViewCell.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
 		A28E042528D2B0BD005065D9 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */,
 				34145F3728CFDF3300B073ED /* AttendlyApplication */,
 				34145F3628CFDF3300B073ED /* Products */,
 			);
@@ -232,6 +235,7 @@
 				53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */,
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
+				53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */,
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
