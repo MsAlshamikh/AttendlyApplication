@@ -20,58 +20,8 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapReadNFC), for: .touchUpInside)
         button.frame = CGRect(x: 60, y: 400, width: self.view.bounds.width - 120, height: 80)
         self.view.addSubview(button)
-        /*
-         payloadLabel = UILabel(frame: button.frame.offsetBy(dx: 0, dy: 300))
-         payloadLabel.numberOfLines = 10
-         //payloadLabel.text = "Scan an NFC Tag" //passed
-         self.view.addSubview(payloadLabel) //passed */
-        //shamma
-    
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*  let actual = snapshot!.documents.first!.get("Sectionss") as! [String]
-     
-     for sec in actual{
-     if self.result.contains(sec){
-     let alertController = UIAlertController(title: "Success", message: "You are attended succssfully",preferredStyle: .alert)
-     // ## should change the color ( attended = true )
-     }
-     else {
-     let alertController = UIAlertController(title: "Fail", message: "Your attended is Fail ",preferredStyle: .alert)
-     }
-     }
-     for i in 0..<actual.count {
-     for j in 0..<result.count {
-     
-     /*let myString1 = "556"
-      let myInt1 = Int(myString1)*/
-     
-     let result2 = String(result)
-     //if result2[j] == actual[i]{
-     
-     
-     break
-     }
-     
-     }
-     */
-    
-    
-    
-    
-    
     
     
     func onNFCResult(success: Bool, msg: String) {
@@ -87,11 +37,8 @@ class ViewController: UIViewController {
             if !msg.hasPrefix("First"){
                 self.spl(x: msg)
                 
-                
             }
-            
         }
-        
     }
     
     @objc func didTapReadNFC() {
@@ -102,15 +49,11 @@ class ViewController: UIViewController {
         //  print(helper.onNFCResult as String)
         helper.restartSession()
     }
-    //jj
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
     
     func spl(x:String) {
         var str = x
@@ -141,18 +84,22 @@ class ViewController: UIViewController {
             //current date
             let thed = "\(day)-\(month)-\(year) "
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
-           
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
             let name: String = snapshot.documents.first?.data()["name"] as! String
             let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
+            
             for section in sections {
                 print(section, str_arr)
                 if !str_arr.contains(section) { continue }
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
-               // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
+                let Attend :String = t_snapshot.documents.first?.data()["Attend"] as! String //Attend for specfic student
                 
+               // let tf = true
                 // check if student email already exists in
+                if await self.checkEmailExist(email: email, collection: "studentsByCourse", field: section , filed2: Attend ) {
+                    }
+                
                 
                 let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
                 let secTimeEnd = t_snapshot.documents.first?.data()["endTime"] as! String
@@ -168,8 +115,6 @@ class ViewController: UIViewController {
                 let EndtimeHourfb = EndtimeSplitfb[0]
                 let EndtimeMinfb = Int(EndtimeSplitfb[1])
                 let EndtimeMinfb2 = Int(EndtimeMinfb ?? 0)
-               // print("ff" )
-               // print(ff)
                 print("timeMinfb2+15" )
                // print(timeMinfb2+30)
               var flag = ""
@@ -198,15 +143,6 @@ class ViewController: UIViewController {
                // let data: [String: Any] = [
                  //   "attendance": true
                // ]
-                
-             //   func storeLecturesInformation(){
-
-             // var ref: DocumentReference? = nil
-
-         //   guard let uid=Auth.auth().currentUser?.uid else {return }
-
-         
-
                 Firestore.firestore().collection("studentsByCourse").document(documentID ).collection("students").addDocument(data: [
 
                          "EmailStudent": Global.shared.useremailshare,
@@ -217,16 +153,7 @@ class ViewController: UIViewController {
                          "State" : flag,
                          "Attend time":currentTime,
                          "attendORnot":true
-                         
-
-                        //   "sectionID":
-
-                          //"studentID": "" ,
-
-                   //   "time":""
-
-               
-
+                        //  "sectionID": //"studentID": "" ,//   "time":""
                        ]) { err in
 
                            if let err = err {
@@ -234,21 +161,9 @@ class ViewController: UIViewController {
                                print("Error adding Lecturer  : \(err)")
 
                        } else {
-
                             print("Lecturer added sucsseful ")
-
                          }
-
                      }
-          
-
-               //    }
-
-
-                /*let s_snapshot = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
-                guard let s_documentID = s_snapshot.documents.first?.documentID else { continue }
-                print("sdocID", s_documentID)
-                try await db.collection("studentsByCourse").document(documentID).collection("students").document(s_documentID).setData(data, merge: true)*/
                 // Create new Alert
                 if(flag=="attend"){
                     var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
@@ -287,7 +202,6 @@ class ViewController: UIViewController {
                      
                     // Present Alert to
                      self.present(dialogMessage, animated: true, completion: nil)}
-                    
             }
             
             // Create new Alert
@@ -305,10 +219,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    //       for i in 1..<result.count{
-    //print(result[i])
-    //}
     func getCurrentTime() -> String{
 
         let formater = DateFormatter()
@@ -324,50 +234,24 @@ print(dateString)
             return dateString
 
         }
+    
+    
+    func checkEmailExist(email: String, collection: String, field: String , filed2: String  ) async -> Bool {
+       // print("what??")  //filed= section     //filed2 =Attend   , filed3
+        let db = Firestore.firestore()
+        do {
+            let snapshot = try await db.collection(collection).whereField(field, isEqualTo: "tag").whereField(email, isEqualTo:"EmailStudent").whereField(filed2, isEqualTo: "").getDocuments()
+            print("COUNT ", snapshot.count)
+            print("not added student exist")
+            return snapshot.count != 0
+        } catch {
+            print(error.localizedDescription)
+            print("no student exist")
+            return false
+        }
 }
 
 
 
-
-/*
- 
- ######### if the student is not at the same section ##########
- 
- func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
- // Check the invalidation reason from the returned error.
- if let readerError = error as? NFCReaderError {
- // Show an alert when the invalidation reason is not because of a success read
- // during a single tag read mode, or user canceled a multi-tag read mode session
- // from the UI or programmatically using the invalidate method call.
- if (readerError.code != .readerSessionInvalidationErrorFirstNDEFTagRead)
- && (readerError.code != .readerSessionInvalidationErrorUserCanceled) {
- let alertController = UIAlertController(
- title: "Session Invalidated",
- message: error.localizedDescription,
- preferredStyle: .alert
- )
- alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
- DispatchQueue.main.async {
- self.present(alertController, animated: true, completion: nil)
- }
- }
- }
- 
- // A new session instance is required to read new tags.
- self.session = nil
- }
- 
- 
- */
-
-
-
-
-
-
-
-
-
-
-
+}
 
