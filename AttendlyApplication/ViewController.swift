@@ -151,6 +151,9 @@ class ViewController: UIViewController {
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
                // let t_snapshot = try await db.collection("studentsByCourse").wh//startDate
+                
+                // check if student email already exists in
+                
                 let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
                 let secTimeEnd = t_snapshot.documents.first?.data()["endTime"] as! String
                
@@ -173,7 +176,7 @@ class ViewController: UIViewController {
                 var attend = false
                // print(timeMinfb) 11:45
                 if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
-                    if(timeMinct2 <= timeMinfb2+1) { //attended 8:15
+                    if(timeMinct2 <= timeMinfb2) { //attended 8:15
                         flag = "attend"
                         attend = true
                     }
@@ -185,9 +188,7 @@ class ViewController: UIViewController {
                         flag = "absent"
                         
                     }
-                       
-                       
-                    
+
                 }
                 
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
