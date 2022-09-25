@@ -67,14 +67,14 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
      //   my?.imageView?.image = UIImage(named: "Att")
         
         my?.imageView?.image = UIImage(named: "girl")
-      //  my?.textLabel?.text! += "                 "
+     // my?.textLabel?.text! += "                 "
           
           
      //  my?.textLabel?.text! += "0 %"
        // my?.textLabel?.font = UIFont (name: my?.textLabel?.font.fontName ?? 0 , size:15)// Change the font size as per your requirement
 
     //my?.textLabel!.font = UIFont(name: (my?.textLabel.font.fontName)! ?? );, size:15) // Change the font size as per your requirement
-        
+      //  nostudent.isHidden = false
         let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(indexPath.row))) * 90 ), width: 200, height: 26))
                     
                            //
