@@ -58,7 +58,6 @@ class CourseViewController: UIViewController {
                      let sects = snapshot!.documents.first!.get("Sections") as! [String]
                 print(actual)
                 for i in 0..<actual.count {
-
                     let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
                     label.setTitle(actual[i], for: .normal)
                     label.titleLabel?.font = label.titleLabel?.font.withSize(30)
@@ -71,10 +70,14 @@ class CourseViewController: UIViewController {
                     //
                     line.layer.cornerRadius = 0.04 * label.bounds.size.width
                     line.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 0.75)
-                    let z = 17
                     
+                    
+                    //
+                    let z = 17
                     let after = z*10
-                   
+                   //
+                    
+                    
                     let perc = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(i))) * 90 ), width: after, height: 26))
                     //
                     perc.layer.cornerRadius = 0.04 * label.bounds.size.width
@@ -100,7 +103,7 @@ class CourseViewController: UIViewController {
                     self.view.addSubview(pt)
 
 
-                        
+                        //
                     label.tag = Int(sects[i]) ?? 0
                     label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
                     label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
@@ -251,3 +254,44 @@ func checkCoursesExist(email: String, collection: String, field: String) async -
          catch {
          }}}
  */
+
+
+/*
+ //PERCENTAGE TRYING
+ var temp = 0
+let abs_snapshot =  db.collection("studentsByCourse").whereField("tag", isEqualTo: sects[0])
+     .getDocuments{
+     (snapshot1, error) in
+     if let error = error {
+         print("FAIL ")
+     }
+     else{
+      
+     }
+     }}
+ 
+/*   abs_snapshot.data("students").whereField("EmailStudent", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments{
+     (snapshot1, error) in
+     if let error = error {
+         print("FAIL ")
+     }
+     else{
+         
+         let state = snapshot!.documents.first!.get("State") as! String
+         if state == "absent"
+         { temp = temp + 1
+             print(temp)
+         }
+         
+         /*
+          let state = snapshot!.documents.get("State") as! [String]
+          for i in 0..<state.count {
+          if stateA[i] == "absent"
+          { temp = temp + 1
+              print(temp)
+          }
+          */*/
+         
+     }}
+ */
+
