@@ -93,12 +93,13 @@ class ViewController: UIViewController {
                 if !str_arr.contains(section) { continue }
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
-                let Attend :String = t_snapshot.documents.first?.data()["Attend"] as! String //Attend for specfic student
                 
-               // let tf = true
+               // let Attend :String = t_snapshot.documents.first?.data()["Attend"] as! String //Attend for specfic student
+                
+             
                 // check if student email already exists in
-                if await self.checkEmailExist(email: email, collection: "studentsByCourse", field: section , filed2: Attend ) {
-                    }
+//                if await self.checkEmailExist(email: email, collection: "studentsByCourse", field: section , filed2: Attend ) {
+//                    }
                 
                 
                 let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
@@ -131,9 +132,7 @@ class ViewController: UIViewController {
                     }
                     else{
                         flag = "absent"
-                        
                     }
-
                 }
                 
                 guard let documentID = t_snapshot.documents.first?.documentID else { continue }
@@ -236,20 +235,22 @@ print(dateString)
         }
     
     
-    func checkEmailExist(email: String, collection: String, field: String , filed2: String  ) async -> Bool {
-       // print("what??")  //filed= section     //filed2 =Attend   , filed3
-        let db = Firestore.firestore()
-        do {
-            let snapshot = try await db.collection(collection).whereField(field, isEqualTo: "tag").whereField(email, isEqualTo:"EmailStudent").whereField(filed2, isEqualTo: "").getDocuments()
-            print("COUNT ", snapshot.count)
-            print("not added student exist")
-            return snapshot.count != 0
-        } catch {
-            print(error.localizedDescription)
-            print("no student exist")
-            return false
-        }
-}
+//    func checkEmailExist(email: String, collection: String, field: String  ) async -> Bool {
+//       // print("what??")  //filed= section     //filed2 =Attend   , filed3
+//        let db = Firestore.firestore()
+//        do {
+//            let snapshot = try await db.collection(collection).whereField(field, isEqualTo: "tag").whereField(email, isEqualTo:"EmailStudent")
+//                //.whereField(filed2, isEqualTo: "")
+//                .getDocuments()
+//            print("COUNT ", snapshot.count)
+//            print("not added student exist")
+//            return snapshot.count != 0
+//        } catch {
+//            print(error.localizedDescription)
+//            print("no student exist")
+//            return false
+//        }
+//}
 
 
 
