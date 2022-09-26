@@ -18,8 +18,12 @@ class CourseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         // Do any additional setup after loading the view.
         get()
+        percentage()
     }
     /*  func loadStats(){
      let db = Firestore.firestore()
@@ -32,6 +36,75 @@ class CourseViewController: UIViewController {
      print("YESSSSSSSSSSS")
      }
      }}}*/
+    
+    func percentage() {
+        var globalAbbsencen = 0
+        let date = Date()
+        let calunder = Calendar.current
+        let day = calunder.component(.day , from: date)
+        let month = calunder.component(.month , from: date)
+        let year = calunder.component(.year , from: date)
+//        let currentTime = getCurrentTime()
+//        print(currentTime)
+//        let currentTimeSplit = currentTime.split(separator: ":")
+//
+//        let timeHourct = currentTimeSplit[0]
+//        let timeMinct = Int(currentTimeSplit[1])
+//        let timeMinct2 = Int(timeMinct ?? 0)
+//        print("hour current" )
+//        print(timeHourct)
+//        print("Mins current" )
+       // print(timeMinct)
+        //current date
+        let thed = "\(day)-\(month)-\(year) "
+        Task{
+          //  do{
+        let db = Firestore.firestore()
+                
+                let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+     
+                let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+                print(sectsChk)
+                print("sara")
+                
+            for section in sectsChk {
+                print("whe??")
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments()
+
+                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
+                print("here come ")
+                print("docID", documentID)
+                
+                let snp =   try await db.collection("studentsByCourse").document(documentID ).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                
+                let emailNow = snp.documents.first!.get("EmailStudent") as! String
+                let state = snp.documents.first!.get("State") as! String
+                print("email of student/",emailNow)
+                print("state/",state)
+                if(state ==  "absent"){
+                    print("hi")
+                    globalAbbsencen =  globalAbbsencen + 2 //from section take dureation
+                    print("globalAbbsence/",globalAbbsencen)
+                }
+                else{
+                    print("by")
+                }
+            
+                //store
+              //  let abbsencest = snapshot.documents.first!.get("abbsencest") as! [Map]
+              //  print("all number abbsecnce/",abbsencest)
+                }
+        }
+            
+        }
+        
+    
+    
+    
+    
+    
+    
+    
     func get(){
         let db = Firestore.firestore()
         db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
