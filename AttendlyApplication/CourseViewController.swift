@@ -19,23 +19,9 @@ class CourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        // Do any additional setup after loading the view.
         get()
         percentage()
     }
-    /*  func loadStats(){
-     let db = Firestore.firestore()
-     db.collection("Unistudent").addDocument(data: ["advisorID" : "441111111", "major" : "SWE","sFirstN" : "Amani","sLastN" : "Aldahmash","studentID" : "441204066"])
-     {error in
-     if let error = error {
-     print("FAAAAAIIIIILLLLLL ")
-     }
-     else{
-     print("YESSSSSSSSSSS")
-     }
-     }}}*/
     
     func percentage() {
         var globalAbbsencen = 0
@@ -44,21 +30,9 @@ class CourseViewController: UIViewController {
         let day = calunder.component(.day , from: date)
         let month = calunder.component(.month , from: date)
         let year = calunder.component(.year , from: date)
-//        let currentTime = getCurrentTime()
-//        print(currentTime)
-//        let currentTimeSplit = currentTime.split(separator: ":")
-//
-//        let timeHourct = currentTimeSplit[0]
-//        let timeMinct = Int(currentTimeSplit[1])
-//        let timeMinct2 = Int(timeMinct ?? 0)
-//        print("hour current" )
-//        print(timeHourct)
-//        print("Mins current" )
-       // print(timeMinct)
-        //current date
         let thed = "\(day)-\(month)-\(year) "
         Task{
-          //  do{
+         
         let db = Firestore.firestore()
                 
                 let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
@@ -147,10 +121,6 @@ class CourseViewController: UIViewController {
                     self.view.addSubview(label)
                 }}
                 
-               //
-                //Vstack
-                // coursesT.text = actual
-                //     print((actual).count)
             }
         }
         
@@ -222,68 +192,4 @@ class CourseViewController: UIViewController {
     
   
 }
-/*
-func checkCoursesExist(email: String, collection: String, field: String) async -> Bool {
 
-    let db = Firestore.firestore()
-
-    do {
-
-        let snapshot = try await db.collection(collection).whereField(field, isEqualTo: email).getDocuments()
-        let scs = snapshot.documents.first!.get("lecturerID") as! String
-        
-        return scs.count != 0
-
-    } catch {
-
-        print(error.localizedDescription)
-
-    }
-
-    return false
-
-}
- }*/
-
-/*
- func get(){
-     let db = Firestore.firestore()
-     Task{
-         do{
-     db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "322@student.ksu.edu.sa").getDocuments{
-         (snapshot, error) in
-         if let error = error {
-             print("FAIL ")
-         }
-         else{
-             print("SUCCESS")
-             if await self.checkCoursesExist(email: "322@student.ksu.edu.sa", collection: "Unistudent", field: "StudentEmail"){
-             let actual = snapshot!.documents.first!.get("courses") as! [String]
-             let sects = snapshot!.documents.first!.get("Sections") as! [String]
-             print(actual)
-             for i in 0..<actual.count {
-                 
-                 let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
-                 label.setTitle(actual[i], for: .normal)
-                 label.titleLabel?.font = label.titleLabel?.font.withSize(30)
-                 label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-                 label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-                 //label.params["course"] = actual[i]
-                 //!!!!!!
-                 label.tag = Int(sects[i]) ?? 0
-                 label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
-                 label.layer.cornerRadius = 0.07 * label.bounds.size.width
-                 self.view.addSubview(label)
-             }
-             //Vstack
-             // coursesT.text = actual
-             //     print((actual).count)
-         }
-             else
-             {let c = UILabel(frame: .init(x: self.view.frame.midX-120 , y: 200 , width: 250, height: 50))
-                 c.title = "No courses"}
-                 //
-             }}}
-         catch {
-         }}}
- */
