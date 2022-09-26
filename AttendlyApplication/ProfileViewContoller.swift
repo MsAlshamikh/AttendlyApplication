@@ -13,6 +13,11 @@ import Firebase
 
 class ProfileViewContoller: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sid: UILabel!
+    @IBOutlet weak var majorlabel: UILabel!
+    @IBOutlet weak var avlabel: UILabel!
+    
     let firestore = Firestore.firestore()
     
     var user : User! {
@@ -39,8 +44,12 @@ class ProfileViewContoller: UIViewController {
         //TODO: Update this data to your IBOutlets
         print("User", user.name, user.email)
         
-        //nameLabel.text = user.name
+        nameLabel.text = user.name
         emailLabel.text = user.email
+        sid.text = user.sid
+        majorlabel.text = user.major
+        avlabel.text = user.advn
+        
         
     }
     

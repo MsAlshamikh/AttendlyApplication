@@ -13,7 +13,8 @@ class CurrentVC: UIViewController {
     @IBOutlet weak var selectCourseBtn: UIButton!
     
     @IBOutlet var butsection1Collection: [UIButton]!
-    
+    var timer: Timer!
+    var refresher: UIRefreshControl!
     var courses: [String] = []
     
     
@@ -27,7 +28,6 @@ class CurrentVC: UIViewController {
             btn.layer.cornerRadius = btn.frame.height / 2
             btn.isHidden = true
             btn.alpha = 0
-        
     }
         getCourses()
     }

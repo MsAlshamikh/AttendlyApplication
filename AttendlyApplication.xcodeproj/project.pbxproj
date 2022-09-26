@@ -32,6 +32,8 @@
 		564814B128DF9F8C00407C9E /* ProfileViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564814B028DF9F8B00407C9E /* ProfileViewContoller.swift */; };
 		564814B428DFAA0A00407C9E /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 564814B328DFAA0A00407C9E /* CodableFirebase */; };
 		564814B628DFAA3200407C9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564814B528DFAA3200407C9E /* User.swift */; };
+		564814B828E0197F00407C9E /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 564814B728E0197E00407C9E /* pic1.png */; };
+		564814BA28E0198200407C9E /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 564814B928E0198200407C9E /* pic2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		53415F4728D23720005DFA19 /* Att.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Att.jpg; sourceTree = "<group>"; };
 		564814B028DF9F8B00407C9E /* ProfileViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewContoller.swift; sourceTree = "<group>"; };
 		564814B528DFAA3200407C9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		564814B728E0197E00407C9E /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../../../Desktop/pic1.png; sourceTree = "<group>"; };
+		564814B928E0198200407C9E /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../../../Desktop/pic2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */,
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
+				564814B728E0197E00407C9E /* pic1.png */,
+				564814B928E0198200407C9E /* pic2.png */,
 				53415F4728D23720005DFA19 /* Att.jpg */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
@@ -192,6 +198,8 @@
 			files = (
 				34145F4528CFDF3400B073ED /* LaunchScreen.storyboard in Resources */,
 				53415F4228D1E923005DFA19 /* Main.storyboard in Resources */,
+				564814BA28E0198200407C9E /* pic2.png in Resources */,
+				564814B828E0197F00407C9E /* pic1.png in Resources */,
 				34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */,
 				53415F4828D23721005DFA19 /* Att.jpg in Resources */,
 				34145F4228CFDF3400B073ED /* Assets.xcassets in Resources */,
