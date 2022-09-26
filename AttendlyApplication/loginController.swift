@@ -43,6 +43,9 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.passwordTextfiled.delegate = self
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
+        
+        self.emailTextfiled.text = "441201198@student.ksu.edu.sa"
+        self.passwordTextfiled.text = "12345678"
     }
   
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

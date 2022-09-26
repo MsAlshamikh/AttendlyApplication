@@ -24,7 +24,7 @@ class CourseViewController: UIViewController {
     }
     
     func percentage() {
-        var globalAbbsencen = 0
+        
         let date = Date()
         let calunder = Calendar.current
         let day = calunder.component(.day , from: date)
@@ -32,46 +32,70 @@ class CourseViewController: UIViewController {
         let year = calunder.component(.year , from: date)
         let thed = "\(day)-\(month)-\(year) "
         Task{
-         
-        let db = Firestore.firestore()
-                
-                let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
-     
-                let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
-                print(sectsChk)
-                print("sara")
-                
+            
+            let db = Firestore.firestore()
+            
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+            
+            let student_docID = snapshot.documents.first!.documentID
+            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
+            var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
+            print("dict ", abbsencest)
+            
             for section in sectsChk {
-                print("whe??")
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments()
-
-                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
-                print("here come ")
-                print("docID", documentID)
+                var globalAbbsencen = 0
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).getDocuments()
+                print(t_snapshot.documents.count)
                 
-                let snp =   try await db.collection("studentsByCourse").document(documentID ).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                print(t_snapshot.documents.count)
+                for doc in t_snapshot.documents {
+                    let documentID = doc.documentID
+                    guard let date = doc.get("st") as? String else { continue }
+                    print(date.split(separator: "-"))
+                    let d = Int(date.split(separator: "-")[0])!
+                    let m = Int(date.split(separator: "-")[1])!
+                    let y = Int(date.split(separator: "-")[2])!
+                    print(d, m, date, day)
+                    if d > day {
+                        print("skip")
+                        continue
+                    }
+                    
+                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                    
+                    print(snp.documents.count)
+                    guard let state  = snp.documents.first?.get("State") as? String else { continue }
+                    print("state/",state)
+                    if(state ==  "absent"){
+                        print("hi")
+                        globalAbbsencen = globalAbbsencen + 2 //from section take dureation
+                        print("globalAbbsence/",globalAbbsencen)
+                    }
+                    else{
+                        print("by")
+                    }
+                }
                 
-                let emailNow = snp.documents.first!.get("EmailStudent") as! String
-                let state = snp.documents.first!.get("State") as! String
-                print("email of student/",emailNow)
-                print("state/",state)
-                if(state ==  "absent"){
-                    print("hi")
-                    globalAbbsencen =  globalAbbsencen + 2 //from section take dureation
-                    print("globalAbbsence/",globalAbbsencen)
-                }
-                else{
-                    print("by")
-                }
-            
+                
+                
+                abbsencest[section] = globalAbbsencen
+                let data = [
+                    "abbsencest": abbsencest
+                ]
+                try await db.collection("Unistudent").document(student_docID).setData(data, merge: true)
+                
+                
+                
+                
+                
                 //store
-              //  let abbsencest = snapshot.documents.first!.get("abbsencest") as! [Map]
-              //  print("all number abbsecnce/",abbsencest)
-                }
-        }
-            
+                //  let abbsencest = snapshot.documents.first!.get("abbsencest") as! [Map]
+                //  print("all number abbsecnce/",abbsencest)
+            }
         }
         
+    }
+    
     
     
     
@@ -102,24 +126,24 @@ class CourseViewController: UIViewController {
                 //
                 else{
                     let actual = snapshot!.documents.first!.get("courses") as! [String]
-                     let sects = snapshot!.documents.first!.get("Sections") as! [String]
-                print(actual)
-                for i in 0..<actual.count {
-
-                    let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
-                    label.setTitle(actual[i], for: .normal)
-                    label.titleLabel?.font = label.titleLabel?.font.withSize(30)
-                    label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-                    label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-                    //label.params["course"] = actual[i]
-                    //!!!!!!
-                    label.tag = Int(sects[i]) ?? 0
-                    label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
-                    label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
-                    label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
-                    label.layer.cornerRadius = 0.07 * label.bounds.size.width
-                    self.view.addSubview(label)
-                }}
+                    let sects = snapshot!.documents.first!.get("Sections") as! [String]
+                    print(actual)
+                    for i in 0..<actual.count {
+                        
+                        let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+                        label.setTitle(actual[i], for: .normal)
+                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
+                        label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+                        //label.params["course"] = actual[i]
+                        //!!!!!!
+                        label.tag = Int(sects[i]) ?? 0
+                        label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
+                        label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
+                        label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
+                        label.layer.cornerRadius = 0.07 * label.bounds.size.width
+                        self.view.addSubview(label)
+                    }}
                 
             }
         }
@@ -138,7 +162,7 @@ class CourseViewController: UIViewController {
     }
     
     @objc func pressed(sender:UIButton) {
-       
+        
         
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
         sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
@@ -190,6 +214,6 @@ class CourseViewController: UIViewController {
         }
     }
     
-  
+    
 }
 
