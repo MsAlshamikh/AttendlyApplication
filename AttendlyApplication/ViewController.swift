@@ -142,19 +142,11 @@ class ViewController: UIViewController {
                // let data: [String: Any] = [
                  //   "attendance": true
                // ]
-                Firestore.firestore().collection("studentsByCourse").document(documentID ).collection("students").addDocument(data: [
+              //  let db =  Firestore.firestore()
+                let info = db.collection("studentsByCourse").document(documentID )//.collection("students")
+                info.updateData(["State": flag ])
 
-                         "EmailStudent": Global.shared.useremailshare,
-
-                         "name": name ,
-
-                           "date": thed,
-                         "State" : flag,
-                         "Attend time":currentTime,
-                         "attendORnot":true
-                        //  "sectionID": //"studentID": "" ,//   "time":""
-                       ]) { err in
-
+                    { (err ) in
                            if let err = err {
 
                                print("Error adding Lecturer  : \(err)")
