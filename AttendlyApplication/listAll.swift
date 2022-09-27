@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseFirestore
 class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //@IBOutlet weak var nostudent: UILabel!
@@ -75,11 +75,11 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
       //  my.currrentsectionpressed.text = percentage
-        //emailStudent[indexPath.row] the array of emails go to the function to calclate
+       let emails = emailStudent[indexPath.row]
         
+       var per = percentage(emails: emails)
         
-        
-   //     my.currrentsectionpressed.text = //this for you shamma 
+      my.currrentsectionpressed.text = per//this for you shamma
         
         
     
@@ -87,56 +87,127 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
       
 
         
-        
-     // my?.textLabel?.text! += "                 "
-          
-          
-     //  my?.textLabel?.text! += "0 %"
-       
-
-    
-     //here shamma
-        
-    /*
-    let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(indexPath.row))) * 90 ), width: 200, height: 26))
-                    
-                           //
-        line.layer.cornerRadius = 0.04 * (my.bounds.size.width ?? 0.0)
-                           line.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 0.75)
-                           let z = 17
-                           
-                           let after = z*10
-                          
-                           let perc = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(indexPath.row))) * 90 ), width: after, height: 26))
-                           //
-               //            perc.layer.cornerRadius = 0.04 * nostudent.bounds.size.width
-                           if (z>20)
-                           {perc.backgroundColor = UIColor(red: 355/255, green: 0/255, blue: 0/255, alpha: 0.75)}
-                           else if (z>15)
-                           {  perc.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 0.75)}
-                           else if (z>10)
-                           {   perc.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 0.75)}
-                           else
-                           { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
-        //
-                           let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 333 + ( Int((Double(indexPath.row))) * 90 ), width: 70, height: 26))
-                           pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
-                           
-                         
-                           pt.font = UIFont(name: "systemFont", size: 27.0)
-                           
-                           pt.text = " " + String(z) + "%"
-                           
-                           self.view.addSubview(line)
-                           self.view.addSubview(perc)
-                           self.view.addSubview(pt)*/
-        
-        //untill here shamma
-        
-
+     
 
         return my
     }
     
+    func percentage(emails : String) -> String {
+        var st=""
+        let date = Date()
+        let calunder = Calendar.current
+        let day = calunder.component(.day , from: date)
+        let month = calunder.component(.month , from: date)
+        let year = calunder.component(.year , from: date)
+        let thed = "\(day)-\(month)-\(year) "
+        Task{
+            
+            let db = Firestore.firestore()
+            
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emails).getDocuments()
+            
+            let student_docID = snapshot.documents.first!.documentID
+            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }//
+            var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
+            print("dict ", abbsencest)
+          
+            for section in sectsChk {
+                if (section == v){
+                var globalAbbsencen = 0
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).getDocuments()
+                print(t_snapshot.documents.count)
+                
+                print(t_snapshot.documents.count)
+                for doc in t_snapshot.documents {
+                    let documentID = doc.documentID
+                    guard let date = doc.get("st") as? String else { continue }
+                    print(date.split(separator: "-"))
+                    let d = Int(date.split(separator: "-")[0])!
+                    let m = Int(date.split(separator: "-")[1])!
+                    let y = Int(date.split(separator: "-")[2])!
+                    print(d, m, date, day)
+                    if d > day {
+                        print("skip")
+                        continue
+                    }
+                    
+                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: emails).getDocuments()
+                    
+                    print(snp.documents.count)
+                    guard let state  = snp.documents.first?.get("State") as? String else { continue }
+                    print("state/",state)
+                    if(state ==  "absent"){
+                        print("hi")
+                        globalAbbsencen = globalAbbsencen + 2 //from section take dureation
+                        print("globalAbbsence/",globalAbbsencen)
+                    }
+                    else{
+                        print("by")
+                    }
+                }
+                
+                
+                
+                abbsencest[section] = globalAbbsencen
+                let data = [
+                    "abbsencest": abbsencest
+                ]
+                try await db.collection("Unistudent").document(student_docID).setData(data, merge: true)
+                
+                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emails ).getDocuments{
+                    (snapshot, error) in
+                    if let error = error {
+                        print("FAIL ")
+                    }
+                    else{
+                        //
+                        let total = snapshot!.documents.first!.get("sectionH") as! [String: Double]
+                        var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                        
+                        
+                        for (key, value) in total {
+                                   print(key)
+                                   if ( key == section)
+                            { print("LETS GOOOOO")
+                                       
+                                    var step1 = value * 0.25
+                                       var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
+                                            var final = step2 * 0.25
+                                       
+                                       totalp[section] = final
+                                       
+                                       print(final)
+                                     
+                                       //
+                                       var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                                       print("this ok up/" , totalp)
+                                       //
+                                     //  let z = final
+                                     //  let after = final*10
+                                      //
+                                      
+                                       
+                                      st = String(final) + "%"
+                                       
+                                      
+                                    // return st
+                                       
+                                  
+                                       
+                                   
+     
+                                   }
+                            
+                               }
+                    }
+                        
+                    }
+      
+            }
+                
+            }
+            
+        }
     
+        return st}
 }
