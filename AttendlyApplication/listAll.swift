@@ -22,6 +22,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var nameStudent = [String]()
+    var emailStudent = [String]()
     var idStudent = [String]()
     var v: String = ""
     
@@ -73,6 +74,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.nostudent.text = nameStudent[indexPath.row]
         my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
+      //  my.currrentsectionpressed.text = percentage
+        //emailStudent[indexPath.row] the array of emails go to the function to calclate
         
         
         
