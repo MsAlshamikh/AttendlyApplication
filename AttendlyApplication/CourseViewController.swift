@@ -103,7 +103,8 @@ class CourseViewController: UIViewController {
                     else{
                         //
                         let total = snapshot!.documents.first!.get("sectionH") as! [String: Double]
-                        let totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                        var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                        
                         
                         for (key, value) in total {
                                    print(key)
@@ -114,6 +115,7 @@ class CourseViewController: UIViewController {
                                        var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
                                             var final = step2 * 0.25
                                        
+                                       totalp[section] = final
                                        
                                        print(final)
                                    }
