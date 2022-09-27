@@ -15,24 +15,34 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private func requestNotifiactionAuthorization(application: UIApplication){
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert , .badge , .sound]
+        
+        center.requestAuthorization(options: options ) { granted, error   in
+            if let error  = error{
+                print(error.localizedDescription)
+            }
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Firestore.firestore().collection("TEST 123").document().setData(["1" : "1"])
       
-        UNUserNotificationCenter.current().delegate = self
-        let authoption : UNAuthorizationOptions = [.alert, .sound ,.badge ]
-        UNUserNotificationCenter.current().requestAuthorization(options: authoption){
-            success , error in
-            if error != nil{
-                
-            }
-        }
-        application.registerForRemoteNotifications()
-       // usernoticationconfg()
-        return true
+//        UNUserNotificationCenter.current().delegate = self
+//        let authoption : UNAuthorizationOptions = [.alert, .sound ,.badge ]
+//        UNUserNotificationCenter.current().requestAuthorization(options: authoption){
+//            success , error in
+//            if error != nil{
+//
+//            }
+//        }
+//        application.registerForRemoteNotifications()
+//       // usernoticationconfg()
+        requestNotifiactionAuthorization(application: application)
+       return true
     }
 
     // MARK: UISceneSession Lifecycle
@@ -52,29 +62,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
+//extension AppDelegate: UNUserNotificationCenterDelegate {
 //
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        Messaging.messaging().apnsToken = deviceToken
-        
-    }
-    func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error) {
-        print("faild to reigster with puch")
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("will gets callled when app in forground with banner")
-        completionHandler([.alert , .sound, .badge])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("will gets callled when user tap on notification")
-        completionHandler()
-    }
-    
-    
-}
+//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//        Messaging.messaging().apnsToken = deviceToken
+//
+//    }
+//    func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: Error) {
+//        print("faild to reigster with puch")
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//        print("will gets callled when app in forground with banner")
+//        completionHandler([.alert , .sound, .badge])
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//        print("will gets callled when user tap on notification")
+//        completionHandler()
+//    }
+//
+//
+//}
 //  private  func usernoticationconfg(){
 //        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
 //        { (isApproved , error ) in
