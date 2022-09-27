@@ -15,24 +15,18 @@ class ViewController: UIViewController {
         
         let button = UIButton(type: .system)
         button.setTitle("Press to attend", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 15
         button.backgroundColor = UIColor(red: 0.26, green: 0.56, blue: 0.62, alpha: 1.00)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 30.0)
         button.addTarget(self, action: #selector(didTapReadNFC), for: .touchUpInside)
         button.frame = CGRect(x: 60, y: 400, width: self.view.bounds.width - 120, height: 80)
         self.view.addSubview(button)
-
     }
     
     
     func onNFCResult(success: Bool, msg: String) {
         DispatchQueue.main.async {
-            // self.payloadLabel.text = "\(self.payloadLabel.text!)\n\(msg)"//Msg Holder , ==Sections of lecturer
-            
-            //  self.payloadLabel.text = msg //passed
-            //  let x = msg//passed
-            
-            //print(x)//inner tag
-            
             
             if !msg.hasPrefix("First"){
                 self.spl(x: msg)
@@ -43,10 +37,7 @@ class ViewController: UIViewController {
     
     @objc func didTapReadNFC() {
         print("didTapReadNFC")
-        //  self.payloadLabel.text = "" //passed
         helper.onNFCResult = onNFCResult(success:msg:)
-        // print("*********ssssss")
-        //  print(helper.onNFCResult as String)
         helper.restartSession()
     }
    
@@ -77,9 +68,9 @@ class ViewController: UIViewController {
             let timeHourct = currentTimeSplit[0]
             let timeMinct = Int(currentTimeSplit[1])
             let timeMinct2 = Int(timeMinct ?? 0)
-            print("hour current" )
+            print("hour current")
             print(timeHourct)
-            print("Mins current" )
+            print("Mins current")
            // print(timeMinct)
             //current date
             let thed = "\(day)-\(month)-\(year) "
@@ -117,8 +108,8 @@ class ViewController: UIViewController {
                 let EndtimeMinfb = Int(EndtimeSplitfb[1])
                 let EndtimeMinfb2 = Int(EndtimeMinfb ?? 0)
                 print("timeMinfb2+15" )
-               // print(timeMinfb2+30)
-              var flag = ""
+
+                var flag = ""
                 var attend = false
                // print(timeMinfb) 11:45
                 if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
