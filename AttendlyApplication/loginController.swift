@@ -16,12 +16,13 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import CoreMedia
 //var useremailshare : String = ""
 
 
 
 class loginController: UIViewController, UITextFieldDelegate {
-    
+    private let notificationPublisher = Notificationpublisher()
     
     @IBOutlet weak var emailTextfiled: UITextField!
     @IBOutlet weak var passwordTextfiled: UITextField!
@@ -44,7 +45,7 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
         
-        self.emailTextfiled.text = "441201198@student.ksu.edu.sa"
+        self.emailTextfiled.text = "1232@lecture.ksu.edu.sa"
         self.passwordTextfiled.text = "12345678"
     }
   
@@ -152,10 +153,39 @@ class loginController: UIViewController, UITextFieldDelegate {
                             // self.performSegue(withIdentifier: "gotoStudents", sender: self)
                             // Global.shared.useremailshare = email
                             
+                        } //end else
+                        //Task{
+                            let db = Firestore.firestore()
+                            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+                        guard let documentID = snapshot.documents.first?.documentID else { return }
+                        print("docID", documentID)
+                        print("you seeeeeeeeeeeee222222??????????????????")
+                        var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
+                        print("abbsencest",abbsencest)
+                      //  for valueAbb in abbsencest {
+                        for (key,value) in abbsencest {
+                            print("\(key): \(value)")
+                            var sectionNumber = key
+                            var abbsentNumber = value
+                            print("sectionNumber",sectionNumber)
+                            print("abbsentNumber",abbsentNumber)
+                            if(abbsentNumber >= 11 ){
+                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "you exceed the number of percentage abbsent", body: "the section is :\(sectionNumber)", badge: 1, dleayInterval: nil)
+                            }
+                            else{
+                                print("no notification")
+                            }
+                            
                         }
-                    }
-                }}
-        }   //end if
+     
+                        
+                    }  //end tak
+                } //end elsee
+                
+                    
+
+            } //end sign in
+        }   //end loginpressed
     
     //
     
