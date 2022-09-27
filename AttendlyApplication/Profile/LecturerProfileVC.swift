@@ -11,7 +11,7 @@ import CodableFirebase
 import Firebase
 
 
-class ProfileVC: UIViewController {
+class LecturerProfileVC: UIViewController {
    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!

@@ -13,16 +13,13 @@ class CurrentVC: UIViewController {
     @IBOutlet weak var selectCourseBtn: UIButton!
     
     @IBOutlet var butsection1Collection: [UIButton]!
-    var timer: Timer!
-    var refresher: UIRefreshControl!
     var courses: [String] = []
-    
     
     @IBOutlet weak var buttonsStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         selectCourseBtn.layer.cornerRadius = selectCourseBtn.frame.height / 2
         butsection1Collection.forEach{  (btn) in btn.layer.cornerRadius = btn.frame.height / 2
             btn.layer.cornerRadius = btn.frame.height / 2
@@ -32,10 +29,10 @@ class CurrentVC: UIViewController {
         getCourses()
     }
     
-    func getCourses() {
+     func getCourses() {
         
-        
-        
+    
+           
 //        db.collection("classes").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments {[weak self] snapshot, error in
 //            guard let snapshot = snapshot else {
 //                return

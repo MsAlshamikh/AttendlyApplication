@@ -16,6 +16,8 @@ class CourseViewController: UIViewController {
     var titleB: String = ""
     var name: String = ""
     
+    var lecturerId : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,6 +44,8 @@ class CourseViewController: UIViewController {
             else{
                 print("SUCCESS")
                 print(Global.shared.useremailshare)
+                self.lecturerId = snapshot?.documents.first?.get("lecturerID") as? String
+                
                 let actualChk = snapshot!.documents.first!.get("courses") as! [String]
                 let sectsChk = snapshot!.documents.first!.get("Sections") as! [String]
                 if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
@@ -59,7 +63,7 @@ class CourseViewController: UIViewController {
                 print(actual)
                 for i in 0..<actual.count {
 
-                    let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+                    let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + (i * 90 ), width: 300, height: 60))
                     label.setTitle(actual[i], for: .normal)
                     label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                     label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
@@ -143,6 +147,7 @@ class CourseViewController: UIViewController {
                 controller.section = section
                 controller.name = name
                 controller.titleB = titleB
+                controller.lecturerId = self.lecturerId
             }
         }
     }

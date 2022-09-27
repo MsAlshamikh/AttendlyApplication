@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//si_courseListToDetail
 
 class DetailsViewController: UIViewController {
     
@@ -18,13 +19,14 @@ class DetailsViewController: UIViewController {
     var name: String = ""
     var email: String = ""
     var adv: String = ""
+    var lecturerId : String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        var str = "heellllooooo"
 //        var myMutableString = NSMutableAttributedString(string: str)
-//        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location:2,length:4))
+//        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(l ocation:2,length:4))
         let text1 = NSMutableAttributedString()
         text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
         text1.append(NSAttributedString(string: name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
@@ -47,6 +49,8 @@ class DetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
 
     /*
     // MARK: - Navigation
@@ -57,5 +61,7 @@ class DetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

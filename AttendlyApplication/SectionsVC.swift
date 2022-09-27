@@ -15,7 +15,7 @@ class SectionsVC: UIViewController {
            db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare ).getDocuments{
                (snapshot, error) in
                if let error = error {
-                   print("FAIL ")
+                   print("FAIL ", error)
                }
                else{
                    print("SUCCESS")
@@ -23,8 +23,8 @@ class SectionsVC: UIViewController {
                    //let sects = snapshot!.documents.first!.get("Sectionss") as! [String]
                    print(actual)
                    for i in 0..<actual.count {
-
-                       let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+                    
+                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX - 148.0) , y: 280 + ( i * 90 ), width: 300, height: 60))
                        label.setTitle(actual[i], for: .normal)
                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
@@ -32,7 +32,6 @@ class SectionsVC: UIViewController {
                        //label.params["course"] = actual[i]
                        //!!!!!!
                        //label.tag = Int(sects[i]) ?? 0
-
                        //label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
                        label.layer.cornerRadius = 0.07 * label.bounds.size.width
                        self.view.addSubview(label)

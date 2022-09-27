@@ -18,7 +18,7 @@ import FirebaseFirestore
 import FirebaseAuth
 //var useremailshare : String = ""
 
-
+let K_Debugging = true
 
 class loginController: UIViewController, UITextFieldDelegate {
     
@@ -41,6 +41,12 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.emailTextfiled.delegate = self
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
+        
+        if K_Debugging {
+            self.emailTextfiled.text = "400@student.ksu.edu.sa"
+            self.passwordTextfiled.text = "12345678"
+        }
+        
     }
     //touch out
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
