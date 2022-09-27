@@ -19,6 +19,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var nameSection: UILabel!
     
+    @IBOutlet weak var zeroStudent: UILabel!
     
     
     var nameStudent = [String]()
@@ -29,7 +30,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //  nostudent.isHidden = true
+     zeroStudent.isHidden = true
 
         print("what pressed is ")
         print(v)
@@ -37,11 +38,11 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(nameStudent)
         if ( nameStudent.count == 0 )
         {
-      //      nostudent.isHidden = false
+        zeroStudent.isHidden = false
             print("no student")
             
          //   self.noC.text = "No courses \n registered!"
-       //     self.nostudent.text = "No Student Registered Yet "
+          self.zeroStudent.text = "No Student Registered Yet "
         }
         tableview.delegate = self
         tableview.dataSource = self

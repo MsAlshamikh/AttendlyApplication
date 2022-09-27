@@ -329,9 +329,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" systemColor="systemIndigoColor"/>
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4t5-Qy-Bvh">
+                                    <rect key="frame" x="0.0" y="0.0" width="420" height="51"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="168" id="T0o-Uu-Ama" customClass="customTableviewControolerTableViewCell" customModule="AttendlyApplication" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="420" height="168"/>
+                                        <rect key="frame" x="0.0" y="95.5" width="420" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T0o-Uu-Ama" id="tKr-AJ-Pes">
                                             <rect key="frame" x="0.0" y="0.0" width="420" height="168"/>
@@ -381,6 +388,7 @@
                     <connections>
                         <outlet property="nameSection" destination="GNg-Lm-BAY" id="5op-hh-d9e"/>
                         <outlet property="tableview" destination="bop-0M-lF6" id="ZSB-Tz-eA7"/>
+                        <outlet property="zeroStudent" destination="4t5-Qy-Bvh" id="bQE-0R-q9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-9B-IN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
