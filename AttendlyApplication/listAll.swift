@@ -22,6 +22,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var nameStudent = [String]()
+    var emailStudent = [String]()
     var idStudent = [String]()
     var v: String = ""
     

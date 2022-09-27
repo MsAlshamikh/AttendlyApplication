@@ -105,15 +105,17 @@ class SectionsVC: UIViewController {
           //for course in 0..<t_snapshot.count   {
       //  for course in coursess {
             var studentArry = [String]()
+            var emailArry = [String]()
             var studentID = [String]()
               for document in t_snapshot.documents {
                // print(course)
                 print("here")
              let name = document.get("name") as! String
                   let ID = document.get("studentID") as! String
-                  
+                  let EMAIL = document.get("StudentEmail") as! String
                   studentArry.append(name)
                   studentID.append(ID)
+                  emailArry.append(EMAIL)
                   
           //    let name = t_snapshot.course["name"] as? String??
 
@@ -131,6 +133,7 @@ class SectionsVC: UIViewController {
             stude.nameStudent = studentArry
             stude.idStudent = studentID
             stude.v = v!
+            stude.emailStudent=emailArry
             navigationController?.pushViewController(stude, animated: true)
           //  present(stude, animated: true)
         }
