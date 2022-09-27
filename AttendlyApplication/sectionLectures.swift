@@ -151,8 +151,10 @@ class sectionLectures: UIViewController {
             }
             let Lecture = storyboard?.instantiateViewController(withIdentifier: "ManualAttViewController") as! ManualAttViewController
            // Lecture.nameStudentn = studentArry
+            Lecture.nameStudent = studentArry
+            Lecture.stateSt = stateArray
            // Lecture.state = stateArray
-
+            Lecture.v = v!
           //  Lecture.v = v!
 //            stude.emailStudent=emailArry
       navigationController?.pushViewController(Lecture, animated: true)
