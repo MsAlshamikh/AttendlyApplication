@@ -73,7 +73,7 @@ class ViewController: UIViewController {
             print("Mins current")
            // print(timeMinct)
             //current date
-            let thed = "\(day)-\(month)-\(year) "
+            let thed = "\(day)-\(month)-\(year)"
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
             let name: String = snapshot.documents.first?.data()["name"] as! String
@@ -84,7 +84,8 @@ class ViewController: UIViewController {
                 if !str_arr.contains(section) { continue }
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
-                
+                print("$$$$$$$$$$$$$")
+                print(t_snapshot.documents.count)
                // let Attend :String = t_snapshot.documents.first?.data()["Attend"] as! String //Attend for specfic student
                 
              
@@ -103,7 +104,7 @@ class ViewController: UIViewController {
                 let timeMinfb2 = Int(timeMinfb ?? 0)
                 
                 let EndtimeSplitfb = secTimeEnd.split(separator: ":")
-                print(timeSplitfb)
+                print(EndtimeSplitfb)
                 let EndtimeHourfb = EndtimeSplitfb[0]
                 let EndtimeMinfb = Int(EndtimeSplitfb[1])
                 let EndtimeMinfb2 = Int(EndtimeMinfb ?? 0)
@@ -134,13 +135,25 @@ class ViewController: UIViewController {
                  //   "attendance": true
                // ]
               //  let db =  Firestore.firestore()
-                let info = db.collection("studentsByCourse").document(documentID )//.collection("students")
-                info.updateData(["State": flag ])
+                
+//                let info = try await db.collection("studentsByCourse").document(documentID)
+//                    //.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare)//.getDocuments()
+//                    .updateData(["State": flag])
+//                    //info.updateData(["State": flag ])
+                
+                let info = try await db.collection("studentsByCourse").document(documentID)
+                let info2 = try await info.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                let info3 = try await info2.updateData(["State": flag])
+                
+                
+                
+//                let info = db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+//                    info.updateData(["State": flag ])
 
-                    { (err ) in
-                           if let err = err {
+                    { (error) in
+                           if let error = error {
 
-                               print("Error adding Lecturer  : \(err)")
+                               print("Error adding Lecturer  : \(error)")
 
                        } else {
                             print("Lecturer added sucsseful ")
