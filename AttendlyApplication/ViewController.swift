@@ -143,22 +143,24 @@ class ViewController: UIViewController {
                 
                 let info = try await db.collection("studentsByCourse").document(documentID)
                 let info2 = try await info.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
-                let info3 = try await info2.updateData(["State": flag])
+                //let info3 = try await info2.updateData(["State": flag]) // Remove comment !!!!
                 
                 
                 
 //                let info = db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
 //                    info.updateData(["State": flag ])
 
-                    { (error) in
-                           if let error = error {
-
-                               print("Error adding Lecturer  : \(error)")
-
-                       } else {
-                            print("Lecturer added sucsseful ")
-                         }
-                     }
+                
+                // Remove comment !!!!
+//                    { (error) in
+//                           if let error = error {
+//
+//                               print("Error adding Lecturer  : \(error)")
+//
+//                       } else {
+//                            print("Lecturer added sucsseful ")
+//                         }
+//                     }
                 // Create new Alert
                 if(flag=="attend"){
                     var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
