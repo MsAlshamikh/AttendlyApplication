@@ -57,7 +57,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                   ));
         text1.append(NSAttributedString(string: v));
         nameSection.attributedText = text1
-        
+       
+        // let d = Int(date.split(separator: "-")[0])!
 
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +95,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func percentage(emails : String) -> String {
+        var numsec = v.split(separator: "-")[1]
         var st=""
         let date = Date()
         let calunder = Calendar.current
@@ -113,7 +115,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("dict ", abbsencest)
           
             for section in sectsChk {
-                if (section == v){
+                if (section == numsec){
                 var globalAbbsencen = 0
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).getDocuments()
                 print(t_snapshot.documents.count)
