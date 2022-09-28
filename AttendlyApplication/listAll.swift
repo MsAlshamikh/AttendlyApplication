@@ -79,18 +79,134 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
       //  my.currrentsectionpressed.text = percentage
        let emails = emailStudent[indexPath.row]
         
-       var per = percentage(emails: emails)
+     //  var per = percentage(emails: emails)
         
-      my.currrentsectionpressed.text = per//this for you shamma
+    //  my.currrentsectionpressed.text = per//this for you shamma
         
         
     //
         
         
-
+      //  var numsec = v.split(separator: "-")[1]
+        
+        let date = Date()
+        let calunder = Calendar.current
+        let day = calunder.component(.day , from: date)
+        let month = calunder.component(.month , from: date)
+        let year = calunder.component(.year , from: date)
+        let thed = "\(day)-\(month)-\(year) "
+        Task{
+            
+            let db = Firestore.firestore()
+            
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[indexPath.row]).getDocuments()
+            
+            let student_docID = snapshot.documents.first!.documentID
+            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }//
+            var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
+            print("dict ", abbsencest)
+          
+          
+          
+                var globalAbbsencen = 0
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: "46467").getDocuments()
+                print(t_snapshot.documents.count)
+                
+                print(t_snapshot.documents.count)
+                for doc in t_snapshot.documents {
+                    let documentID = doc.documentID
+                    guard let date = doc.get("st") as? String else { continue }
+                    print(date.split(separator: "-"))
+                    let d = Int(date.split(separator: "-")[0])!
+                    let m = Int(date.split(separator: "-")[1])!
+                    let y = Int(date.split(separator: "-")[2])!
+                    print(d, m, date, day)
+                    if d > day {
+                        print("skip")
+                        continue
+                    }
+                    
+                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: emailStudent[indexPath.row]).getDocuments()
+                    
+                    print(snp.documents.count)
+                    guard let state  = snp.documents.first?.get("State") as? String else { continue }
+                    print("state/",state)
+                    if(state ==  "absent"){
+                        print("hi")
+                        globalAbbsencen = globalAbbsencen + 2 //from section take dureation
+                        print("globalAbbsence/",globalAbbsencen)
+                    }
+                    else{
+                        print("by")
+                    }
+                }
+                
+                
+                
+                abbsencest["46467"] = globalAbbsencen
+                let data = [
+                    "abbsencest": abbsencest
+                ]
+                try await db.collection("Unistudent").document(student_docID).setData(data, merge: true)
+                
+                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[indexPath.row] ).getDocuments{
+                    (snapshot, error) in
+                    if let error = error {
+                        print("FAIL ")
+                    }
+                    else{
+                        //
+                        let total = snapshot!.documents.first!.get("sectionH") as! [String: Double]
+                        var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                        
+                        
+                        for (key, value) in total {
+                                   print(key)
+                                   if ( key == "46467")
+                            { print("LETS GOOOOO")
+                                       
+                                    var step1 = value * 0.25
+                                       var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
+                                            var final = step2 * 0.25
+                                       
+                                       totalp["46467"] = final
+                                       
+                                       print(final)
+                                     
+                                       //
+                                       var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                                       print("this ok up/" , totalp)
+                                       //
+                                     //  let z = final
+                                     //  let after = final*10
+                                      //
+                                      
+                                       
+                                  let st = String(final) + "%"
+                                       
+                                       my.currrentsectionpressed.text = st
+                                    // return st
+                                       
+                                  
+                                       
+                                   
+     
+                                   }
+                            
+                               }
+                    }
+                        
+                    }
+      
+            
+                
+            
+            
+        }
+    
         
       
-
+      
         
      
 
