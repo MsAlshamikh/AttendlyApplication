@@ -27,6 +27,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var idStudent = [String]()
     var v: String = ""
     
+     var percentagestu = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,32 +78,33 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.nostudent.text = nameStudent[indexPath.row]
         my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
+        my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] )
       //  my.currrentsectionpressed.text = percentage
        let emails = emailStudent[indexPath.row]
         
      //  var per = percentage(emails: emails)
         
-    //  my.currrentsectionpressed.text = per//this for you shamma
-        
-        
-    //
-        
+   
         
       //  var numsec = v.split(separator: "-")[1]
-        
+        print("befor task")
+        print(emails)
         let date = Date()
         let calunder = Calendar.current
         let day = calunder.component(.day , from: date)
         let month = calunder.component(.month , from: date)
         let year = calunder.component(.year , from: date)
-        let thed = "\(day)-\(month)-\(year) "
+        let thed = "\(day)-\(month)-\(year)"
         Task{
             var i = 0
             let db = Firestore.firestore()
+            print("before for llop")
+            print(emails)
             //loop
-            for x in emailStudent  {
-            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[i]).getDocuments()
-            
+          //  for x in ema {
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments()
+              
+        //    print(emailStudent[i])
             let student_docID = snapshot.documents.first!.documentID
             guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }//
             var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
@@ -127,7 +130,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         continue
                     }
                     
-                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: emailStudent[i]).getDocuments()
+                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments()
                     
                     print(snp.documents.count)
                     guard let state  = snp.documents.first?.get("State") as? String else { continue }
@@ -150,7 +153,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 ]
                 try await db.collection("Unistudent").document(student_docID).setData(data, merge: true)
                 
-                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[i] ).getDocuments{
+                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments{
                     (snapshot, error) in
                     if let error = error {
                         print("FAIL ")
@@ -169,6 +172,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                     var step1 = value * 0.25
                                        var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
                                             var final = step2 * 0.25
+                                       final = Double(round(10 * final) / 10 )
+                                       
                                        
                                        totalp["46467"] = final
                                        
@@ -185,10 +190,10 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                        
                                   let st = String(final) + "%"
                                        
-                                       my.currrentsectionpressed.text = st
+                                 //      my.currrentsectionpressed.text = st
                                     // return st
                                        
-                                  i=i+1
+                                //  i=i+1
                                        
                                    
      
@@ -203,7 +208,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
             
             
-        }
+       // } for
     
         }
       
