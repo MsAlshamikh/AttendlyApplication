@@ -22,18 +22,26 @@ class CheckInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         selectCourseBtn.layer.cornerRadius = selectCourseBtn.frame.height / 2
         butsection1Collection.forEach{  (btn) in btn.layer.cornerRadius = btn.frame.height / 2
             btn.layer.cornerRadius = btn.frame.height / 2
             btn.isHidden = true
             btn.alpha = 0
+            
+        }
         
-    }
+        let refreshBarButton = UIBarButtonItem(barButtonSystemItem: .redo, target: self, action: #selector(refreshButtonTouched(_:)))
+        self.navigationItem.rightBarButtonItem = refreshBarButton
+
         addStudents()
     }
     
-
+    
+    @objc func refreshButtonTouched(_ sender:UIBarButtonItem) {
+        fetchStudents()
+    }
+    
     
     func addStudents() {
         buttonsStackView.isUserInteractionEnabled = true
@@ -42,7 +50,7 @@ class CheckInVC: UIViewController {
             button.removeFromSuperview()
         }
         
-       
+        
         for (index, student) in students.enumerated() {
             let button = UIButton()
             let name = student["name"] as? String ?? "Unnamed"
@@ -65,11 +73,11 @@ class CheckInVC: UIViewController {
         super.viewWillAppear(animated)
         self.fetchStudents()
     }
-   func fetchStudents() {
+    func fetchStudents() {
         guard let course = courseName else { return }
         let db = Firestore.firestore()
         db.collection("studentsByCourse/\(course)/students").getDocuments {[weak self] snapshot, error in
-        
+            
             guard let snapshot = snapshot else { return }
             
             var students: [[String: Any]] = []
@@ -107,7 +115,7 @@ class CheckInVC: UIViewController {
         }
     }
     
-
+    
     @IBAction func selectCourse(_ sender: UIButton) {
         butsection1Collection.forEach{ (btn) in UIView.animate(withDuration: 0.7){
             btn.isHidden = !btn.isHidden
@@ -115,7 +123,7 @@ class CheckInVC: UIViewController {
             btn.layoutIfNeeded()
             
         }
-    }
+        }
     }
     @IBAction func butSection1(_ sender: UIButton) {
         if let btnLb1 = sender.titleLabel?.text{
@@ -126,5 +134,5 @@ class CheckInVC: UIViewController {
     }
     
     
-   
+    
 }

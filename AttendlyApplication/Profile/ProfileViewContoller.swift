@@ -33,7 +33,6 @@ class ProfileViewContoller: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

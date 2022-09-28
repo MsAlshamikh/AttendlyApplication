@@ -21,7 +21,6 @@ class DetailsViewController: UIViewController {
     var adv: String = ""
     var lecturerId : String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        var str = "heellllooooo"
@@ -29,7 +28,7 @@ class DetailsViewController: UIViewController {
 //        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(l ocation:2,length:4))
         let text1 = NSMutableAttributedString()
         text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
-        text1.append(NSAttributedString(string: name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
+        text1.append(NSAttributedString(string: name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2), NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
         
         //
         
@@ -38,30 +37,27 @@ class DetailsViewController: UIViewController {
         text2.append(NSAttributedString(string: section, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
         
         courseLabel.text = titleB
-   
-        
         sectionLabel.attributedText = text2
-
-        
         lecturerLabel.attributedText = text1
-  
-        //
-        // Do any additional setup after loading the view.
+        let tg = UITapGestureRecognizer(target: self, action: #selector(lecturerNameTapped(_:)))
+        lecturerLabel.isUserInteractionEnabled = true
+        lecturerLabel.addGestureRecognizer(tg)
     }
     
     
+    @objc func lecturerNameTapped(_ sender:UITapGestureRecognizer) {
+        performSegue(withIdentifier: "si_courseDetailToLecturerProfile", sender: nil)
+    }
     
-
-    /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "si_courseDetailToLecturerProfile" {
+            if let vc = segue.destination as? LecturerProfileVC {
+                vc.lecturerID = lecturerId;
+            }
+        }
     }
-    */
-    
-    
-
 }

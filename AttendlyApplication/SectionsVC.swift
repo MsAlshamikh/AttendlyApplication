@@ -7,11 +7,14 @@
 
 import UIKit
 import FirebaseFirestore
+import Firebase
 class SectionsVC: UIViewController {
    var Sectionss: String = ""
    var coursess: String = ""
    func get(){
+       
            let db = Firestore.firestore()
+       
            db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare ).getDocuments{
                (snapshot, error) in
                if let error = error {
