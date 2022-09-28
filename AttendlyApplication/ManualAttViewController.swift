@@ -12,15 +12,23 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableview: UITableView!
     
+    @IBOutlet weak var nameCourse: UILabel!
+    
+    @IBOutlet weak var cuurentDate: UILabel!
     
     var nameStudent = [String]()
   //  var emailStudent = [String]()
     var stateSt = [String]()
     var emailSt = [String]()
+    
+    var idstudent = [String]()
+    var serialNumber = [String]()
+    
     var v: String = ""
     var networking: Bool = false
     
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
      //  nostudent.isHidden = true
@@ -49,12 +57,20 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         text1.append(NSAttributedString(string: v));
       //  nameSection.attributedText = text1
         
-
+        let currentDateTime = Date()
+        let formaater = DateFormatter()
+        formaater.timeStyle = .medium
+        formaater.dateStyle = .long
+        let dataTimeString = formaater.string(from: currentDateTime)
+        
+        nameCourse.text = v
+        
+    cuurentDate.text = dataTimeString
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
+      tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
     
@@ -88,6 +104,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                 print("done")
                 stateSt[indexPath.row] = "attend"
                 tableView.reloadData()
+            //  cell.backgroundColor = UIColor.black
                 networking = false
             }
         }
@@ -107,12 +124,28 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     //my?.imageView?.image = UIImage(named: "girl")
         
         
-//        my.nostudent.text = nameStudent[indexPath.row]
-//        my.idStu.text = idStudent[indexPath.row]
-//        my.person.image = UIImage(named: "girl" )
+
         my.state.text =  nameStudent[indexPath.row]
+        
+//        if (stateSt[] == "attend"){
+//
+//        }
+
+        if stateSt[indexPath.row] == "attend" {
+                 my.backgroundColor = .systemGreen
+               }
+        else if stateSt[indexPath.row] == "late" {
+            my.backgroundColor = .systemYellow
+               
+        }
+        else if stateSt[indexPath.row] == "absent" {
+            my.backgroundColor =  .systemRed
+        }
+
+       // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
         my.name.text = stateSt[indexPath.row]
-      
+        my.idStudent.text = idstudent[indexPath.row]
+        my.serialNnumber.text = serialNumber[indexPath.row]
         
         
     

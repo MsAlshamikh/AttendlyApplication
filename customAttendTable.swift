@@ -13,4 +13,6 @@ class customAttendTable: UITableViewCell {
     
     @IBOutlet weak var state: UILabel!
     
+    @IBOutlet weak var idStudent: UILabel!
+    @IBOutlet weak var serialNnumber: UILabel!
 }

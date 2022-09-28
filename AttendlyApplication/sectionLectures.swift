@@ -172,6 +172,8 @@ class sectionLectures: UIViewController {
             Lecture.emailSt = emailArray
            // Lecture.state = stateArray
             Lecture.v = v!
+            Lecture.idstudent = idArray
+            Lecture.serialNumber = seArray
           //  Lecture.v = v!
 //            stude.emailStudent=emailArry
       navigationController?.pushViewController(Lecture, animated: true)
