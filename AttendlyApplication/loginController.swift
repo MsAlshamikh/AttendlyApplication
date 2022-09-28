@@ -169,8 +169,12 @@ class loginController: UIViewController, UITextFieldDelegate {
                             var abbsentNumber = value
                             print("sectionNumber",sectionNumber)
                             print("abbsentNumber",abbsentNumber)
+                         
+                            let snapshot = try await db.collection("Sections").whereField("section", isEqualTo: sectionNumber).getDocuments()
+                            guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
+                            print("corsN",coursN)
                             if(abbsentNumber >= 11 ){
-                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "you exceed the number of percentage abbsent", body: "the section is :\(sectionNumber)", badge: 1, dleayInterval: nil)
+                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "you exceed the number of percentage abbsent", body: "the section is :\(sectionNumber) in course name \(coursN)", badge: 1, dleayInterval: nil)
                             }
                             else{
                                 print("no notification")
