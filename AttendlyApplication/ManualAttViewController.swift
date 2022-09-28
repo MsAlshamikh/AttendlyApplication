@@ -5,6 +5,7 @@
 //  Created by Sara Alsaleh on 01/03/1444 AH.
 //
 
+import Firebase
 import UIKit
 
 class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource  {
@@ -15,7 +16,9 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     var nameStudent = [String]()
   //  var emailStudent = [String]()
     var stateSt = [String]()
+    var emailSt = [String]()
     var v: String = ""
+    var networking: Bool = false
     
     
     override func viewDidLoad() {
@@ -50,6 +53,45 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         
 
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let state = stateSt[indexPath.row]
+        
+        let db = Firestore.firestore()
+        
+        if state == "absent" {
+            
+            if networking {
+                return
+            }
+            let email = emailSt[indexPath.row]
+            
+            let date = Date()
+            let calunder = Calendar.current
+            let day = calunder.component(.day , from: date)
+            let month = calunder.component(.month , from: date)
+            let year = calunder.component(.year , from: date)
+            let thed = "\(day)-\(month)-\(year)"
+            Task {
+                networking = true
+                guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+                
+                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+                
+                try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "attend"], merge: true)
+                
+                print("done")
+                stateSt[indexPath.row] = "attend"
+                tableView.reloadData()
+                networking = false
+            }
+        }
+        
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
         return nameStudent.count

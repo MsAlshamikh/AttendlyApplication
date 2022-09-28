@@ -105,7 +105,7 @@ class sectionLectures: UIViewController {
         let db = Firestore.firestore()
         
         Task {
-           
+            sender.isEnabled = false
           //  let t_snapshot = try await db.collection("Unistudent").whereField("co", arrayContains: v!).getDocuments()
             let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v!).whereField("st", isEqualTo: thed).getDocuments()
             
@@ -113,6 +113,7 @@ class sectionLectures: UIViewController {
         print(t_snapshot.documents.count)
             var studentArry = [String]()  //name
             var stateArray = [String]()
+            var emailArray = [String]()
           //  var state = [String]()
             for doc in t_snapshot.documents {
                let documentID = doc.documentID
@@ -122,20 +123,28 @@ class sectionLectures: UIViewController {
                 print(snp.documents.count)
                 print(snp.documents)
                 
+                for studentDoc in snp.documents {
+                    guard let state  = studentDoc.get("State") as? String else { continue }
+                    guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
+                    guard let name  = studentDoc.get("name") as? String else { continue }
+
+                    print("name of student/",name)
+                    print("state of student/",state)
+                    print("email of student/",email)
+    //             let name = document.get("name") as! String
+    //                  let ID = document.get("studentID") as! String
+    //                  let EMAIL = document.get("StudentEmail") as! String
+                    studentArry.append(name)
+                    stateArray.append(state)
+                    emailArray.append(email)
+                }
+                        
+                
              // guard let name = snp.documents.get("name") as? String else { continue }
              
           //    let name = snp.doc.get("name") as! String
            //     let state = snp.doc.get("State") as! String
-                guard let state  = snp.documents.first?.get("State") as? String else { continue }
-                guard let name  = snp.documents.first?.get("name") as? String else { continue }
-
-                print("name of student/",name)
-                print("name of student/",state)
-//             let name = document.get("name") as! String
-//                  let ID = document.get("studentID") as! String
-//                  let EMAIL = document.get("StudentEmail") as! String
-                 studentArry.append(name)
-                   stateArray.append(state)
+                
 //                  emailArry.append(EMAIL)
                   
           //    let name = t_snapshot.course["name"] as? String??
@@ -153,6 +162,7 @@ class sectionLectures: UIViewController {
            // Lecture.nameStudentn = studentArry
             Lecture.nameStudent = studentArry
             Lecture.stateSt = stateArray
+            Lecture.emailSt = emailArray
            // Lecture.state = stateArray
             Lecture.v = v!
           //  Lecture.v = v!

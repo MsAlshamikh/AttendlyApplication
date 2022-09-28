@@ -96,7 +96,7 @@ class SectionsVC: UIViewController {
         let db = Firestore.firestore()
         
         Task {
-           
+            sender.isEnabled = false
             let t_snapshot = try await db.collection("Unistudent").whereField("co", arrayContains: v!).getDocuments()
          //   let co: [String] = t_snapshot.documents.first?.data()["co"] as! [String]
           //  print(co)

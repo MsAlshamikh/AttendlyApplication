@@ -132,21 +132,12 @@ class ViewController: UIViewController {
                 print("docID", documentID)
           
                
-//                let info =  db.collection("studentsByCourse").document(documentID)
-//                let info2 = info.collection("students").document().whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).updateData(["State": flag])
-//
-//
-//
-//                    { (error) in
-//                           if let error = error {
-//
-//                               print("Error adding Lecturer  : \(error)")
-//
-//                       } else {
-//                            print("Lecturer added sucsseful ")
-//                         }
-//                     }
-//
+                
+                
+                let info =  db.collection("studentsByCourse").document(documentID)
+                guard let student_id = try await info.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments().documents.first?.documentID else { continue }
+                
+                try await info.collection("students").document(student_id).setData(["State": flag], merge: true)
                 
                 // Create new Alert
                 if(flag=="attend"){
