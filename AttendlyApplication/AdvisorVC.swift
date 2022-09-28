@@ -39,19 +39,14 @@ class AdvisorVC: UIViewController {
                             let document = docs[i].data()
                             let name = document["name"] as? String ?? ""
                             students.append(name)
-//                            let document = docs[i].data()
-//                            let name = document["name"] as? String ?? ""
-//                            students.append(name)
-//                            let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
-//                            label.setTitle(name, for: .normal)
-//                            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
-//                            label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-//                            label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-//                            label.layer.cornerRadius = 0.07 * label.bounds.size.width
-//                            self.view.addSubview(label)
+//
                         }
                         self?.students = students
                         self?.displayStudents(students: students)
+                        
+                        
+                        
+                        
                     }
                 }
             }
