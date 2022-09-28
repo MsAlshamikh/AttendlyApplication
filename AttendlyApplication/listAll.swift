@@ -96,10 +96,11 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let year = calunder.component(.year , from: date)
         let thed = "\(day)-\(month)-\(year) "
         Task{
-            
+            var i = 0
             let db = Firestore.firestore()
-            
-            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[indexPath.row]).getDocuments()
+            //loop
+            for x in emailStudent  {
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[i]).getDocuments()
             
             let student_docID = snapshot.documents.first!.documentID
             guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }//
@@ -126,7 +127,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         continue
                     }
                     
-                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: emailStudent[indexPath.row]).getDocuments()
+                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: emailStudent[i]).getDocuments()
                     
                     print(snp.documents.count)
                     guard let state  = snp.documents.first?.get("State") as? String else { continue }
@@ -149,7 +150,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 ]
                 try await db.collection("Unistudent").document(student_docID).setData(data, merge: true)
                 
-                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[indexPath.row] ).getDocuments{
+                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: emailStudent[i] ).getDocuments{
                     (snapshot, error) in
                     if let error = error {
                         print("FAIL ")
@@ -187,7 +188,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                        my.currrentsectionpressed.text = st
                                     // return st
                                        
-                                  
+                                  i=i+1
                                        
                                    
      
@@ -204,7 +205,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }
     
-        
+        }
       
       
         
