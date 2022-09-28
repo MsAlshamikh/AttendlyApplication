@@ -84,7 +84,10 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
       my.currrentsectionpressed.text = per//this for you shamma
         
         
-    
+    //
+        
+        
+
         
       
 
