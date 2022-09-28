@@ -84,6 +84,9 @@ class ViewController: UIViewController {
                 if !str_arr.contains(section) { continue }
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
+                
+                let courseName = t_snapshot.documents.first?.data()["courseN"] as! String
+
                 print("$$$$$$$$$$$$$")
                 print(t_snapshot.documents.count)
                // let Attend :String = t_snapshot.documents.first?.data()["Attend"] as! String //Attend for specfic student
@@ -113,12 +116,12 @@ class ViewController: UIViewController {
                 var flag = ""
                 var attend = false
                // print(timeMinfb) 11:45
-                if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
-                    if(timeMinct2 >= timeMinfb2 || timeMinct2 <= timeMinfb2+15 ) { //attended 8:15
+                if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8:00 == 8:00
+                    if(timeMinct2 <= timeMinfb2+15) { //attended 8:00 - 8:15
                         flag = "attend"
                         attend = true
                     }
-                    else if (timeMinct2 < timeMinfb2+20){ //late 8:30
+                    else if (timeMinct2 <= timeMinfb2+16 || timeMinct2 <= timeMinfb2+30){ //late 8:30
                         flag = "late"
                         attend = true
                     }
@@ -141,7 +144,7 @@ class ViewController: UIViewController {
                 
                 // Create new Alert
                 if(flag=="attend"){
-                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully to : \(courseName)", preferredStyle: .alert)
                      // Create OK button with action handler
                     let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                          print("Ok button tapped")
