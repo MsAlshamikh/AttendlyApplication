@@ -123,9 +123,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="1is-6C-QpB">
+                                <rect key="frame" x="-125" y="-13" width="894" height="340"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="XAi-DI-Lhr"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PRb-Bm-Leb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1is-6C-QpB" firstAttribute="leading" secondItem="Ex7-iY-g23" secondAttribute="leading" constant="-125" id="8MC-aW-m9w"/>
+                            <constraint firstAttribute="trailing" secondItem="1is-6C-QpB" secondAttribute="trailing" constant="-355" id="FyW-T0-qvR"/>
+                            <constraint firstItem="1is-6C-QpB" firstAttribute="top" secondItem="Ex7-iY-g23" secondAttribute="top" constant="-13" id="tuO-cI-M5v"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gbj-mA-M6i"/>
                     <connections>
@@ -144,7 +155,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
                                 <rect key="frame" x="20" y="359" width="460" height="203"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-cz-LU1">
@@ -165,12 +176,6 @@
                                     <action selector="selectCourse:" destination="qng-dU-rz3" eventType="touchUpInside" id="cEo-7b-pFY"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="1is-6C-QpB">
-                                <rect key="frame" x="-65" y="0.0" width="894" height="340"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="340" id="XAi-DI-Lhr"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mark Attendance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4z-wH-BGN">
                                 <rect key="frame" x="20" y="81" width="308.5" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -182,15 +187,11 @@
                         <viewLayoutGuide key="safeArea" id="Dh3-vG-t6K"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1is-6C-QpB" firstAttribute="leading" secondItem="DQW-JN-QTo" secondAttribute="leading" constant="-65" id="2y4-RF-00L"/>
                             <constraint firstItem="Dh3-vG-t6K" firstAttribute="trailing" secondItem="MPF-cz-LU1" secondAttribute="trailing" constant="20" id="8o8-LM-dNu"/>
                             <constraint firstItem="gae-qu-jjs" firstAttribute="leading" secondItem="Dh3-vG-t6K" secondAttribute="leading" constant="20" id="Lhf-z8-bEV"/>
-                            <constraint firstItem="gae-qu-jjs" firstAttribute="top" secondItem="1is-6C-QpB" secondAttribute="bottom" constant="19" id="TsY-Dz-g5T"/>
                             <constraint firstItem="Dh3-vG-t6K" firstAttribute="bottom" secondItem="gae-qu-jjs" secondAttribute="bottom" constant="300" id="VqP-Ja-F8m"/>
-                            <constraint firstItem="1is-6C-QpB" firstAttribute="top" secondItem="DQW-JN-QTo" secondAttribute="top" id="Ycf-Ha-kgR"/>
                             <constraint firstItem="MPF-cz-LU1" firstAttribute="leading" secondItem="Dh3-vG-t6K" secondAttribute="leading" constant="20" id="qeD-9S-BFp"/>
                             <constraint firstItem="Dh3-vG-t6K" firstAttribute="trailing" secondItem="gae-qu-jjs" secondAttribute="trailing" constant="10" id="qs1-Kg-mvq"/>
-                            <constraint firstAttribute="trailing" secondItem="1is-6C-QpB" secondAttribute="trailing" constant="-339" id="xri-SN-Ux3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Current" image="arrow.up.and.person.rectangle.portrait" catalog="system" id="xd9-r2-rqI"/>
@@ -944,8 +945,8 @@
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="pic1.png" width="176.84210205078125" height="150.73684692382812"/>
-        <image name="pic2.png" width="176.84210205078125" height="150.73684692382812"/>
+        <image name="pic1.png" width="420" height="358"/>
+        <image name="pic2.png" width="420" height="358"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

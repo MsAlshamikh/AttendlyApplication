@@ -32,10 +32,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         if ( nameStudent.count == 0 )
         {
       //      nostudent.isHidden = false
-            print("no student")
             
-         //   self.noC.text = "No courses \n registered!"
-       //     self.nostudent.text = "No Student Registered Yet "
+            print("no student")
         }
         tableview.delegate = self
         tableview.dataSource = self
@@ -59,7 +57,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
-        let db = Firestore.firestore()
+    
         
         if state == "absent" {
             
@@ -68,6 +66,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
             }
             let email = emailSt[indexPath.row]
             
+            
+            
             let date = Date()
             let calunder = Calendar.current
             let day = calunder.component(.day , from: date)
@@ -75,6 +75,9 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
             let year = calunder.component(.year , from: date)
             let thed = "\(day)-\(month)-\(year)"
             Task {
+               
+                let db = Firestore.firestore()
+                
                 networking = true
                 guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
                 
@@ -109,12 +112,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //        my.person.image = UIImage(named: "girl" )
         my.state.text =  nameStudent[indexPath.row]
         my.name.text = stateSt[indexPath.row]
-      //  my.currrentsectionpressed.text = percentage
-        //emailStudent[indexPath.row] the array of emails go to the function to calclate
-        
-        
-        
-   //     my.currrentsectionpressed.text = //this for you shamma
+      
         
         
     

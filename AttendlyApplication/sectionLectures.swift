@@ -105,7 +105,7 @@ class sectionLectures: UIViewController {
         let db = Firestore.firestore()
         
         Task {
-            sender.isEnabled = false
+         //   sender.isEnabled = false
           //  let t_snapshot = try await db.collection("Unistudent").whereField("co", arrayContains: v!).getDocuments()
             let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v!).whereField("st", isEqualTo: thed).getDocuments()
             
@@ -114,7 +114,8 @@ class sectionLectures: UIViewController {
             var studentArry = [String]()  //name
             var stateArray = [String]()
             var emailArray = [String]()
-          //  var state = [String]()
+            var idArray = [String]()
+            var seArray = [String]()
             for doc in t_snapshot.documents {
                let documentID = doc.documentID
                   let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
@@ -127,16 +128,22 @@ class sectionLectures: UIViewController {
                     guard let state  = studentDoc.get("State") as? String else { continue }
                     guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
                     guard let name  = studentDoc.get("name") as? String else { continue }
-
+                    guard let id = studentDoc.get("id") as? String else { continue }
+                    guard let ser = studentDoc.get("SerialNum") as? String else { continue }
+                    
                     print("name of student/",name)
                     print("state of student/",state)
                     print("email of student/",email)
+                    print("id of student/",id)
+                    print("serial N of student/",id)
     //             let name = document.get("name") as! String
     //                  let ID = document.get("studentID") as! String
     //                  let EMAIL = document.get("StudentEmail") as! String
                     studentArry.append(name)
                     stateArray.append(state)
                     emailArray.append(email)
+                    idArray.append(id)
+                    seArray.append(ser)
                 }
                         
                 
