@@ -71,8 +71,6 @@ class ViewController: UIViewController {
             print("hour current")
             print(timeHourct)
             print("Mins current")
-           // print(timeMinct)
-            //current date
             let thed = "\(day)-\(month)-\(year)"
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
@@ -84,15 +82,12 @@ class ViewController: UIViewController {
                 if !str_arr.contains(section) { continue }
                 print(thed)
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
+                
+                let courseName = t_snapshot.documents.first?.data()["courseN"] as! String
+
                 print("$$$$$$$$$$$$$")
                 print(t_snapshot.documents.count)
-               // let Attend :String = t_snapshot.documents.first?.data()["Attend"] as! String //Attend for specfic student
-                
-             
-                // check if student email already exists in
-//                if await self.checkEmailExist(email: email, collection: "studentsByCourse", field: section , filed2: Attend ) {
-//                    }
-                
+               
                 
                 let secTime = t_snapshot.documents.first?.data()["startTime"] as! String
                 let secTimeEnd = t_snapshot.documents.first?.data()["endTime"] as! String
@@ -110,15 +105,40 @@ class ViewController: UIViewController {
                 let EndtimeMinfb2 = Int(EndtimeMinfb ?? 0)
                 print("timeMinfb2+15" )
 
+                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
+                print("docID", documentID)
+
+                
+                let exist = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                
+               
+                guard let state  = exist.documents.first?.get("State") as? String else { continue }
+                print("state/ +++++++++++++++ ",state)
+                
+                if (state == "attend" || state == "late"){
+                    
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "You are already Attended Successfully to : \(courseName) don't try again ! ", preferredStyle: .alert)
+                     // Create OK button with action handler
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                         print("Ok button tapped")
+                      })
+                     //Add OK button to a dialog message
+                    dialogMessage.addAction(ok)
+                     
+                    // Present Alert to
+                     self.present(dialogMessage, animated: true, completion: nil)
+                }
+                
+                else {
+                
                 var flag = ""
                 var attend = false
-               // print(timeMinfb) 11:45
-                if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
-                    if(timeMinct2 <= timeMinfb2) { //attended 8:15
+                if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8:00 == 8:00
+                    if(timeMinct2 <= timeMinfb2+15) { //attended 8:00 - 8:15
                         flag = "attend"
                         attend = true
                     }
-                    else if (timeMinct2 < timeMinfb2+20){ //late 8:30
+                    else if (timeMinct2 <= timeMinfb2+16 || timeMinct2 <= timeMinfb2+30){ //late 8:30
                         flag = "late"
                         attend = true
                     }
@@ -126,11 +146,7 @@ class ViewController: UIViewController {
                         flag = "absent"
                     }
                 }
-                
-                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
-                
-                print("docID", documentID)
-          
+ 
                
                 
                 
@@ -141,7 +157,7 @@ class ViewController: UIViewController {
                 
                 // Create new Alert
                 if(flag=="attend"){
-                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully", preferredStyle: .alert)
+                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully to : \(courseName)", preferredStyle: .alert)
                      // Create OK button with action handler
                     let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                          print("Ok button tapped")
@@ -176,8 +192,10 @@ class ViewController: UIViewController {
                     dialogMessage.addAction(ok)
                      
                     // Present Alert to
-                     self.present(dialogMessage, animated: true, completion: nil)}
-            }
+                     self.present(dialogMessage, animated: true, completion: nil)
+                    
+                }
+           
             
             // Create new Alert
             var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
@@ -191,44 +209,24 @@ class ViewController: UIViewController {
             // Present Alert to
              self.present(dialogMessage, animated: true, completion: nil)
 
-        }
-    }
+          
+        } // else
+        }//loop
+        }//task
+    }// split
     
     func getCurrentTime() -> String{
 
         let formater = DateFormatter()
 
-           // let formater = DateComponents()
-      //  let dateFormatter = DateFormatter()
         formater.dateFormat = "HH:mm"
-          // formater.timeStyle = .short
-
-            let dateString =  formater.string(from: Date())
+        let dateString =  formater.string(from: Date())
         print("after formating")
-print(dateString)
-            return dateString
+        print(dateString)
+        return dateString
 
         }
     
     
-//    func checkEmailExist(email: String, collection: String, field: String  ) async -> Bool {
-//       // print("what??")  //filed= section     //filed2 =Attend   , filed3
-//        let db = Firestore.firestore()
-//        do {
-//            let snapshot = try await db.collection(collection).whereField(field, isEqualTo: "tag").whereField(email, isEqualTo:"EmailStudent")
-//                //.whereField(filed2, isEqualTo: "")
-//                .getDocuments()
-//            print("COUNT ", snapshot.count)
-//            print("not added student exist")
-//            return snapshot.count != 0
-//        } catch {
-//            print(error.localizedDescription)
-//            print("no student exist")
-//            return false
-//        }
-//}
-
-
-
 }
 
