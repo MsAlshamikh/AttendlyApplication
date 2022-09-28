@@ -126,8 +126,7 @@ class CourseViewController: UIViewController {
                                        
                                        print(final)
                                        
-                                       
-                                       
+                                      
                                        
                                        
                                        
