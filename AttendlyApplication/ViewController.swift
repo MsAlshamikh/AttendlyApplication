@@ -114,7 +114,7 @@ class ViewController: UIViewController {
                 var attend = false
                // print(timeMinfb) 11:45
                 if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8 == 8
-                    if(timeMinct2 <= timeMinfb2) { //attended 8:15
+                    if(timeMinct2 >= timeMinfb2 || timeMinct2 <= timeMinfb2+15 ) { //attended 8:15
                         flag = "attend"
                         attend = true
                     }
