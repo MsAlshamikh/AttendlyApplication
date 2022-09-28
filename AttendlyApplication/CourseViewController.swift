@@ -16,6 +16,7 @@ class CourseViewController: UIViewController {
     var titleB: String = ""
     var name: String = ""
     
+    @IBOutlet weak var levelUI: UILabel!
     @IBOutlet weak var dateUI: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,8 @@ class CourseViewController: UIViewController {
             let db = Firestore.firestore()
             
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments()
-            
+            let level = snapshot.documents.first!.get("Level")
+            levelUI.text = "Level \(level!) - Semester 1"
             let student_docID = snapshot.documents.first!.documentID
             guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
             var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
