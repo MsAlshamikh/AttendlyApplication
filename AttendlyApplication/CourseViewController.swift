@@ -16,6 +16,7 @@ class CourseViewController: UIViewController {
     var titleB: String = ""
     var name: String = ""
     
+    @IBOutlet weak var dateUI: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,6 +39,9 @@ class CourseViewController: UIViewController {
     func percentage() {
         
         let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YY"
+        dateUI.text = dateFormatter.string(from: date)
         let calunder = Calendar.current
         let day = calunder.component(.day , from: date)
         let month = calunder.component(.month , from: date)
@@ -104,7 +108,7 @@ class CourseViewController: UIViewController {
                     else{
                         //
                         let total = snapshot!.documents.first!.get("sectionH") as! [String: Double]
-                        var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                   //     var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
                         
                         
                         for (key, value) in total {
@@ -116,7 +120,7 @@ class CourseViewController: UIViewController {
                                        var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
                                             var final = step2 * 0.25
                                        
-                                       totalp[section] = final
+                              //         totalp[section] = final
                                        
                                        print(final)
                                        
@@ -129,27 +133,27 @@ class CourseViewController: UIViewController {
                                         let sects = snapshot!.documents.first!.get("Sections") as! [String]
                                    print(actual)
                                    //for i in 0..<actual.count {
-                                       let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+                                       let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 320 + ( Double(i) * 90 ), width: 300, height: 60))
                                        label.setTitle(actual[i], for: .normal)
                                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                                       // label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                                        
                                        //line
-                                       let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 333 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
+                                       let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 373 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
                                 
                                        //
                                        line.layer.cornerRadius = 0.04 * label.bounds.size.width
                                        line.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 0.75)
                                        
                                        //
-                                       var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
-                                       print("this ok up/" , totalp)
+                                     //  var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
+                                   //    print("this ok up/" , totalp)
                                        //
                                        let z = final
                                        let after = final*10
                                       //
-                                       let perc = UIButton(frame: .init(x: CGFloat(self.view.frame.midX)-148 , y: Double(333 + ( Int((Double(i))) * 90 )), width: after, height: 26))
+                                       let perc = UIButton(frame: .init(x: CGFloat(self.view.frame.midX)-148 , y: Double(373 + ( Int((Double(i))) * 90 )), width: after, height: 26))
                                        //
                                        perc.layer.cornerRadius = 0.04 * label.bounds.size.width
                                        if (z>20)
@@ -161,11 +165,11 @@ class CourseViewController: UIViewController {
                                        else
                                        { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
                     //
-                                       let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 333 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
+                                       let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 373 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
                                        pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
                                        
-                                     
-                                       pt.font = UIFont(name: "systemFont", size: 27.0)
+                                     final = Double(round(10 * final) / 10)
+                                       pt.font = UIFont(name: "systemFont", size: 26.0)
                                        
                                        pt.text = " " + String(final) + "%"
                                        
@@ -351,5 +355,10 @@ class CourseViewController: UIViewController {
         }
     }
     
-  
+ 
+    @IBAction func unwind(segue: UIStoryboardSegue ){
+        
+    }
 }
+
+
