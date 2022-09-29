@@ -108,8 +108,18 @@ class sectionLectures: UIViewController {
          //   sender.isEnabled = false
           //  let t_snapshot = try await db.collection("Unistudent").whereField("co", arrayContains: v!).getDocuments()
             let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v!).whereField("st", isEqualTo: thed).getDocuments()
+           
+            let currentTime = getCurrentTime()
+            print(currentTime)
+            let currentTimeSplit = currentTime.split(separator: ":")
+            let timeHourct = currentTimeSplit[0]
+            //let timeMinct = Int(currentTimeSplit[1])
+          //  let timeMinct2 = Int(timeMinct ?? 0)
+            print("hour current",timeHourct )
             
-          
+            let endTimeF = t_snapshot.documents.first?.data()["endTime"] as! String
+            
+           
         print(t_snapshot.documents.count)
             var studentArry = [String]()  //name
             var stateArray = [String]()
@@ -120,6 +130,8 @@ class sectionLectures: UIViewController {
                let documentID = doc.documentID
                   let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
             
+               
+                
                 print("here")
                 print(snp.documents.count)
                 print(snp.documents)
@@ -136,32 +148,45 @@ class sectionLectures: UIViewController {
                     print("email of student/",email)
                     print("id of student/",id)
                     print("serial N of student/",id)
-    //             let name = document.get("name") as! String
-    //                  let ID = document.get("studentID") as! String
-    //                  let EMAIL = document.get("StudentEmail") as! String
+                    
+//
+//                    guard let studentDocID = try await db.collection("studentsByCourse").document(t_snapshot).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+            
+//                    if(endTimeF < timeHourct && state == "pending" ){
+//                      //  if(state == "pending")
+//
+//                        guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+//
+//                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+//
+//                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+//
+//
+//                    }
+//
+                    
                     studentArry.append(name)
                     stateArray.append(state)
                     emailArray.append(email)
                     idArray.append(id)
                     seArray.append(ser)
+                    
+                    
+                    if(endTimeF < timeHourct && state == "pending" ){
+                      //  if(state == "pending")
+                     
+                        guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+
+                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+                        
+                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+                            
+                            
+                    }
+                    
                 }
                         
                 
-             // guard let name = snp.documents.get("name") as? String else { continue }
-             
-          //    let name = snp.doc.get("name") as! String
-           //     let state = snp.doc.get("State") as! String
-                
-//                  emailArry.append(EMAIL)
-                  
-          //    let name = t_snapshot.course["name"] as? String??
-
-              //  let name: String = snapshot.documents.first?.data()["name"] as! String
-//
-//                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
-//                print("docID", documentID)
-//                print(coursess.count)
-                 
         
             
             }
@@ -179,54 +204,25 @@ class sectionLectures: UIViewController {
       navigationController?.pushViewController(Lecture, animated: true)
           //  present(Lecture, animated: true)
         }
-//        titleB2 = sender.title(for: .normal)!
 //
-//        section2 = String(sender.tag)
-//
-//
-//
-//        let db = Firestore.firestore()
-//        db.collection("Sections").whereField("section", isEqualTo: section2).getDocuments{
-//            (snapshot, error) in
-//            if let error = error {
-//                print("FAIL2 ")
-//            }
-//            else{
-//                print("SUCCESS2")
-//                let id = snapshot!.documents.first!.get("lecturerID") as! String
-//                print(id)
-//
-//                db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
-//                    (snapshot, error) in
-//                    if let error = error {
-//                        print("FAIL3 ")
-//                    }
-//                    else{
-//                        print("SUCCESS 3")
-//                        self.name2 = snapshot!.documents.first!.get("name") as! String
-//                        self.performSegue(withIdentifier: "studen", sender: self)
-//                        //3
-//                        //print(name)
-//
-//
-//                    }
-//                }
-//            }
-//        }
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "studen" {
-//            if let controller = segue.destination as? listAll {
-//                controller.section2 = section2
-//                controller.name2 = name2
-//                controller.titleB2 = titleB2
-//            }
-//        }
-//    }
+//
     
   
+    
+    func getCurrentTime() -> String{
+
+        let formater = DateFormatter()
+
+        formater.dateFormat = "HH:mm"
+        let dateString =  formater.string(from: Date())
+        print("after formating")
+        print(dateString)
+        return dateString
+
+        }
 }
         
 

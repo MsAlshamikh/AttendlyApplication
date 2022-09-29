@@ -739,7 +739,7 @@
         <scene sceneID="HJM-LR-wSk">
             <objects>
                 <viewController id="S1e-Zt-ruJ" customClass="loginController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RDc-dc-RFi">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="RDc-dc-RFi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

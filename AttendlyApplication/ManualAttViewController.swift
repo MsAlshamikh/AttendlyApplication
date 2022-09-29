@@ -141,6 +141,9 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         else if stateSt[indexPath.row] == "absent" {
             my.backgroundColor =  .systemRed
         }
+        else if stateSt[indexPath.row] == "pending" {
+            my.backgroundColor =  .systemGray
+        }
 
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
         my.name.text = stateSt[indexPath.row]
