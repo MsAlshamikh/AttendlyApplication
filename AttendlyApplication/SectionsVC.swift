@@ -20,7 +20,6 @@ class SectionsVC: UIViewController {
                else{
                    print("SUCCESS")
                    let actual = snapshot!.documents.first!.get("coursess") as! [String]
-                   //let sects = snapshot!.documents.first!.get("Sectionss") as! [String]
                    print(actual)
                    for i in 0..<actual.count {
 
@@ -29,11 +28,6 @@ class SectionsVC: UIViewController {
                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                        label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-                       //label.params["course"] = actual[i]
-                       //!!!!!!
-                       //label.tag = Int(sects[i]) ?? 0
-
-                       //label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
                        label.layer.cornerRadius = 0.07 * label.bounds.size.width
                        self.view.addSubview(label)
                    }

@@ -32,18 +32,22 @@ class AdvisorVC: UIViewController {
                         guard let snapshot = snapshot else {
                             return
                         }
+                        
                         var students: [String] = []
                         let docs = snapshot.documents
                         print("Docs... ", docs)
                         for i in 0..<docs.count {
                             let document = docs[i].data()
-                            let name = document["name"] as? String ?? ""
-                            students.append(name)
+                            let Fullname = document ["Fullname"] as? String ?? ""
+                            students.append(Fullname)
 //
                         }
                         self?.students = students
                         self?.displayStudents(students: students)
                         
+                        
+             
+                       
                         
                         
                         
@@ -63,9 +67,9 @@ class AdvisorVC: UIViewController {
         removeStudents()
         for i in 0..<students.count {
             let name = students[i]
-            let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+            let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 280 + ( Double(i) * 90 ), width: 350, height: 60))
             label.setTitle(name, for: .normal)
-            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+            label.titleLabel?.font = label.titleLabel?.font.withSize(23)
             label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
             label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
             label.layer.cornerRadius = 0.07 * label.bounds.size.width
