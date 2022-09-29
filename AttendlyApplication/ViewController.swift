@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     func onNFCResult(success: Bool, msg: String) {
         DispatchQueue.main.async {
             
+            
+            
             if !msg.hasPrefix("First"){
                 self.spl(x: msg)
                 
