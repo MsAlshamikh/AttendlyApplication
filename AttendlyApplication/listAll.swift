@@ -90,8 +90,12 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.person.image = UIImage(named: "girl" )
         
         if percentagestu[indexPath.row] == "0.0%" {
+            my.currrentsectionpressed.textColor = UIColor.green
+            my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
+        if percentagestu[indexPath.row] == "25%" {
             my.currrentsectionpressed.textColor = UIColor.red
             my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
+        
         
        let emails = emailStudent[indexPath.row]
         
