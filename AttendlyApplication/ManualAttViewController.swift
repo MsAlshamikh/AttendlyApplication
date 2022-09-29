@@ -120,8 +120,6 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     print("s")
         let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
-      //  my?.textLabel?.text = nameStudent[indexPath.row]
-    //my?.imageView?.image = UIImage(named: "girl")
         
         
 

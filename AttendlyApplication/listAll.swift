@@ -73,22 +73,26 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! customTableviewControolerTableViewCell
       
         
-//        if percentagestu.[indexPath.row] == "h"  {
+//        if percentagestu[indexPath.row] == "0.0%" {
 //                 my.backgroundColor = .systemGreen
 //               }
-//        else if percentagestu.[indexPath.row] == "n"  {
-//            my.backgroundColor = .systemGreen
+//        else if percentagestu[indexPath.row] == "late" {
+//            my.backgroundColor = .systemYellow
+//
+//        }
+//        else if percentagestu[indexPath.row] == "absent" {
+//            my.backgroundColor =  .systemRed
 //        }
         
-//        if percentagestu.[indexPath.row] == "nnn" {
-//            my.backgroundColor = .systemGreen
-//        }
         
         my.nostudent.text = nameStudent[indexPath.row]
         my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
-        my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] )
-      //  my.currrentsectionpressed.text = percentage
+        
+        if percentagestu[indexPath.row] == "0.0%" {
+            my.currrentsectionpressed.textColor = UIColor.red
+            my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
+        
        let emails = emailStudent[indexPath.row]
         
     
