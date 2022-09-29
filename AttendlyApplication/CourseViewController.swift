@@ -134,14 +134,14 @@ class CourseViewController: UIViewController {
                                         let sects = snapshot!.documents.first!.get("Sections") as! [String]
                                    print(actual)
                                    //for i in 0..<actual.count {
-                                       let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 320 + ( Double(i) * 90 ), width: 300, height: 60))
+                                       let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 333 + ( Double(i) * 90 ), width: 300, height: 60))
                                        label.setTitle(actual[i], for: .normal)
                                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                                       // label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                                        
                                        //line
-                                       let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 373 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
+                                       let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 393 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
                                 
                                        //
                                        line.layer.cornerRadius = 0.04 * label.bounds.size.width
@@ -154,7 +154,7 @@ class CourseViewController: UIViewController {
                                        let z = final
                                        let after = final*10
                                       //
-                                       let perc = UIButton(frame: .init(x: CGFloat(self.view.frame.midX)-148 , y: Double(373 + ( Int((Double(i))) * 90 )), width: after, height: 26))
+                                       let perc = UIButton(frame: .init(x: CGFloat(self.view.frame.midX)-148 , y: Double(393 + ( Int((Double(i))) * 90 )), width: after, height: 26))
                                        //
                                        perc.layer.cornerRadius = 0.04 * label.bounds.size.width
                                        if (z>20)
@@ -166,7 +166,7 @@ class CourseViewController: UIViewController {
                                        else
                                        { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
                     //
-                                       let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 373 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
+                                       let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 393 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
                                        pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
                                        
                                      final = Double(round(10 * final) / 10)
