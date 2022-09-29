@@ -28,12 +28,32 @@ class ViewController: UIViewController {
     func onNFCResult(success: Bool, msg: String) {
         DispatchQueue.main.async {
             
-            
-            
+            if (success==false)
+            {
+                var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you do not want to attend this class? ", preferredStyle: .alert)
+                 // Create OK button with action handler
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                     print("Ok button tapped")
+                    
+                  })
+                 //Add OK button to a dialog message
+                dialogMessage.addAction(ok)
+                
+                dialogMessage.addAction(UIAlertAction(title: "Cancel",
+                                              style: .cancel,
+                                              handler: { _ in print("Cancel tap") }))
+
+                 
+                // Present Alert to
+                 self.present(dialogMessage, animated: true, completion: nil)
+
+            }
+            if (success==true){
             if !msg.hasPrefix("First"){
                 self.spl(x: msg)
                 
             }
+        }
         }
     }
     
