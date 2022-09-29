@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 class CourseViewController: UIViewController {
     
+
     
     @IBOutlet weak var noC: UILabel!
     var section: String = ""
@@ -25,17 +26,7 @@ class CourseViewController: UIViewController {
       get()
        
     }
-    /*  func loadStats(){
-     let db = Firestore.firestore()
-     db.collection("Unistudent").addDocument(data: ["advisorID" : "441111111", "major" : "SWE","sFirstN" : "Amani","sLastN" : "Aldahmash","studentID" : "441204066"])
-     {error in
-     if let error = error {
-     print("FAAAAAIIIIILLLLLL ")
-     }
-     else{
-     print("YESSSSSSSSSSS")
-     }
-     }}}*/
+  
     
     func percentage() {
         
@@ -134,6 +125,7 @@ class CourseViewController: UIViewController {
                                         let sects = snapshot!.documents.first!.get("Sections") as! [String]
                                    print(actual)
                                    //for i in 0..<actual.count {
+                                       //design
                                        let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 333 + ( Double(i) * 90 ), width: 300, height: 60))
                                        label.setTitle(actual[i], for: .normal)
                                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
