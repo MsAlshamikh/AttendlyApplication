@@ -45,7 +45,7 @@ class NewCourseVC: UIViewController {
             
             let db = Firestore.firestore()
             
-            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments()
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
             let level = snapshot.documents.first!.get("Level")
             levelUI.text = "Level \(level!) - Semester 1"
             let student_docID = snapshot.documents.first!.documentID
@@ -72,7 +72,7 @@ class NewCourseVC: UIViewController {
                         continue
                     }
                     
-                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments()
+                    let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments()
                     
                     print(snp.documents.count)
                     guard let state  = snp.documents.first?.get("State") as? String else { continue }
@@ -95,7 +95,7 @@ class NewCourseVC: UIViewController {
                 ]
                 try await db.collection("Unistudent").document(student_docID).setData(data, merge: true)
                 
-                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments{
+                db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
                     (snapshot, error) in
                     if let error = error {
                         print("FAIL ")
@@ -211,7 +211,7 @@ class NewCourseVC: UIViewController {
     func get() {
         
         let db = Firestore.firestore()
-        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "441201198@student.ksu.edu.sa").getDocuments{
+        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
             (snapshot, error) in
             if let error = error {
                 print("FAIL ")
