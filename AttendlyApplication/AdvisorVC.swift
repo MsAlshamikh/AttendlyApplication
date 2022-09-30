@@ -105,7 +105,8 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
             displayStudents(students: self.students)
         } else {
             let filteredStudents = self.students.filter { student in
-                student.lowercased().contains(searchText.lowercased())
+                student.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+               // guard let email = emailTextfiled.text?.trimmingCharacters(in: .whitespaces).
             }
             displayStudents(students: filteredStudents)
         }
