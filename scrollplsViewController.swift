@@ -129,15 +129,26 @@ class scrollplsViewController: UIViewController {
                                    print(actual)
                                    //for i in 0..<actual.count {
                                        //design
+                                      
+                                       //all in box
                                        
-                                       let label = UIButton(frame: .init(x: self.scroll.frame.midX-238 , y: ( Double(i) * 90 ), width: 300, height: 60))
+                                       let box =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-130 , y: (17 +  Int((Double(i))) * 90 ), width: 350, height: 80))
+                                       box.backgroundColor = .red
+                                       box.layer.borderColor = .init(red: 231/255, green: 231/255, blue: 231/255, alpha: 2)
+                                       box.layer.cornerRadius = 0.04
+
+                                       self.scroll.addSubview(box)
+                                       
+                                       let d =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-130 , y: (20 +  Int((Double(i))) * 90 ), width: 350, height: 15))
+                                       
+                                       let label = UIButton(frame: .init(x: self.scroll.frame.midX-198 , y: ( Double(i) * 90 ), width: 300, height: 60))
                                        label.setTitle(actual[i], for: .normal)
                                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                                       // label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                                        
                                        //line
-                                       let line =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-148 , y: (50 +  Int((Double(i))) * 90 ), width: 250, height: 26))
+                                       let line =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-108 , y: (50 +  Int((Double(i))) * 90 ), width: 250, height: 26))
                                 
                                        //
                                        line.layer.cornerRadius = 0.04 * label.bounds.size.width
@@ -150,7 +161,7 @@ class scrollplsViewController: UIViewController {
                                        let z = final
                                        let after = final*10
                                       //
-                                       let perc = UIButton(frame: .init(x: CGFloat(self.scroll.frame.midX)-148 , y: 50 + Double(( Int((Double(i))) * 90 )), width: after, height: 26))
+                                       let perc = UIButton(frame: .init(x: CGFloat(self.scroll.frame.midX)-108 , y: 50 + Double(( Int((Double(i))) * 90 )), width: after, height: 26))
                                        //
                                        perc.layer.cornerRadius = 0.04 * label.bounds.size.width
                                        if (z>20)
@@ -162,7 +173,7 @@ class scrollplsViewController: UIViewController {
                                        else
                                        { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
                     //
-                                       let pt = UILabel(frame: .init(x: Int(self.scroll.frame.midX)+105 , y: 50 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
+                                       let pt = UILabel(frame: .init(x: Int(self.scroll.frame.midX)+150 , y: 50 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
                                        pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
                                        
                                      final = Double(round(10 * final) / 10)
