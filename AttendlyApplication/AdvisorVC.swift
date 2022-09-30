@@ -79,8 +79,8 @@ class AdvisorVC: UIViewController {
             }
         } else {
             let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 280 + ( Double(0) * 90 ), width: 350, height: 60))
-            label.setTitle("You don't have students", for: .normal)
-            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+            label.setTitle("Not found any registered student", for: .normal)
+            label.titleLabel?.font = label.titleLabel?.font.withSize(23)
             label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
             label.tag = 999
             self.view.addSubview(label)
