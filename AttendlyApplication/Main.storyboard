@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="60c-RP-PET">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UaJ-UI-gkK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -536,7 +536,7 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xKB-95-UTQ" kind="relationship" relationship="viewControllers" id="vDH-kz-5XA"/>
+                        <segue destination="ldu-vs-fsX" kind="relationship" relationship="viewControllers" id="mww-iW-cc7"/>
                         <segue destination="OO3-dt-y7H" kind="relationship" relationship="viewControllers" id="YrJ-BP-MSt"/>
                         <segue destination="XKG-dr-tNL" kind="relationship" relationship="viewControllers" id="SaY-hC-XGC"/>
                     </connections>
@@ -788,7 +788,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaf-O6-D1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="iYR-d7-XO6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5589.8550724637689" y="-1677.4553571428571"/>
+            <point key="canvasLocation" x="5590" y="-1754"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="GUh-GF-OLl">
@@ -1004,7 +1004,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IxB-tc-VaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3898.5507246376815" y="-990.40178571428567"/>
+            <point key="canvasLocation" x="4072" y="-1045"/>
         </scene>
         <!--Current-->
         <scene sceneID="g3x-JP-AWs">
@@ -1104,10 +1104,10 @@
             </objects>
             <point key="canvasLocation" x="-2391.304347826087" y="157.36607142857142"/>
         </scene>
-        <!--Scrollpls View Controller-->
+        <!--New CourseVC-->
         <scene sceneID="ZSC-OE-MuS">
             <objects>
-                <viewController id="60c-RP-PET" customClass="scrollplsViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="60c-RP-PET" customClass="NewCourseVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YDF-fs-j8y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1152,6 +1152,9 @@
                                     <imageReference key="image" image="questionmark.circle" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="26"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="nlN-pN-wZr" kind="presentation" id="9y6-Sd-JSX"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8F-Xg-f9c">
                                 <rect key="frame" x="49" y="381" width="323" height="218"/>
@@ -1259,15 +1262,40 @@
                         <outlet property="levelUI" destination="3HD-hp-b1z" id="8Te-9P-4hG"/>
                         <outlet property="noC" destination="Q8F-Xg-f9c" id="JsH-pU-Q4F"/>
                         <outlet property="scroll" destination="Acz-A0-wE6" id="XEH-mx-aHe"/>
+                        <segue destination="ohY-Lt-pod" kind="push" identifier="s1" id="HKq-R7-Gkh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3t-q5-wBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9271.0144927536239" y="-1844.1964285714284"/>
+            <point key="canvasLocation" x="4452" y="-1754"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="f10-Xq-UfS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ldu-vs-fsX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Statistics" image="doc.plaintext.fill" catalog="system" id="TOS-Fn-BoR">
+                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="obg-ul-f0x"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uJf-wQ-TX4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="60c-RP-PET" kind="relationship" relationship="rootViewController" id="udN-HS-cCx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NO1-eJ-X8P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3468" y="-1703"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="QwL-F5-Dv4"/>
+        <segue reference="gAt-Vk-2ja"/>
+        <segue reference="9y6-Sd-JSX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -1275,6 +1303,7 @@
         <image name="chart.bar.doc.horizontal.fill" catalog="system" width="115" height="128"/>
         <image name="checkmark.diamond.fill" catalog="system" width="128" height="122"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
+        <image name="doc.plaintext.fill" catalog="system" width="115" height="128"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pic1.png" width="420" height="358"/>

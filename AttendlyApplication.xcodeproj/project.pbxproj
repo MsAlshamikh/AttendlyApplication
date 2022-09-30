@@ -36,7 +36,7 @@
 		A2889D6028DDEA7000652775 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2889D5F28DDEA6F00652775 /* pic2.png */; };
 		A2889D6228DDEA7600652775 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A2889D6128DDEA7500652775 /* pic1.png */; };
 		A2A83ABB28E6EAEC000707D9 /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A83ABA28E6EAEC000707D9 /* TrialViewController.swift */; };
-		A2A83ABD28E6F22B000707D9 /* scrollplsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A83ABC28E6F22B000707D9 /* scrollplsViewController.swift */; };
+		A2A83ABD28E6F22B000707D9 /* NewCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A83ABC28E6F22B000707D9 /* NewCourseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +68,7 @@
 		A2889D5F28DDEA6F00652775 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../../../Desktop/pic2.png; sourceTree = "<group>"; };
 		A2889D6128DDEA7500652775 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../../../Desktop/pic1.png; sourceTree = "<group>"; };
 		A2A83ABA28E6EAEC000707D9 /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
-		A2A83ABC28E6F22B000707D9 /* scrollplsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scrollplsViewController.swift; sourceTree = "<group>"; };
+		A2A83ABC28E6F22B000707D9 /* NewCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				A2A83ABA28E6EAEC000707D9 /* TrialViewController.swift */,
-				A2A83ABC28E6F22B000707D9 /* scrollplsViewController.swift */,
 				34145F3728CFDF3300B073ED /* AttendlyApplication */,
 				34145F3628CFDF3300B073ED /* Products */,
 			);
@@ -108,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */,
+				A2A83ABC28E6F22B000707D9 /* NewCourseVC.swift */,
 				34145F3828CFDF3300B073ED /* AppDelegate.swift */,
 				34145F3A28CFDF3300B073ED /* SceneDelegate.swift */,
 				34145F3C28CFDF3300B073ED /* ViewController.swift */,
@@ -227,7 +227,7 @@
 				53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */,
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
 				53415F3628D1E893005DFA19 /* CourseViewController.swift in Sources */,
-				A2A83ABD28E6F22B000707D9 /* scrollplsViewController.swift in Sources */,
+				A2A83ABD28E6F22B000707D9 /* NewCourseVC.swift in Sources */,
 				53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */,
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,

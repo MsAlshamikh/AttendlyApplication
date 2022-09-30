@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 import UIKit
 
-class scrollplsViewController: UIViewController {
+class NewCourseVC: UIViewController {
 
     @IBOutlet weak var noC: UILabel!
     var section: String = ""
@@ -132,11 +132,13 @@ class scrollplsViewController: UIViewController {
                                       
                                        //all in box
                                        
-                                       let box =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-130 , y: (17 +  Int((Double(i))) * 90 ), width: 350, height: 80))
-                                       box.backgroundColor = .red
+                                       let box =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-150 , y: (10 +  Int((Double(i))) * 90 ), width: 370, height: 83))
+                                       box.backgroundColor = .init(red: 242/255, green: 242/255, blue: 242/255, alpha: 2)
                                        box.layer.borderColor = .init(red: 231/255, green: 231/255, blue: 231/255, alpha: 2)
-                                       box.layer.cornerRadius = 0.04
-
+                                       box.layer.cornerRadius = 30
+                                       box.layer.borderColor = .init(red: 231/255, green: 231/255, blue: 231/255, alpha: 2)
+                                       box.layer.borderWidth = 4
+                                       
                                        self.scroll.addSubview(box)
                                        
                                        let d =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-130 , y: (20 +  Int((Double(i))) * 90 ), width: 350, height: 15))
