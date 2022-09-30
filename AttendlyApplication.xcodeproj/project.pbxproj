@@ -36,6 +36,7 @@
 		5358E22328E3651700F423DB /* sectionLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22228E3651700F423DB /* sectionLectures.swift */; };
 		5358E22B28E3897100F423DB /* ManualAttViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22A28E3897100F423DB /* ManualAttViewController.swift */; };
 		5358E22D28E38CD000F423DB /* customAttendTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22C28E38CD000F423DB /* customAttendTable.swift */; };
+		5358E23328E72C4800F423DB /* NewCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E23228E72C4800F423DB /* NewCourseVC.swift */; };
 		53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8128DA475D00F77178 /* listOfstudent.swift */; };
 		53AF1B8428DAA95000F77178 /* listAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8328DAA95000F77178 /* listAll.swift */; };
 		53AF1B8C28DE46D500F77178 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 53AF1B8B28DE46D500F77178 /* girl.png */; };
@@ -74,6 +75,7 @@
 		5358E22228E3651700F423DB /* sectionLectures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionLectures.swift; sourceTree = "<group>"; };
 		5358E22A28E3897100F423DB /* ManualAttViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAttViewController.swift; sourceTree = "<group>"; };
 		5358E22C28E38CD000F423DB /* customAttendTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customAttendTable.swift; sourceTree = "<group>"; };
+		5358E23228E72C4800F423DB /* NewCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseVC.swift; sourceTree = "<group>"; };
 		53AF1B8128DA475D00F77178 /* listOfstudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listOfstudent.swift; sourceTree = "<group>"; };
 		53AF1B8328DAA95000F77178 /* listAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listAll.swift; sourceTree = "<group>"; };
 		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */,
+				5358E23228E72C4800F423DB /* NewCourseVC.swift */,
 				34145F3828CFDF3300B073ED /* AppDelegate.swift */,
 				34145F3A28CFDF3300B073ED /* SceneDelegate.swift */,
 				34145F3C28CFDF3300B073ED /* ViewController.swift */,
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5358E23328E72C4800F423DB /* NewCourseVC.swift in Sources */,
 				53415F3C28D1E8B7005DFA19 /* ProfileVC.swift in Sources */,
 				5358E22D28E38CD000F423DB /* customAttendTable.swift in Sources */,
 				53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */,
