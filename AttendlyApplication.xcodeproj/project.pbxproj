@@ -35,7 +35,6 @@
 		53AF1B8428DAA95000F77178 /* listAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8328DAA95000F77178 /* listAll.swift */; };
 		A2889D6028DDEA7000652775 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2889D5F28DDEA6F00652775 /* pic2.png */; };
 		A2889D6228DDEA7600652775 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A2889D6128DDEA7500652775 /* pic1.png */; };
-		A2A83ABB28E6EAEC000707D9 /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A83ABA28E6EAEC000707D9 /* TrialViewController.swift */; };
 		A2A83ABD28E6F22B000707D9 /* NewCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A83ABC28E6F22B000707D9 /* NewCourseVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		53AF1B8328DAA95000F77178 /* listAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listAll.swift; sourceTree = "<group>"; };
 		A2889D5F28DDEA6F00652775 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../../../Desktop/pic2.png; sourceTree = "<group>"; };
 		A2889D6128DDEA7500652775 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../../../Desktop/pic1.png; sourceTree = "<group>"; };
-		A2A83ABA28E6EAEC000707D9 /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
 		A2A83ABC28E6F22B000707D9 /* NewCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +87,6 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
-				A2A83ABA28E6EAEC000707D9 /* TrialViewController.swift */,
 				34145F3728CFDF3300B073ED /* AttendlyApplication */,
 				34145F3628CFDF3300B073ED /* Products */,
 			);
@@ -235,7 +232,6 @@
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */,
-				A2A83ABB28E6EAEC000707D9 /* TrialViewController.swift in Sources */,
 				53415F4E28D8DA54005DFA19 /* readCsv.swift in Sources */,
 				34145F3B28CFDF3300B073ED /* SceneDelegate.swift in Sources */,
 				53415F3428D1E88C005DFA19 /* profileController.swift in Sources */,
