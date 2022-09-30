@@ -65,14 +65,23 @@ class AdvisorVC: UIViewController {
     
     func displayStudents(students: [String]) {
         removeStudents()
-        for i in 0..<students.count {
-            let name = students[i]
-            let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 280 + ( Double(i) * 90 ), width: 350, height: 60))
-            label.setTitle(name, for: .normal)
-            label.titleLabel?.font = label.titleLabel?.font.withSize(23)
+        if students.count > 0 {
+            for i in 0..<students.count {
+                let name = students[i]
+                let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 280 + ( Double(i) * 90 ), width: 350, height: 60))
+                label.setTitle(name, for: .normal)
+                label.titleLabel?.font = label.titleLabel?.font.withSize(23)
+                label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
+                label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+                label.layer.cornerRadius = 0.07 * label.bounds.size.width
+                label.tag = 999
+                self.view.addSubview(label)
+            }
+        } else {
+            let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 280 + ( Double(0) * 90 ), width: 350, height: 60))
+            label.setTitle("You don't have students", for: .normal)
+            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
             label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-            label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-            label.layer.cornerRadius = 0.07 * label.bounds.size.width
             label.tag = 999
             self.view.addSubview(label)
         }
@@ -96,7 +105,7 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
             displayStudents(students: self.students)
         } else {
             let filteredStudents = self.students.filter { student in
-                student.contains(searchText)
+                student.lowercased().contains(searchText.lowercased())
             }
             displayStudents(students: filteredStudents)
         }
