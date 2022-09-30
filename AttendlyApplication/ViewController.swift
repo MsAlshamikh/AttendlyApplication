@@ -6,8 +6,6 @@ class ViewController: UIViewController {
   let helper = NFChelper()
   var payloadLabel: UILabel!
 
-    
-
     override func viewDidLoad() {
     super.viewDidLoad()
     

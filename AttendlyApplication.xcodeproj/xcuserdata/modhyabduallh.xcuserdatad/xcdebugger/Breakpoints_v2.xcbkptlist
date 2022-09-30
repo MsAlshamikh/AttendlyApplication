@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "26E5AAB3-C6A1-47C8-B4D1-2BADE625C838"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/CurrentVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "CurrentVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9 - 3db6302b0cf83aea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.CurrentVC.selectCourseBtn.getter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modhyabduallh/Documents/GitHub/AttendlyApplication/AttendlyApplication/CurrentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9 - 2353e68372d3cae6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.CurrentVC.selectCourseBtn.setter : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modhyabduallh/Documents/GitHub/AttendlyApplication/AttendlyApplication/CurrentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9 - 56658c3f1a28c6f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.CurrentVC.selectCourseBtn.modify : Swift.Optional&lt;__C.UIButton&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modhyabduallh/Documents/GitHub/AttendlyApplication/AttendlyApplication/CurrentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9 - ff710eef047f5bee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.CurrentVC.selectCourseBtn.modify : Swift.Optional&lt;__C.UIButton&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modhyabduallh/Documents/GitHub/AttendlyApplication/AttendlyApplication/CurrentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9 - dc5bafbf57d7b7a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.CurrentVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AttendlyApplication.CurrentVC"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modhyabduallh/Documents/GitHub/AttendlyApplication/AttendlyApplication/CurrentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "167">
+               </Location>
+               <Location
+                  uuid = "DEC8BAD8-B3D7-43CE-8F74-72A77D080EE9 - 90dabf6d3741cbe4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.CurrentVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AttendlyApplication.CurrentVC&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modhyabduallh/Documents/GitHub/AttendlyApplication/AttendlyApplication/CurrentVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A1D959A-C22C-4E2C-92D7-A04DE2B23507"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/SectionsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "get()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9B632C5-8176-4B42-87D5-65142AD0F592"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/Profile/ProfileViewContoller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "adviserNameTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AC4EB7A-1213-4975-9156-90C5BA54B3BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/Profile/LecturerProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B2E4E54-C417-46EC-978B-8B8155714D21"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/Profile/LecturerProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "459B3338-D6CA-42D2-9464-753B332ABFC3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/Profile/CodableFirebaseSupport.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

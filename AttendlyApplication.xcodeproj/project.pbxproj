@@ -103,7 +103,6 @@
 			children = (
 				5623C42A28E38A3F003E50AE /* Profile */,
 				34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */,
-				5667DB2228E383D600DBCDEB /* CodableFirebaseSupport.swift */,
 				34145F3828CFDF3300B073ED /* AppDelegate.swift */,
 				34145F3A28CFDF3300B073ED /* SceneDelegate.swift */,
 				34145F3C28CFDF3300B073ED /* ViewController.swift */,
@@ -134,6 +133,7 @@
 				564814B528DFAA3200407C9E /* User.swift */,
 				564814B028DF9F8B00407C9E /* ProfileViewContoller.swift */,
 				53415F3B28D1E8B6005DFA19 /* LecturerProfileVC.swift */,
+				5667DB2228E383D600DBCDEB /* CodableFirebaseSupport.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

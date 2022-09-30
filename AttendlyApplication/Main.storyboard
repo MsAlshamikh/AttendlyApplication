@@ -44,7 +44,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="oJ0-Pc-tEF">
-                                <rect key="frame" x="20" y="288" width="335" height="258"/>
+                                <rect key="frame" x="20" y="291" width="335" height="258"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPl-da-5OE">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
@@ -201,13 +201,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="212.33333333333334" height="206"/>
+                                <rect key="frame" x="20" y="359" width="335" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-Pq-C05">
-                                        <rect key="frame" x="0.0" y="0.0" width="212.33333333333334" height="206"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="206"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-Y3-uYK">
-                                                <rect key="frame" x="0.0" y="0.0" width="212.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="aYm-ge-DQt"/>
@@ -222,7 +222,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzO-T4-H9R">
-                                                <rect key="frame" x="0.0" y="52" width="212.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="52" width="335" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="UAo-L3-Eqa"/>
@@ -237,7 +237,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-F3-C3Y">
-                                                <rect key="frame" x="0.0" y="104" width="212.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="104" width="335" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="DtI-sp-oyK"/>
@@ -252,7 +252,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5c1-AR-1zv">
-                                                <rect key="frame" x="0.0" y="156" width="212.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="156" width="335" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KTJ-VO-0ud"/>
@@ -772,7 +772,7 @@
                                 <rect key="frame" x="-65" y="-4" width="779" height="340"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Courses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHS-Ya-kRU">
-                                <rect key="frame" x="20" y="94" width="176" height="48"/>
+                                <rect key="frame" x="20" y="97" width="176" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1009,6 +1009,7 @@
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.doc.horizontal.fill" catalog="system" id="6HS-QD-IYG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wA7-Mn-dyo">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1027,6 +1028,7 @@
                     <tabBarItem key="tabBarItem" title="Current" image="arrow.up.and.person.rectangle.portrait" catalog="system" id="Qcp-4w-kas"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QK9-e6-FFk">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1066,6 +1068,7 @@
                     <tabBarItem key="tabBarItem" title="Check In" image="checkmark.diamond.fill" catalog="system" id="MLl-WQ-whn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r2P-dX-Hb0">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1102,15 +1105,15 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="arrow.up.and.person.rectangle.portrait" catalog="system" width="32" height="32"/>
-        <image name="chart.bar.doc.horizontal.fill" catalog="system" width="32" height="32"/>
-        <image name="checkmark.diamond.fill" catalog="system" width="32" height="32"/>
-        <image name="doc.on.doc" catalog="system" width="32" height="32"/>
-        <image name="person.3.fill" catalog="system" width="32" height="32"/>
-        <image name="person.fill" catalog="system" width="32" height="32"/>
+        <image name="arrow.up.and.person.rectangle.portrait" catalog="system" width="128" height="99"/>
+        <image name="chart.bar.doc.horizontal.fill" catalog="system" width="115" height="128"/>
+        <image name="checkmark.diamond.fill" catalog="system" width="128" height="124"/>
+        <image name="doc.on.doc" catalog="system" width="116" height="128"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pic1.png" width="176.84210205078125" height="150.73684692382812"/>
         <image name="pic2.png" width="176.84210205078125" height="150.73684692382812"/>
-        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="32" height="32"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -1124,7 +1127,7 @@
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

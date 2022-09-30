@@ -7,10 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
-
 class CourseViewController: UIViewController {
-    
-    
     @IBOutlet weak var noC: UILabel!
     var section: String = ""
     var titleB: String = ""
