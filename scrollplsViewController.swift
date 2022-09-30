@@ -1,22 +1,25 @@
 //
-//  ViewController.swift
-//  AttendlyApp
+//  scrollplsViewController.swift
+//  AttendlyApplication
 //
-//  Created by SHAMMA  on 12/02/1444 AH.
+//  Created by Amani Aldahmash on 30/09/2022.
 //
+
 
 import UIKit
 import FirebaseFirestore
 
-class CourseViewController: UIViewController {
-    
+import UIKit
 
-    
+class scrollplsViewController: UIViewController {
+
     @IBOutlet weak var noC: UILabel!
     var section: String = ""
     var titleB: String = ""
     var name: String = ""
     
+  
+    @IBOutlet weak var scroll: UIView!
     @IBOutlet weak var levelUI: UILabel!
     @IBOutlet weak var dateUI: UILabel!
     override func viewDidLoad() {
@@ -127,14 +130,14 @@ class CourseViewController: UIViewController {
                                    //for i in 0..<actual.count {
                                        //design
                                        
-                                       let label = UIButton(frame: .init(x: self.view.frame.midX-238 , y: 333 + ( Double(i) * 90 ), width: 300, height: 60))
+                                       let label = UIButton(frame: .init(x: self.scroll.frame.midX-238 , y: ( Double(i) * 90 ), width: 300, height: 60))
                                        label.setTitle(actual[i], for: .normal)
                                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                                       // label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                                        
                                        //line
-                                       let line =  UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 393 + ( Int((Double(i))) * 90 ), width: 250, height: 26))
+                                       let line =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-148 , y: (50 +  Int((Double(i))) * 90 ), width: 250, height: 26))
                                 
                                        //
                                        line.layer.cornerRadius = 0.04 * label.bounds.size.width
@@ -147,7 +150,7 @@ class CourseViewController: UIViewController {
                                        let z = final
                                        let after = final*10
                                       //
-                                       let perc = UIButton(frame: .init(x: CGFloat(self.view.frame.midX)-148 , y: Double(393 + ( Int((Double(i))) * 90 )), width: after, height: 26))
+                                       let perc = UIButton(frame: .init(x: CGFloat(self.scroll.frame.midX)-148 , y: 50 + Double(( Int((Double(i))) * 90 )), width: after, height: 26))
                                        //
                                        perc.layer.cornerRadius = 0.04 * label.bounds.size.width
                                        if (z>20)
@@ -159,7 +162,7 @@ class CourseViewController: UIViewController {
                                        else
                                        { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
                     //
-                                       let pt = UILabel(frame: .init(x: Int(self.view.frame.midX)+105 , y: 393 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
+                                       let pt = UILabel(frame: .init(x: Int(self.scroll.frame.midX)+105 , y: 50 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
                                        pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
                                        
                                      final = Double(round(10 * final) / 10)
@@ -168,17 +171,17 @@ class CourseViewController: UIViewController {
                                        pt.text = " " + String(final) + "%"
                                        
                                        
-                                       self.view.addSubview(perc)
-                                       self.view.addSubview(pt)
+                                       self.scroll.addSubview(perc)
+                                       self.scroll.addSubview(pt)
 
-                                       self.view.addSubview(line)
+                                       self.scroll.addSubview(line)
                                            //
                                        label.tag = Int(section) ?? 0
                                        label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
                                        label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
                                        label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
                                        label.layer.cornerRadius = 0.07 * label.bounds.size.width
-                                       self.view.addSubview(label)
+                                       self.scroll.addSubview(label)
                                        
                                        i = i+1
                                        
@@ -354,5 +357,6 @@ class CourseViewController: UIViewController {
         
     }
 }
+
 
 
