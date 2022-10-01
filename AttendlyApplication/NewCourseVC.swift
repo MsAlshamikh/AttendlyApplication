@@ -17,6 +17,11 @@ class NewCourseVC: UIViewController {
     var titleB: String = ""
     var name: String = ""
     
+    
+    var lecturerCourses : [[String:String]] = [[:]]
+    var sections : [String] = []
+    var selectedIndex : Int = 0
+
   
     @IBOutlet weak var scroll: UIView!
     @IBOutlet weak var levelUI: UILabel!
@@ -188,7 +193,8 @@ class NewCourseVC: UIViewController {
 
                                        self.scroll.addSubview(line)
                                            //
-                                       label.tag = Int(section) ?? 0
+                                       //label.tag = Int(section) ?? 0
+                                       label.tag = i;
                                        label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
                                        label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
                                        label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
@@ -221,6 +227,11 @@ class NewCourseVC: UIViewController {
                 print(Global.shared.useremailshare)
                 let actualChk = snapshot!.documents.first!.get("courses") as! [String]
                 let sectsChk = snapshot!.documents.first!.get("Sections") as! [String]
+                
+                self.lecturerCourses =  snapshot!.documents.first!.get("lecturerCourses") as! [[String:String]]
+                self.sections  = snapshot!.documents.first!.get("Sections") as! [String]
+                print("self.lecturerId = ", self.lecturerCourses)
+
                 if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
                 {
                     print("IT WOOOORKED")
@@ -228,6 +239,8 @@ class NewCourseVC: UIViewController {
                     self.noC.text = "No courses \n registered!"
                     
                 }
+                
+                
                 
                 //
                 else{
@@ -320,8 +333,8 @@ class NewCourseVC: UIViewController {
         //1
         titleB = sender.title(for: .normal)!
         //2
-        section = String(sender.tag)
-        
+        section = self.sections[sender.tag]
+        selectedIndex = sender.tag
         
         
         let db = Firestore.firestore()
@@ -360,10 +373,10 @@ class NewCourseVC: UIViewController {
                 controller.section = section
                 controller.name = name
                 controller.titleB = titleB
+                controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
             }
         }
     }
-    
  
     @IBAction func unwind(segue: UIStoryboardSegue ){
         

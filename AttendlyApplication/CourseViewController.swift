@@ -19,6 +19,7 @@ class CourseViewController: UIViewController {
     
       var lecturerCourses : [[String:String]] = [[:]]
       var sections : [String] = []
+    var selectedIndex : Int = 0
       
     
     override func viewDidLoad() {
@@ -117,6 +118,7 @@ class CourseViewController: UIViewController {
             }
             else{
                 print("SUCCESS")
+                
                 print(Global.shared.useremailshare)
                 
                 self.lecturerCourses =  snapshot!.documents.first!.get("lecturerCourses") as! [[String:String]]
@@ -170,7 +172,7 @@ class CourseViewController: UIViewController {
         sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
         
     }
-    var selectedIndex : Int = 0
+    
     @objc func pressed(sender:UIButton) {
         
         

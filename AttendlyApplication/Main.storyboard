@@ -723,7 +723,7 @@
                         <outlet property="courseLabel" destination="BFg-cP-vJy" id="RB1-bw-7F7"/>
                         <outlet property="lecturerLabel" destination="Nag-6v-955" id="9Jz-b4-zVS"/>
                         <outlet property="sectionLabel" destination="7Ln-SJ-7yD" id="hWr-qK-3Wm"/>
-                        <segue destination="lqJ-Vg-vD0" kind="show" identifier="si_courseDetailToLecturerProfile" id="nBd-ju-Dpb"/>
+                        <segue destination="lqJ-Vg-vD0" kind="show" identifier="si_courseDetailToLecturerProfile" id="G1y-3w-L4w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im6-CL-Kwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1601,8 +1601,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nBd-ju-Dpb"/>
-        <segue reference="reZ-IS-bBu"/>
+        <segue reference="ZsB-po-RZ8"/>
+        <segue reference="T27-IC-KYT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
