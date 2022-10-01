@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 
                 button.frame = CGRect(x: 100, y: 400, width: self.view.bounds.width - 120, height: 100)
 
-             //button.setImage(UIImage(named: "check"), for: .normal)
+             button.setImage(UIImage(named: "check"), for: .normal)
 
         self.view.addSubview(button)
     }
