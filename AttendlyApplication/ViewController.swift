@@ -30,9 +30,10 @@ class ViewController: UIViewController {
                // button.titleLabel?.font = UIFont(name: "Helvetica", size: 30.0)
                 button.addTarget(self, action: #selector(didTapReadNFC), for: .touchUpInside)
 
-                button.frame = CGRect(x: 100, y: 400, width: self.view.bounds.width - 120, height: 100)
+                button.frame = CGRect(x: 100, y: 400, width: self.view.bounds.width - 160, height: 240)
+            //  button.backgroundColor = UIColor(red: 0.26, green: 0.56, blue: 0.62, alpha: 1.00)
 
-             button.setImage(UIImage(named: "check"), for: .normal)
+             //button.setImage(UIImage(named: "check"), for: .normal)
 
         self.view.addSubview(button)
     }
