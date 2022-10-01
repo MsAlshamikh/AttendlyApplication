@@ -130,7 +130,7 @@ class CourseViewController: UIViewController {
                     print(actual)
                     for i in 0..<actual.count {
                         
-                        let label = UIButton(frame: .init(x: self.view.frame.midX-148 , y: 280 + ( Double(i) * 90 ), width: 300, height: 60))
+                        let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + ( i * 90 ), width: 300, height: 60))
                         label.setTitle(actual[i], for: .normal)
                         label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                         label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
