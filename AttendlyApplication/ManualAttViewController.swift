@@ -270,16 +270,16 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //        }
 
         if stateSt[indexPath.row] == "attend" {
-                 my.backgroundColor = #colorLiteral(red: 0.9935032725, green: 0.8758758903, blue: 0.5680503249, alpha: 1)               }
+                 my.backgroundColor = #colorLiteral(red: 0.5591548681, green: 0.6860862374, blue: 0.4911993146, alpha: 1)               }
         else if stateSt[indexPath.row] == "late" {
-            my.backgroundColor = .systemYellow
+            my.backgroundColor = #colorLiteral(red: 0.975443542, green: 0.8380891085, blue: 0.5318054557, alpha: 1)
                
         }
         else if stateSt[indexPath.row] == "absent" {
-            my.backgroundColor =  .systemRed
+            my.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.462745098, blue: 0.3843137255, alpha: 1)
         }
         else if stateSt[indexPath.row] == "pending" {
-            my.backgroundColor =  .systemGray
+            my.backgroundColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
         }
 
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
@@ -310,5 +310,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
         }
     
+    @IBAction func unwind(segue: UIStoryboardSegue ){
+        
+    }
     
 }
