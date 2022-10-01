@@ -37,7 +37,7 @@ class SectionsVC: UIViewController {
                    print(actual)
                    for i in 0..<actual.count {
 
-                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + ( i * 90 ), width: 300, height: 60))
+                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 340 + ( i * 90 ), width: 300, height: 60))
                        label.setTitle(actual[i], for: .normal)
                        //label.subtitleLabel?.text = "hii"
                        

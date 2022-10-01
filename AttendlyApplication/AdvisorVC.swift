@@ -68,7 +68,7 @@ class AdvisorVC: UIViewController {
         if students.count > 0 {
             for i in 0..<students.count {
                 let name = students[i]
-                let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 280 + ( Double(i) * 90 ), width: 350, height: 60))
+                let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 340 + ( Double(i) * 90 ), width: 350, height: 60))
                 label.setTitle(name, for: .normal)
                 label.titleLabel?.font = label.titleLabel?.font.withSize(23)
                 label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
