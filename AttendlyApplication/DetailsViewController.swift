@@ -16,6 +16,9 @@ class DetailsViewController: UIViewController {
     var section: String = ""
     var titleB: String = ""
     var name: String = ""
+    var email: String = ""
+    var adv: String = ""
+    var lecturerId : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +42,29 @@ class DetailsViewController: UIViewController {
 
         
         lecturerLabel.attributedText = text1
-  
+        let tg = UITapGestureRecognizer(target: self, action: #selector(lecturerNameTapped(_:)))
+               lecturerLabel.isUserInteractionEnabled = true
+               lecturerLabel.addGestureRecognizer(tg)
         //
         // Do any additional setup after loading the view.
     }
     
+    @objc func lecturerNameTapped(_ sender:UITapGestureRecognizer) {
+        performSegue(withIdentifier: "si_courseDetailToLecturerProfile", sender: nil)
+    }
+    
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "si_courseDetailToLecturerProfile" {
+            if let vc = segue.destination as? LecturerProfileVC {
+                vc.lecturerID = lecturerId;
+            }
+        }
     }
-    */
-
 }

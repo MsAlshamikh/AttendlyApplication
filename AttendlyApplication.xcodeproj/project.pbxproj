@@ -21,11 +21,11 @@
 		53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2D28D1E878005DFA19 /* AdvisorVC.swift */; };
 		53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2F28D1E87E005DFA19 /* CurrentVC.swift */; };
 		53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3128D1E886005DFA19 /* CheckInVC.swift */; };
-		53415F3428D1E88C005DFA19 /* profileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3328D1E88C005DFA19 /* profileController.swift */; };
+		53415F3428D1E88C005DFA19 /* ProfileViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3328D1E88C005DFA19 /* ProfileViewContoller.swift */; };
 		53415F3628D1E893005DFA19 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3528D1E892005DFA19 /* CourseViewController.swift */; };
 		53415F3828D1E899005DFA19 /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3728D1E899005DFA19 /* loginController.swift */; };
 		53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3928D1E8A2005DFA19 /* Global.swift */; };
-		53415F3C28D1E8B7005DFA19 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3B28D1E8B6005DFA19 /* ProfileVC.swift */; };
+		53415F3C28D1E8B7005DFA19 /* LecturerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3B28D1E8B6005DFA19 /* LecturerProfileVC.swift */; };
 		53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */; };
 		53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */; };
 		53415F4228D1E923005DFA19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53415F4128D1E923005DFA19 /* Main.storyboard */; };
@@ -44,6 +44,7 @@
 		53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
+		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
 		A28E042428D2B088005065D9 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042328D2B087005065D9 /* pic1.png */; };
 		A28E042628D2B0BD005065D9 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042528D2B0BD005065D9 /* pic2.png */; };
 /* End PBXBuildFile section */
@@ -62,11 +63,11 @@
 		53415F2D28D1E878005DFA19 /* AdvisorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvisorVC.swift; sourceTree = "<group>"; };
 		53415F2F28D1E87E005DFA19 /* CurrentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentVC.swift; sourceTree = "<group>"; };
 		53415F3128D1E886005DFA19 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
-		53415F3328D1E88C005DFA19 /* profileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileController.swift; sourceTree = "<group>"; };
+		53415F3328D1E88C005DFA19 /* ProfileViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewContoller.swift; sourceTree = "<group>"; };
 		53415F3528D1E892005DFA19 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		53415F3728D1E899005DFA19 /* loginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
 		53415F3928D1E8A2005DFA19 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
-		53415F3B28D1E8B6005DFA19 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		53415F3B28D1E8B6005DFA19 /* LecturerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecturerProfileVC.swift; sourceTree = "<group>"; };
 		53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		53415F4128D1E923005DFA19 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableviewControolerTableViewCell.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
+		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
 		A28E042528D2B0BD005065D9 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,10 +143,11 @@
 				53415F2F28D1E87E005DFA19 /* CurrentVC.swift */,
 				53AF1B8128DA475D00F77178 /* listOfstudent.swift */,
 				34145F5828CFED5D00B073ED /* NFChelper.swift */,
-				53415F3328D1E88C005DFA19 /* profileController.swift */,
+				53415F3328D1E88C005DFA19 /* ProfileViewContoller.swift */,
 				53415F3728D1E899005DFA19 /* loginController.swift */,
 				53415F3928D1E8A2005DFA19 /* Global.swift */,
-				53415F3B28D1E8B6005DFA19 /* ProfileVC.swift */,
+				53415F3B28D1E8B6005DFA19 /* LecturerProfileVC.swift */,
+				56D7606F28E8549B00D7E885 /* User.swift */,
 				53415F3528D1E892005DFA19 /* CourseViewController.swift */,
 				53415F4D28D8DA54005DFA19 /* readCsv.swift */,
 				53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */,
@@ -251,8 +254,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D7607028E8549B00D7E885 /* User.swift in Sources */,
 				5358E23328E72C4800F423DB /* NewCourseVC.swift in Sources */,
-				53415F3C28D1E8B7005DFA19 /* ProfileVC.swift in Sources */,
+				53415F3C28D1E8B7005DFA19 /* LecturerProfileVC.swift in Sources */,
 				5358E22D28E38CD000F423DB /* customAttendTable.swift in Sources */,
 				53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */,
 				53415F3828D1E899005DFA19 /* loginController.swift in Sources */,
@@ -273,7 +277,7 @@
 				5358E22328E3651700F423DB /* sectionLectures.swift in Sources */,
 				53415F4E28D8DA54005DFA19 /* readCsv.swift in Sources */,
 				34145F3B28CFDF3300B073ED /* SceneDelegate.swift in Sources */,
-				53415F3428D1E88C005DFA19 /* profileController.swift in Sources */,
+				53415F3428D1E88C005DFA19 /* ProfileViewContoller.swift in Sources */,
 				56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */,
 				53AF1B8428DAA95000F77178 /* listAll.swift in Sources */,
 			);

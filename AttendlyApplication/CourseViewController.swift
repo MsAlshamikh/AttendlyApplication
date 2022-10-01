@@ -16,6 +16,11 @@ class CourseViewController: UIViewController {
     var titleB: String = ""
     var name: String = ""
     
+    
+      var lecturerCourses : [[String:String]] = [[:]]
+      var sections : [String] = []
+      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -113,6 +118,10 @@ class CourseViewController: UIViewController {
             else{
                 print("SUCCESS")
                 print(Global.shared.useremailshare)
+                
+                self.lecturerCourses =  snapshot!.documents.first!.get("lecturerCourses") as! [[String:String]]
+                print("self.lecturerId = ", self.lecturerCourses)
+                
                 let actualChk = snapshot!.documents.first!.get("courses") as! [String]
                 let sectsChk = snapshot!.documents.first!.get("Sections") as! [String]
                 if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
@@ -127,6 +136,7 @@ class CourseViewController: UIViewController {
                 else{
                     let actual = snapshot!.documents.first!.get("courses") as! [String]
                     let sects = snapshot!.documents.first!.get("Sections") as! [String]
+                    self.sections  = snapshot!.documents.first!.get("Sections") as! [String]
                     print(actual)
                     for i in 0..<actual.count {
                         
@@ -160,7 +170,7 @@ class CourseViewController: UIViewController {
         sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
         
     }
-    
+    var selectedIndex : Int = 0
     @objc func pressed(sender:UIButton) {
         
         
@@ -171,7 +181,7 @@ class CourseViewController: UIViewController {
         titleB = sender.title(for: .normal)!
         //2
         section = String(sender.tag)
-        
+        selectedIndex = sender.tag
         
         
         let db = Firestore.firestore()
@@ -210,6 +220,7 @@ class CourseViewController: UIViewController {
                 controller.section = section
                 controller.name = name
                 controller.titleB = titleB
+                controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
             }
         }
     }
