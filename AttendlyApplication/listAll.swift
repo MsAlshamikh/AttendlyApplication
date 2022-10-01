@@ -99,12 +99,12 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
         
-        if doubles[indexPath.row]  >= 0 {    // less than or eqaul to 0
-            my.currrentsectionpressed.textColor = UIColor.green
-            my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
-        if doubles[indexPath.row] >= 7 {   //less than  or equal 7
-            my.currrentsectionpressed.textColor = UIColor.red
-            my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
+        if doubles[indexPath.row]  >= 7 {    // less than or eqaul to 0
+            my.currrentsectionpressed.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            my.currrentsectionpressed.text = ""+String ( percentagestu[indexPath.row] + "%" ) }
+        if doubles[indexPath.row] >= 0 {   //less than  or equal 7
+            my.currrentsectionpressed.textColor = #colorLiteral(red: 0.6117647059, green: 0.8235294118, blue: 0.6431372549, alpha: 1)
+            my.currrentsectionpressed.text = ""+String ( percentagestu[indexPath.row] + "%" ) }
         
         
        let emails = emailStudent[indexPath.row]
