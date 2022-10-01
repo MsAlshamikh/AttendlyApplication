@@ -370,9 +370,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="logout"/>
                             </button>
-                            <connections>
-                                <segue destination="S1e-Zt-ruJ" kind="show" identifier="logo2" id="2sg-9P-fFd"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -617,9 +614,6 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="1vy-Pc-VJJ"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="S1e-Zt-ruJ" kind="show" identifier="logo" id="coD-sU-I1N"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGo-fU-CgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -934,7 +928,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="tzi-4o-5Sz" kind="relationship" relationship="rootViewController" id="LF6-Tv-jpD"/>
+                        <segue destination="NFn-Ta-qlb" kind="relationship" relationship="rootViewController" id="Whu-xd-HEw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2J-9u-skt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -970,7 +964,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Odv-me-NRa" kind="relationship" relationship="rootViewController" id="rXB-Yg-oF2"/>
+                        <segue destination="lqJ-Vg-vD0" kind="relationship" relationship="rootViewController" id="ZsB-po-RZ8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQD-sk-ZRJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1450,6 +1444,7 @@
                         <outlet property="majorlabel" destination="f71-0p-gT1" id="wGZ-ek-diy"/>
                         <outlet property="nameLabel" destination="ZWQ-0h-AZR" id="jB1-a5-xLY"/>
                         <outlet property="sid" destination="0GO-RD-AKm" id="uPn-Kh-Db6"/>
+                        <segue destination="S1e-Zt-ruJ" kind="show" identifier="logo" id="reZ-IS-bBu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpf-tF-cwN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1597,15 +1592,16 @@
                         <outlet property="logoutButton" destination="i7f-7H-CZ9" id="do9-40-PpA"/>
                         <outlet property="nameLabel" destination="KMf-Vq-poL" id="k48-5I-hMm"/>
                         <outlet property="titleLable" destination="SgK-tI-qJ2" id="NHA-Gg-iQV"/>
+                        <segue destination="S1e-Zt-ruJ" kind="show" identifier="logo2" id="T27-IC-KYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZg-LH-GJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4623" y="877"/>
+            <point key="canvasLocation" x="4796" y="646"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="coD-sU-I1N"/>
+        <segue reference="T27-IC-KYT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
