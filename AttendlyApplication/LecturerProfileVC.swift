@@ -17,7 +17,10 @@ class LecturerProfileVC: UIViewController {
     @IBOutlet weak var coleLabel: UILabel!
     @IBOutlet weak var depLabel: UILabel!
     let firestore = Firestore.firestore()
-    @IBOutlet weak var logoutButton: UIButton!
+   // @IBOutlet weak var logoutButton: UIButton!
+    
+    @IBOutlet weak var logoutnow: UIButton!
+    
     @IBOutlet weak var titleLable: UILabel!
     var lecturerID : String?
     
@@ -44,12 +47,51 @@ class LecturerProfileVC: UIViewController {
                 return
             }
             loadProfile(letctrerID: uid)
-            let logoutBarButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(meout(_:)))
-            self.navigationItem.rightBarButtonItem = logoutBarButton
-
+//            let logoutBarButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(meout(_:)))
+//            self.navigationItem.rightBarButtonItem = logoutBarButton
+print("hh")
         }
         
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    @IBAction func logggoutt(_ sender: Any) {
+        print("pressed")
+              let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+
+               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+              do{
+
+
+
+                     try Auth.auth().signOut()
+
+                  
+
+                  print("logout!")
+
+                 self.performSegue(withIdentifier: "logo2", sender: self)
+
+                  } //do
+
+               
+
+               catch let signOutError as NSError{
+
+                   print("error",signOutError)
+
+                }
+
+                      
+
+               }))
+
+                  alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+
+                       self.present(alert, animated: true, completion: nil)
+
+            //   self.performSegue(withIdentifier: "logo2", sender: self)
     }
     
     func setUIForOtherlecturerProfile () {
@@ -78,15 +120,15 @@ class LecturerProfileVC: UIViewController {
         }
     }
     
-    @IBAction func meout(_ sender: UIButton) {
-        do{
-            try Auth.auth().signOut()
-            print("logout!")
-        }catch let signOutError as NSError{
-            print("error",signOutError)
-        }
-        self.performSegue(withIdentifier: "logo2", sender: self)
-    }
+//    @IBAction func meout(_ sender: UIButton) {
+//        do{
+//            try Auth.auth().signOut()
+//            print("logout!")
+//        }catch let signOutError as NSError{
+//            print("error",signOutError)
+//        }
+//        self.performSegue(withIdentifier: "logo2", sender: self)
+//    }
     
     
     @objc func emailButtonTouched(_ sender:UIBarButtonItem) {

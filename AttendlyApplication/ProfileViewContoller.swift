@@ -18,6 +18,7 @@ class ProfileViewContoller: UIViewController {
     @IBOutlet weak var sid: UILabel!
     @IBOutlet weak var majorlabel: UILabel!
     @IBOutlet weak var avlabel: UILabel!
+    @IBOutlet weak var looggg: UIButton!
     
     let firestore = Firestore.firestore()
     
@@ -103,14 +104,53 @@ class ProfileViewContoller: UIViewController {
         avlabel.attributedText = underlineAttribute
     }
     
-    @IBAction func loUGout(_ sender: UIButton) {
-        do{
-            try Auth.auth().signOut()
-            print("logout!")
-        }catch let signOutError as NSError{
-            print("error",signOutError)
-        }
-        self.performSegue(withIdentifier: "logo2", sender: self)
+//    @IBAction func loUGout(_ sender: UIButton) {
+//        do{
+//            try Auth.auth().signOut()
+//            print("logout!")
+//        }catch let signOutError as NSError{
+//            print("error",signOutError)
+//        }
+//        self.performSegue(withIdentifier: "logo2", sender: self)
+//    }
+    @IBAction func logggouuuu(_ sender: Any) {
+        print("pressed")
+            
+              let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+
+               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+              do{
+
+                  
+
+                     try Auth.auth().signOut()
+
+                  
+
+                  print("logout!")
+
+                 self.performSegue(withIdentifier: "logo", sender: self)
+
+                  } //do
+
+               
+
+               catch let signOutError as NSError{
+
+                   print("error",signOutError)
+
+                }
+
+                      
+
+               }))
+
+                  alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+
+                       self.present(alert, animated: true, completion: nil)
+
+            //   self.performSegue(withIdentifier: "logo2", sender: self)
     }
     
     @objc func adviserNameTapped(_ sender:UITapGestureRecognizer) {

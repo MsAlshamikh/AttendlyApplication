@@ -1345,15 +1345,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha1-Nq-kSU">
-                                <rect key="frame" x="271" y="41" width="147" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="  Logout"/>
-                                <connections>
-                                    <action selector="loUGout:" destination="NFn-Ta-qlb" eventType="touchUpInside" id="xyM-Y3-Td9"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JaU-wP-8aB">
                                 <rect key="frame" x="78" y="216" width="199" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1428,6 +1419,15 @@
                                 <color key="textColor" red="0.25142624969999999" green="0.57161885499999998" blue="0.6333577037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qt-Ve-8O4">
+                                <rect key="frame" x="263" y="44" width="131" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="logout"/>
+                                <connections>
+                                    <action selector="logggouuuu:" destination="NFn-Ta-qlb" eventType="touchUpInside" id="fjj-gY-gSk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e17-VX-R74"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1441,6 +1441,7 @@
                     <connections>
                         <outlet property="avlabel" destination="IQ2-mQ-ItJ" id="SzD-ae-l9y"/>
                         <outlet property="emailLabel" destination="z9O-bL-odT" id="pSd-Zq-9rZ"/>
+                        <outlet property="looggg" destination="3qt-Ve-8O4" id="A6Q-HV-t2w"/>
                         <outlet property="majorlabel" destination="f71-0p-gT1" id="wGZ-ek-diy"/>
                         <outlet property="nameLabel" destination="ZWQ-0h-AZR" id="jB1-a5-xLY"/>
                         <outlet property="sid" destination="0GO-RD-AKm" id="uPn-Kh-Db6"/>
@@ -1449,7 +1450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpf-tF-cwN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8871" y="522"/>
+            <point key="canvasLocation" x="8869.5652173913059" y="521.65178571428567"/>
         </scene>
         <!--Lecturer ProfileVC-->
         <scene sceneID="6X2-KZ-olL">
@@ -1527,6 +1528,16 @@
                                     <constraint firstAttribute="height" constant="309" id="2Yq-vV-S1l"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bls-0o-acn">
+                                <rect key="frame" x="213" y="44" width="159" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="logout"/>
+                                <connections>
+                                    <action selector="logggoutt:" destination="lqJ-Vg-vD0" eventType="touchUpInside" id="gZ3-rx-lxO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V9U-Yg-BDj"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1578,9 +1589,6 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="  Logout"/>
-                                <connections>
-                                    <action selector="meout:" destination="lqJ-Vg-vD0" eventType="touchUpInside" id="OSb-58-NKX"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -1589,7 +1597,7 @@
                         <outlet property="coleLabel" destination="sq3-WZ-9SF" id="sCM-9w-8ko"/>
                         <outlet property="depLabel" destination="NQf-X3-fCD" id="ZmJ-Vc-OfG"/>
                         <outlet property="emailLabel" destination="NCZ-1G-5u7" id="bDF-Qg-pqs"/>
-                        <outlet property="logoutButton" destination="i7f-7H-CZ9" id="do9-40-PpA"/>
+                        <outlet property="logoutnow" destination="bls-0o-acn" id="anY-Vd-8Tv"/>
                         <outlet property="nameLabel" destination="KMf-Vq-poL" id="k48-5I-hMm"/>
                         <outlet property="titleLable" destination="SgK-tI-qJ2" id="NHA-Gg-iQV"/>
                         <segue destination="S1e-Zt-ruJ" kind="show" identifier="logo2" id="T27-IC-KYT"/>
@@ -1597,7 +1605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZg-LH-GJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4796" y="646"/>
+            <point key="canvasLocation" x="4795.652173913044" y="645.53571428571422"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
