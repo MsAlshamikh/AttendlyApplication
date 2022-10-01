@@ -96,6 +96,7 @@ print("hh")
     
     func setUIForOtherlecturerProfile () {
       //logoutButton.isHidden = true
+        logoutnow.isHidden = true
         titleLable.text = "Lecturer Profile"
         
         let emailBarButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(emailButtonTouched(_:)))
