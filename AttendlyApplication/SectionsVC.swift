@@ -37,9 +37,18 @@ class SectionsVC: UIViewController {
                    print(actual)
                    for i in 0..<actual.count {
 
-                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + ( i * 90 ), width: 300, height: 60))
+                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + ( i * 90 ), width: 300, height: 100))
                        label.setTitle(actual[i], for: .normal)
-                       label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+                       //label.subtitleLabel?.text = "hii"
+                       
+                       var config = UIButton.Configuration.tinted()
+                       config.subtitle = "hi"
+                       config.baseForegroundColor = #colorLiteral(red: 0.9935032725, green: 0.8758758903, blue: 0.5680503249, alpha: 1) 
+                       // Set title and all other properties on the configuration object...
+                      // let button = UIButton(type: .custom)
+                      label.configuration = config
+                       
+                       label.titleLabel?.font = label.titleLabel?.font.withSize(20)
                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                        label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                       

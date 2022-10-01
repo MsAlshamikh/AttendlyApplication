@@ -28,7 +28,12 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     var networking: Bool = false
     
     
-
+    let db = Firestore.firestore()
+    
+    let refreshControl = UIRefreshControl()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      //  nostudent.isHidden = true
@@ -50,6 +55,11 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         tableview.rowHeight = 50
        // navigationController?.navigationItem.title = "ss"
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+           tableview.addSubview(refreshControl)
+        
+        
         
      let text1 = NSMutableAttributedString()
        text1.append(NSAttributedString(string: ""
@@ -68,6 +78,136 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     cuurentDate.text = dataTimeString
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        let date = Date()
+        let calunder = Calendar.current
+        let day = calunder.component(.day , from: date)
+        let month = calunder.component(.month , from: date)
+        let year = calunder.component(.year , from: date)
+        let thed = "\(day)-\(month)-\(year)"
+        print(thed)
+       // let v =   sender.titleLabel?.text
+        
+       // print(v!)
+        Task
+        {
+         
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments()
+           
+            let currentTime = getCurrentTime()
+            print(currentTime)
+            let currentTimeSplit = currentTime.split(separator: ":")
+            let timeHourct = currentTimeSplit[0]
+            //let timeMinct = Int(currentTimeSplit[1])
+          //  let timeMinct2 = Int(timeMinct ?? 0)
+            print("hour current",timeHourct )
+            
+            let endTimeF = t_snapshot.documents.first?.data()["endTime"] as! String
+            
+           
+        print(t_snapshot.documents.count)
+//            var studentArry = [String]()  //name
+//            var stateArray = [String]()
+//            var emailArray = [String]()
+//            var idArray = [String]()
+//            var seArray = [String]()
+            for doc in t_snapshot.documents {
+               let documentID = doc.documentID
+                  let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
+            
+               
+                
+                print("here")
+                print(snp.documents.count)
+                print(snp.documents)
+                
+                nameStudent.removeAll()
+                stateSt.removeAll()
+                emailSt.removeAll()
+                serialNumber.removeAll()
+                idstudent.removeAll()
+                for studentDoc in snp.documents {
+                    guard let state  = studentDoc.get("State") as? String else { continue }
+                    guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
+                    guard let name  = studentDoc.get("name") as? String else { continue }
+                    guard let id = studentDoc.get("id") as? String else { continue }
+                    guard let ser = studentDoc.get("SerialNum") as? String else { continue }
+                    
+                    print("name of student/",name)
+                    print("state of student/",state)
+                    print("email of student/",email)
+                    print("id of student/",id)
+                    print("serial N of student/",id)
+                    
+
+                    
+                  nameStudent.append(name)
+                   stateSt.append(state)
+                    emailSt.append(email)
+                   idstudent.append(id)
+                   serialNumber.append(ser)
+                    self.refreshControl.endRefreshing()
+                    self.tableview.reloadData()
+                    
+                    
+                }
+                        
+                
+        
+            
+            }
+            
+        }
+        
+    }
+//    override func viewDidAppear(_ animated: Bool) {
+//    Task{
+//      do{
+//           try await db.collection("studentsByCourse").addSnapshotListener { snapshot, error in
+//                    if let error = error {
+//                        print("error")
+//                        return
+//                    }
+//                    for document in snapshot!.documents{
+//                        print("doc: \(document.data())")
+//                        let documentID = document.documentID
+//                        let snp = await self.db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
+//
+//
+//
+//                         print("here")
+//                         print(snp.documents.count)
+//                         print(snp.documents)
+//
+//                         for studentDoc in snp.documents {
+//                             guard let state  = studentDoc.get("State") as? String else { continue }
+//                             guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
+//                             guard let name  = studentDoc.get("name") as? String else { continue }
+//                             guard let id = studentDoc.get("id") as? String else { continue }
+//                             guard let ser = studentDoc.get("SerialNum") as? String else { continue }
+//
+//                             print("name of student/",name)
+//                             print("state of student/",state)
+//                             print("email of student/",email)
+//                             print("id of student/",id)
+//                             print("serial N of student/",id)
+//
+//
+//                             studentArry.append(name)
+//                             stateArray.append(state)
+//                             emailArray.append(email)
+//                             idArray.append(id)
+//                             seArray.append(ser)
+//
+//                    }
+//                }  //for
+//    }
+//        //}
+//      } catch{
+//          print("error is ")
+//      }
+//    }
+//    } //fun
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
       tableView.deselectRow(at: indexPath, animated: true)
@@ -92,7 +232,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
             let thed = "\(day)-\(month)-\(year)"
             Task {
                
-                let db = Firestore.firestore()
+            //    let db = Firestore.firestore()
                 
                 networking = true
                 guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
@@ -130,8 +270,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //        }
 
         if stateSt[indexPath.row] == "attend" {
-                 my.backgroundColor = .systemGreen
-               }
+                 my.backgroundColor = #colorLiteral(red: 0.9935032725, green: 0.8758758903, blue: 0.5680503249, alpha: 1)               }
         else if stateSt[indexPath.row] == "late" {
             my.backgroundColor = .systemYellow
                
@@ -158,6 +297,18 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
         return my
     }
+    
+    func getCurrentTime() -> String{
+
+        let formater = DateFormatter()
+
+        formater.dateFormat = "HH:mm"
+        let dateString =  formater.string(from: Date())
+        print("after formating")
+        print(dateString)
+        return dateString
+
+        }
     
     
 }
