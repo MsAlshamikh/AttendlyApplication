@@ -43,7 +43,7 @@ class SectionsVC: UIViewController {
                        
                        var config = UIButton.Configuration.tinted()
                        config.subtitle = "hi"
-                       config.baseForegroundColor = #colorLiteral(red: 0.9935032725, green: 0.8758758903, blue: 0.5680503249, alpha: 1) 
+                       config.baseForegroundColor = #colorLiteral(red: 0.791900456, green: 0.9794495702, blue: 0.7459641099, alpha: 1)
                        // Set title and all other properties on the configuration object...
                       // let button = UIButton(type: .custom)
                       label.configuration = config
