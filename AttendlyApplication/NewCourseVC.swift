@@ -158,7 +158,7 @@ class NewCourseVC: UIViewController {
                                 
                                        //
                                        line.layer.cornerRadius = 0.04 * label.bounds.size.width
-                                       line.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 0.75)
+                                       line.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 0.55)
                                        
                                        //
                                      //  var totalp = snapshot!.documents.first!.get("percentage") as! [String: Double]
@@ -171,13 +171,13 @@ class NewCourseVC: UIViewController {
                                        //
                                        perc.layer.cornerRadius = 0.04 * label.bounds.size.width
                                        if (z>20)
-                                       {perc.backgroundColor = UIColor(red: 355/255, green: 0/255, blue: 0/255, alpha: 0.75)}
+                                       {perc.backgroundColor = UIColor(red: 355/255, green: 0/255, blue: 0/255, alpha: 1)}
                                        else if (z>15)
-                                       {  perc.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 0.75)}
+                                       {  perc.backgroundColor = UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)}
                                        else if (z>10)
-                                       {   perc.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 0.75)}
+                                       {   perc.backgroundColor = UIColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1)}
                                        else
-                                       { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 0.75)}
+                                       { perc.backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 1)}
                     //
                                        let pt = UILabel(frame: .init(x: Int(self.scroll.frame.midX)+150 , y: 50 + ( Int((Double(i))) * 90 ), width: 70, height: 26))
                                        pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
