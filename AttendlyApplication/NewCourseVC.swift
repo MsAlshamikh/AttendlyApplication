@@ -72,7 +72,7 @@ class NewCourseVC: UIViewController {
                     let m = Int(date.split(separator: "-")[1])!
                     let y = Int(date.split(separator: "-")[2])!
                     print(d, m, date, day)
-                    if d > day {
+                    if (d > day && m > month) {
                         print("skip")
                         continue
                     }
@@ -184,7 +184,7 @@ class NewCourseVC: UIViewController {
                                        pt.textColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2)
                                        
                                      final = Double(round(10 * final) / 10)
-                                       pt.font = UIFont(name: "systemFont", size: 26.0)
+                                       pt.font = UIFont(name: "systemFont", size: 22.0)
                                        
                                        pt.text = " " + String(final) + "%"
                                            
