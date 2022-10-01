@@ -323,6 +323,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tq-nT-qPs">
+                                <rect key="frame" x="80" y="408" width="255" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="check"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mDj-Hp-8ac"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1654,6 +1661,7 @@
         <image name="arrow.up.and.person.rectangle.portrait" catalog="system" width="128" height="100"/>
         <image name="character.book.closed.th" catalog="system" width="115" height="128"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
+        <image name="check" width="247" height="252.5"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="logow" width="405" height="616"/>
