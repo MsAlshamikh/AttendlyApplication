@@ -173,6 +173,7 @@ class ViewController: UIViewController {
                     if(timeMinct2 <= timeMinfb2+15) { //attended 8:00 - 8:15
                         flag = "attend"
                         attend = true
+                        print("SSSS attend")
                     }
                     else if (timeMinct2 <= timeMinfb2+16 || timeMinct2 <= timeMinfb2+30){ //late 8:30
                         flag = "late"
