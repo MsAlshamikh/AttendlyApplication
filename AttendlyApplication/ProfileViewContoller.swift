@@ -12,6 +12,7 @@ import Firebase
 import MessageUI
 
 class ProfileViewContoller: UIViewController {
+    
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sid: UILabel!
