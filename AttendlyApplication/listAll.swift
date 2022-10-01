@@ -29,6 +29,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
      var percentagestu = [String]()
     
+    var doubles = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,16 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         nameSection.attributedText = text1
        
         // let d = Int(date.split(separator: "-")[0])!
-
+        
+      //  var spliting = percentagestu.split(separator: "%")
+        
+        doubles = percentagestu.compactMap(Double.init)
+        print("doubles ",doubles )
+        
+      print("[percentage]",percentagestu)
+        
+        
+       // var converDou = Double(percentagestu)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
@@ -89,10 +99,10 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
         
-        if percentagestu[indexPath.row] == "0.0%" {
+        if doubles[indexPath.row]  >= 0 {    // less than or eqaul to 0
             my.currrentsectionpressed.textColor = UIColor.green
             my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
-        if percentagestu[indexPath.row] == "25%" {
+        if doubles[indexPath.row] >= 7 {   //less than  or equal 7
             my.currrentsectionpressed.textColor = UIColor.red
             my.currrentsectionpressed.text = String ( percentagestu[indexPath.row] ) }
         

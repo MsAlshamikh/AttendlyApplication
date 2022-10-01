@@ -19,6 +19,7 @@ class LecturerProfileVC: UIViewController {
     let firestore = Firestore.firestore()
    // @IBOutlet weak var logoutButton: UIButton!
     
+    
     @IBOutlet weak var logoutnow: UIButton!
     
     @IBOutlet weak var titleLable: UILabel!
@@ -97,9 +98,14 @@ print("hh")
     func setUIForOtherlecturerProfile () {
       //logoutButton.isHidden = true
         logoutnow.isHidden = true
+      //  sendEmail.isHidden = true
         titleLable.text = "Lecturer Profile"
         
-        let emailBarButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(emailButtonTouched(_:)))
+   let emailBarButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(emailButtonTouched(_:)))
+        
+//        let emailBarButton = UIBarButtonItem(image: UIImage(named: "message.and.waveform.fill"), style: .plain, target: self, action:#selector(emailButtonTouched(_:)))
+
+        
         self.navigationItem.rightBarButtonItem = emailBarButton
     }
     

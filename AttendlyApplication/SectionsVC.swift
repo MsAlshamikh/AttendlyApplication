@@ -37,18 +37,17 @@ class SectionsVC: UIViewController {
                    print(actual)
                    for i in 0..<actual.count {
 
-                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + ( i * 90 ), width: 300, height: 100))
+                       let label = UIButton(frame: .init(x: Int(self.view.frame.midX)-148 , y: 280 + ( i * 90 ), width: 300, height: 60))
                        label.setTitle(actual[i], for: .normal)
                        //label.subtitleLabel?.text = "hii"
                        
-                       var config = UIButton.Configuration.tinted()
-                       config.subtitle = "hi"
-                       config.baseForegroundColor = #colorLiteral(red: 0.791900456, green: 0.9794495702, blue: 0.7459641099, alpha: 1)
-                       // Set title and all other properties on the configuration object...
-                      // let button = UIButton(type: .custom)
-                      label.configuration = config
+                     //  var config = UIButton.Configuration.tinted()
+//                       config.subtitle = "hi"
+                    // config.baseForegroundColor = #colorLiteral(red: 0.791900456, green: 0.9794495702, blue: 0.7459641099, alpha: 1)
+//
+//                      label.configuration = config
                        
-                       label.titleLabel?.font = label.titleLabel?.font.withSize(20)
+                       label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
                        label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
                       
@@ -207,7 +206,7 @@ class SectionsVC: UIViewController {
                     //
 
 
-                let st = String(final) + "%"
+                let st = String(final)
                 perecmtageArrya.append(st)
           //    let name = t_snapshot.course["name"] as? String??
 

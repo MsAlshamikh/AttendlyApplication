@@ -28,6 +28,9 @@ class DetailsViewController: UIViewController {
         let text1 = NSMutableAttributedString()
         text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
         text1.append(NSAttributedString(string: name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
+      
+        //  avlabel.attributedText = underlineAttribute‏
+      //  avlabel.attributedText = underlineAttribute‏
         
         //
         

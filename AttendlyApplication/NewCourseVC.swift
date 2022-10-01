@@ -186,7 +186,7 @@ class NewCourseVC: UIViewController {
                                        pt.font = UIFont(name: "systemFont", size: 26.0)
                                        
                                        pt.text = " " + String(final) + "%"
-                                       
+                                           
                                        
                                        self.scroll.addSubview(perc)
                                        self.scroll.addSubview(pt)
