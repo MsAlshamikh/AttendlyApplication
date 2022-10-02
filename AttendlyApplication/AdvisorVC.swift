@@ -65,7 +65,13 @@ class AdvisorVC: UIViewController {
         // self.passwordTextfiled.delegate = self
        
     }
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        searchBar.resignFirstResponder()
+    }
+    //touch out
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     func displayStudents(students: [String]) {
         removeStudents()
@@ -115,15 +121,7 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
             displayStudents(students: filteredStudents)
         }
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        textField.resignFirstResponder()
-        return(true)
-    }
-    //touch out
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+   
 }
 
  
