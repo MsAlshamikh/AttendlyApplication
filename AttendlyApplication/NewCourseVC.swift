@@ -131,7 +131,7 @@ class NewCourseVC: UIViewController {
                                        //design
                                       
                                        //all in box
-                                       
+                                           //
                                        let box =  UIButton(frame: .init(x: Int(self.scroll.frame.midX)-150 , y: (10 +  Int((Double(i))) * 90 ), width: 370, height: 83))
                                        box.backgroundColor = .init(red: 242/255, green: 242/255, blue: 242/255, alpha: 2)
                                        box.layer.borderColor = .init(red: 231/255, green: 231/255, blue: 231/255, alpha: 2)
