@@ -64,7 +64,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4554B2F5-9DCC-4F84-935D-93043344E6EB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "customTableviewControolerTableViewCell.swift"
@@ -74,6 +74,83 @@
             endingLineNumber = "9"
             landmarkName = "unknown"
             landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "4554B2F5-9DCC-4F84-935D-93043344E6EB - 81e4c510da8a0c24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.customTableviewControolerTableViewCell.__allocating_init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; AttendlyApplication.customTableviewControolerTableViewCell"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shamma/Desktop/AttendlyApplication/customTableviewControolerTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "4554B2F5-9DCC-4F84-935D-93043344E6EB - f94546e050aa7c50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.customTableviewControolerTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; AttendlyApplication.customTableviewControolerTableViewCell"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shamma/Desktop/AttendlyApplication/customTableviewControolerTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "147">
+               </Location>
+               <Location
+                  uuid = "4554B2F5-9DCC-4F84-935D-93043344E6EB - d0f4176c080a2478"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.customTableviewControolerTableViewCell.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AttendlyApplication.customTableviewControolerTableViewCell&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shamma/Desktop/AttendlyApplication/customTableviewControolerTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "4554B2F5-9DCC-4F84-935D-93043344E6EB - ab2dac4b5b12c3fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.customTableviewControolerTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AttendlyApplication.customTableviewControolerTableViewCell&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shamma/Desktop/AttendlyApplication/customTableviewControolerTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "4554B2F5-9DCC-4F84-935D-93043344E6EB - bd74d61088da959d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.customTableviewControolerTableViewCell.__deallocating_deinit"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shamma/Desktop/AttendlyApplication/customTableviewControolerTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
