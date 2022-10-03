@@ -131,7 +131,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                     guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
                     guard let name  = studentDoc.get("name") as? String else { continue }
                     guard let id = studentDoc.get("id") as? String else { continue }
-                    guard let ser = studentDoc.get("SerialNum") as? String else { continue }
+                   // guard let ser = studentDoc.get("SerialNum") as? String else { continue }
                     
                     print("name of student/",name)
                     print("state of student/",state)
@@ -145,7 +145,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                    stateSt.append(state)
                     emailSt.append(email)
                    idstudent.append(id)
-                   serialNumber.append(ser)
+                  // serialNumber.append(ser)
                     self.refreshControl.endRefreshing()
                     self.tableview.reloadData()
                     
@@ -285,7 +285,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
         my.name.text = stateSt[indexPath.row]
         my.idStudent.text = idstudent[indexPath.row]
-        my.serialNnumber.text = serialNumber[indexPath.row]
+       // my.serialNnumber.text = serialNumber[indexPath.row]
+        my.img.image = UIImage(named: "girl2" )
         
         
     
