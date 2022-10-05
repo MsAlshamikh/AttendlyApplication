@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        Firestore.firestore().collection("TEST 123").document().setData(["1" : "1"])
+       // Firestore.firestore().collection("TEST 123").document().setData(["1" : "1"])
       
 //        UNUserNotificationCenter.current().delegate = self
 //        let authoption : UNAuthorizationOptions = [.alert, .sound ,.badge ]
