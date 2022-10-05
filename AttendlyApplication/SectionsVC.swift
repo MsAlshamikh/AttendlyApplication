@@ -17,13 +17,16 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     var actual = [String]()
     var  fullNameCourse = [String]()
-    
+    let imageF = [UIImage(named: "b1"),UIImage(named: "b2"),UIImage(named: "b2")]
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tablekeView.delegate = self
         tablekeView.dataSource = self
         tablekeView.estimatedRowHeight = 50
         tablekeView.rowHeight = 80
+        
+        
      //   get()
         let db = Firestore.firestore()
         db.collection("Lectures").whereField("EmailLectures", isEqualTo: Global.shared.useremailshare ).getDocuments{
@@ -60,14 +63,13 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
        my.namesection.text = actual[indexPath.row]
         
      
-        my.courseName.image = UIImage(named: "book")
+     //   my.courseName.image = UIImage(named: "book")
+         my.courseName.image = imageF[indexPath.row]
+
         my.detilasname.text = fullNameCourse[indexPath.row]
             return my
      
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
