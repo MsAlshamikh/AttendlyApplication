@@ -62,7 +62,7 @@ class CourseViewController: UIViewController {
                     let m = Int(date.split(separator: "-")[1])!
                     let y = Int(date.split(separator: "-")[2])!
                     print(d, m, date, day)
-                    if d > day {
+                    if (d > day || m > month) {
                         print("skip")
                         continue
                     }

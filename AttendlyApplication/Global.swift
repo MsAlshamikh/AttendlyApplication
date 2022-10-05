@@ -13,4 +13,5 @@ class Global{
     public var useremailshare : String = ""
     
     public var sections: [String] = []
+    public var coursess: [String] = []
 }

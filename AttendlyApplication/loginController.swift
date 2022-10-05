@@ -45,8 +45,8 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
         
-//        self.emailTextfiled.text = "400@student.ksu.edu.sa"
-//        self.passwordTextfiled.text = "12345678"
+       self.emailTextfiled.text = "1232@lecture.ksu.edu.sa"
+      self.passwordTextfiled.text = "12345678"
     }
   
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -101,7 +101,7 @@ class loginController: UIViewController, UITextFieldDelegate {
             if validationResult.0 == false {
                 return
             }
-            
+        //    var actual = [String]()
             let email = validationResult.1
             let password = validationResult.2
             Auth.auth().signIn(withEmail: email, password: password) {  authResult, error in
@@ -116,12 +116,10 @@ class loginController: UIViewController, UITextFieldDelegate {
                     
                     Task {
                         if await self.checkEmailExist(email: email, collection: "Unistudent", field: "StudentEmail") {
-                            // if self.isValidEmailSttudent (emailID: email) == true  {
-                            //   self.storeUserInformation()
-                            // }
-                            if await !self.checkEmailExist(email: email, collection: "Appstudent", field: "StudentEmail") {
-                                await self.storeUserInformation(collection: "Appstudent", data: ["StudentEmail": email])
-                            }
+                            
+//                            if await !self.checkEmailExist(email: email, collection: "Appstudent", field: "StudentEmail") {
+//                                await self.storeUserInformation(collection: "Appstudent", data: ["StudentEmail": email])
+//                            }
                             
                             print("student exists")
                       self.performSegue(withIdentifier: "gotoStudents", sender: self)
@@ -132,17 +130,22 @@ class loginController: UIViewController, UITextFieldDelegate {
                         }
                         else if await self.checkEmailExist(email: email, collection: "Lectures", field: "EmailLectures") {
                         
-                            if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
-                                await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
-                            }
+//                            if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
+//                                await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
+//                            }
                             
+//                            let db = Firestore.firestore()
+//
+//                            let quaery = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo: Global.shared.useremailshare).getDocuments()
+//                            let actual: [String] = quaery.documents.first?["coursess"] as! [String]
+                           //var actual = quaery.documents.first?.get("coursess") as! [String]
                             print("lectures exists")
-                          //  if self.isValidEmailLectures(emailID: email) == true  {
-                              //  self.storeLecturesInformation() }
-                         //MODHI & Y
+                            
                           self.performSegue(withIdentifier: "gotoLecturers", sender: self)
                             Global.shared.useremailshare = email
-                            // lectures view
+                          //  Global.shared.coursess = actual
+                          // print("global coursese of lectures",actual)
+                            // lectures vi
                         }
                         else {
                             print("not exists")
