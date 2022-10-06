@@ -45,8 +45,8 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
         
-//        self.emailTextfiled.text = "123@lecture.ksu.edu.sa"
-//        self.passwordTextfiled.text = "12345678"
+        self.emailTextfiled.text = "123@lecture.ksu.edu.sa"
+        self.passwordTextfiled.text = "12345678"
     }
   
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -132,10 +132,10 @@ class loginController: UIViewController, UITextFieldDelegate {
                         }
                         else if await self.checkEmailExist(email: email, collection: "Lectures", field: "EmailLectures") {
                         
-                            if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
-                                await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
-                            }
-                            
+//                            if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
+//                                await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
+//                            }
+                            self.NotificationLec()
                             print("lectures exists")
                           //  if self.isValidEmailLectures(emailID: email) == true  {
                               //  self.storeLecturesInformation() }
@@ -239,6 +239,57 @@ class loginController: UIViewController, UITextFieldDelegate {
         }   //end loginpressed
     
     //
+    
+    
+    
+    func NotificationLec() {
+        
+        Task{
+            
+                                   let db2 = Firestore.firestore()
+                                   let A_snapshot = try await db2.collection("Lectures").whereField("EmailLectures", isEqualTo: Global.shared.useremailshare).getDocuments()
+                                    guard let documentID = A_snapshot.documents.first?.documentID else { return }
+                                    print("docID",documentID)
+                                    print("I'm HEEEEERRRRREEEE !!!!!!!!!!!!!")
+                                    var stuAdv = A_snapshot.documents.first!.get("AllstudentID") as! [String]
+                                    print("stuAdv",stuAdv)
+            
+                                    for stuIDs in stuAdv{
+            
+                                        let s_snapshot = try await db2.collection("Unistudent").whereField("studentID", isEqualTo: stuIDs).getDocuments()
+                                        print("stuIDs",stuIDs)
+            
+                                        let StudName = s_snapshot.documents.first!.get("Fullname") as! String
+                                        
+                                        var stuAbbsence = s_snapshot.documents.first!.get("abbsencest") as! [String: Int]
+                                        print("stuAbbsence",stuAbbsence)
+            
+                                        
+                                        for (key,value) in stuAbbsence {
+                                            print("\(key): \(value)")
+                                            var sectionNumber = key
+                                            var abbsentNumber = value
+                                            print("sectionNumber",sectionNumber)
+                                            print("abbsentNumber",abbsentNumber)
+            
+                                            let snapshot = try await db2.collection("Sections").whereField("section", isEqualTo: sectionNumber).getDocuments()
+                                            guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
+                                            print("corsN",coursN)
+                                            if(abbsentNumber >= 10 ){
+                                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )exceeded the allowed limit", body: "in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
+                                            }
+                                            else{
+                                                print("no notification")
+                                            }
+            
+                                        }// iner for
+            
+                                    }// Outer for
+        }// end task
+        
+}
+    
+    
     
     
     func isValidEmail(emailID:String) -> Bool {
