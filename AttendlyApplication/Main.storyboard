@@ -201,13 +201,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="335" height="206"/>
+                                <rect key="frame" x="20" y="359" width="212.33333333333334" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-Pq-C05">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="206"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="212.33333333333334" height="206"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-Y3-uYK">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="212.33333333333334" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="aYm-ge-DQt"/>
@@ -222,7 +222,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzO-T4-H9R">
-                                                <rect key="frame" x="0.0" y="52" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="52" width="212.33333333333334" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="UAo-L3-Eqa"/>
@@ -237,7 +237,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-F3-C3Y">
-                                                <rect key="frame" x="0.0" y="104" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="104" width="212.33333333333334" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="DtI-sp-oyK"/>
@@ -252,7 +252,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5c1-AR-1zv">
-                                                <rect key="frame" x="0.0" y="156" width="335" height="50"/>
+                                                <rect key="frame" x="0.0" y="156" width="212.33333333333334" height="50"/>
                                                 <color key="backgroundColor" red="0.49019607840000001" green="0.80784313730000001" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KTJ-VO-0ud"/>
@@ -504,7 +504,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d6l-wU-Kbd">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="9u5-hV-hfr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="t9r-E3-eaD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="t9r-E3-eaD">
                                 <rect key="frame" x="243" y="5" width="116" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -651,7 +651,7 @@
                                 <rect key="frame" x="271" y="41" width="147" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="  Logout"/>
+                                <buttonConfiguration key="configuration" style="plain" image="envelope.fill" catalog="system" title="  Logout"/>
                                 <connections>
                                     <action selector="loUGout:" destination="tzi-4o-5Sz" eventType="touchUpInside" id="x29-bo-ljE"/>
                                 </connections>
@@ -1109,6 +1109,7 @@
         <image name="chart.bar.doc.horizontal.fill" catalog="system" width="115" height="128"/>
         <image name="checkmark.diamond.fill" catalog="system" width="128" height="124"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="pic1.png" width="176.84210205078125" height="150.73684692382812"/>

@@ -56,7 +56,8 @@ class LecturerProfileVC: UIViewController {
         logoutButton.isHidden = true
         titleLable.text = "Lecturer Profile"
         
-        let emailBarButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(emailButtonTouched(_:)))
+        let emailBarButton = UIBarButtonItem( image : UIImage (systemName: "message" ),style: .plain, target: self, action: #selector(emailButtonTouched(_:)))
+        
         self.navigationItem.rightBarButtonItem = emailBarButton
     }
     
