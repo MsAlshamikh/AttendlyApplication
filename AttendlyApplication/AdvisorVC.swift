@@ -12,8 +12,10 @@ class AdvisorVC: UIViewController {
     var Sectionss: String = ""
     var coursess: String = ""
     var students: [String] = []
+    var allStudents: [String] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableview: UITableView!
     
     func get() {
             let db = Firestore.firestore()
@@ -43,13 +45,11 @@ class AdvisorVC: UIViewController {
 //
                         }
                         self?.students = students
-                        self?.displayStudents(students: students)
+                        self?.allStudents = students
+                        //self?.displayStudents(students: students)
                         
-                        
-             
-                       
-            
-                        
+                        self?.tableview.reloadData()
+                        self?.toggleNoStudentsFound(show: students.count == 0)
                         
                     }
                 }
@@ -63,6 +63,12 @@ class AdvisorVC: UIViewController {
         get()
         self.searchBar.delegate=self
         // self.passwordTextfiled.delegate = self
+        
+        tableview.delegate = self
+        tableview.dataSource = self
+        //tableview.rowHeight = UITableView.automaticDimension
+        tableview.estimatedRowHeight = 50
+        tableview.rowHeight = 50
        
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
@@ -97,6 +103,19 @@ class AdvisorVC: UIViewController {
         }
     }
     
+    func toggleNoStudentsFound(show: Bool) {
+        if(show) {
+            let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 340 + ( Double(0) * 90 ), width: 350, height: 60))
+            label.setTitle(" No Student Found", for: .normal)
+            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+            label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
+            label.tag = 999
+            self.view.addSubview(label)
+        } else {
+            removeStudents()
+        }
+    }
+    
     func removeStudents() {
         self.view.subviews.filter { view in
             view.tag == 999
@@ -112,16 +131,37 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            displayStudents(students: self.students)
+            self.students = self.allStudents
+            tableview.reloadData()
+            //displayStudents(students: self.students)
         } else {
             let filteredStudents = self.students.filter { student in
                 student.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
                // guard let email = emailTextfiled.text?.trimmingCharacters(in: .whitespaces)
             }
-            displayStudents(students: filteredStudents)
+            self.students = filteredStudents
+            self.tableview.reloadData()
+            //displayStudents(students: filteredStudents)
         }
+        toggleNoStudentsFound(show: students.count == 0)
     }
    
 }
 
  
+extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("enter ADVISOR")
+        return students.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    print("s ADVISOR")
+        let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! customTableviewControolerTableViewCell
+        
+        my.nostudent.text = students[indexPath.row]
+        my.person.image = UIImage(named: "girl" )
+        
+        return my
+    }
+}
