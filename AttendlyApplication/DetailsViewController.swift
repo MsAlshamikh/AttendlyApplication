@@ -13,6 +13,17 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var sectionLabel: UILabel!
     @IBOutlet weak var lecturerLabel: UILabel!
     
+//    @IBOutlet weak var title1: UILabel!
+//
+//    @IBOutlet weak var name1: UILabel!
+//
+//    @IBOutlet weak var id1: UILabel!
+//
+//    var title1 = [String]()
+//    var name1 = [String]()
+//    var id1 = [String]()
+    
+    
     var section: String = ""
     var titleB: String = ""
     var name: String = ""
@@ -20,8 +31,15 @@ class DetailsViewController: UIViewController {
     var adv: String = ""
     var lecturerId : String?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //
+//        title1.text =  "HELLO"
+//        name1.text = "HISTORY"
+//        id1.text = "ADAD"
+        //
 //        var str = "heellllooooo"
 //        var myMutableString = NSMutableAttributedString(string: str)
 //        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location:2,length:4))
