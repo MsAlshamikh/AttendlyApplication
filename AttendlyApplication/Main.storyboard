@@ -59,7 +59,7 @@
             <objects>
                 <viewController id="vrU-B1-ySR" customClass="sectionLectures" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T2y-Kz-N8T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="MnU-Od-XZ6">
@@ -113,7 +113,7 @@
             <objects>
                 <viewController storyboardIdentifier="ManualAttViewController" id="IDZ-fT-O5p" customClass="ManualAttViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ex7-iY-g23">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zoi-MT-cPN">
@@ -242,10 +242,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="384" height="203"/>
+                                <rect key="frame" x="20" y="359" width="460" height="203"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-cz-LU1">
-                                <rect key="frame" x="20" y="247" width="374" height="45"/>
+                                <rect key="frame" x="20" y="247" width="450" height="45"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.42352941179999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="333" id="9jK-Ow-u1E"/>
@@ -295,7 +295,7 @@
             <objects>
                 <viewController id="p9d-UR-Rcb" customClass="ViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vvq-4V-fYO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="G6D-GH-nki">
@@ -400,7 +400,7 @@
             <objects>
                 <viewController storyboardIdentifier="listAll" id="ym7-aw-apP" customClass="listAll" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SD0-FN-xsm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-vl-xkh">
@@ -505,7 +505,7 @@
             <objects>
                 <viewController id="bSi-ic-p4U" customClass="SectionsVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OcS-il-D05">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gtx-Ez-qB6">
@@ -725,7 +725,7 @@
             <objects>
                 <viewController id="ohY-Lt-pod" customClass="DetailsViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HhV-CQ-dP1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="wqv-Ad-iFh">
@@ -872,13 +872,16 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Import a file">
+                                <buttonConfiguration key="configuration" style="gray" title="Import file">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="importFile:" destination="Ezl-50-8mJ" eventType="touchUpInside" id="rYO-5v-s3x"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Ou-kl-paj"/>
@@ -894,7 +897,7 @@
             <objects>
                 <viewController id="S1e-Zt-ruJ" customClass="loginController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RDc-dc-RFi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attendly" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFR-zj-HpG">
@@ -1057,7 +1060,7 @@
                     <tabBarItem key="tabBarItem" title="Current" image="arrow.up.and.person.rectangle.portrait" catalog="system" id="Qcp-4w-kas"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QK9-e6-FFk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1076,12 +1079,10 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="ml6-3V-WKw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdk-au-ODg">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ctg-MZ-jYM">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -1099,7 +1100,6 @@
                     <tabBarItem key="tabBarItem" title="Check In" image="checkmark.circle.fill" catalog="system" id="MLl-WQ-whn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r2P-dX-Hb0">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1118,7 +1118,6 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="9un-w2-t65"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lrj-aw-7TT">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1139,7 +1138,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2iQ-jw-Hhh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1156,7 +1155,7 @@
             <objects>
                 <viewController id="8na-ah-8Jc" customClass="NewCourseVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9qo-EW-fpU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Courses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRJ-3k-bZe">
@@ -1429,7 +1428,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uy7-9l-CMy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1446,7 +1445,7 @@
             <objects>
                 <viewController id="R2E-Xd-uXK" customClass="AdvisorVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vhu-OE-eGQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="JSV-Sj-DgT">
@@ -1491,7 +1490,7 @@
             <objects>
                 <viewController id="NFn-Ta-qlb" customClass="ProfileViewContoller" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ig0-OU-u9o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-w6-hbJ">
@@ -1639,7 +1638,7 @@
             <objects>
                 <viewController id="lqJ-Vg-vD0" customClass="LecturerProfileVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DSJ-cs-Q8B" customClass="profileController">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgK-tI-qJ2">

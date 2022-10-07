@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import MobileCoreServices
 class FormVC: UIViewController {
 
     override func viewDidLoad() {
@@ -25,5 +25,22 @@ class FormVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+//
+    @IBAction func importFile(_ sender: Any) {
+        let documentPicker  =  UIDocumentPickerViewController(documentTypes: [kUTTypePlainText as String], in: .import)
+        //change the type ^^^^
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false // ease of use.only one doc
+     present(documentPicker, animated: true, completion: nil)
+        
+        
+    }
+ 
+}
+extension FormVC: UIDocumentPickerDelegate{
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let selectFileURL = urls.first else{
+            return
+        }
+    }
 }
