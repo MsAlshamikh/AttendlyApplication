@@ -34,7 +34,7 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //
         //
 //        title1.text =  "HELLO"
 //        name1.text = "HISTORY"
