@@ -7,8 +7,11 @@
 
 import UIKit
 import MobileCoreServices
+import UniformTypeIdentifiers
+
 class FormVC: UIViewController {
 
+    @IBOutlet var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,20 +30,39 @@ class FormVC: UIViewController {
     */
 //
     @IBAction func importFile(_ sender: Any) {
-        let documentPicker  =  UIDocumentPickerViewController(documentTypes: [kUTTypePlainText as String], in: .import)
+        let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.jpeg, .png, .pdf])
         //change the type ^^^^
         documentPicker.delegate = self
+       
         documentPicker.allowsMultipleSelection = false // ease of use.only one doc
-     present(documentPicker, animated: true, completion: nil)
+        documentPicker.shouldShowFileExtensions = true
+        
+ present(documentPicker, animated: true, completion: nil)
+      
+      //  print("")
+      //  print(documentPicker)
         
         
     }
  
 }
 extension FormVC: UIDocumentPickerDelegate{
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let selectFileURL = urls.first else{
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        label.text = url.lastPathComponent
+        print( url.lastPathComponent)
+        dismiss(animated: true)
+        guard url.startAccessingSecurityScopedResource() != nil else {
             return
         }
+
+        defer {
+            url.stopAccessingSecurityScopedResource()
+        }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+
+    } //user closes the picker without making any selection
+ 
+   
     }
 }
