@@ -17,6 +17,7 @@ class NewCourseVC: UIViewController {
     var titleB: String = ""
     var name: String = ""
     
+    var WhatPressed: String = ""
     
     var lecturerCourses : [[String:String]] = [[:]]
     var sections : [String] = []
@@ -337,6 +338,8 @@ class NewCourseVC: UIViewController {
         section = self.sections[sender.tag]
         selectedIndex = sender.tag
         
+        WhatPressed = sender.titleLabel!.text!
+        print("what is preessed", WhatPressed)
         
         let db = Firestore.firestore()
         db.collection("Sections").whereField("section", isEqualTo: section).getDocuments{
@@ -374,6 +377,7 @@ class NewCourseVC: UIViewController {
                 controller.section = section
                 controller.name = name
                 controller.titleB = titleB
+                controller.WhatPressed = WhatPressed
                 controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
             }
         }

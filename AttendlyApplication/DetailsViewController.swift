@@ -18,10 +18,12 @@ class DetailsViewController: UIViewController {
     var name: String = ""
     var email: String = ""
     var adv: String = ""
+    var WhatPressed: String = ""
     var lecturerId : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("here course is ", WhatPressed)
 //        var str = "heellllooooo"
 //        var myMutableString = NSMutableAttributedString(string: str)
 //        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location:2,length:4))
@@ -52,14 +54,14 @@ class DetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    
+    
     @objc func lecturerNameTapped(_ sender:UITapGestureRecognizer) {
         performSegue(withIdentifier: "si_courseDetailToLecturerProfile", sender: nil)
     }
-    
-
-
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -70,4 +72,7 @@ class DetailsViewController: UIViewController {
             }
         }
     }
+    
+    
+    
 }

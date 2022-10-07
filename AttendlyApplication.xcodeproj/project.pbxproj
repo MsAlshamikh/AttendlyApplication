@@ -135,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */,
-				5358E23228E72C4800F423DB /* NewCourseVC.swift */,
 				34145F3828CFDF3300B073ED /* AppDelegate.swift */,
 				34145F3A28CFDF3300B073ED /* SceneDelegate.swift */,
 				56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */,
@@ -157,6 +156,7 @@
 				56D7606F28E8549B00D7E885 /* User.swift */,
 				53415F3528D1E892005DFA19 /* CourseViewController.swift */,
 				53415F4D28D8DA54005DFA19 /* readCsv.swift */,
+				5358E23228E72C4800F423DB /* NewCourseVC.swift */,
 				53415F3F28D1E8E3005DFA19 /* DetailsViewController.swift */,
 				5358E21A28E31C9200F423DB /* Notificationpublisher.swift */,
 				5358E22028E329C000F423DB /* notificationHand.swift */,

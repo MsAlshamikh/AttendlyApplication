@@ -45,7 +45,7 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
         
-       self.emailTextfiled.text = "1232@lecture.ksu.edu.sa"
+       self.emailTextfiled.text = "400@student.ksu.edu.sa"
       self.passwordTextfiled.text = "12345678"
     }
   
@@ -130,15 +130,6 @@ class loginController: UIViewController, UITextFieldDelegate {
                         }
                         else if await self.checkEmailExist(email: email, collection: "Lectures", field: "EmailLectures") {
                         
-//                            if await !self.checkEmailExist(email: email, collection: "Lecturer", field: "EmailLecture") {
-//                                await self.storeUserInformation(collection: "Lecturer", data: ["EmailLecture": email])
-//                            }
-                            
-//                            let db = Firestore.firestore()
-//
-//                            let quaery = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo: Global.shared.useremailshare).getDocuments()
-//                            let actual: [String] = quaery.documents.first?["coursess"] as! [String]
-                           //var actual = quaery.documents.first?.get("coursess") as! [String]
                             print("lectures exists")
                             
                           self.performSegue(withIdentifier: "gotoLecturers", sender: self)
