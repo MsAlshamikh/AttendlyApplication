@@ -190,7 +190,7 @@ class ViewController: UIViewController {
                 let info =  db.collection("studentsByCourse").document(documentID)
                 guard let student_id = try await info.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments().documents.first?.documentID else { continue }
                 
-                try await info.collection("students").document(student_id).setData(["State": flag], merge: true)
+                    try await info.collection("students").document(student_id).setData(["State": flag,"time": currentTime], merge: true)
                 
                 // Create new Alert
                 if(flag=="attend"){
