@@ -35,7 +35,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-       let imageF = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2")]
+       let imageF = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2")]
     
        
 
@@ -121,6 +121,10 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //
         // Do any additional setup after loading the view.
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+        
+    }
     
     
     
@@ -132,7 +136,26 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
-        my.state.text = stateAll[indexPath.row]
+        
+        my.execution.isHidden = true
+        
+      //  my.state.text = stateAll[indexPath.row]
+        if stateAll[indexPath.row] == "absent" {
+            my.state.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            my.state.text = stateAll[indexPath.row]
+            my.execution.isHidden = false
+        }
+       else if stateAll[indexPath.row] == "late" {
+            my.state.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            my.state.text = stateAll[indexPath.row]
+        }
+        else if stateAll[indexPath.row] == "attend" {
+             my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+             my.state.text = stateAll[indexPath.row]
+         }
+        
+        
+        
         my.date.text = dateAll[indexPath.row]
         
 

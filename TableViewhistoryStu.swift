@@ -13,6 +13,7 @@ class TableViewhistoryStu: UITableViewCell {
     
     @IBOutlet weak var imageNumber: UIImageView!
     
+    @IBOutlet weak var execution: UIButton!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var date: UILabel!
 }

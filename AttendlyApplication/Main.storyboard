@@ -834,33 +834,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfw-RD-Kxg">
-                                                    <rect key="frame" x="67" y="47.5" width="48" height="24"/>
+                                                    <rect key="frame" x="59" y="47.5" width="48" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ys6-gO-6Gx">
-                                                    <rect key="frame" x="14" y="44" width="33" height="31"/>
+                                                    <rect key="frame" x="14" y="48" width="25" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ys6-gO-6Gx" secondAttribute="height" multiplier="33:31" id="ghp-cb-QtU"/>
-                                                        <constraint firstAttribute="width" constant="33" id="idi-0g-0hR"/>
+                                                        <constraint firstAttribute="width" constant="25" id="idi-0g-0hR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbp-mS-qDW">
-                                                    <rect key="frame" x="152" y="49" width="46" height="21"/>
+                                                    <rect key="frame" x="144" y="49" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="absent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JP-7C-iLt">
-                                                    <rect key="frame" x="235" y="47.5" width="60" height="24"/>
+                                                    <rect key="frame" x="227" y="47.5" width="60" height="24"/>
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5p-Y0-ikY">
-                                                    <rect key="frame" x="315" y="44" width="89" height="31"/>
+                                                    <rect key="frame" x="307" y="44" width="97" height="31"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system"/>
@@ -882,6 +882,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="date" destination="cfw-RD-Kxg" id="RhZ-4x-Pq3"/>
+                                            <outlet property="execution" destination="A5p-Y0-ikY" id="bMN-L4-oKF"/>
                                             <outlet property="imageNumber" destination="ys6-gO-6Gx" id="GP4-IS-uPA"/>
                                             <outlet property="state" destination="8JP-7C-iLt" id="zW1-Cg-fmd"/>
                                             <outlet property="time" destination="Pbp-mS-qDW" id="FoD-hz-srG"/>
@@ -905,8 +906,8 @@
                                     <constraint firstAttribute="width" constant="50.5" id="TnZ-id-D8E"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stop.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WiE-uL-O02">
-                                <rect key="frame" x="272" y="382" width="52" height="29"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.3.horizontal.decrease.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WiE-uL-O02">
+                                <rect key="frame" x="272" y="380.5" width="52" height="32"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="3J4-L8-HHR"/>
@@ -1956,6 +1957,7 @@
         <image name="clock.badge.checkmark" catalog="system" width="128" height="113"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="logow" width="405" height="616"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
@@ -1964,7 +1966,6 @@
         <image name="pic2.png" width="420" height="358"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
-        <image name="stop.fill" catalog="system" width="128" height="113"/>
         <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
