@@ -33,6 +33,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
      zeroStudent.isHidden = true
 
         print("what pressed is ")

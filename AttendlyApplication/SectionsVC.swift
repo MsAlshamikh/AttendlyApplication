@@ -21,10 +21,11 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tablekeView.delegate = self
         tablekeView.dataSource = self
         tablekeView.estimatedRowHeight = 50
-        tablekeView.rowHeight = 80
+        tablekeView.rowHeight = 100
         
         
      //   get()
@@ -45,6 +46,10 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
         }
         
         
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
         
     }
     
