@@ -864,6 +864,9 @@
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="whenPress:" destination="ohY-Lt-pod" eventType="touchUpInside" id="S53-6n-Qqi"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

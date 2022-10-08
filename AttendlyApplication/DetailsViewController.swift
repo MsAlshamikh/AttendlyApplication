@@ -32,6 +32,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var adv: String = ""
     var lecturerId : String?
     
+    @IBAction func whenPress(_ sender: UIButton) {
+        print("now your exucetion absent // shamma")
+    }
     
     
     
