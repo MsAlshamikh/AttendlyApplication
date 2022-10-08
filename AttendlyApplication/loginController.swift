@@ -122,7 +122,7 @@ class loginController: UIViewController, UITextFieldDelegate {
                             if await !self.checkEmailExist(email: email, collection: "Appstudent", field: "StudentEmail") {
                                 await self.storeUserInformation(collection: "Appstudent", data: ["StudentEmail": email])
                             }
-                            
+                            self.NotificationStudent()
                             print("student exists")
                       self.performSegue(withIdentifier: "gotoStudents", sender: self)
                             Global.shared.useremailshare = email
@@ -158,33 +158,33 @@ class loginController: UIViewController, UITextFieldDelegate {
                         
                         // Student notification
                         
-                        
-                            let db = Firestore.firestore()
-                            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
-                        guard let documentID = snapshot.documents.first?.documentID else { return }
-                        print("docID", documentID)
-                        print("you seeeeeeeeeeeee222222??????????????????")
-                        var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
-                        print("abbsencest",abbsencest)
-                      //  for valueAbb in abbsencest {
-                        for (key,value) in abbsencest {
-                            print("\(key): \(value)")
-                            var sectionNumber = key
-                            var abbsentNumber = value
-                            print("sectionNumber",sectionNumber)
-                            print("abbsentNumber",abbsentNumber)
-                         
-                            let snapshot = try await db.collection("Sections").whereField("section", isEqualTo: sectionNumber).getDocuments()
-                            guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
-                            print("corsN",coursN)
-                            if(abbsentNumber >= 10 ){
-                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "You exceeded the allowed limit", body: "the section is :\(sectionNumber) in course name \(coursN)", badge: 1, dleayInterval: nil)
-                            }
-                            else{
-                                print("no notification")
-                            }
-                            
-                        }
+//
+//                            let db = Firestore.firestore()
+//                            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+//                        guard let documentID = snapshot.documents.first?.documentID else { return }
+//                        print("docID", documentID)
+//                        print("you seeeeeeeeeeeee222222??????????????????")
+//                        var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
+//                        print("abbsencest",abbsencest)
+//                      //  for valueAbb in abbsencest {
+//                        for (key,value) in abbsencest {
+//                            print("\(key): \(value)")
+//                            var sectionNumber = key
+//                            var abbsentNumber = value
+//                            print("sectionNumber",sectionNumber)
+//                            print("abbsentNumber",abbsentNumber)
+//
+//                            let snapshot = try await db.collection("Sections").whereField("section", isEqualTo: sectionNumber).getDocuments()
+//                            guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
+//                            print("corsN",coursN)
+//                            if(abbsentNumber >= 10 ){
+//                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "You exceeded the allowed limit", body: "the section is :\(sectionNumber) in course name \(coursN)", badge: 1, dleayInterval: nil)
+//                            }
+//                            else{
+//                                print("no notification")
+//                            }
+//
+//                        }
      
                         
                         // Adviser notification
@@ -240,6 +240,39 @@ class loginController: UIViewController, UITextFieldDelegate {
     
     //
     
+    func NotificationStudent() {
+        
+        Task{
+            
+            let db = Firestore.firestore()
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+        guard let documentID = snapshot.documents.first?.documentID else { return }
+        print("docID", documentID)
+        print("you seeeeeeeeeeeee222222??????????????????")
+        var abbsencest = snapshot.documents.first!.get("abbsencest") as! [String: Int]
+        print("abbsencest",abbsencest)
+      //  for valueAbb in abbsencest {
+        for (key,value) in abbsencest {
+            print("\(key): \(value)")
+            var sectionNumber = key
+            var abbsentNumber = value
+            print("sectionNumber",sectionNumber)
+            print("abbsentNumber",abbsentNumber)
+         
+            let snapshot = try await db.collection("Sections").whereField("section", isEqualTo: sectionNumber).getDocuments()
+            guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
+            print("corsN",coursN)
+            if(abbsentNumber >= 10 ){
+                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "You exceeded the allowed limit", body: "in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
+            }
+            else{
+                print("no notification")
+            }
+            
+        }// end loop
+        }// end task
+        
+    }
     
     
     func NotificationLec() {
