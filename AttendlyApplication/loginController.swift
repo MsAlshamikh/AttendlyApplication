@@ -309,7 +309,7 @@ class loginController: UIViewController, UITextFieldDelegate {
                                             guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
                                             print("corsN",coursN)
                                             if(abbsentNumber >= 10 ){
-                                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )exceeded the allowed limit", body: "in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
+                                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "exceeded the allowed limit in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
                                             }
                                             else{
                                                 print("no notification")
