@@ -853,17 +853,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="absent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JP-7C-iLt">
-                                                    <rect key="frame" x="272" y="47.5" width="60" height="24"/>
+                                                    <rect key="frame" x="275" y="47.5" width="60" height="24"/>
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5p-Y0-ikY">
-                                                    <rect key="frame" x="352" y="44" width="52" height="31"/>
+                                                    <rect key="frame" x="355" y="44" width="49" height="31"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up.on.square.fill" catalog="system"/>
                                                     <connections>
                                                         <action selector="whenPress:" destination="ohY-Lt-pod" eventType="touchUpInside" id="S53-6n-Qqi"/>
                                                     </connections>
@@ -1951,7 +1951,6 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrow.up.and.person.rectangle.portrait" catalog="system" width="128" height="100"/>
-        <image name="arrowshape.bounce.right.fill" catalog="system" width="128" height="86"/>
         <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
         <image name="check" width="247" height="252.5"/>
@@ -1968,6 +1967,7 @@
         <image name="pic2.png" width="420" height="358"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
+        <image name="square.and.arrow.up.on.square.fill" catalog="system" width="117" height="128"/>
         <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
