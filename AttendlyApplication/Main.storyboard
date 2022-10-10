@@ -242,10 +242,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="460" height="203"/>
+                                <rect key="frame" x="20" y="359" width="384" height="203"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-cz-LU1">
-                                <rect key="frame" x="20" y="247" width="450" height="45"/>
+                                <rect key="frame" x="20" y="247" width="374" height="45"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.42352941179999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="333" id="9jK-Ow-u1E"/>
@@ -403,9 +403,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-vl-xkh">
-                                <rect key="frame" x="-97" y="0.0" width="818" height="340"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="HrU-vl-xkh">
+                                <rect key="frame" x="-65" y="-17" width="818" height="340"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="340" id="DJg-ph-Cuq"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students in Section:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1u-ik-ezu">
                                 <rect key="frame" x="20" y="88" width="374" height="48"/>
@@ -485,9 +487,44 @@
                                 <color key="textColor" red="0.1960784314" green="0.41176470590000003" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uhf-Xd-J3G">
+                                <rect key="frame" x="94.5" y="329.5" width="50" height="47"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4kg-23-hNy"/>
+                                    <constraint firstAttribute="width" constant="50" id="p6h-qo-O8Z"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="percent" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-z0-uff">
+                                <rect key="frame" x="334.5" y="328.5" width="40" height="31.5"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="6D4-Gl-Mos"/>
+                                    <constraint firstAttribute="height" constant="33" id="D3N-IM-4r0"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="person.text.rectangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vkp-el-DYi">
+                                <rect key="frame" x="219" y="334" width="40" height="37.5"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Gh-Vh-K9n"/>
+                                    <constraint firstAttribute="width" constant="40" id="qnj-GK-1HF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bpC-qh-hX6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jxz-z0-uff" firstAttribute="top" secondItem="HrU-vl-xkh" secondAttribute="bottom" constant="5" id="1fN-p2-Lfj"/>
+                            <constraint firstItem="bpC-qh-hX6" firstAttribute="trailing" secondItem="Jxz-z0-uff" secondAttribute="trailing" constant="39.5" id="3qt-za-Hgi"/>
+                            <constraint firstItem="uhf-Xd-J3G" firstAttribute="top" secondItem="HrU-vl-xkh" secondAttribute="bottom" constant="5" id="Hjb-eh-oXI"/>
+                            <constraint firstItem="Jxz-z0-uff" firstAttribute="leading" secondItem="vkp-el-DYi" secondAttribute="trailing" constant="80" id="IOG-CO-Orb"/>
+                            <constraint firstItem="bpC-qh-hX6" firstAttribute="trailing" secondItem="HrU-vl-xkh" secondAttribute="trailing" constant="-339" id="J74-9f-xGT"/>
+                            <constraint firstItem="vkp-el-DYi" firstAttribute="leading" secondItem="uhf-Xd-J3G" secondAttribute="trailing" constant="70" id="jTz-Lf-GeU"/>
+                            <constraint firstItem="HrU-vl-xkh" firstAttribute="leading" secondItem="SD0-FN-xsm" secondAttribute="leading" constant="-65" id="kvo-7J-5h6"/>
+                            <constraint firstItem="vkp-el-DYi" firstAttribute="top" secondItem="HrU-vl-xkh" secondAttribute="bottom" constant="5" id="sUa-0U-nQh"/>
+                            <constraint firstItem="HrU-vl-xkh" firstAttribute="top" secondItem="SD0-FN-xsm" secondAttribute="top" constant="-17" id="uLu-fu-eGc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HWe-i9-2FL">
                         <barButtonItem key="backBarButtonItem" title="  " id="uEy-tw-b7c"/>
@@ -1960,9 +1997,11 @@
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="logow" width="405" height="616"/>
+        <image name="percent" catalog="system" width="128" height="121"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person.text.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="pic1.png" width="420" height="358"/>
         <image name="pic2.png" width="420" height="358"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>

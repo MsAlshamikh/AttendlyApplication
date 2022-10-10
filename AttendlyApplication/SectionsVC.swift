@@ -70,7 +70,7 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
      
 
        //  my.courseName.image = imageF[indexPath.row]
-        my.courseName.image = UIImage(named: "books" )
+        my.courseName.image = UIImage(named: "open" )
 
 
         my.detilasname.text = fullNameCourse[indexPath.row]
