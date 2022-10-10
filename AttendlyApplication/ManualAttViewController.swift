@@ -270,16 +270,16 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //        }
 
         if stateSt[indexPath.row] == "attend" {
-                 my.backgroundColor = #colorLiteral(red: 0.5591548681, green: 0.6860862374, blue: 0.4911993146, alpha: 1)               }
+            my.name.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)               }
         else if stateSt[indexPath.row] == "late" {
-            my.backgroundColor = #colorLiteral(red: 0.975443542, green: 0.8380891085, blue: 0.5318054557, alpha: 1)
+            my.name.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
                
         }
         else if stateSt[indexPath.row] == "absent" {
-            my.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.462745098, blue: 0.3843137255, alpha: 1)
+            my.name.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
         else if stateSt[indexPath.row] == "pending" {
-            my.backgroundColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
+            my.name.textColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
         }
 
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :

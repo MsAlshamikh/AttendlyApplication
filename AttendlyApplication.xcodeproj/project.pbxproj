@@ -35,6 +35,7 @@
 		5351558A28EDBBD300EFA29D /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351558928EDBBD300EFA29D /* SectionController.swift */; };
 		5351559028EE2F9C00EFA29D /* b1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5351558F28EE2F9C00EFA29D /* b1.png */; };
 		5351559228F0C39F00EFA29D /* TableViewhistoryStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351559128F0C39F00EFA29D /* TableViewhistoryStu.swift */; };
+		5351559828F4D33F00EFA29D /* currentClassTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351559728F4D33D00EFA29D /* currentClassTableview.swift */; };
 		5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E21A28E31C9200F423DB /* Notificationpublisher.swift */; };
 		5358E22128E329C000F423DB /* notificationHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22028E329C000F423DB /* notificationHand.swift */; };
 		5358E22328E3651700F423DB /* sectionLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22228E3651700F423DB /* sectionLectures.swift */; };
@@ -81,6 +82,7 @@
 		5351558928EDBBD300EFA29D /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		5351558F28EE2F9C00EFA29D /* b1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b1.png; sourceTree = "<group>"; };
 		5351559128F0C39F00EFA29D /* TableViewhistoryStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewhistoryStu.swift; sourceTree = "<group>"; };
+		5351559728F4D33D00EFA29D /* currentClassTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentClassTableview.swift; sourceTree = "<group>"; };
 		5358E21A28E31C9200F423DB /* Notificationpublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificationpublisher.swift; sourceTree = "<group>"; };
 		5358E22028E329C000F423DB /* notificationHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationHand.swift; sourceTree = "<group>"; };
 		5358E22228E3651700F423DB /* sectionLectures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionLectures.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				5351559728F4D33D00EFA29D /* currentClassTableview.swift */,
 				5351559128F0C39F00EFA29D /* TableViewhistoryStu.swift */,
 				5351558928EDBBD300EFA29D /* SectionController.swift */,
 				53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */,
@@ -277,6 +280,7 @@
 				53415F3828D1E899005DFA19 /* loginController.swift in Sources */,
 				53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */,
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
+				5351559828F4D33F00EFA29D /* currentClassTableview.swift in Sources */,
 				53415F3628D1E893005DFA19 /* CourseViewController.swift in Sources */,
 				53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */,
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
