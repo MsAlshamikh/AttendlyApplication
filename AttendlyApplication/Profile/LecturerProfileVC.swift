@@ -48,7 +48,7 @@ class LecturerProfileVC: UIViewController {
             self.navigationItem.rightBarButtonItem = logoutBarButton
 
         }
-        //add 
+        //add your code here
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
