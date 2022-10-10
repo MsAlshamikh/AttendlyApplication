@@ -853,14 +853,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="absent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JP-7C-iLt">
-                                                    <rect key="frame" x="227" y="47.5" width="60" height="24"/>
+                                                    <rect key="frame" x="272" y="47.5" width="60" height="24"/>
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5p-Y0-ikY">
-                                                    <rect key="frame" x="307" y="44" width="97" height="31"/>
+                                                    <rect key="frame" x="352" y="44" width="52" height="31"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system"/>
@@ -873,7 +873,6 @@
                                                 <constraint firstItem="cfw-RD-Kxg" firstAttribute="centerY" secondItem="NXa-2R-fW4" secondAttribute="centerY" id="1GG-sU-T68"/>
                                                 <constraint firstItem="ys6-gO-6Gx" firstAttribute="leading" secondItem="NXa-2R-fW4" secondAttribute="leading" constant="14" id="6Yw-gf-9sL"/>
                                                 <constraint firstItem="8JP-7C-iLt" firstAttribute="centerY" secondItem="NXa-2R-fW4" secondAttribute="centerY" id="ApP-jQ-GyK"/>
-                                                <constraint firstItem="8JP-7C-iLt" firstAttribute="leading" secondItem="Pbp-mS-qDW" secondAttribute="trailing" constant="37" id="PAR-PR-pf9"/>
                                                 <constraint firstItem="cfw-RD-Kxg" firstAttribute="leading" secondItem="ys6-gO-6Gx" secondAttribute="trailing" constant="20" id="YD9-1m-NhQ"/>
                                                 <constraint firstItem="Pbp-mS-qDW" firstAttribute="centerY" secondItem="NXa-2R-fW4" secondAttribute="centerY" id="Zob-4w-ml9"/>
                                                 <constraint firstItem="Pbp-mS-qDW" firstAttribute="leading" secondItem="cfw-RD-Kxg" secondAttribute="trailing" constant="37" id="gjF-Vs-qv1"/>

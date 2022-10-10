@@ -76,10 +76,17 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     
                     guard let state  = studentDoc.get("State") as? String else { continue }
+
                     print("state of student/",state)
-                    stateAll.append(state)
                     
+                    guard let time  = studentDoc.get("time") as? String else { continue }
+
+                    print("time of student/",time)
+                    
+                    
+                    stateAll.append(state)
                     dateAll.append(st)
+                    timeAll.append(time)
                     self.tableView.reloadData()
                 }
                 
@@ -158,9 +165,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
          }
         
         
-        
+      
         my.date.text = dateAll[indexPath.row]
-        
+        my.time.text = timeAll[indexPath.row]
 
        my.imageNumber.image = imageF[indexPath.row]
         return my
