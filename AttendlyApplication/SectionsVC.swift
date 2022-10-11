@@ -12,7 +12,7 @@ class SectionsVC: UIViewController {
    var Sectionss: String = ""
    var coursess: String = ""
    func get(){
-       
+       //here
            let db = Firestore.firestore()
        
            db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare ).getDocuments{
