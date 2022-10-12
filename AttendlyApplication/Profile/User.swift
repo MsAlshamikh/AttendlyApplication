@@ -4,7 +4,7 @@
 //
 //  Created by Modhy Abduallh on 29/02/1444 AH.
 //
-//ed
+
 import Foundation
 
 struct User : Codable {

@@ -57,6 +57,7 @@ class LecturerProfileVC: UIViewController {
     func setUIForOtherlecturerProfile () {
         logoutButton.isHidden = true
         titleLable.text = "Lecturer Profile"
+        //
         
         let emailBarButton = UIBarButtonItem( image : UIImage (systemName: "message" ),style: .plain, target: self, action: #selector(emailButtonTouched(_:)))
         

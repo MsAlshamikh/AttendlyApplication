@@ -31,7 +31,7 @@ class SectionsVC: UIViewController {
                        label.setTitle(actual[i], for: .normal)
                        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
                        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-                       label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+                       label.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.80)
                        //label.params["course"] = actual[i]
                        //!!!!!!
                        //label.tag = Int(sects[i]) ?? 0
