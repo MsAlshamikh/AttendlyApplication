@@ -52,6 +52,8 @@
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
 		A28E042428D2B088005065D9 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042328D2B087005065D9 /* pic1.png */; };
 		A28E042628D2B0BD005065D9 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042528D2B0BD005065D9 /* pic2.png */; };
+		F072EB3628F72D10005C72F7 /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3528F72D10005C72F7 /* StudentVC.swift */; };
+		F072EB3828F72F21005C72F7 /* StudentCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3728F72F21005C72F7 /* StudentCellVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
 		A28E042528D2B0BD005065D9 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
+		F072EB3528F72D10005C72F7 /* StudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
+		F072EB3728F72F21005C72F7 /* StudentCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCellVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				F072EB3728F72F21005C72F7 /* StudentCellVC.swift */,
+				F072EB3528F72D10005C72F7 /* StudentVC.swift */,
 				5351559728F4D33D00EFA29D /* currentClassTableview.swift */,
 				5351559128F0C39F00EFA29D /* TableViewhistoryStu.swift */,
 				5351558928EDBBD300EFA29D /* SectionController.swift */,
@@ -288,9 +294,11 @@
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
 				53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */,
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,
+				F072EB3828F72F21005C72F7 /* StudentCellVC.swift in Sources */,
 				5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
+				F072EB3628F72D10005C72F7 /* StudentVC.swift in Sources */,
 				53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */,
 				5358E22128E329C000F423DB /* notificationHand.swift in Sources */,
 				5358E22328E3651700F423DB /* sectionLectures.swift in Sources */,

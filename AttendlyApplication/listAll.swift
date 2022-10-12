@@ -26,15 +26,17 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var emailStudent = [String]()
     var idStudent = [String]()
     var v: String = ""
+    var sectionName = ""
     
-     var percentagestu = [String]()
+    var percentagestu = [String]()
     
     var doubles = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     zeroStudent.isHidden = true
+       
+      
+        zeroStudent.isHidden = true
 
         print("what pressed is ")
         print(v)
@@ -57,11 +59,12 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
      let text1 = NSMutableAttributedString()
+
        text1.append(NSAttributedString(string: ""
                                   ));
         text1.append(NSAttributedString(string: v));
         nameSection.attributedText = text1
-       
+        sectionName = nameSection.text!
         // let d = Int(date.split(separator: "-")[0])!
         
       //  var spliting = percentagestu.split(separator: "%")
@@ -107,6 +110,25 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(emails)
 
         return my
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+                
+                let currentCell = tableView.cellForRow(at: indexPath)! as! customTableviewControolerTableViewCell   // THE SOLUTION
+                let v = currentCell.idStu!.text!
+                print("is preeesed", v)
+        
+               let stude = storyboard?.instantiateViewController(withIdentifier: "StudentVC") as! StudentVC
+        
+               stude.v = v // id student 
+               stude.sectionName = sectionName
+               print("here course is ", sectionName)
+       
+        
+        navigationController?.pushViewController(stude, animated: true)
+    
+    
     }
     
 
