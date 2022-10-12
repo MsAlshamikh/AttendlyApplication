@@ -10,18 +10,31 @@ import MobileCoreServices
 import UniformTypeIdentifiers
 import FirebaseFirestore
 var x = ""
-class FormVC: UIViewController , UITextFieldDelegate{
+class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
     @IBOutlet weak var TitleTixtFeild: UITextField!
     
+    @IBOutlet weak var messR: UILabel!
+    @IBOutlet weak var messT: UILabel!
     @IBOutlet weak var imp: UIButton!
     @IBOutlet weak var ReasonTextFeild: UITextField!
+    @IBOutlet weak var reasonText: UITextView!
+    @IBOutlet weak var titleView: UITextView!
     
     @IBOutlet weak var cnacelBtn: UIButton!
     @IBOutlet var label: UILabel!
     @IBOutlet weak var SendBtn: UIButton!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        self.TitleTixtFeild.delegate = self
+        reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        reasonText.layer.borderWidth = 1.0
+        reasonText.layer.cornerRadius = 5
+        titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        titleView.layer.borderWidth = 1.0
+        titleView.layer.cornerRadius = 5
+        self.titleView.delegate = self
+        self.reasonText.delegate = self
+
        
         let db = Firestore.firestore()
         Task {
@@ -68,7 +81,7 @@ class FormVC: UIViewController , UITextFieldDelegate{
 
         // Do any additional setup after loading the view.
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textUITextViewShouldReturn(_ textField: UITextView) -> Bool {
         textField.resignFirstResponder()
  
         return(true)
@@ -77,7 +90,28 @@ class FormVC: UIViewController , UITextFieldDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+    func isValid() -> (Bool, String, String) {
+        messT.isHidden = true   // not show
+        messR.isHidden = true
+        
+        guard let tit = titleView.text?.trimmingCharacters(in: .whitespaces).lowercased() , !tit.isEmpty
+        else {
+            messT.isHidden = false
+            messT.text = "Title can not be empty!"
+            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            return (false, "", "")
+        }
+        guard let res = reasonText.text, !res.isEmpty else {
+            messR.isHidden = false
+            messR.text = "Reason can not be empty!"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            return (false, "", "")
+        }
+        
+        
+        
+        return (true, tit, res)
+    }
 
     /*
     // MARK: - Navigation
@@ -107,10 +141,46 @@ class FormVC: UIViewController , UITextFieldDelegate{
     }
   
     @IBAction func sendPressed(_ sender: Any) {
+        let res = isValid()
+        if res.0 == false {
+            return
+        }
+    //    var actual = [String]()
+        let title = res.1
+        let reason = res.2
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
+         // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             print("Ok button tapped")
+          })
+         //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
         
-        
+        dialogMessage.addAction(UIAlertAction(title: "Cancel",
+                                      style: .cancel,
+                                      handler: { _ in print("Cancel tap") }))
+
+         
+        // Present Alert to
+         self.present(dialogMessage, animated: true, completion: nil)
+      
     }
     @IBAction func cancelPressed(_ sender: Any) {
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to cancel ", preferredStyle: .alert)
+         // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             print("Ok button tapped")
+          })
+         //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        
+        dialogMessage.addAction(UIAlertAction(title: "Cancel",
+                                      style: .cancel,
+                                      handler: { _ in print("Cancel tap") }))
+
+         
+        // Present Alert to
+         self.present(dialogMessage, animated: true, completion: nil)
     }
     
 }
