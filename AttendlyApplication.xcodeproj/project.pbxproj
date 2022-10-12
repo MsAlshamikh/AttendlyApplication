@@ -50,6 +50,7 @@
 		A2A83AC328EF77EC000707D9 /* logoNEW.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A83AC228EF77EB000707D9 /* logoNEW.png */; };
 		A2A83AC528EF7948000707D9 /* logoNEWsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A83AC428EF7947000707D9 /* logoNEWsmall.png */; };
 		A2A83AC928EF7CD8000707D9 /* logoNEW 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A83AC828EF7CD7000707D9 /* logoNEW 2.png */; };
+		A2CAED0B28F732F200E9D284 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2CAED0A28F732F200E9D284 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		A2A83AC228EF77EB000707D9 /* logoNEW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoNEW.png; path = ../../../../Desktop/logoNEW.png; sourceTree = "<group>"; };
 		A2A83AC428EF7947000707D9 /* logoNEWsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoNEWsmall.png; path = ../../../../Desktop/logoNEWsmall.png; sourceTree = "<group>"; };
 		A2A83AC828EF7CD7000707D9 /* logoNEW 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logoNEW 2.png"; path = "../../../../Desktop/logoNEW 2.png"; sourceTree = "<group>"; };
+		A2CAED0A28F732F200E9D284 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				A2CAED0A28F732F200E9D284 /* Launch Screen.storyboard */,
 				53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */,
 				5358E22C28E38CD000F423DB /* customAttendTable.swift */,
 				34145F3728CFDF3300B073ED /* AttendlyApplication */,
@@ -251,6 +254,7 @@
 				A2A83AC528EF7948000707D9 /* logoNEWsmall.png in Resources */,
 				A2A83AC928EF7CD8000707D9 /* logoNEW 2.png in Resources */,
 				53415F4228D1E923005DFA19 /* Main.storyboard in Resources */,
+				A2CAED0B28F732F200E9D284 /* Launch Screen.storyboard in Resources */,
 				34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */,
 				A2A83AC328EF77EC000707D9 /* logoNEW.png in Resources */,
 				A2A83AC128EF770E000707D9 /* pic1.png in Resources */,
