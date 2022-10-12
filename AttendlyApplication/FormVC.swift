@@ -94,16 +94,27 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
         messT.isHidden = true   // not show
         messR.isHidden = true
         
-        guard let tit = titleView.text?.trimmingCharacters(in: .whitespaces).lowercased() , !tit.isEmpty
-        else {
-            messT.isHidden = false
-            messT.text = "Title can not be empty!"
-            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            return (false, "", "")
-        }
+      
         guard let res = reasonText.text, !res.isEmpty else {
             messR.isHidden = false
-            messR.text = "Reason can not be empty!"
+            messR.text = "Can not be empty!"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            return (false, "", "")
+        }
+        guard let tit = titleView.text?.trimmingCharacters(in: .whitespaces).lowercased() , !tit.isEmpty else {
+            messT.isHidden = false
+            messT.text = "Can not be empty!"
+            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            messR.isHidden = false
+            return (false, "", "")
+        }
+        guard let tit = titleView.text?.trimmingCharacters(in: .whitespaces).lowercased() , !tit.isEmpty, let res = reasonText.text?.trimmingCharacters(in: .whitespaces).lowercased(), !res.isEmpty
+        else {
+            messT.isHidden = false
+            messT.text = "Can not be empty!"
+            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            messR.isHidden = false
+            messR.text = "Can not be empty!"
             reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             return (false, "", "")
         }
@@ -145,7 +156,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
         if res.0 == false {
             return
         }
-    //    var actual = [String]()
+    //   code
         let title = res.1
         let reason = res.2
         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
