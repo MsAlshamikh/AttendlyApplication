@@ -17,4 +17,5 @@ class customAttendTable: UITableViewCell {
    // @IBOutlet weak var serialNnumber: UILabel!
     @IBOutlet var img: UIImageView!
     
+    @IBOutlet weak var AttendToabsent: UIButton!
 }

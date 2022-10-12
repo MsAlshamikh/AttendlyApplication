@@ -37,7 +37,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
      //  nostudent.isHidden = true
-
+       // self.tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.339857161, green: 0.69448632, blue: 0.8468429446, alpha: 1)
         print("what pressed is ")
         print(v)
         print("name of student")
@@ -208,8 +208,16 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //      }
 //    }
 //    } //fun
+    
+    @IBAction func AttendPress(_ sender: UIButton) {
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         print(indexPath)
+   
+        let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
+
+        
       tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
@@ -243,12 +251,67 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                 
                 print("done")
                 stateSt[indexPath.row] = "attend"
+                my.AttendToabsent.isHidden = false
+                
+              
                 tableView.reloadData()
             //  cell.backgroundColor = UIColor.black
                 networking = false
             }
         }
         
+        //
+        
+        if state == "attend"  {
+            
+            if networking {
+                return
+            }
+            let email = emailSt[indexPath.row]
+            
+            
+            
+            let date = Date()
+            let calunder = Calendar.current
+            let day = calunder.component(.day , from: date)
+            let month = calunder.component(.month , from: date)
+            let year = calunder.component(.year , from: date)
+            let thed = "\(day)-\(month)-\(year)"
+            Task {
+               
+            //    let db = Firestore.firestore()
+                
+                networking = true
+                guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+                
+                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+                
+                try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+                
+                print("done")
+              
+                stateSt[indexPath.row] = "absent"
+                
+              
+                tableView.reloadData()
+            //  cell.backgroundColor = UIColor.black
+                networking = false
+            }
+        }
+        
+        
+        //
+        
+        
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+       // let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
+        if let my = tableView.cellForRow(at: indexPath) as? customAttendTable {
+            my.AttendToabsent.isHidden = true
+            print("is didselct???")
+                }
+        print("???")
+      //  my.AttendToabsent.isHidden = true
         
     }
     
@@ -261,7 +324,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     print("s")
         let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         
-        
+      //  my.AttendToabsent.isHidden = true
 
         my.state.text =  nameStudent[indexPath.row]
         
@@ -270,16 +333,21 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //        }
 
         if stateSt[indexPath.row] == "attend" {
-            my.name.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)               }
+            my.name.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            my.AttendToabsent.isHidden = true
+        }
         else if stateSt[indexPath.row] == "late" {
             my.name.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
                
         }
         else if stateSt[indexPath.row] == "absent" {
+            
             my.name.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            my.AttendToabsent.isHidden = false
         }
         else if stateSt[indexPath.row] == "pending" {
             my.name.textColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
+            my.AttendToabsent.isHidden = true
         }
 
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
@@ -288,7 +356,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
        // my.serialNnumber.text = serialNumber[indexPath.row]
         my.img.image = UIImage(named: "girl2" )
         
-        
+     
     
         
       
