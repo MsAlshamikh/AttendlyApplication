@@ -12,14 +12,12 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-   
-    
-    
     @IBOutlet weak var courseLabel: UILabel!
     @IBOutlet weak var sectionLabel: UILabel!
     @IBOutlet weak var lecturerLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
     var WhatPressed: String = ""
     var stateAll = [String]()
     var  dateAll = [String]()
@@ -31,11 +29,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var email: String = ""
     var adv: String = ""
     var lecturerId : String?
+  
     
-    @IBAction func whenPress(_ sender: UIButton) {
-        print("now your exucetion absent // shamma")
-    }
+   
     
+    
+    //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    print("now your exucetion absent // shamma")
+    
+   
     
     
        let imageF = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2")]
@@ -144,11 +146,50 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return stateAll.count
     }
     
+    
+//    func pressex(sender: UIButton) {
+//        print(" shamma8888")
+//        var buttonNumber = sender.tag
+//print("buttonNumber",buttonNumber)
+//
+//}
+    
+    @objc func didTapCellButton(sender: UIButton) {
+   // guard viewModels.indices.contains(sender.tag) else { return } // check element exist in tableview datasource
+
+        //Configure selected button or update model
+       
+        print("kkkkkkkkk",sender)
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
+//
+//        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewhistoryStu
+//          let vv = currentCell.date.text!
+//        print("vv",vv)
+//         // my.execution.setTitle(vv,for: .normal)
+//          my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+//
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
         
         my.execution.isHidden = true
+       
+       my.execution.tag = indexPath.row
         
+    
+    
+      //    let vv = my.date.text!
+    //    print("vv",vv)
+        
+         // my.execution.setTitle(vv,for: .normal)
+    my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+
       //  my.state.text = stateAll[indexPath.row]
         if stateAll[indexPath.row] == "absent" {
             my.state.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
@@ -179,6 +220,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func lecturerNameTapped(_ sender:UITapGestureRecognizer) {
         performSegue(withIdentifier: "si_courseDetailToLecturerProfile", sender: nil)
     }
+    
+    
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

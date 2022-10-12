@@ -8,8 +8,10 @@
 import Firebase
 import UIKit
 
-class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource  {
+class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UISearchBarDelegate {
 
+    @IBOutlet weak var search: UISearchBar!
+    
     @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var nameCourse: UILabel!
@@ -17,6 +19,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     @IBOutlet weak var cuurentDate: UILabel!
     
     var nameStudent = [String]()
+   
+    var filterName : [String]!
+    
+    
   //  var emailStudent = [String]()
     var stateSt = [String]()
     var emailSt = [String]()
@@ -32,10 +38,18 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     let refreshControl = UIRefreshControl()
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        filterName = nameStudent
+        
+        search.delegate = self
      //  nostudent.isHidden = true
        // self.tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.339857161, green: 0.69448632, blue: 0.8468429446, alpha: 1)
         print("what pressed is ")
@@ -160,57 +174,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         }
         
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//    Task{
-//      do{
-//           try await db.collection("studentsByCourse").addSnapshotListener { snapshot, error in
-//                    if let error = error {
-//                        print("error")
-//                        return
-//                    }
-//                    for document in snapshot!.documents{
-//                        print("doc: \(document.data())")
-//                        let documentID = document.documentID
-//                        let snp = await self.db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
-//
-//
-//
-//                         print("here")
-//                         print(snp.documents.count)
-//                         print(snp.documents)
-//
-//                         for studentDoc in snp.documents {
-//                             guard let state  = studentDoc.get("State") as? String else { continue }
-//                             guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
-//                             guard let name  = studentDoc.get("name") as? String else { continue }
-//                             guard let id = studentDoc.get("id") as? String else { continue }
-//                             guard let ser = studentDoc.get("SerialNum") as? String else { continue }
-//
-//                             print("name of student/",name)
-//                             print("state of student/",state)
-//                             print("email of student/",email)
-//                             print("id of student/",id)
-//                             print("serial N of student/",id)
-//
-//
-//                             studentArry.append(name)
-//                             stateArray.append(state)
-//                             emailArray.append(email)
-//                             idArray.append(id)
-//                             seArray.append(ser)
-//
-//                    }
-//                }  //for
-//    }
-//        //}
-//      } catch{
-//          print("error is ")
-//      }
-//    }
-//    } //fun
     
     @IBAction func AttendPress(_ sender: UIButton) {
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(indexPath)
@@ -300,7 +267,6 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         }
         
         
-        //
         
         
     }
@@ -317,7 +283,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
-        return nameStudent.count
+        return filterName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -379,8 +345,28 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
         }
     
-    @IBAction func unwind(segue: UIStoryboardSegue ){
-        
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        filterName = []
+//        if searchText == "" {
+//            filterName = nameStudent
+//        }
+//        else{
+//        for name in nameStudent{
+//            if name.lowercased().contains(searchText.lowercased()){
+//                print("yee")
+//                filterName.append(name)
+//            }
+//        }
+//        }
+        filterName = searchText.isEmpty ? nameStudent : nameStudent.filter({(dataString: String) -> Bool in
+                // If dataItem matches the searchText, return true to include it
+                return dataString.range(of: searchText, options: .caseInsensitive) != nil
+            })
+
+         
+        self.tableview.reloadData()
     }
+    
+    
     
 }

@@ -69,7 +69,10 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
         return my
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+        
+    }
 //    func get(){
 //           let db = Firestore.firestore()
 //           db.collection("classes").whereField("LecturerEmail", isEqualTo: Global.shared.useremailshare ).getDocuments{

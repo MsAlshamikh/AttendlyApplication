@@ -47,6 +47,7 @@
 		53AF1B8C28DE46D500F77178 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 53AF1B8B28DE46D500F77178 /* girl.png */; };
 		53AF1B8F28DE67D900F77178 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 53AF1B8E28DE67D900F77178 /* FirebaseMessaging */; };
 		53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */; };
+		53B59CC828F76BC100977C32 /* teee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CC728F76BC100977C32 /* teee.swift */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
@@ -93,6 +94,7 @@
 		53AF1B8328DAA95000F77178 /* listAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listAll.swift; sourceTree = "<group>"; };
 		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableviewControolerTableViewCell.swift; sourceTree = "<group>"; };
+		53B59CC728F76BC100977C32 /* teee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teee.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				53B59CC728F76BC100977C32 /* teee.swift */,
 				5351559728F4D33D00EFA29D /* currentClassTableview.swift */,
 				5351559128F0C39F00EFA29D /* TableViewhistoryStu.swift */,
 				5351558928EDBBD300EFA29D /* SectionController.swift */,
@@ -285,6 +288,7 @@
 				53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */,
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
 				5358E22B28E3897100F423DB /* ManualAttViewController.swift in Sources */,
+				53B59CC828F76BC100977C32 /* teee.swift in Sources */,
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
 				53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */,
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,

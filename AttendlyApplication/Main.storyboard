@@ -296,6 +296,7 @@
                     <connections>
                         <outlet property="cuurentDate" destination="FJE-yA-xla" id="trn-Ph-LIL"/>
                         <outlet property="nameCourse" destination="dz7-D2-reh" id="OK4-Vy-Q9X"/>
+                        <outlet property="search" destination="ZZ6-yZ-kr6" id="dcl-oY-Mgg"/>
                         <outlet property="tableview" destination="Zoi-MT-cPN" id="eSB-9c-9tS"/>
                     </connections>
                 </viewController>
@@ -971,9 +972,6 @@
                                                     <color key="tintColor" systemColor="labelColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up.on.square.fill" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="whenPress:" destination="ohY-Lt-pod" eventType="touchUpInside" id="S53-6n-Qqi"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1062,11 +1060,28 @@
                         <outlet property="sectionLabel" destination="7Ln-SJ-7yD" id="hWr-qK-3Wm"/>
                         <outlet property="tableView" destination="BV4-vJ-nZM" id="97e-9o-kjx"/>
                         <segue destination="lqJ-Vg-vD0" kind="show" identifier="si_courseDetailToLecturerProfile" id="G1y-3w-L4w"/>
+                        <segue destination="Vka-Gw-ijo" kind="show" identifier="execution" id="veK-6K-FRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im6-CL-Kwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5813.04347826087" y="-990.40178571428567"/>
+        </scene>
+        <!--Teee-->
+        <scene sceneID="aLo-vX-WNW">
+            <objects>
+                <viewController storyboardIdentifier="teee" id="Vka-Gw-ijo" customClass="teee" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qdp-Cw-nox">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cqr-KS-nXe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0je-bH-nnE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Bp-af-hzk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6523" y="-1019"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="HJM-LR-wSk">
@@ -1324,7 +1339,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WEA-4i-yV4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-730" y="169"/>
+            <point key="canvasLocation" x="-730" y="198"/>
         </scene>
         <!--New CourseVC-->
         <scene sceneID="AU4-bV-QZE">
