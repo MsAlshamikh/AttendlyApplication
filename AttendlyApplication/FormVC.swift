@@ -100,7 +100,7 @@ extension FormVC: UIDocumentPickerDelegate{
                 print(section, str_arr)
                 if !str_arr.contains(section) { continue }
               //  print(thed)
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: d).getDocuments() //startDate
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: d).whereField("nameC", isEqualTo: "SWE381").getDocuments() //startDate
                 
                 let courseName = t_snapshot.documents.first?.data()["courseN"] as! String
 
@@ -156,3 +156,44 @@ extension FormVC: UIDocumentPickerDelegate{
     
     
 }
+/* {
+ 
+ let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "SWE381").getDocuments()
+
+//   let st = t_snapshot.documents.first?.data()["st"] as! String
+ 
+//     print("st is :" , st)
+ for doc in t_snapshot.documents {
+     let documentID = doc.documentID
+     
+     let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+     print(snp.documents.count)
+ //      let st = t_snapshot.documents.first?.data()["st"] as! String
+     
+     guard let st  = doc.get("st") as? String else { continue }
+
+     print("st is :" , st)
+     for studentDoc in snp.documents {
+         
+         
+         guard let state  = studentDoc.get("State") as? String else { continue }
+
+         print("state of student/",state)
+         
+         guard let time  = studentDoc.get("time") as? String else { continue }
+
+         print("time of student/",time)
+         
+         
+         stateAll.append(state)
+         dateAll.append(st)
+  
+         self.tableView.reloadData()
+     }
+     
+     
+ }
+ 
+ 
+ 
+}*/
