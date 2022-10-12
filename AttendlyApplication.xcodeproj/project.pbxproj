@@ -38,6 +38,7 @@
 		5358E22B28E3897100F423DB /* ManualAttViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22A28E3897100F423DB /* ManualAttViewController.swift */; };
 		5358E22D28E38CD000F423DB /* customAttendTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E22C28E38CD000F423DB /* customAttendTable.swift */; };
 		5358E23328E72C4800F423DB /* NewCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5358E23228E72C4800F423DB /* NewCourseVC.swift */; };
+		53636BA028F69624006F0A6A /* StudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53636B9F28F69624006F0A6A /* StudentInfoViewController.swift */; };
 		53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8128DA475D00F77178 /* listOfstudent.swift */; };
 		53AF1B8428DAA95000F77178 /* listAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B8328DAA95000F77178 /* listAll.swift */; };
 		53AF1B8C28DE46D500F77178 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 53AF1B8B28DE46D500F77178 /* girl.png */; };
@@ -81,6 +82,7 @@
 		5358E22A28E3897100F423DB /* ManualAttViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualAttViewController.swift; sourceTree = "<group>"; };
 		5358E22C28E38CD000F423DB /* customAttendTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customAttendTable.swift; sourceTree = "<group>"; };
 		5358E23228E72C4800F423DB /* NewCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCourseVC.swift; sourceTree = "<group>"; };
+		53636B9F28F69624006F0A6A /* StudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewController.swift; sourceTree = "<group>"; };
 		53AF1B8128DA475D00F77178 /* listOfstudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listOfstudent.swift; sourceTree = "<group>"; };
 		53AF1B8328DAA95000F77178 /* listAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listAll.swift; sourceTree = "<group>"; };
 		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
+				53636B9F28F69624006F0A6A /* StudentInfoViewController.swift */,
 				53AF1B8328DAA95000F77178 /* listAll.swift */,
 				5358E22A28E3897100F423DB /* ManualAttViewController.swift */,
 				53415F2D28D1E878005DFA19 /* AdvisorVC.swift */,
@@ -283,6 +286,7 @@
 				34145F3B28CFDF3300B073ED /* SceneDelegate.swift in Sources */,
 				53415F3428D1E88C005DFA19 /* ProfileViewContoller.swift in Sources */,
 				56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */,
+				53636BA028F69624006F0A6A /* StudentInfoViewController.swift in Sources */,
 				53AF1B8428DAA95000F77178 /* listAll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

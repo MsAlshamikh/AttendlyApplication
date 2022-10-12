@@ -11,8 +11,8 @@ import FirebaseFirestore
 class AdvisorVC: UIViewController {
     var Sectionss: String = ""
     var coursess: String = ""
-    var students: [String] = []
-    var allStudents: [String] = []
+    var students: [[String: Any]] = []
+    var allStudents: [[String: Any]] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
@@ -35,18 +35,16 @@ class AdvisorVC: UIViewController {
                             return
                         }
                         
-                        var students: [String] = []
+                        var students: [[String: Any]] = []
                         let docs = snapshot.documents
                         print("Docs... ", docs)
                         for i in 0..<docs.count {
                             let document = docs[i].data()
-                            let Fullname = document ["Fullname"] as? String ?? ""
-                            students.append(Fullname)
+                            students.append(document)
 //
                         }
                         self?.students = students
                         self?.allStudents = students
-                        //self?.displayStudents(students: students)
                         
                         self?.tableview.reloadData()
                         self?.toggleNoStudentsFound(show: students.count == 0)
@@ -136,7 +134,8 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
             //displayStudents(students: self.students)
         } else {
             let filteredStudents = self.students.filter { student in
-                student.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                let fullName = student["Fullname"] as? String ?? ""
+                return fullName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
                // guard let email = emailTextfiled.text?.trimmingCharacters(in: .whitespaces)
             }
             self.students = filteredStudents
@@ -158,10 +157,19 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     print("s ADVISOR")
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! customTableviewControolerTableViewCell
-        
-        my.nostudent.text = students[indexPath.row]
+        let student = students[indexPath.row]
+        let fullName = student["Fullname"] as? String ?? ""
+        my.nostudent.text = fullName
         my.person.image = UIImage(named: "girl" )
         
         return my
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let student = students[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let vc = storyboard.instantiateViewController(identifier: "StudentInfoViewController") as! StudentInfoViewController
+        vc.student = student
+        self.present(vc, animated: true)
     }
 }
