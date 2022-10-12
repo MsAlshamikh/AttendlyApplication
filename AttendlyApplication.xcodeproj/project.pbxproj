@@ -51,6 +51,8 @@
 		A2A83AC528EF7948000707D9 /* logoNEWsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A83AC428EF7947000707D9 /* logoNEWsmall.png */; };
 		A2A83AC928EF7CD8000707D9 /* logoNEW 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A83AC828EF7CD7000707D9 /* logoNEW 2.png */; };
 		A2CAED0B28F732F200E9D284 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2CAED0A28F732F200E9D284 /* Launch Screen.storyboard */; };
+		A2CAED0D28F7455500E9D284 /* animated-check.gif in Resources */ = {isa = PBXBuildFile; fileRef = A2CAED0C28F7455500E9D284 /* animated-check.gif */; };
+		A2CAED0F28F746A600E9D284 /* SPSH.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CAED0E28F746A600E9D284 /* SPSH.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		A2A83AC428EF7947000707D9 /* logoNEWsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoNEWsmall.png; path = ../../../../Desktop/logoNEWsmall.png; sourceTree = "<group>"; };
 		A2A83AC828EF7CD7000707D9 /* logoNEW 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logoNEW 2.png"; path = "../../../../Desktop/logoNEW 2.png"; sourceTree = "<group>"; };
 		A2CAED0A28F732F200E9D284 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A2CAED0C28F7455500E9D284 /* animated-check.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "animated-check.gif"; path = "../../../../Desktop/animated-check.gif"; sourceTree = "<group>"; };
+		A2CAED0E28F746A600E9D284 /* SPSH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPSH.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
+				A2CAED0E28F746A600E9D284 /* SPSH.swift */,
 				53AF1B8328DAA95000F77178 /* listAll.swift */,
 				5358E22A28E3897100F423DB /* ManualAttViewController.swift */,
 				53415F2D28D1E878005DFA19 /* AdvisorVC.swift */,
@@ -163,6 +168,7 @@
 				5358E21A28E31C9200F423DB /* Notificationpublisher.swift */,
 				5358E22028E329C000F423DB /* notificationHand.swift */,
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
+				A2CAED0C28F7455500E9D284 /* animated-check.gif */,
 				A2A83AC828EF7CD7000707D9 /* logoNEW 2.png */,
 				A2A83AC428EF7947000707D9 /* logoNEWsmall.png */,
 				A2A83ABF28EF770D000707D9 /* pic1.png */,
@@ -259,6 +265,7 @@
 				A2A83AC328EF77EC000707D9 /* logoNEW.png in Resources */,
 				A2A83AC128EF770E000707D9 /* pic1.png in Resources */,
 				53415F4828D23721005DFA19 /* Att.jpg in Resources */,
+				A2CAED0D28F7455500E9D284 /* animated-check.gif in Resources */,
 				34145F4228CFDF3400B073ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +294,7 @@
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,
 				5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
+				A2CAED0F28F746A600E9D284 /* SPSH.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */,
 				5358E22128E329C000F423DB /* notificationHand.swift in Sources */,
