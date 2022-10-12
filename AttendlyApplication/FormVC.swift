@@ -8,7 +8,8 @@
 import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
-
+import FirebaseFirestore
+var x = ""
 class FormVC: UIViewController {
 
     @IBOutlet var label: UILabel!
@@ -29,6 +30,16 @@ class FormVC: UIViewController {
     }
     */
 //
+    @IBAction func openFile(_ sender: Any) {
+        if let url = Bundle.main.url(forResource: x, withExtension: "pdf"){
+            let webView = UIWebView (frame: self.view.frame)
+            let urlr = URLRequest(url: url)
+            webView.loadRequest(urlr as URLRequest)
+            self.view.addSubview(webView)
+        }
+        
+    }
+    
     @IBAction func importFile(_ sender: Any) {
         let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.jpeg, .png, .pdf])
         //change the type ^^^^
@@ -49,6 +60,7 @@ class FormVC: UIViewController {
 extension FormVC: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         label.text = url.lastPathComponent
+       x = url.lastPathComponent
         print( url.lastPathComponent)
        // let ff = url.path
       //  label.text! += ff
@@ -67,4 +79,121 @@ extension FormVC: UIDocumentPickerDelegate{
  
    
     }
+    func spl(x:String) {
+        var str = x
+        var result = str.split(separator: "-")
+        result.removeFirst()
+        var str_arr: [String] = result.map { String($0) }
+         let tag = str_arr[0]
+        
+        let db = Firestore.firestore()
+        
+        Task {
+           
+            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
+            let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
+           var d = "30-9-2022"
+           // let name: String = snapshot.documents.first?.data()["name"] as! String
+            let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
+            
+            for section in sections {
+                print(section, str_arr)
+                if !str_arr.contains(section) { continue }
+              //  print(thed)
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: d).whereField("nameC", isEqualTo: "SWE381").getDocuments() //startDate
+                
+                let courseName = t_snapshot.documents.first?.data()["courseN"] as! String
+
+                print("$$$$$$$$$$$$$")
+                print(t_snapshot.documents.count)
+               
+                
+              
+            
+
+                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
+                print("docID", documentID)
+
+                
+                let exist = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                
+               
+                guard let state  = exist.documents.first?.get("State") as? String else { continue }
+                print("state/ +++++++++++++++ ",state)
+                
+                if (state == "absent" ){
+                    
+                   
+                }
+                
+                else {
+                
+                var flag = ""
+               
+ 
+               
+                
+                
+                let info =  db.collection("studentsByCourse").document(documentID)
+                guard let student_id = try await info.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments().documents.first?.documentID else { continue }
+                
+                try await info.collection("students").document(student_id).setData(["State": flag], merge: true)
+                
+            
+                 
+          
+           
+            
+            // Create new Alert
+          
+          
+        } // else
+        }//loop
+        }//task
+    }// split
+
+    
+    
+    
 }
+/* {
+ 
+ let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "SWE381").getDocuments()
+
+//   let st = t_snapshot.documents.first?.data()["st"] as! String
+ 
+//     print("st is :" , st)
+ for doc in t_snapshot.documents {
+     let documentID = doc.documentID
+     
+     let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+     print(snp.documents.count)
+ //      let st = t_snapshot.documents.first?.data()["st"] as! String
+     
+     guard let st  = doc.get("st") as? String else { continue }
+
+     print("st is :" , st)
+     for studentDoc in snp.documents {
+         
+         
+         guard let state  = studentDoc.get("State") as? String else { continue }
+
+         print("state of student/",state)
+         
+         guard let time  = studentDoc.get("time") as? String else { continue }
+
+         print("time of student/",time)
+         
+         
+         stateAll.append(state)
+         dateAll.append(st)
+  
+         self.tableView.reloadData()
+     }
+     
+     
+ }
+ 
+ 
+ 
+}*/
