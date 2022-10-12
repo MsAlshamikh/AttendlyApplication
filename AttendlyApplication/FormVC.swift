@@ -10,13 +10,72 @@ import MobileCoreServices
 import UniformTypeIdentifiers
 import FirebaseFirestore
 var x = ""
-class FormVC: UIViewController {
-
+class FormVC: UIViewController , UITextFieldDelegate{
+    @IBOutlet weak var TitleTixtFeild: UITextField!
+    
+    @IBOutlet weak var imp: UIButton!
+    @IBOutlet weak var ReasonTextFeild: UITextField!
+    
+    @IBOutlet weak var cnacelBtn: UIButton!
     @IBOutlet var label: UILabel!
+    @IBOutlet weak var SendBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.TitleTixtFeild.delegate = self
+       
+        let db = Firestore.firestore()
+        Task {
+         
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "").getDocuments()
+           
+         //   let st = t_snapshot.documents.first?.data()["st"] as! String
+            
+       //     print("st is :" , st)
+            for doc in t_snapshot.documents {
+                let documentID = doc.documentID
+                
+                let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).whereField("State", isEqualTo: "absent").getDocuments()
+                print(snp.documents.count)
+            //      let st = t_snapshot.documents.first?.data()["st"] as! String
+                
+                 let st  = doc.get("st") as? String
+
+                print("st is :" , st)
+                for studentDoc in snp.documents {
+                    
+                    
+                    guard let state  = studentDoc.get("State") as? String else { continue }
+
+                    print("state of student/",state)
+                    
+                    guard let time  = studentDoc.get("time") as? String else { continue }
+
+                    print("time of student/",time)
+                    
+                    
+                   // stateAll.append(state)
+                   // dateAll.append(st)
+                    //timeAll.append(time)
+                   // self.tableView.reloadData()
+                }
+                
+                
+            }
+            
+            
+            
+        } //task
 
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+ 
+        return(true)
+    }
+    //touch out
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 
@@ -30,15 +89,7 @@ class FormVC: UIViewController {
     }
     */
 //
-    @IBAction func openFile(_ sender: Any) {
-        if let url = Bundle.main.url(forResource: x, withExtension: "pdf"){
-            let webView = UIWebView (frame: self.view.frame)
-            let urlr = URLRequest(url: url)
-            webView.loadRequest(urlr as URLRequest)
-            self.view.addSubview(webView)
-        }
-        
-    }
+  
     
     @IBAction func importFile(_ sender: Any) {
         let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.jpeg, .png, .pdf])
@@ -53,9 +104,15 @@ class FormVC: UIViewController {
       //  print("")
       //  print(documentPicker)
         
+    }
+  
+    @IBAction func sendPressed(_ sender: Any) {
+        
         
     }
- 
+    @IBAction func cancelPressed(_ sender: Any) {
+    }
+    
 }
 extension FormVC: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
@@ -74,12 +131,14 @@ extension FormVC: UIDocumentPickerDelegate{
         }
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-
+        imp.backgroundColor = UIColor( white: 0xD6D6D6, alpha: 0.5)
+       
     } //user closes the picker without making any selection
  
-   
+        imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
     }
-    func spl(x:String) {
+
+   /* func spl(x:String) {
         var str = x
         var result = str.split(separator: "-")
         result.removeFirst()
@@ -151,10 +210,9 @@ extension FormVC: UIDocumentPickerDelegate{
         }//loop
         }//task
     }// split
+    */
 
-    
-    
-    
+  
 }
 /* {
  

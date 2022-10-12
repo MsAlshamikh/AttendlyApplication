@@ -150,6 +150,7 @@
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
+				34CE577128F7316C00C4C394 /* FormVC.swift */,
 				53AF1B8328DAA95000F77178 /* listAll.swift */,
 				5358E22A28E3897100F423DB /* ManualAttViewController.swift */,
 				53415F2D28D1E878005DFA19 /* AdvisorVC.swift */,
@@ -177,7 +178,6 @@
 				53415F4728D23720005DFA19 /* Att.jpg */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
-				34CE577128F7316C00C4C394 /* FormVC.swift */,
 				34145F5528CFE15F00B073ED /* GoogleService-Info.plist */,
 			);
 			path = AttendlyApplication;
