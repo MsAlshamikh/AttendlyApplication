@@ -27,6 +27,10 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var idStudent = [String]()
     var v: String = ""
     var sectionName = ""
+    var SingleEmail: String = ""
+    var SingleName: String = ""
+    
+    let db = Firestore.firestore()
     
     var percentagestu = [String]()
     
@@ -119,15 +123,24 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let v = currentCell.idStu!.text!
                 print("is preeesed", v)
         
+        Task{
+               let snapshot = try await db.collection("Unistudent").whereField("studentID", isEqualTo: v).getDocuments()
+               guard let EmailStu = snapshot.documents.first?.get("StudentEmail") as? String else { return }
+               guard let NameStu = snapshot.documents.first?.get("Fullname") as? String else { return }
+               
+            
                let stude = storyboard?.instantiateViewController(withIdentifier: "StudentVC") as! StudentVC
         
+               print("Email  ssssss" , EmailStu )
                stude.v = v // id student 
                stude.sectionName = sectionName
+               stude.SingleName = NameStu
+               stude.SingleEmail = EmailStu
                print("here course is ", sectionName)
        
         
         navigationController?.pushViewController(stude, animated: true)
-    
+        }
     
     }
     

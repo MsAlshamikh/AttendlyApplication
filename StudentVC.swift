@@ -38,13 +38,19 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     var lecturerId : String?
     var v : String = "" // student id
     var sectionName = ""
+    var SingleEmail: String = "hooo"
+    var SingleName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("sectionName" , sectionName )
+        print("SingleName" , SingleName )
+        print("SingleEmail" , SingleEmail )
         
-        
-      
+        SecName.text = sectionName
+        StudnetName.text = SingleName
+        StudentEmail.text = SingleEmail
             
             print("here course is ", sectionName)
             print("here id is ", v)
