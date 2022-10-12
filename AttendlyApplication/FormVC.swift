@@ -92,6 +92,7 @@ extension FormVC: UIDocumentPickerDelegate{
            
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
+           var d = "30-9-2022"
            // let name: String = snapshot.documents.first?.data()["name"] as! String
             let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
             
@@ -99,7 +100,7 @@ extension FormVC: UIDocumentPickerDelegate{
                 print(section, str_arr)
                 if !str_arr.contains(section) { continue }
               //  print(thed)
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: thed).getDocuments() //startDate
+                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: d).getDocuments() //startDate
                 
                 let courseName = t_snapshot.documents.first?.data()["courseN"] as! String
 
@@ -120,38 +121,15 @@ extension FormVC: UIDocumentPickerDelegate{
                 guard let state  = exist.documents.first?.get("State") as? String else { continue }
                 print("state/ +++++++++++++++ ",state)
                 
-                if (state == "attend" || state == "late"){
+                if (state == "absent" ){
                     
-                    var dialogMessage = UIAlertController(title: "Confirm", message: "You are already Attended Successfully to : \(courseName) don't try again ! ", preferredStyle: .alert)
-                     // Create OK button with action handler
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                         print("Ok button tapped")
-                      })
-                     //Add OK button to a dialog message
-                    dialogMessage.addAction(ok)
-                     
-                    // Present Alert to
-                     self.present(dialogMessage, animated: true, completion: nil)
+                   
                 }
                 
                 else {
                 
                 var flag = ""
-                var attend = false
-                if ((timeHourfb == timeHourct || EndtimeHourfb == timeHourct)){ //8:00 == 8:00
-                    if(timeMinct2 <= timeMinfb2+15) { //attended 8:00 - 8:15
-                        flag = "attend"
-                        attend = true
-                        print("SSSS attend")
-                    }
-                    else if (timeMinct2 <= timeMinfb2+16 || timeMinct2 <= timeMinfb2+30){ //late 8:30
-                        flag = "late"
-                        attend = true
-                    }
-                    else{
-                        flag = "absent"
-                    }
-                }
+               
  
                
                 
@@ -161,60 +139,13 @@ extension FormVC: UIDocumentPickerDelegate{
                 
                 try await info.collection("students").document(student_id).setData(["State": flag], merge: true)
                 
-                // Create new Alert
-                if(flag=="attend"){
-                    var dialogMessage = UIAlertController(title: "Confirm", message: "You Attended Successfully to : \(courseName)", preferredStyle: .alert)
-                     // Create OK button with action handler
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                         print("Ok button tapped")
-                      })
-                     //Add OK button to a dialog message
-                    dialogMessage.addAction(ok)
-                     
-                    // Present Alert to
-                     self.present(dialogMessage, animated: true, completion: nil)
-                }
-                 if(flag=="late"){
-                    var dialogMessage = UIAlertController(title: "Confirm", message: "Be careful You are late! but you Attended Successfully", preferredStyle: .alert)
-                     // Create OK button with action handler
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                         print("Ok button tapped")
-                      })
-                     //Add OK button to a dialog message
-                    dialogMessage.addAction(ok)
-                     
-                    // Present Alert to
-                     self.present(dialogMessage, animated: true, completion: nil)
-                    
-                }
-                if(flag=="absent")
-                {   // Create new Alert
-                    var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You have exceeded the class time!you marked as Absent ", preferredStyle: .alert)
-                     // Create OK button with action handler
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                         print("Ok button tapped")
-                      })
-                     //Add OK button to a dialog message
-                    dialogMessage.addAction(ok)
-                     
-                    // Present Alert to
-                     self.present(dialogMessage, animated: true, completion: nil)
-                    
-                }
+            
+                 
+          
            
             
             // Create new Alert
-            var dialogMessage = UIAlertController(title: "Warning!", message: "Sorry,You are not regester to this class!", preferredStyle: .alert)
-             // Create OK button with action handler
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                 print("Ok button tapped")
-              })
-             //Add OK button to a dialog message
-            dialogMessage.addAction(ok)
-             
-            // Present Alert to
-             self.present(dialogMessage, animated: true, completion: nil)
-
+          
           
         } // else
         }//loop
