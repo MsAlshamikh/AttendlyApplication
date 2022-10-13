@@ -11,12 +11,12 @@ import UniformTypeIdentifiers
 import FirebaseFirestore
 var x = ""
 class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
-    @IBOutlet weak var TitleTixtFeild: UITextField!
+
     
     @IBOutlet weak var messR: UILabel!
     @IBOutlet weak var messT: UILabel!
     @IBOutlet weak var imp: UIButton!
-    @IBOutlet weak var ReasonTextFeild: UITextField!
+
     @IBOutlet weak var reasonText: UITextView!
     @IBOutlet weak var titleView: UITextView!
     
