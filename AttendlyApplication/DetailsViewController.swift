@@ -170,7 +170,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
           let datePreesed = currentCell.date.text!
         print("datePreesed",datePreesed)
         
-        let stude = storyboard?.instantiateViewController(withIdentifier: "teee") as! teee
+        let stude = storyboard?.instantiateViewController(withIdentifier: "FormVC") as! FormVC
         stude.Takesection = WhatPressed
         stude.datePreesed = datePreesed
        // print("whatpressed ???" , WhatPressed)
