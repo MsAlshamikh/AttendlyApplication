@@ -170,6 +170,6 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let vc = storyboard.instantiateViewController(identifier: "StudentInfoViewController") as! StudentInfoViewController
         vc.student = student
-        self.present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
