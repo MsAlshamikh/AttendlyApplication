@@ -50,7 +50,8 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         
         SecName.text = sectionName
         StudnetName.text = SingleName
-        StudentEmail.text = SingleEmail
+        
+      //  StudentEmail.text = SingleEmail
             
             print("here course is ", sectionName)
             print("here id is ", v)
