@@ -50,10 +50,10 @@
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
-		A2E7403728F75164005B2CC6 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E7403628F75163005B2CC6 /* pic1.png */; };
-		A2E7403928F75171005B2CC6 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E7403828F7516F005B2CC6 /* pic2.png */; };
 		F072EB3628F72D10005C72F7 /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3528F72D10005C72F7 /* StudentVC.swift */; };
 		F072EB3828F72F21005C72F7 /* StudentCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3728F72F21005C72F7 /* StudentCellVC.swift */; };
+		F072EB3A28F7D181005C72F7 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = F072EB3928F7D180005C72F7 /* pic1.png */; };
+		F072EB3C28F7D18E005C72F7 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = F072EB3B28F7D18E005C72F7 /* pic2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,10 +97,10 @@
 		53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableviewControolerTableViewCell.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A2E7403628F75163005B2CC6 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../../../Desktop/pic1.png; sourceTree = "<group>"; };
-		A2E7403828F7516F005B2CC6 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../../../Desktop/pic2.png; sourceTree = "<group>"; };
 		F072EB3528F72D10005C72F7 /* StudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
 		F072EB3728F72F21005C72F7 /* StudentCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCellVC.swift; sourceTree = "<group>"; };
+		F072EB3928F7D180005C72F7 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
+		F072EB3B28F7D18E005C72F7 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,10 +173,10 @@
 				5358E21A28E31C9200F423DB /* Notificationpublisher.swift */,
 				5358E22028E329C000F423DB /* notificationHand.swift */,
 				34145F4128CFDF3400B073ED /* Assets.xcassets */,
-				A2E7403628F75163005B2CC6 /* pic1.png */,
+				F072EB3928F7D180005C72F7 /* pic1.png */,
 				5351558F28EE2F9C00EFA29D /* b1.png */,
 				34FCA43728EABFBB0011CB46 /* girl2.png */,
-				A2E7403828F7516F005B2CC6 /* pic2.png */,
+				F072EB3B28F7D18E005C72F7 /* pic2.png */,
 				53AF1B8B28DE46D500F77178 /* girl.png */,
 				53415F4728D23720005DFA19 /* Att.jpg */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
@@ -257,12 +257,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F072EB3C28F7D18E005C72F7 /* pic2.png in Resources */,
 				5351559028EE2F9C00EFA29D /* b1.png in Resources */,
 				34145F4528CFDF3400B073ED /* LaunchScreen.storyboard in Resources */,
 				34FCA43828EABFBB0011CB46 /* girl2.png in Resources */,
 				53AF1B8C28DE46D500F77178 /* girl.png in Resources */,
-				A2E7403728F75164005B2CC6 /* pic1.png in Resources */,
-				A2E7403928F75171005B2CC6 /* pic2.png in Resources */,
+				F072EB3A28F7D181005C72F7 /* pic1.png in Resources */,
 				53415F4228D1E923005DFA19 /* Main.storyboard in Resources */,
 				34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */,
 				53415F4828D23721005DFA19 /* Att.jpg in Resources */,

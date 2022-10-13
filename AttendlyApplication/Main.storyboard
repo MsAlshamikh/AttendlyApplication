@@ -312,10 +312,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="460" height="203"/>
+                                <rect key="frame" x="20" y="359" width="384" height="203"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-cz-LU1">
-                                <rect key="frame" x="20" y="247" width="450" height="45"/>
+                                <rect key="frame" x="20" y="247" width="374" height="45"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.42352941179999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="333" id="9jK-Ow-u1E"/>
@@ -2120,8 +2120,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="absent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19W-1E-Amf">
-                                                    <rect key="frame" x="275" y="47.5" width="60" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="absent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19W-1E-Amf">
+                                                    <rect key="frame" x="314" y="47.5" width="60" height="24"/>
                                                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -2131,6 +2131,7 @@
                                             <constraints>
                                                 <constraint firstItem="yqe-54-uMM" firstAttribute="centerY" secondItem="ya7-w3-FRC" secondAttribute="centerY" id="62L-an-kDg"/>
                                                 <constraint firstItem="19W-1E-Amf" firstAttribute="centerY" secondItem="ya7-w3-FRC" secondAttribute="centerY" id="6SK-1t-6yM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="19W-1E-Amf" secondAttribute="trailing" constant="20" id="LAc-Ig-9uR"/>
                                                 <constraint firstItem="R2G-ul-pHL" firstAttribute="centerY" secondItem="ya7-w3-FRC" secondAttribute="centerY" id="ZF2-xm-UNr"/>
                                                 <constraint firstItem="yqe-54-uMM" firstAttribute="leading" secondItem="R2G-ul-pHL" secondAttribute="trailing" constant="37" id="c5V-q5-HUR"/>
                                                 <constraint firstItem="fdl-2e-x9J" firstAttribute="leading" secondItem="ya7-w3-FRC" secondAttribute="leading" constant="14" id="ehd-AU-s9s"/>
