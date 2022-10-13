@@ -38,50 +38,10 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
         titleView.layer.cornerRadius = 5
         self.titleView.delegate = self
         self.reasonText.delegate = self
-
+        self.tabBarController?.tabBar.isHidden = true
        
-        let db = Firestore.firestore()
-        Task {
-         
-            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "").getDocuments()
-           
-         //   let st = t_snapshot.documents.first?.data()["st"] as! String
-            
-       //     print("st is :" , st)
-            for doc in t_snapshot.documents {
-                let documentID = doc.documentID
-                
-                let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).whereField("State", isEqualTo: "absent").getDocuments()
-                print(snp.documents.count)
-            //      let st = t_snapshot.documents.first?.data()["st"] as! String
-                
-                 let st  = doc.get("st") as? String
-
-                print("st is :" , st)
-                for studentDoc in snp.documents {
-                    
-                    
-                    guard let state  = studentDoc.get("State") as? String else { continue }
-
-                    print("state of student/",state)
-                    
-                    guard let time  = studentDoc.get("time") as? String else { continue }
-
-                    print("time of student/",time)
-                    
-                    
-                   // stateAll.append(state)
-                   // dateAll.append(st)
-                    //timeAll.append(time)
-                   // self.tableView.reloadData()
-                }
-                
-                
-            }
-            
-            
-            
-        } //task
+        
+      
 
         // Do any additional setup after loading the view.
     }
@@ -163,6 +123,34 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
     //   code
         let title = res.1
         let reason = res.2
+        let db = Firestore.firestore()
+        Task {
+         
+            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else { return }
+
+            guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else { return }
+
+            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).parent.addDocument(data: [
+                            "Title": title,
+                            "reason": reason ,
+                            "file": ""  ,
+                            "FormState": "Pending" ,
+                           
+                
+                        ]) { err in
+                            if let err = err {
+                                print("Error adding Lecturer  : \(err)")
+                            } else {
+                                print("Lecturer added sucsseful ")
+                            }
+                        }
+
+
+        //EmailStudent
+            
+            
+        } //task
+        
         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
          // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in

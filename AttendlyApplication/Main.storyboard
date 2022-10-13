@@ -1060,17 +1060,17 @@
                         <outlet property="sectionLabel" destination="7Ln-SJ-7yD" id="hWr-qK-3Wm"/>
                         <outlet property="tableView" destination="BV4-vJ-nZM" id="97e-9o-kjx"/>
                         <segue destination="lqJ-Vg-vD0" kind="show" identifier="si_courseDetailToLecturerProfile" id="G1y-3w-L4w"/>
-                        <segue destination="Vka-Gw-ijo" kind="show" identifier="execution" id="veK-6K-FRf"/>
+                        <segue destination="6jR-ju-hJZ" kind="show" identifier="execution" id="veK-6K-FRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im6-CL-Kwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5813.04347826087" y="-990.40178571428567"/>
         </scene>
-        <!--FormVC-->
+        <!--Absence Excuse Form-->
         <scene sceneID="aLo-vX-WNW">
             <objects>
-                <viewController storyboardIdentifier="teee" id="Vka-Gw-ijo" customClass="FormVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FormVC" id="Vka-Gw-ijo" customClass="FormVC" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qdp-Cw-nox">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1212,7 +1212,7 @@
                         <viewLayoutGuide key="safeArea" id="cqr-KS-nXe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0je-bH-nnE"/>
+                    <navigationItem key="navigationItem" title="Absence Excuse Form" id="0je-bH-nnE"/>
                     <connections>
                         <outlet property="SendBtn" destination="EAv-db-bU9" id="wTn-H9-Y8d"/>
                         <outlet property="cnacelBtn" destination="oBo-Wf-L9Y" id="0SF-LJ-7he"/>
@@ -1226,7 +1226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Bp-af-hzk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6783" y="-1003"/>
+            <point key="canvasLocation" x="7692.753623188406" y="-1003.125"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="HJM-LR-wSk">
@@ -2209,6 +2209,25 @@
                 <exit id="6Jk-nR-NZq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="447.82608695652175" y="857.8125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nch-M0-39a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6jR-ju-hJZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="HnX-dS-bTe"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0lz-s6-47a">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vka-Gw-ijo" kind="relationship" relationship="rootViewController" id="6MC-KB-KJO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RfD-8e-G32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6782.608695652174" y="-1003.125"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
