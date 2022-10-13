@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var lecturerId : String?
   
     
-   
+    var Takesection = ""
     
     
     //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -49,7 +49,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("here course is ", WhatPressed)
+        Takesection = courseLabel.text!
+        
+       print("Takesection is it  ", Takesection )
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -162,18 +164,23 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("kkkkkkkkk",sender)
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//        let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
-//
-//        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewhistoryStu
-//          let vv = currentCell.date.text!
-//        print("vv",vv)
-//         // my.execution.setTitle(vv,for: .normal)
-//          my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewhistoryStu
+          let datePreesed = currentCell.date.text!
+        print("datePreesed",datePreesed)
+        
+        let stude = storyboard?.instantiateViewController(withIdentifier: "teee") as! teee
+        stude.Takesection = WhatPressed
+        stude.datePreesed = datePreesed
+       // print("whatpressed ???" , WhatPressed)
+        navigationController?.pushViewController(stude, animated: true)
+        
+        
+         // my.execution.setTitle(vv,for: .normal)
+       //   my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
