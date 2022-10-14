@@ -9,8 +9,9 @@ import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
 import FirebaseFirestore
+import FirebaseStorage
 var x = ""
-class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
+class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var TitleTixtFeild: UITextField!
     
     @IBOutlet weak var messR: UILabel!
@@ -37,47 +38,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
 
        
         let db = Firestore.firestore()
-        Task {
-         
-            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "").getDocuments()
-           
-         //   let st = t_snapshot.documents.first?.data()["st"] as! String
-            
-       //     print("st is :" , st)
-            for doc in t_snapshot.documents {
-                let documentID = doc.documentID
-                
-                let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).whereField("State", isEqualTo: "absent").getDocuments()
-                print(snp.documents.count)
-            //      let st = t_snapshot.documents.first?.data()["st"] as! String
-                
-                 let st  = doc.get("st") as? String
-
-                print("st is :" , st)
-                for studentDoc in snp.documents {
-                    
-                    
-                    guard let state  = studentDoc.get("State") as? String else { continue }
-
-                    print("state of student/",state)
-                    
-                    guard let time  = studentDoc.get("time") as? String else { continue }
-
-                    print("time of student/",time)
-                    
-                    
-                   // stateAll.append(state)
-                   // dateAll.append(st)
-                    //timeAll.append(time)
-                   // self.tableView.reloadData()
-                }
-                
-                
-            }
-            
-            
-            
-        } //task
+     
 
         // Do any additional setup after loading the view.
     }
@@ -137,17 +98,25 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
   
     
     @IBAction func importFile(_ sender: Any) {
-        let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.jpeg, .png, .pdf])
+        Task{
+        // Get a reference to the storage service using the default Firebase App
+       
+        // Create a storage reference from our storage service
+      
+        
+            let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf])
         //change the type ^^^^
         documentPicker.delegate = self
        
         documentPicker.allowsMultipleSelection = false // ease of use.only one doc
         documentPicker.shouldShowFileExtensions = true
         
+        
  present(documentPicker, animated: true, completion: nil)
       
       //  print("")
       //  print(documentPicker)
+        }
         
     }
   
@@ -195,145 +164,154 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
         
     }
     
-}
-extension FormVC: UIDocumentPickerDelegate{
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        label.text = url.lastPathComponent
-       x = url.lastPathComponent
-        print( url.lastPathComponent)
+
+
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+        // Local file you want to upload
+        let storageRef = Storage.storage().reference()
+        let localFile = URL(string: "path/to/image")!
+
+        // Create the file metadata
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        let uploadTask = storageRef.putFile(from: localFile, metadata: metadata)
+
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.observe(.resume) { snapshot in
+          // Upload resumed, also fires when the upload starts
+        }
+
+        uploadTask.observe(.pause) { snapshot in
+          // Upload paused
+        }
+
+        uploadTask.observe(.progress) { snapshot in
+          // Upload reported progress
+          let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+            / Double(snapshot.progress!.totalUnitCount)
+        }
+
+        uploadTask.observe(.success) { snapshot in
+          // Upload completed successfully
+        }
+
+        uploadTask.observe(.failure) { snapshot in
+          if let error = snapshot.error as? NSError {
+            switch (StorageErrorCode(rawValue: error.code)!) {
+            case .objectNotFound:
+              // File doesn't exist
+              break
+            case .unauthorized:
+              // User doesn't have permission to access file
+              break
+            case .cancelled:
+              // User canceled the upload
+              break
+
+            /* ... */
+
+            case .unknown:
+              // Unknown error occurred, inspect the server response
+              break
+            default:
+              // A separate error occurred. This is a good place to retry the upload.
+              break
+            }
+          }
+        }
+            
+        // Create a root reference
+       /* let storageRef = Storage.storage().reference()
+
+        // Create a reference to "mountains.jpg"
+      //  let mountainsRef = storageRef.child(UUID().uuidString ".pdf")
+
+        // Create a reference to 'images/mountains.jpg'
+        let mountainImagesRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+        // While the file names are the same, the references point to different files
+        //mountainsRef.name == mountainImagesRef.name            // true
+        //mountainsRef.fullPath == mountainImagesRef.fullPath    // false
+        // Create a root reference
+        // Data in memory
+        let data = Data()
+
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+        // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+          riversRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+              // Uh-oh, an error occurred!
+              return
+            }
+          }
+        }
+        // Create storage reference
+      let mountainsRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+        // Create file metadata including the content type
+        let metadata = StorageMetadata()
+    //    metadata.contentType ="image/jpeg"
+
+        // Upload data and metadata
+        mountainsRef.putData(data, metadata: metadata)
+
+        // Upload file and metadata
+        let localFile = URL(string: "Doc33.pdf")!
+        mountainsRef.putFile(from: localFile, metadata: metadata)
+            */
+       /* guard urls[0] !=  nil else {
+            return
+        }
+        label.text = urls[0].lastPathComponent
+       x = urls[0].lastPathComponent
+        print( "url.absoluteString")
+        print( urls[0].absoluteString)
+        let storage = Storage.storage().reference()
+       // let filePathURL = URL(fileURLWithPath: urls[0].absoluteString)
+        let filePath = Bundle.main.path(forResource: "Doc33", ofType: "pdf")
+        let filePathURL = URL(fileURLWithPath: filePath!)
+        let path = "files/\(UUID().uuidString).pdf"
+        let file = storage.child(path)
+        
+        let uploadTask = file.putFile(from: filePathURL, metadata: nil) { metadata, error in
+            if metadata != nil && error == nil  {
+                // error!
+                let dd = Firestore.firestore()
+                dd.collection("files").document().setData(["url":file])
+            }
+        
+                    }
+
        // let ff = url.path
       //  label.text! += ff
-        dismiss(animated: true)
-        guard url.startAccessingSecurityScopedResource() != nil else {
+          dismiss(animated: true)
+        guard urls[0].startAccessingSecurityScopedResource() != nil else {
             return
         }
 
         defer {
-            url.stopAccessingSecurityScopedResource()
+            urls[0].stopAccessingSecurityScopedResource()
         }
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        imp.backgroundColor = UIColor( white: 0xD6D6D6, alpha: 0.5)
+       imp.backgroundColor = UIColor( white: 0xD6D6D6, alpha: 0.5)
        
     } //user closes the picker without making any selection
  
-        imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+          imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+    }*/
     }
-
-   /* func spl(x:String) {
-        var str = x
-        var result = str.split(separator: "-")
-        result.removeFirst()
-        var str_arr: [String] = result.map { String($0) }
-         let tag = str_arr[0]
-        
-        let db = Firestore.firestore()
-        
-        Task {
-           
-            let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
-            let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
-           var d = "30-9-2022"
-           // let name: String = snapshot.documents.first?.data()["name"] as! String
-            let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
-            
-            for section in sections {
-                print(section, str_arr)
-                if !str_arr.contains(section) { continue }
-              //  print(thed)
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: section).whereField("st", isEqualTo: d).whereField("nameC", isEqualTo: "SWE381").getDocuments() //startDate
-                
-                let courseName = t_snapshot.documents.first?.data()["courseN"] as! String
-
-                print("$$$$$$$$$$$$$")
-                print(t_snapshot.documents.count)
-               
-                
-              
-            
-
-                guard let documentID = t_snapshot.documents.first?.documentID else { continue }
-                print("docID", documentID)
-
-                
-                let exist = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
-                
-               
-                guard let state  = exist.documents.first?.get("State") as? String else { continue }
-                print("state/ +++++++++++++++ ",state)
-                
-                if (state == "absent" ){
-                    
-                   
-                }
-                
-                else {
-                
-                var flag = ""
-               
- 
-               
-                
-                
-                let info =  db.collection("studentsByCourse").document(documentID)
-                guard let student_id = try await info.collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments().documents.first?.documentID else { continue }
-                
-                try await info.collection("students").document(student_id).setData(["State": flag], merge: true)
-                
-            
-                 
-          
-           
-            
-            // Create new Alert
-          
-          
-        } // else
-        }//loop
-        }//task
-    }// split
-    */
-
   
 }
-/* {
- 
- let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "SWE381").getDocuments()
-
-//   let st = t_snapshot.documents.first?.data()["st"] as! String
- 
-//     print("st is :" , st)
- for doc in t_snapshot.documents {
-     let documentID = doc.documentID
-     
-     let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
-     print(snp.documents.count)
- //      let st = t_snapshot.documents.first?.data()["st"] as! String
-     
-     guard let st  = doc.get("st") as? String else { continue }
-
-     print("st is :" , st)
-     for studentDoc in snp.documents {
-         
-         
-         guard let state  = studentDoc.get("State") as? String else { continue }
-
-         print("state of student/",state)
-         
-         guard let time  = studentDoc.get("time") as? String else { continue }
-
-         print("time of student/",time)
-         
-         
-         stateAll.append(state)
-         dateAll.append(st)
-  
-         self.tableView.reloadData()
-     }
-     
-     
- }
- 
- 
- 
-}*/
