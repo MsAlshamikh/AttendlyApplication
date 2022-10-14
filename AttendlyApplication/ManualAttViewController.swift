@@ -46,7 +46,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Attend manually"
+        navigationItem.title = "Attend Manually"
         
         
         filterName = nameStudent
