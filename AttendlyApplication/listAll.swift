@@ -148,12 +148,16 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //            text4.append(NSAttributedString(string: "email: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
 //            text4.append(NSAttributedString(string: EmailStu, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
             
-    
-            
+              var arrAll = NameStu.split(separator: "-")
+               print("TRRRRYYY SPLLLIITTT", arrAll)
                stude.v = v // id student
                stude.sectionName = sectionName
-               stude.SingleName = NameStu
-               stude.SingleEmail = EmailStu
+//               stude.SingleName = NameStu
+//               stude.SingleEmail = EmailStu
+            
+            stude.SingleName = String(arrAll[0])
+            stude.SingleEmail = String(arrAll[1])
+            
                print("here course is ", sectionName)
        
         
