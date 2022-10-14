@@ -54,6 +54,7 @@
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
 		A28E042428D2B088005065D9 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042328D2B087005065D9 /* pic1.png */; };
 		A28E042628D2B0BD005065D9 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042528D2B0BD005065D9 /* pic2.png */; };
+		F072EB3E28F99DFA005C72F7 /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3D28F99DFA005C72F7 /* StudentVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
 		A28E042528D2B0BD005065D9 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
+		F072EB3D28F99DFA005C72F7 /* StudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				F072EB3D28F99DFA005C72F7 /* StudentVC.swift */,
 				53B59CC728F76BC100977C32 /* teee.swift */,
 				5351559728F4D33D00EFA29D /* currentClassTableview.swift */,
 				5351559128F0C39F00EFA29D /* TableViewhistoryStu.swift */,
@@ -287,6 +290,7 @@
 				53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */,
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
 				5351559828F4D33F00EFA29D /* currentClassTableview.swift in Sources */,
+				F072EB3E28F99DFA005C72F7 /* StudentVC.swift in Sources */,
 				53415F3628D1E893005DFA19 /* CourseViewController.swift in Sources */,
 				53AF1B8228DA475D00F77178 /* listOfstudent.swift in Sources */,
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
