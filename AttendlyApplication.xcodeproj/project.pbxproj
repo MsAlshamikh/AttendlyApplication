@@ -55,6 +55,7 @@
 		A28E042428D2B088005065D9 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042328D2B087005065D9 /* pic1.png */; };
 		A28E042628D2B0BD005065D9 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = A28E042528D2B0BD005065D9 /* pic2.png */; };
 		F072EB3E28F99DFA005C72F7 /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3D28F99DFA005C72F7 /* StudentVC.swift */; };
+		F072EB4028F99ED0005C72F7 /* StudentCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
 		A28E042528D2B0BD005065D9 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic2.png; path = ../../pic2.png; sourceTree = "<group>"; };
 		F072EB3D28F99DFA005C72F7 /* StudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
+		F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCellVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */,
 				F072EB3D28F99DFA005C72F7 /* StudentVC.swift */,
 				53B59CC728F76BC100977C32 /* teee.swift */,
 				5351559728F4D33D00EFA29D /* currentClassTableview.swift */,
@@ -296,6 +299,7 @@
 				34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */,
 				5358E22B28E3897100F423DB /* ManualAttViewController.swift in Sources */,
 				53B59CC828F76BC100977C32 /* teee.swift in Sources */,
+				F072EB4028F99ED0005C72F7 /* StudentCellVC.swift in Sources */,
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
 				53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */,
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,
