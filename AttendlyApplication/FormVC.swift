@@ -166,10 +166,11 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
     
 
 
-  
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+       
             
         // Create a root reference
-       /* let storageRef = Storage.storage().reference()
+     let storageRef = Storage.storage().reference()
 
         // Create a reference to "mountains.jpg"
       //  let mountainsRef = storageRef.child(UUID().uuidString ".pdf")
@@ -216,7 +217,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
         // Upload file and metadata
         let localFile = URL(string: "Doc33.pdf")!
         mountainsRef.putFile(from: localFile, metadata: metadata)
-            */
+         
        /* guard urls[0] !=  nil else {
             return
         }
@@ -258,6 +259,6 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
  
           imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
     }*/
-    
+    }
   
 }
