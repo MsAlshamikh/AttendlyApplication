@@ -9,8 +9,9 @@ import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
 import FirebaseFirestore
+import FirebaseStorage
 var x = ""
-class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
+class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDocumentPickerDelegate {
 
     
     @IBOutlet weak var messR: UILabel!
@@ -174,6 +175,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
          // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
              print("Ok button tapped")
+            
           })
          //Add OK button to a dialog message
         dialogMessage.addAction(ok)
@@ -188,23 +190,63 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
         
     }
     
-}
-extension FormVC: UIDocumentPickerDelegate{
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        label.text = url.lastPathComponent
-       x = url.lastPathComponent
-        print( url.lastPathComponent)
-       // let ff = url.path
-      //  label.text! += ff
-        dismiss(animated: true)
-        guard url.startAccessingSecurityScopedResource() != nil else {
-            return
-        }
 
-        defer {
-            url.stopAccessingSecurityScopedResource()
-        }
-    
+
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+           
+                
+            // Create a root reference
+         let storageRef = Storage.storage().reference()
+
+            // Create a reference to "mountains.jpg"
+          //  let mountainsRef = storageRef.child(UUID().uuidString ".pdf")
+
+            // Create a reference to 'images/mountains.jpg'
+            let mountainImagesRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+            // While the file names are the same, the references point to different files
+            //mountainsRef.name == mountainImagesRef.name            // true
+            //mountainsRef.fullPath == mountainImagesRef.fullPath    // false
+            // Create a root reference
+            // Data in memory
+            let data = Data()
+
+            // Create a reference to the file you want to upload
+            let riversRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+            // Upload the file to the path "images/rivers.jpg"
+            let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+              guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+              }
+              // Metadata contains file metadata such as size, content-type.
+              let size = metadata.size
+              // You can also access to download URL after upload.
+              riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                  // Uh-oh, an error occurred!
+                  return
+                }
+              }
+            }
+            // Create storage reference
+          let mountainsRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+            // Create file metadata including the content type
+            let metadata = StorageMetadata()
+        //    metadata.contentType ="image/jpeg"
+
+            // Upload data and metadata
+            mountainsRef.putData(data, metadata: metadata)
+
+            // Upload file and metadata
+            let localFile = URL(string: "Doc33.pdf")!
+            mountainsRef.putFile(from: localFile, metadata: metadata)
+             
+            dismiss(animated: true)
+          
+
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         imp.backgroundColor = UIColor( white: 0xD6D6D6, alpha: 0.5)
        
@@ -212,7 +254,7 @@ extension FormVC: UIDocumentPickerDelegate{
  
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
     }
-
+}
    /* func spl(x:String) {
         var str = x
         var result = str.split(separator: "-")
@@ -288,7 +330,7 @@ extension FormVC: UIDocumentPickerDelegate{
     */
 
   
-}
+
 /* {
  
  let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: "SWE381").getDocuments()
