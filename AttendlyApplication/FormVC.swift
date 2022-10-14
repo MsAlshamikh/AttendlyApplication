@@ -174,6 +174,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
          // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
              print("Ok button tapped")
+            
           })
          //Add OK button to a dialog message
         dialogMessage.addAction(ok)
