@@ -10,7 +10,7 @@ import UIKit
 
 class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UISearchBarDelegate {
 
-    @IBOutlet weak var search: UISearchBar!
+   // @IBOutlet weak var search: UISearchBar!
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -46,10 +46,12 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Attend manually"
+        
         
         filterName = nameStudent
         
-        search.delegate = self
+        //search.delegate = self
      //  nostudent.isHidden = true
        // self.tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.339857161, green: 0.69448632, blue: 0.8468429446, alpha: 1)
         print("what pressed is ")
@@ -218,7 +220,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                 
                 print("done")
                 stateSt[indexPath.row] = "attend"
-                my.AttendToabsent.isHidden = false
+           //     my.AttendToabsent.isHidden = false
                 
               
                 tableView.reloadData()
@@ -273,7 +275,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
        // let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         if let my = tableView.cellForRow(at: indexPath) as? customAttendTable {
-            my.AttendToabsent.isHidden = true
+        //    my.AttendToabsent.isHidden = true
             print("is didselct???")
                 }
         print("???")
@@ -300,7 +302,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
         if stateSt[indexPath.row] == "attend" {
             my.name.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-            my.AttendToabsent.isHidden = true
+         //   my.AttendToabsent.isHidden = true
         }
         else if stateSt[indexPath.row] == "late" {
             my.name.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
@@ -309,11 +311,11 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         else if stateSt[indexPath.row] == "absent" {
             
             my.name.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            my.AttendToabsent.isHidden = false
+      //      my.AttendToabsent.isHidden = false
         }
         else if stateSt[indexPath.row] == "pending" {
             my.name.textColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
-            my.AttendToabsent.isHidden = true
+        //    my.AttendToabsent.isHidden = true
         }
 
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
@@ -345,27 +347,27 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
         }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        filterName = []
-//        if searchText == "" {
-//            filterName = nameStudent
-//        }
-//        else{
-//        for name in nameStudent{
-//            if name.lowercased().contains(searchText.lowercased()){
-//                print("yee")
-//                filterName.append(name)
-//            }
-//        }
-//        }
-        filterName = searchText.isEmpty ? nameStudent : nameStudent.filter({(dataString: String) -> Bool in
-                // If dataItem matches the searchText, return true to include it
-                return dataString.range(of: searchText, options: .caseInsensitive) != nil
-            })
-
-         
-        self.tableview.reloadData()
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+////        filterName = []
+////        if searchText == "" {
+////            filterName = nameStudent
+////        }
+////        else{
+////        for name in nameStudent{
+////            if name.lowercased().contains(searchText.lowercased()){
+////                print("yee")
+////                filterName.append(name)
+////            }
+////        }
+////        }
+//        filterName = searchText.isEmpty ? nameStudent : nameStudent.filter({(dataString: String) -> Bool in
+//                // If dataItem matches the searchText, return true to include it
+//                return dataString.range(of: searchText, options: .caseInsensitive) != nil
+//            })
+//
+//
+//        self.tableview.reloadData()
+//    }
     
     
     

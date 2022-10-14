@@ -33,6 +33,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Students in Section"
         
      zeroStudent.isHidden = true
 

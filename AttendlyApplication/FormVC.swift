@@ -134,8 +134,8 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
                             "Title": title,
                             "reason": reason ,
                             "file": ""  ,
-                            "FormState": "Pending" 
-                           // "State":"execute"
+                            "FormState": "Pending" ,
+                        "State":"waiting"
                            
                 
                         ],merge: true) { err in
