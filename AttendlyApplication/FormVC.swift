@@ -11,7 +11,8 @@ import UniformTypeIdentifiers
 import FirebaseFirestore
 import FirebaseStorage
 var x = ""
-class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate{
+
+class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate , UIImagePickerControllerDelegate {
     @IBOutlet weak var TitleTixtFeild: UITextField!
     
     @IBOutlet weak var messR: UILabel!
@@ -22,6 +23,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
     @IBOutlet weak var titleView: UITextView!
     
     @IBOutlet weak var cnacelBtn: UIButton!
+ 
     @IBOutlet var label: UILabel!
     @IBOutlet weak var SendBtn: UIButton!
     override func viewDidLoad() {
@@ -163,14 +165,80 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
          self.present(dialogMessage, animated: true, completion: nil)
         
     }
-    
-
+    /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var videoUrl = "ff.pdf"
+        guard let mediaInfo = info[.mediaType] else { return }
+        let mediaType = "\(mediaInfo)"
+        if mediaType == "public.movie" {
+           // how we handle it if it's a video
+           guard let videoURL = info[.mediaURL] as? NSURL else {return }
+         videoUrl = videoURL.filePathURL as? NSURL // this is the only thing I changed cause this is the file we are uploading
+         }
+        guard let videoUrl = videoUrl else { return }
+              
+              let videoName = NSUUID().uuidString
+              let storageRef = Storage.storage().reference().child("\(videoName).mov")
+              storageRef.putFile(from: videoUrl as URL, metadata: nil) { (metaData, error) in
+                   // IMPORTANT: this is where I got the error from
+                  if error != nil {
+                      print("error uploading video: \(error!.localizedDescription)")
+                  } else {
+                      // successfully uploaded the video
+                      storageRef.downloadURL { (url, error) in
+                          if error != nil {
+                              print("error downloading uploaded videos Url: \(error!.localizedDescription)")
+                          } else {
+                              if let downloadUrl = url {
+                                  let contentType = "videoUrl" //just a var for the following func
+                                  self.uploadPost(for: downloadUrl, contentType: contentType) // func that uploads the url to the database
+                              }
+                          }
+                      }
+                  }
+             
+  
+    }
+    }*/
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+        let uuid = UUID().uuidString
+               // Create a root reference
+               let storage = Storage.storage()
+               
+               // Create a storage reference from our storage service
+               let storageRef = storage.reference()
+               
+               // Data in memory
+               let data = Data()
+
+               // Create a reference to the file you want to upload
+        let pdfRef = storageRef.child("docRequest/" + uuid + ".pdf")
+
+               // Upload the file to the path "images/rivers.jpg"
+        let uploadTask = pdfRef.putData(data, metadata: nil) { (metadata, error) in
+                 guard let metadata = metadata else {
+                   // Uh-oh, an error occurred!
+                   print(error)
+                   return
+                 }
+                 // Metadata contains file metadata such as size, content-type.
+                 let size = metadata.size
+                 // You can also access to download URL after upload.
+                 pdfRef.downloadURL { (url, error) in
+                   guard let downloadURL = url else {
+                     // Uh-oh, an error occurred!
+                       print(error)
+                     return
+                   }
+                 }
+             
+  
+    }
+        
+   
        
-            
         // Create a root reference
-     let storageRef = Storage.storage().reference()
+     /*let storageRef = Storage.storage().reference()
 
         // Create a reference to "mountains.jpg"
       //  let mountainsRef = storageRef.child(UUID().uuidString ".pdf")
@@ -216,7 +284,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
 
         // Upload file and metadata
         let localFile = URL(string: "Doc33.pdf")!
-        mountainsRef.putFile(from: localFile, metadata: metadata)
+        mountainsRef.putFile(from: localFile, metadata: metadata)*/
          
        /* guard urls[0] !=  nil else {
             return
@@ -260,5 +328,29 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
           imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
     }*/
     }
-  
+    func uploadMedia(completion: @escaping (_ url: String?) -> Void) {
+
+        let storageRef = Storage.storage().reference()
+       
+                  //  completion((metadata?.downloadURL()?.absoluteString)!))
+                    // your uploaded photo url.
+
+        // Create a reference to the file you want to download
+        let pdfRef = storageRef.child("files/file.pdf")
+
+        // Create local filesystem URL
+        let localURL = URL(string: "path/to/local/file.pdf")!
+
+        // Download to the local filesystem
+        let downloadTask = pdfRef.write(toFile: localURL) { url, error in
+          if let error = error {
+            // Uh-oh, an error occurred!
+          } else {
+            // Local file URL for "path/to/local/file.pdf" is returned
+          }
+        }
+             
+            
+    }
+
 }
