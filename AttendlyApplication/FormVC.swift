@@ -130,14 +130,15 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate{
 
             guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else { return }
 
-            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).parent.addDocument(data: [
+            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
                             "Title": title,
                             "reason": reason ,
                             "file": ""  ,
-                            "FormState": "Pending" ,
+                            "FormState": "Pending" 
+                           // "State":"execute"
                            
                 
-                        ]) { err in
+                        ],merge: true) { err in
                             if let err = err {
                                 print("Error adding Lecturer  : \(err)")
                             } else {

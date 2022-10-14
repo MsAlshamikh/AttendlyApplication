@@ -30,7 +30,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var adv: String = ""
     var lecturerId : String?
   
-    
+  //  var buttonTappedAction : ((UITableViewCell) -> Void)?
+   // var buttonTappedAction : (() -> Void)? = nil
+
     var Takesection = ""
     
     
@@ -157,30 +159,40 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //}
     
     @objc func didTapCellButton(sender: UIButton) {
-   // guard viewModels.indices.contains(sender.tag) else { return } // check element exist in tableview datasource
+   
+      
+        let tag = sender.tag
+        let dateispreesed = dateAll[tag]
 
-        //Configure selected button or update model
-       
-        print("kkkkkkkkk",sender)
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewhistoryStu
-          let datePreesed = currentCell.date.text!
-        print("datePreesed",datePreesed)
+        print("wiich is now press?? number of row",tag)
+        print("wiich is now press?? dateispreesed",dateispreesed)
         
         let stude = storyboard?.instantiateViewController(withIdentifier: "FormVC") as! FormVC
         stude.Takesection = WhatPressed
-        stude.datePreesed = datePreesed
-       // print("whatpressed ???" , WhatPressed)
+        stude.datePreesed = dateispreesed
+        print("whatpressed ???" , WhatPressed)
         navigationController?.pushViewController(stude, animated: true)
         
-        
-         // my.execution.setTitle(vv,for: .normal)
-       //   my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
-
     }
+    
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewhistoryStu
+//          let datePreesed = currentCell.date.text!
+//        print("datePreesed",datePreesed)
+//
+//        let stude = storyboard?.instantiateViewController(withIdentifier: "FormVC") as! FormVC
+//        stude.Takesection = WhatPressed
+//        stude.datePreesed = datePreesed
+//       // print("whatpressed ???" , WhatPressed)
+//        navigationController?.pushViewController(stude, animated: true)
+//
+//
+//         // my.execution.setTitle(vv,for: .normal)
+//       //   my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+//
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
@@ -195,6 +207,10 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //    print("vv",vv)
         
          // my.execution.setTitle(vv,for: .normal)
+//        my.execution =  {
+//            self.view.addSubview(self.viewDidLoad())
+//            print("hii")
+//        }()
     my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
 
       //  my.state.text = stateAll[indexPath.row]
@@ -211,6 +227,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
              my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
              my.state.text = stateAll[indexPath.row]
          }
+//        else if stateAll[indexPath.row] == "execute" {
+//             my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+//             my.state.text = stateAll[indexPath.row]
+//         }
+//        
         
         
       
