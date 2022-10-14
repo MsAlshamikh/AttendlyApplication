@@ -43,6 +43,8 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Course details" 
 
         print("sectionName" , sectionName )
         print("SingleName" , SingleName )
