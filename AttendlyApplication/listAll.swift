@@ -26,16 +26,21 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var emailStudent = [String]()
     var idStudent = [String]()
     var v: String = ""
+    var sectionName = ""
+    var SingleEmail: String = ""
+    var SingleName: String = ""
     
-     var percentagestu = [String]()
+    let db = Firestore.firestore()
+    
+    var percentagestu = [String]()
     
     var doubles = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Students in Section"
-        
-     zeroStudent.isHidden = true
+       
+        navigationItem.title = "Student in list"
+        zeroStudent.isHidden = true
 
         print("what pressed is ")
         print(v)
@@ -58,11 +63,12 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
      let text1 = NSMutableAttributedString()
+
        text1.append(NSAttributedString(string: ""
                                   ));
         text1.append(NSAttributedString(string: v));
         nameSection.attributedText = text1
-       
+        sectionName = nameSection.text!
         // let d = Int(date.split(separator: "-")[0])!
         
       //  var spliting = percentagestu.split(separator: "%")
@@ -108,6 +114,56 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(emails)
 
         return my
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+                
+                let currentCell = tableView.cellForRow(at: indexPath)! as! customTableviewControolerTableViewCell   // THE SOLUTION
+                let v = currentCell.idStu!.text!
+                print("is preeesed", v)
+        
+        Task{
+               let snapshot = try await db.collection("Unistudent").whereField("studentID", isEqualTo: v).getDocuments()
+               guard let EmailStu = snapshot.documents.first?.get("StudentEmail") as? String else { return }
+               guard let NameStu = snapshot.documents.first?.get("Fullname") as? String else { return }
+               
+            
+               let stude = storyboard?.instantiateViewController(withIdentifier: "StudentVC") as! StudentVC
+        
+               print("Email  ssssss" , EmailStu )
+//            let text1 = NSMutableAttributedString()
+//            text1.append(NSAttributedString(string: "id: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+//            text1.append(NSAttributedString(string: v, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+//
+////            let text2 = NSMutableAttributedString()
+////            text2.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+////            text2.append(NSAttributedString(string: sectionName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+//
+//            let text3 = NSMutableAttributedString()
+//            text3.append(NSAttributedString(string: "name: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+//            text3.append(NSAttributedString(string: NameStu, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+//
+//            let text4 = NSMutableAttributedString()
+//            text4.append(NSAttributedString(string: "email: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+//            text4.append(NSAttributedString(string: EmailStu, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+            
+              var arrAll = NameStu.split(separator: "-")
+               print("TRRRRYYY SPLLLIITTT", arrAll)
+               stude.v = v // id student
+               stude.sectionName = sectionName
+//               stude.SingleName = NameStu
+//               stude.SingleEmail = EmailStu
+            
+            stude.SingleName = String(arrAll[0])
+            stude.SingleEmail = String(arrAll[1])
+            
+               print("here course is ", sectionName)
+       
+        
+        navigationController?.pushViewController(stude, animated: true)
+        }
+    
     }
     
 
