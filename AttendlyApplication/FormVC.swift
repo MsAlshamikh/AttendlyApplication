@@ -210,6 +210,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
                
                // Data in memory
                let data = Data()
+        
 
                // Create a reference to the file you want to upload
         let pdfRef = storageRef.child("docRequest/" + uuid + ".pdf")
@@ -223,6 +224,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
                  }
                  // Metadata contains file metadata such as size, content-type.
                  let size = metadata.size
+            metadata.contentType = "application/pdf"
                  // You can also access to download URL after upload.
                  pdfRef.downloadURL { (url, error) in
                    guard let downloadURL = url else {

@@ -18,6 +18,7 @@
 		34145F5428CFE0E000B073ED /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 34145F5328CFE0E000B073ED /* FirebaseStorage */; };
 		34145F5628CFE15F00B073ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34145F5528CFE15F00B073ED /* GoogleService-Info.plist */; };
 		34145F5928CFED5D00B073ED /* NFChelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34145F5828CFED5D00B073ED /* NFChelper.swift */; };
+		34555B7E28FAC4BA00F36FA7 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34555B7D28FAC4BA00F36FA7 /* ViewController2.swift */; };
 		34CE577228F7316C00C4C394 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CE577128F7316C00C4C394 /* FormVC.swift */; };
 		34FCA43828EABFBB0011CB46 /* girl2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FCA43728EABFBB0011CB46 /* girl2.png */; };
 		53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2D28D1E878005DFA19 /* AdvisorVC.swift */; };
@@ -66,6 +67,7 @@
 		34145F5528CFE15F00B073ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34145F5728CFE1C100B073ED /* AttendlyApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AttendlyApplication.entitlements; sourceTree = "<group>"; };
 		34145F5828CFED5D00B073ED /* NFChelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFChelper.swift; sourceTree = "<group>"; };
+		34555B7D28FAC4BA00F36FA7 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		34CE577128F7316C00C4C394 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		34FCA43728EABFBB0011CB46 /* girl2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl2.png; sourceTree = "<group>"; };
 		53415F2D28D1E878005DFA19 /* AdvisorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvisorVC.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
 				34CE577128F7316C00C4C394 /* FormVC.swift */,
+				34555B7D28FAC4BA00F36FA7 /* ViewController2.swift */,
 				53AF1B8328DAA95000F77178 /* listAll.swift */,
 				5358E22A28E3897100F423DB /* ManualAttViewController.swift */,
 				53415F2D28D1E878005DFA19 /* AdvisorVC.swift */,
@@ -276,6 +279,7 @@
 			files = (
 				56D7607028E8549B00D7E885 /* User.swift in Sources */,
 				5351559228F0C39F00EFA29D /* TableViewhistoryStu.swift in Sources */,
+				34555B7E28FAC4BA00F36FA7 /* ViewController2.swift in Sources */,
 				5358E23328E72C4800F423DB /* NewCourseVC.swift in Sources */,
 				53415F3C28D1E8B7005DFA19 /* LecturerProfileVC.swift in Sources */,
 				5358E22D28E38CD000F423DB /* customAttendTable.swift in Sources */,
