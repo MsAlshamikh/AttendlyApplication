@@ -10,9 +10,11 @@ import MobileCoreServices
 import UniformTypeIdentifiers
 import FirebaseFirestore
 import FirebaseStorage
+import UniformTypeIdentifiers
+
 var x = ""
 
-class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate , UIImagePickerControllerDelegate {
+class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate , UIImagePickerControllerDelegate , UIDocumentMenuDelegate {
     @IBOutlet weak var TitleTixtFeild: UITextField!
     
     @IBOutlet weak var messR: UILabel!
@@ -106,21 +108,37 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
         // Create a storage reference from our storage service
       
         
-            let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf])
+         //   let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf])
         //change the type ^^^^
-        documentPicker.delegate = self
+      //  documentPicker.delegate = self
+            
        
-        documentPicker.allowsMultipleSelection = false // ease of use.only one doc
-        documentPicker.shouldShowFileExtensions = true
+      //  documentPicker.allowsMultipleSelection = false // ease of use.only one doc
+     //   documentPicker.shouldShowFileExtensions = true
         
         
- present(documentPicker, animated: true, completion: nil)
+ //present(documentPicker, animated: true, completion: nil)
       
       //  print("")
       //  print(documentPicker)
+            
+            let importMenu = UIDocumentMenuViewController(documentTypes: [String(kUTTypePDF)], in: .open)
+                importMenu.delegate = self
+                importMenu.modalPresentationStyle = .formSheet
+              present(importMenu, animated: true, completion: nil)
         }
         
     }
+    func selectFiles() {
+        let types = UTType.types(tag: "pdf",
+                                 tagClass: UTTagClass.filenameExtension,
+                                 conformingTo: nil)
+        let documentPickerController = UIDocumentPickerViewController(
+                forOpeningContentTypes: types)
+        documentPickerController.delegate = self
+        self.present(documentPickerController, animated: true, completion: nil)
+    }
+
   
     @IBAction func sendPressed(_ sender: Any) {
         let res = isValid()
@@ -162,7 +180,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
 
          
         // Present Alert to
-         self.present(dialogMessage, animated: true, completion: nil)
+  
         
     }
     /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -199,8 +217,62 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
   
     }
     }*/
+   
 
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
+        
+        // Initializes the picker instance for selecting a document in a remote location. The valid modes are Import and Open.
+      
+        
+        /// Initializes the picker instance for selecting a document in a remote location.
+        /// @param asCopy if true, the picker will give you access to a local copy of the document, otherwise you will have access to the original document
+      
+
+        
+        /// Initializes the picker instance for selecting a document in a remote location, giving you access to the original document.
+     
+
+        
+     //   public init?(coder: NSCoder)
+
+        
+        // Initializes the picker for exporting a local file to an external location. The valid modes are Export and Move. The new location will be returned using `didPickDocumentAtURL:`.
+       
+        
+        // Initializes the picker for exporting local files to an external location. The valid modes are Export and Move. The new locations will be returned using `didPickDocumentAtURLs:`.
+       
+
+        
+        /// Initializes the picker for exporting local documents to an external location. The new locations will be returned using `didPickDocumentAtURLs:`.
+        /// @param asCopy if true, a copy will be exported to the destination, otherwise the original document will be moved to the destination. For performance reasons and to avoid copies, we recommend you set `asCopy` to false.
+       // @available(iOS 14.0, *)
+      //  public init(forExporting urls: [URL], asCopy: Bool)
+
+        
+        /// Initializes the picker for exporting local documents to an external location. The new locations will be returned using `didPickDocumentAtURLs:`. The original document will be moved to the destination.
+     //   @available(iOS 14.0, *)
+      //  public convenience init(forExporting urls: [URL])
+
+        
+     //   weak open var delegate: UIDocumentPickerDelegate?
+
+       
+
+     //   @available(iOS 11.0, *)
+     //   open var allowsMultipleSelection: Bool
+
+        
+        /// Force the display of supported file extensions (default: NO).
+       // @available(iOS 13.0, *)
+        //open var shouldShowFileExtensions: Bool
+
+        
+        /// Picker will try to display this URL when presented
+      //  @available(iOS 13.0, *)
+      //  open var directoryURL: URL?
+    
+
+
+    /*func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt url: [URL]){
         let uuid = UUID().uuidString
                // Create a root reference
                let storage = Storage.storage()
@@ -237,7 +309,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
   
     }
         
-   
+   */
        
         // Create a root reference
      /*let storageRef = Storage.storage().reference()
@@ -329,6 +401,52 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
  
           imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
     }*/
+    
+ func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+     
+    guard let myURL = urls.first else {
+        return
+    }
+     let url = urls.first?.resourceBytes
+    print("import result : \(myURL)")
+     print("urls.first?.resourceBytes \(urls.first?.resourceBytes)")
+     print("lastPathComponent \(urls.first?.lastPathComponent)")
+     print("absoluteURL \(urls.first?.absoluteURL)")
+     //print("absoluteURL \(urls.first?.n)")
+     let FIRStorage = Storage.storage()
+
+     // reference of the storage
+     let storageRef = FIRStorage.reference()
+
+     // You have to get the file URL from disk or anywhere
+
+     let filePath = Bundle.main.path(forResource: "mypdf", ofType: "pdf")
+     let filePathURL = URL(fileURLWithPath: filePath!)
+
+  
+     let fileRef = storageRef.child("images/\(UUID().uuidString).pdf")
+
+     // from this you cant upload the file on fileRef path
+     let uploadTask = fileRef.putFile(from: filePathURL, metadata: nil) { metadata, error in
+         guard let metadata = metadata else {
+             // error!
+             return
+         }
+         let metadataSize = metadata.size
+         // get the download url of this file
+         fileRef.downloadURL { (url, error) in
+             guard let downloadURL = url else {
+                 // error!
+                 return
+             }
+         }
+     }
+}
+  
+func documentMenu(_ documentMenu:UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    documentPicker.delegate = self
+    present(documentPicker, animated: true, completion: nil)
+}
     }
     func uploadMedia(completion: @escaping (_ url: String?) -> Void) {
 
@@ -353,6 +471,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
         }
              
             
-    }
-
+         
 }
+    
+
