@@ -15,4 +15,8 @@ class studentHave: UITableViewCell {
     @IBOutlet weak var imageExec: UIImageView!
     @IBOutlet weak var StateExec: UILabel!
     @IBOutlet weak var idSt: UILabel!
+    
+    
+    @IBOutlet weak var viewExec: UIButton!
+    
 }

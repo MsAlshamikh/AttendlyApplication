@@ -2535,9 +2535,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-lv-Ua4">
+                                                    <rect key="frame" x="286" y="24.5" width="52" height="31"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.right.circle.fill" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hxQ-lv-Ua4" firstAttribute="centerY" secondItem="bKF-PX-btQ" secondAttribute="centerY" id="6tR-qr-E2g"/>
                                                 <constraint firstItem="Yls-hC-eVr" firstAttribute="leading" secondItem="bgc-bv-2Vm" secondAttribute="trailing" constant="30" id="7n5-2Q-Pb4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hxQ-lv-Ua4" secondAttribute="trailing" constant="56" id="I8d-fP-BEz"/>
+                                                <constraint firstItem="hxQ-lv-Ua4" firstAttribute="leading" secondItem="dg6-KN-eKE" secondAttribute="trailing" constant="107" id="Q9h-Me-R1N"/>
                                                 <constraint firstItem="reF-4x-oZo" firstAttribute="leading" secondItem="bKF-PX-btQ" secondAttribute="leading" constant="5" id="QyT-VP-qi5"/>
                                                 <constraint firstItem="dg6-KN-eKE" firstAttribute="centerY" secondItem="bKF-PX-btQ" secondAttribute="centerY" id="Rne-gN-JRz"/>
                                                 <constraint firstItem="bgc-bv-2Vm" firstAttribute="centerY" secondItem="bKF-PX-btQ" secondAttribute="centerY" id="U8Q-bF-hAX"/>
@@ -2554,6 +2562,7 @@
                                             <outlet property="idSt" destination="bgc-bv-2Vm" id="yIB-rV-kmH"/>
                                             <outlet property="imageExec" destination="reF-4x-oZo" id="Dfj-GE-zhz"/>
                                             <outlet property="nameSt" destination="dg6-KN-eKE" id="3gt-E3-dYc"/>
+                                            <outlet property="viewExec" destination="hxQ-lv-Ua4" id="2Dc-uL-JbU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2662,6 +2671,7 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrow.up.and.person.rectangle.portrait" catalog="system" width="128" height="100"/>
+        <image name="arrowshape.turn.up.right.circle.fill" catalog="system" width="128" height="121"/>
         <image name="bell.badge.fill" catalog="system" width="128" height="128"/>
         <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>

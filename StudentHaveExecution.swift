@@ -32,8 +32,8 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
-      //  tableView.estimatedRowHeight = 50
-      //  tableView.rowHeight = 50
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = 50
         
         noStudent.isHidden = true
         nameSection.text = sectionNmae
@@ -94,6 +94,17 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
 
     }
     
+    @objc func didTapCellButton(sender: UIButton) {
+        
+        let tag = sender.tag
+        let dateispreesed = idAll[tag]
+        let namepressed = nameAll[tag]
+        print("wiich is now press?? number of row",tag)
+        print("wiich is now press?? dateispreesed",dateispreesed)
+        print("wiich is now press?? name",dateispreesed)
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! studentHave
       
@@ -102,6 +113,9 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         my.idSt.text = idAll[indexPath.row]
         my.StateExec.text = FormStateAll[indexPath.row]
         my.imageExec.image = UIImage(named: "repor")
+        my.viewExec.tag = indexPath.row
+        
+        my.viewExec.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
         return my 
         
     }
