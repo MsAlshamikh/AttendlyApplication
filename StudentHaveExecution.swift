@@ -22,7 +22,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     
     var sectionNmae: String = ""
     
-    var all = ["hi" , "hello" ]
+
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -32,11 +32,15 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = 50
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = 80
         
         noStudent.isHidden = true
         nameSection.text = sectionNmae
+        
+        
+      //  var  fullNameCourse = String.self
+        
         let db = Firestore.firestore()
        Task {
          
@@ -49,12 +53,8 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                 let documentID = doc.documentID
                 
                 let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
-                print(snp.documents.count)
-            //      let st = t_snapshot.documents.first?.data()["st"] as! String
+            
                 
-//                guard let st  = doc.get("st") as? String else { continue }
-//
-//                print("st is444444 :" , st)
                 for studentDoc in snp.documents {
                    
                     guard let FormState = studentDoc.get("FormState") as? String else { continue }
@@ -102,6 +102,16 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         print("wiich is now press?? number of row",tag)
         print("wiich is now press?? dateispreesed",dateispreesed)
         print("wiich is now press?? name",dateispreesed)
+        
+        let stude = storyboard?.instantiateViewController(withIdentifier: "LectureViewEXViewController") as! LectureViewEXViewController
+//        stude.Takesection = WhatPressed
+//        stude.datePreesed = dateispreesed
+//        print("whatpressed ???" , WhatPressed)
+        stude.datePreesed = dateispreesed
+        stude.namepressed = namepressed
+        stude.sectionNmae = sectionNmae
+        navigationController?.pushViewController(stude, animated: true)
+        
         
     }
     
