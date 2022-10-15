@@ -40,8 +40,8 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         self.titleView.delegate = self
         self.reasonText.delegate = self
         self.tabBarController?.tabBar.isHidden = true
-       
-        
+        cnacelBtn.layer.borderWidth = 1
+      cnacelBtn.layer.borderColor = UIColor.black.cgColor
       
 
         // Do any additional setup after loading the view.
