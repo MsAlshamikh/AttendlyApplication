@@ -50,7 +50,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "Course Details"
         Takesection = courseLabel.text!
         
        print("Takesection is it  ", Takesection )
