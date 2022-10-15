@@ -13,6 +13,7 @@ class StudentInfoViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avlabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var scroll: UIView!
     var section: String = ""
     var titleB: String = ""
@@ -25,6 +26,7 @@ class StudentInfoViewController: UIViewController {
         super.viewDidLoad()
         nameLabel.text = student["Fullname"] as? String
         levelLabel.text = student["Level"] as? String
+        emailLabel.text = student["StudentEmail"] as? String
         let email = student["StudentEmail"] as? String ?? ""
         percentage(email: email)
         // Do any additional setup after loading the view.
@@ -272,11 +274,11 @@ class StudentInfoViewController: UIViewController {
                         self.performSegue(withIdentifier: "s1", sender: self)
                         //3
                         //print(name)
-                        
-                        
+                       
                     }
                 }
             }
         }
     }
+    
 }
