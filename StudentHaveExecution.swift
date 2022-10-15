@@ -52,12 +52,16 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                 print(snp.documents.count)
             //      let st = t_snapshot.documents.first?.data()["st"] as! String
                 
-                guard let st  = doc.get("st") as? String else { continue }
-
-                print("st is :" , st)
+//                guard let st  = doc.get("st") as? String else { continue }
+//
+//                print("st is444444 :" , st)
                 for studentDoc in snp.documents {
+                   
+                    guard let FormState = studentDoc.get("FormState") as? String else { continue }
+
+                    print("formState of student/",FormState)
                     
-                    
+                   
                     guard let name  = studentDoc.get("name") as? String else { continue }
 
                     print("name of student have exec/",name)
@@ -66,10 +70,10 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
 
                     print("id of student have exec/",id)
                     
-                    guard let FormState = studentDoc.get("FormState") as? String else { continue }
+                  
+                    guard let st  = doc.get("st") as? String else { continue }
 
-                    print("time of student/",FormState)
-                    
+                    print("st is222222 :" , st)
                     
 //                    stateAll.append(state)
 //                    dateAll.append(st)
@@ -77,7 +81,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                     
                     nameAll.append(name)
                    FormStateAll.append(FormState)
-                    idAll.append(id)
+                    idAll.append(st)
                     self.tableView.reloadData()
                 }
                 
