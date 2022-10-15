@@ -9,10 +9,8 @@ import UIKit
 import FirebaseFirestore
 class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //@IBOutlet weak var nostudent: UILabel!
-    //@IBOutlet weak var tableview: UITableView!
-    
-   // @IBOutlet weak var nostudent: UILabel!
+   
+    @IBOutlet weak var seeExecution: UIButton!
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -29,7 +27,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var sectionName = ""
     var SingleEmail: String = ""
     var SingleName: String = ""
-    
+    var sectionNmae: String = ""
     let db = Firestore.firestore()
     
     var percentagestu = [String]()
@@ -41,7 +39,10 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
        
         navigationItem.title = "Student in list"
         zeroStudent.isHidden = true
-
+        
+      //  sectionName = nameSection.text!
+        
+        
         print("what pressed is ")
         print(v)
         print("name of student")
@@ -167,5 +168,12 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
 
+    @IBAction func pressExecution(_ sender: UIButton) {
+        print("goo")
+        let stude = storyboard?.instantiateViewController(withIdentifier: "StudentHaveExecution") as! StudentHaveExecution
+    stude.sectionNmae = sectionName
+        print("sectionName ???" , sectionName)
+        navigationController?.pushViewController(stude, animated: true)
+    }
     
 }

@@ -49,6 +49,8 @@
 		53AF1B8F28DE67D900F77178 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 53AF1B8E28DE67D900F77178 /* FirebaseMessaging */; };
 		53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */; };
 		53B59CC828F76BC100977C32 /* teee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CC728F76BC100977C32 /* teee.swift */; };
+		53B59CCA28FAFB0F00977C32 /* StudentHaveExecution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CC928FAFB0F00977C32 /* StudentHaveExecution.swift */; };
+		53B59CCC28FAFCDD00977C32 /* studentHave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCB28FAFCDD00977C32 /* studentHave.swift */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
@@ -99,6 +101,8 @@
 		53AF1B8B28DE46D500F77178 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		53AF1B9428E0CF8700F77178 /* customTableviewControolerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableviewControolerTableViewCell.swift; sourceTree = "<group>"; };
 		53B59CC728F76BC100977C32 /* teee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teee.swift; sourceTree = "<group>"; };
+		53B59CC928FAFB0F00977C32 /* StudentHaveExecution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentHaveExecution.swift; sourceTree = "<group>"; };
+		53B59CCB28FAFCDD00977C32 /* studentHave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentHave.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				53B59CCB28FAFCDD00977C32 /* studentHave.swift */,
+				53B59CC928FAFB0F00977C32 /* StudentHaveExecution.swift */,
 				F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */,
 				F072EB3D28F99DFA005C72F7 /* StudentVC.swift */,
 				53B59CC728F76BC100977C32 /* teee.swift */,
@@ -283,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B59CCA28FAFB0F00977C32 /* StudentHaveExecution.swift in Sources */,
 				56D7607028E8549B00D7E885 /* User.swift in Sources */,
 				5351559228F0C39F00EFA29D /* TableViewhistoryStu.swift in Sources */,
 				5358E23328E72C4800F423DB /* NewCourseVC.swift in Sources */,
@@ -290,6 +297,7 @@
 				5358E22D28E38CD000F423DB /* customAttendTable.swift in Sources */,
 				53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */,
 				53415F3828D1E899005DFA19 /* loginController.swift in Sources */,
+				53B59CCC28FAFCDD00977C32 /* studentHave.swift in Sources */,
 				53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */,
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
 				5351559828F4D33F00EFA29D /* currentClassTableview.swift in Sources */,
