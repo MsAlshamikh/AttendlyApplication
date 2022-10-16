@@ -242,10 +242,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="460" height="203"/>
+                                <rect key="frame" x="20" y="359" width="384" height="203"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-cz-LU1">
-                                <rect key="frame" x="20" y="247" width="450" height="45"/>
+                                <rect key="frame" x="20" y="247" width="374" height="45"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.42352941179999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="333" id="9jK-Ow-u1E"/>
@@ -1400,7 +1400,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Advisees" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqi-jB-yw1">
-                                <rect key="frame" x="6" y="63" width="347" height="47"/>
+                                <rect key="frame" x="20" y="72" width="347" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="39"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1411,15 +1411,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iPe-Ci-jzg" firstAttribute="trailing" secondItem="xqi-jB-yw1" secondAttribute="trailing" constant="20" id="9jh-oG-qRg"/>
-                            <constraint firstItem="xqi-jB-yw1" firstAttribute="top" secondItem="iPe-Ci-jzg" secondAttribute="top" constant="41" id="9uD-Zs-CgM"/>
-                            <constraint firstItem="zta-SP-TOW" firstAttribute="leading" secondItem="iPe-Ci-jzg" secondAttribute="leading" constant="10" id="Fyx-Oc-zeE"/>
-                            <constraint firstItem="xqi-jB-yw1" firstAttribute="leading" secondItem="iPe-Ci-jzg" secondAttribute="leading" constant="20" id="ITq-Et-JgJ"/>
+                            <constraint firstItem="xqi-jB-yw1" firstAttribute="top" secondItem="iPe-Ci-jzg" secondAttribute="top" constant="2" id="9uD-Zs-CgM"/>
+                            <constraint firstItem="zta-SP-TOW" firstAttribute="leading" secondItem="iPe-Ci-jzg" secondAttribute="leading" constant="20" id="Fyx-Oc-zeE"/>
+                            <constraint firstItem="xqi-jB-yw1" firstAttribute="leading" secondItem="iPe-Ci-jzg" secondAttribute="leading" constant="10" id="ITq-Et-JgJ"/>
                             <constraint firstAttribute="bottom" secondItem="1Ic-Up-z7r" secondAttribute="bottom" constant="20" id="K7d-pt-co0"/>
-                            <constraint firstItem="zta-SP-TOW" firstAttribute="trailing" secondItem="iPe-Ci-jzg" secondAttribute="trailing" constant="-10" id="MsM-KX-eZo"/>
+                            <constraint firstItem="zta-SP-TOW" firstAttribute="trailing" secondItem="iPe-Ci-jzg" secondAttribute="trailing" constant="-20" id="MsM-KX-eZo"/>
                             <constraint firstItem="1Ic-Up-z7r" firstAttribute="top" secondItem="zta-SP-TOW" secondAttribute="bottom" constant="12" id="QXf-zU-HeU"/>
                             <constraint firstAttribute="trailing" secondItem="1Ic-Up-z7r" secondAttribute="trailing" constant="8" id="eSi-Ra-rdT"/>
                             <constraint firstAttribute="trailing" secondItem="JSV-Sj-DgT" secondAttribute="trailing" constant="-339" id="k5E-45-35d"/>
-                            <constraint firstItem="zta-SP-TOW" firstAttribute="top" secondItem="xqi-jB-yw1" secondAttribute="bottom" constant="60" id="rGc-KS-rVp"/>
+                            <constraint firstItem="zta-SP-TOW" firstAttribute="top" secondItem="xqi-jB-yw1" secondAttribute="bottom" constant="98" id="rGc-KS-rVp"/>
                             <constraint firstItem="JSV-Sj-DgT" firstAttribute="leading" secondItem="Vhu-OE-eGQ" secondAttribute="leading" constant="-65" id="vMI-Nl-D9X"/>
                             <constraint firstItem="1Ic-Up-z7r" firstAttribute="leading" secondItem="iPe-Ci-jzg" secondAttribute="leading" id="wdN-pn-LaK"/>
                         </constraints>
@@ -1827,7 +1827,7 @@
         <scene sceneID="1sF-D7-QfA">
             <objects>
                 <viewController storyboardIdentifier="StudentInfoViewController" id="Zoe-yL-ylq" customClass="StudentInfoViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="0IA-va-5pa">
+                    <view key="view" contentMode="scaleToFill" id="0IA-va-5pa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1872,7 +1872,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEm-34-ULA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEm-34-ULA">
                                 <rect key="frame" x="0.0" y="256" width="414" height="557"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0W-47-0uU">
