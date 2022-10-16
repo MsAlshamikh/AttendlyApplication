@@ -14,6 +14,7 @@ class TableViewhistoryStu: UITableViewCell {
     @IBOutlet weak var imageNumber: UIImageView!
     
     
+    @IBOutlet weak var havePending: UIButton!
     
     @IBOutlet weak var execution: UIButton!
     @IBOutlet weak var time: UILabel!

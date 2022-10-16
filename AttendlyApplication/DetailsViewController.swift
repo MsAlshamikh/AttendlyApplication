@@ -22,14 +22,14 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var stateAll = [String]()
     var  dateAll = [String]()
     var timeAll = [String]()
-    
+    var haveAll = [String]()
     var section: String = ""
     var titleB: String = ""
     var name: String = ""
     var email: String = ""
     var adv: String = ""
     var lecturerId : String?
-  
+  var haveExec = false
   //  var buttonTappedAction : ((UITableViewCell) -> Void)?
    // var buttonTappedAction : (() -> Void)? = nil
 
@@ -78,6 +78,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 guard let st  = doc.get("st") as? String else { continue }
 
                 print("st is :" , st)
+                
+                
                 for studentDoc in snp.documents {
                     
                     
@@ -89,10 +91,26 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
                     print("time of student/",time)
                     
+                    guard let have  = studentDoc.get("have") as? String else { continue }
+
+                    print("time of student/",have)
                     
+                    
+//                    if await self.checkEexcuction(email: email, collection: "studentsByCourse", field: "StudentEmail") {
+//
+//
+//                        print("student exists")
+//                  self.performSegue(withIdentifier: "gotoStudents", sender: self)
+//                        Global.shared.useremailshare = email
+//                        print("this is the email amani: " + email)
+//                        print("this is the global amani: " + Global.shared.useremailshare)
+//                        // students view
+//                    }
+                  
                     stateAll.append(state)
                     dateAll.append(st)
                     timeAll.append(time)
+                    haveAll.append(have)
                     self.tableView.reloadData()
                 }
                 
@@ -137,6 +155,23 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //
         // Do any additional setup after loading the view.
     }
+    
+    func checkEexcuction(email: String, collection: String, field: String) async -> Bool {
+       // print("what??")
+        let db = Firestore.firestore()
+        do {
+            let snapshot = try await db.collection(collection).whereField(field, isEqualTo: email).getDocuments()
+            print("COUNT ", snapshot.count)
+            print("not added")
+            return snapshot.count != 0
+        } catch {
+            print(error.localizedDescription)
+            print("added")
+            return false
+        }
+        
+        //return false
+    }
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
         
@@ -150,13 +185,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return stateAll.count
     }
     
-    
-//    func pressex(sender: UIButton) {
-//        print(" shamma8888")
-//        var buttonNumber = sender.tag
-//print("buttonNumber",buttonNumber)
-//
-//}
+
     
     @objc func didTapCellButton(sender: UIButton) {
    
@@ -198,41 +227,39 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
         
         my.execution.isHidden = true
-       
+        my.havePending.isHidden = true
+        
+        
        my.execution.tag = indexPath.row
-        
-    
-    
-      //    let vv = my.date.text!
-    //    print("vv",vv)
-        
-         // my.execution.setTitle(vv,for: .normal)
-//        my.execution =  {
-//            self.view.addSubview(self.viewDidLoad())
-//            print("hii")
-//        }()
     my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
 
       //  my.state.text = stateAll[indexPath.row]
-        if stateAll[indexPath.row] == "absent" {
+        if stateAll[indexPath.row] == "absent" && haveAll[indexPath.row] == "f"  {
             my.state.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             my.state.text = stateAll[indexPath.row]
             my.execution.isHidden = false
         }
-       else if stateAll[indexPath.row] == "late" {
+        
+        else if stateAll[indexPath.row] == "absent" && haveAll[indexPath.row] == "t"  {
+            my.state.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            my.state.text = stateAll[indexPath.row]
+            my.havePending.isHidden = false
+        }
+       else if stateAll[indexPath.row] == "late"  {
             my.state.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             my.state.text = stateAll[indexPath.row]
         }
-        else if stateAll[indexPath.row] == "attend" {
+        else if stateAll[indexPath.row] == "attend"  {
              my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
              my.state.text = stateAll[indexPath.row]
          }
-//        else if stateAll[indexPath.row] == "execute" {
-//             my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-//             my.state.text = stateAll[indexPath.row]
-//         }
-//        
         
+//        if haveAll[indexPath.row] == "t"  {
+//            my.havePending.isHidden = false
+//            my.state.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+////
+//        }
+
         
       
         my.date.text = dateAll[indexPath.row]

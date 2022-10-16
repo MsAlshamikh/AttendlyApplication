@@ -45,7 +45,7 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
         
-        self.emailTextfiled.text = "1232@lecture.ksu.edu.sa"
+        self.emailTextfiled.text = "400@student.ksu.edu.sa"
         self.passwordTextfiled.text = "12345678"
     }
   
@@ -326,8 +326,6 @@ class loginController: UIViewController, UITextFieldDelegate {
     
     
     func isValidEmail(emailID:String) -> Bool {
-        //      let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        //   let emailRegEx = "[0-9]+@[A-Za-z]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{3,}+\\.[A-Za-z]{2,}"
         let emailRegEx = "[0-9]+@[A-Za-z]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{3,}+\\.[A-Za-z]{2,}"
         
         
@@ -336,16 +334,12 @@ class loginController: UIViewController, UITextFieldDelegate {
     }
     
     func isValidEmailSttudent(emailID:String) -> Bool {
-        //      let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        //   let emailRegEx = "[0-9]+@[A-Za-z]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{3,}+\\.[A-Za-z]{2,}"
         let emailRegEx = "[0-9]+@[A-Za-z]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{3,}+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: emailID)
     }
     
     func isValidEmailLectures(emailID:String) -> Bool {
-        //      let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        //   let emailRegEx = "[0-9]+@[A-Za-z]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{3,}+\\.[A-Za-z]{2,}"
         let emailRegEx = "[0-9]+@[A-Za-z]+\\.[A-Za-z]{2,}+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: emailID)
