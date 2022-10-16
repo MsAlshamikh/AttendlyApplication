@@ -169,11 +169,12 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             
             
         } //task
-        
+        var f = false
         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
         // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
+            f = true
         })
         //Add OK button to a dialog message
         dialogMessage.addAction(ok)
@@ -185,6 +186,20 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         
         // Present Alert to
         self.present(dialogMessage, animated: true, completion: nil)
+        if (f == true){
+            var dialogMessage = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+            
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button tapped")
+             })
+            
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
+            
         
     }
     @IBAction func cancelPressed(_ sender: Any) {
@@ -229,6 +244,18 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         // Create a root reference
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        // Create new Alert
+        var dialogMessage = UIAlertController(title: "Message", message: "uploaded \(urls.first?.lastPathComponent) successfuly", preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
         
         // Create a reference to "mountains.jpg"
         //  let mountainsRef = storageRef.child(UUID().uuidString ".pdf")
