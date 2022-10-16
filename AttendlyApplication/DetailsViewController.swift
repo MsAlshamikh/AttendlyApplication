@@ -204,24 +204,25 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    @objc func viewexecu(sender: UIButton) {
+   
+      
+        let tag = sender.tag
+        let dateispreesed = dateAll[tag]
+
+        print("wiich is now press?? number of row",tag)
+        print("wiich is now press?? dateispreesed",dateispreesed)
+        
+        let stude = storyboard?.instantiateViewController(withIdentifier: "StudentViewExec") as! StudentViewExec
+        stude.datePreesed = dateispreesed
+        stude.sectionName = WhatPressed
+      //  print("whatpressed ???" , WhatPressed)
+        navigationController?.pushViewController(stude, animated: true)
+        
+    }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let currentCell = tableView.cellForRow(at: indexPath)! as! TableViewhistoryStu
-//          let datePreesed = currentCell.date.text!
-//        print("datePreesed",datePreesed)
-//
-//        let stude = storyboard?.instantiateViewController(withIdentifier: "FormVC") as! FormVC
-//        stude.Takesection = WhatPressed
-//        stude.datePreesed = datePreesed
-//       // print("whatpressed ???" , WhatPressed)
-//        navigationController?.pushViewController(stude, animated: true)
-//
-//
-//         // my.execution.setTitle(vv,for: .normal)
-//       //   my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
-//
-//    }
+    
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
@@ -232,6 +233,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
        my.execution.tag = indexPath.row
     my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+        my.havePending.addTarget(self, action: #selector(viewexecu(sender:)),for: .touchUpInside)
 
       //  my.state.text = stateAll[indexPath.row]
         if stateAll[indexPath.row] == "absent" && haveAll[indexPath.row] == "f"  {
@@ -254,12 +256,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
              my.state.text = stateAll[indexPath.row]
          }
         
-//        if haveAll[indexPath.row] == "t"  {
-//            my.havePending.isHidden = false
-//            my.state.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-////
-//        }
-
         
       
         my.date.text = dateAll[indexPath.row]
