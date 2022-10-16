@@ -7,13 +7,14 @@
 
 import UIKit
 import FirebaseFirestore
+import MessageUI
 
 class StudentInfoViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avlabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+    //@IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var scroll: UIView!
     var section: String = ""
     var titleB: String = ""
@@ -26,10 +27,13 @@ class StudentInfoViewController: UIViewController {
         super.viewDidLoad()
         nameLabel.text = student["Fullname"] as? String
         levelLabel.text = student["Level"] as? String
-        emailLabel.text = student["StudentEmail"] as? String
+        //emailLabel.text = student["StudentEmail"] as? String
         let email = student["StudentEmail"] as? String ?? ""
         percentage(email: email)
         // Do any additional setup after loading the view.
+        
+        let emailBarButton = UIBarButtonItem(image: UIImage(systemName: "envelope"), style: .plain, target: self, action: #selector(emailButtonTouched(_:)))
+        self.navigationItem.rightBarButtonItem = emailBarButton
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -281,4 +285,27 @@ class StudentInfoViewController: UIViewController {
         }
     }
     
+    @objc func emailButtonTouched(_ sender: Any) {
+        
+        guard let email = student["StudentEmail"] as? String else {return}
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setToRecipients([email])
+            self.present(mailVC, animated:true)
+        }
+    }
+}
+
+extension StudentInfoViewController : MFMailComposeViewControllerDelegate  {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let error = error {
+            print("Mail sending error", error.localizedDescription)
+            controller.dismiss(animated: true)
+        } else {
+            controller.dismiss(animated: true)
+            //SHOW and alert that mail was sent
+        }
+    }
 }
