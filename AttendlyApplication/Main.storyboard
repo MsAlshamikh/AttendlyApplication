@@ -2880,6 +2880,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressView:" destination="TYD-9r-ON6" eventType="touchUpInside" id="ggX-WW-OU8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaP-TX-5fP">
                                 <rect key="frame" x="122" y="692" width="219" height="31"/>
@@ -2931,6 +2934,7 @@
                     <connections>
                         <outlet property="resonOf" destination="NbU-LB-11T" id="5rv-WB-b0i"/>
                         <outlet property="titleOf" destination="pjZ-TA-YTv" id="9hJ-00-qT1"/>
+                        <outlet property="viewExecution" destination="Tlx-cL-pJG" id="lfg-8H-eBO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFz-Za-VNk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import PDFKit
 
 class StudentViewExec: UIViewController {
 
@@ -15,10 +16,21 @@ class StudentViewExec: UIViewController {
     
     
     
+    @IBOutlet weak var viewExecution: UIButton!
+    
     var   datePreesed: String = ""
     var  sectionName: String = ""
+    var fileURL: String = ""
     
-   
+    @IBAction func pressView(_ sender: UIButton) {
+        let vc = ViewController()
+        let pdfView = PDFView(frame: self.view.bounds)
+        vc.view.addSubview(pdfView)
+        pdfView.document = PDFDocument(url: URL(string: fileURL)!)
+     present(vc, animated: true)
+        return
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,8 +58,8 @@ class StudentViewExec: UIViewController {
                      print("tit" , titlee)
                      
                      guard let resonn = studentDoc.get("reason") as? String else { continue }
-          
-                     
+                     guard let file = studentDoc.get("file") as? String else { continue }
+                     self.fileURL = file
                      print("reson", resonn)
                      
                     titleOf.text = titlee
