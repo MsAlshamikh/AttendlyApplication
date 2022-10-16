@@ -40,6 +40,7 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     var sectionName = ""
     var SingleEmail: String = ""
     var SingleName: String = ""
+    var FullEmail : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,8 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
 
         print("sectionName" , sectionName )
         print("SingleName" , SingleName )
-        print("SingleEmail" , SingleEmail )
+//        print("SingleEmail" , SingleEmail )
+        print("FullEmail" , FullEmail )
         
         SecName.text = sectionName
         StudnetName.text = SingleName
