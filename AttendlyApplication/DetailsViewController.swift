@@ -229,10 +229,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         my.execution.isHidden = true
         my.havePending.isHidden = true
-        
-        
+    
        my.execution.tag = indexPath.row
+        
     my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+        my.havePending.tag = indexPath.row
         my.havePending.addTarget(self, action: #selector(viewexecu(sender:)),for: .touchUpInside)
 
       //  my.state.text = stateAll[indexPath.row]
