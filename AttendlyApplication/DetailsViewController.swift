@@ -89,7 +89,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     timeAll.append(time)
                     self.tableView.reloadData()
                 }
-                
+  //history here
                 
             }
             
