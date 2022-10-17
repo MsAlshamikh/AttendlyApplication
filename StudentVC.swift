@@ -60,13 +60,14 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
             print("here id is ", v)
 
         
-        
+        // ##########
         
         let emailBarButton = UIBarButtonItem(image: UIImage(systemName: "envelope"), style: .plain, target: self, action: #selector(emailButtonTouched))
         self.navigationItem.rightBarButtonItem = emailBarButton
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        // ############
         
         
             tableView.delegate = self
@@ -189,7 +190,7 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     }
     
 
-    
+    // #############
     @objc func emailButtonTouched(_sender: Any){
         
         let email = FullEmail
@@ -213,3 +214,4 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
 //        }
 //    }
 //}
+// #########################
