@@ -42,7 +42,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         titleView.layer.cornerRadius = 5
         self.titleView.delegate = self
         self.reasonText.delegate = self
-        self.tabBarController?.tabBar.isHidden = true
+       // self.tabBarController?.tabBar.isHidden = true
         cnacelBtn.layer.borderWidth = 1
         cnacelBtn.layer.borderColor = UIColor.black.cgColor
         
