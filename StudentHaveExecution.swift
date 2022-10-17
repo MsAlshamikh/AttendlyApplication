@@ -29,7 +29,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         print("new pahe statrt")
         super.viewDidLoad()
-        
+        navigationItem.title = "Student in list"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80

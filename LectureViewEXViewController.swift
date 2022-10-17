@@ -18,6 +18,7 @@ class LectureViewEXViewController: UIViewController {
     @IBOutlet weak var accapetButton: UIButton!
     
     
+    @IBOutlet weak var stateExc: UILabel!
     var sectionNmae: String = ""
     var   datePreesed: String = ""
     var  namepressed: String = ""
@@ -27,6 +28,8 @@ class LectureViewEXViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "View Absence Excuse"
+
        // self.tabBarController?.tabBar.isHidden = true
         print("sectionNmae",sectionNmae)
         print("datePreesed",sectionNmae)
