@@ -249,12 +249,6 @@ class loginController: UIViewController, UITextFieldDelegate {
         Task{
             
             let db2 = Firestore.firestore()
-//            let A_snapshot = try await db2.collection("Lectures").whereField("EmailLectures", isEqualTo: Global.shared.useremailshare).getDocuments()
-//            guard let documentID = A_snapshot.documents.first?.documentID else { return }
-//            print("docID",documentID)
-//            print("I'm in lecture notification form !*!!*!*!*!*!*!*")
-            
-            
             let snapshot = try await db2.collection("studentsByCourse").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
             
                      for doc in snapshot.documents {
@@ -266,8 +260,7 @@ class loginController: UIViewController, UITextFieldDelegate {
                          let StudName = snp.documents.first!.get("name") as! String
             
                          self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "have upload an execution for her/his abbsent ", badge: 1, dleayInterval: nil)
-                         
-            
+                           
         }// end loop
         
     }// end Task
