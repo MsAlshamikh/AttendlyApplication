@@ -7,9 +7,10 @@
 
 import UIKit
 import FirebaseFirestore
+import MessageUI
 
 
-class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     
     
@@ -18,6 +19,7 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var SecName: UILabel!
     @IBOutlet weak var StudnetName: UILabel!
     @IBOutlet weak var StudentEmail: UILabel!
+    @IBOutlet weak var EmailStu: UIButton!
     
     
     let imageF = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2"),UIImage(named: "2")]
@@ -54,11 +56,19 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         
         SecName.text = sectionName
         StudnetName.text = SingleName
-        StudentEmail.text = SingleEmail
+        //StudentEmail.text = SingleEmail
+        StudentEmail.text = FullEmail
+        
+        
             
             print("here course is ", sectionName)
             print("here id is ", v)
 
+        
+//         let tg = UITapGestureRecognizer(target: self, action: #selector(EmailButtonTouched(_:)))
+//         EmailStu.isUserInteractionEnabled = true
+//         EmailStu.addGestureRecognizer(tg)
+//        
             tableView.delegate = self
             tableView.dataSource = self
             tableView.estimatedRowHeight = 50
@@ -178,6 +188,29 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         return my
     }
     
-
-    
 }
+
+//    @objc func EmailButtonTouched(_ sender: Any) {
+//        guard let eemail = FullEmail else {return}
+//
+//        if MFMailComposeViewController.canSendMail() {
+//            let mailVC = MFMailComposeViewController()
+//            mailVC.mailComposeDelegate = self
+//            mailVC.setToRecipients([eemail])
+//            self.present(mailVC, animated:true)
+//        }
+//    }
+//
+//}
+//
+//extension StudentVC : MFMailComposeViewControllerDelegate  {
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        if let error = error {
+//            print("Mail sending error", error.localizedDescription)
+//            controller.dismiss(animated: true)
+//        } else {
+//            controller.dismiss(animated: true)
+//            //SHOW and alert that mail was sent
+//        }
+//    }
+//}

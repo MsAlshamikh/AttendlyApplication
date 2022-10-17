@@ -2403,6 +2403,14 @@
                                 <color key="textColor" red="0.054901960780000002" green="0.56862745100000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIu-7m-2b9">
+                                <rect key="frame" x="324" y="284" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="envelope" catalog="system">
+                                    <color key="baseForegroundColor" red="0.054901960780000002" green="0.56862745100000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="auG-Fq-GFq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2439,6 +2447,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SwS-mE-Ub8"/>
                     <connections>
+                        <outlet property="EmailStu" destination="NIu-7m-2b9" id="cQe-m9-K2K"/>
                         <outlet property="SecName" destination="n0V-ki-W4X" id="KKM-Ds-ufV"/>
                         <outlet property="StudentEmail" destination="Qvd-IU-Gra" id="fmA-DH-zRR"/>
                         <outlet property="StudnetName" destination="CAP-QC-PtN" id="V59-qh-a7v"/>
