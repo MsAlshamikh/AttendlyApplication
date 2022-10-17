@@ -132,10 +132,32 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                let stude = storyboard?.instantiateViewController(withIdentifier: "StudentVC") as! StudentVC
         
                print("Email  ssssss" , EmailStu )
-               stude.v = v // id student 
+//            let text1 = NSMutableAttributedString()
+//            text1.append(NSAttributedString(string: "id: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+//            text1.append(NSAttributedString(string: v, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+//
+////            let text2 = NSMutableAttributedString()
+////            text2.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+////            text2.append(NSAttributedString(string: sectionName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+//
+//            let text3 = NSMutableAttributedString()
+//            text3.append(NSAttributedString(string: "name: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+//            text3.append(NSAttributedString(string: NameStu, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+//
+//            let text4 = NSMutableAttributedString()
+//            text4.append(NSAttributedString(string: "email: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+//            text4.append(NSAttributedString(string: EmailStu, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+            
+              var arrAll = NameStu.split(separator: "-")
+               print("TRRRRYYY SPLLLIITTT", arrAll)
+               stude.v = v // id student
                stude.sectionName = sectionName
-               stude.SingleName = NameStu
-               stude.SingleEmail = EmailStu
+//               stude.SingleName = NameStu
+//               stude.SingleEmail = EmailStu
+            
+            stude.SingleName = String(arrAll[0])
+            stude.SingleEmail = String(arrAll[1])
+            
                print("here course is ", sectionName)
        
         
