@@ -63,6 +63,9 @@ class LectureViewEXViewController: UIViewController {
                      
                      guard let FormState = studentDoc.get("FormState") as? String else { continue }
                      
+                    
+                     
+                     
                      guard let file = studentDoc.get("file") as? String else { continue }
                      self.fileURL = file
                      

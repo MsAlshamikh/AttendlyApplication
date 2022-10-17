@@ -22,7 +22,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     
     var sectionNmae: String = ""
     
-
+   
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -103,7 +103,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         print("wiich is now press?? dateispreesed",dateispreesed)
         print("wiich is now press?? name",dateispreesed)
         
-        let stude = storyboard?.instantiateViewController(withIdentifier: "LectureViewEXViewController") as! LectureViewEXViewController
+        let stude = storyboard?.instantiateViewController(withIdentifier: "LectureViewEXViewController") as!   LectureViewEXViewController
 //        stude.Takesection = WhatPressed
 //        stude.datePreesed = dateispreesed
 //        print("whatpressed ???" , WhatPressed)
@@ -114,18 +114,65 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
         
     }
+    @objc func viewFterRejectAccept(sender: UIButton) {
+        
+        let tag = sender.tag
+        let dateispreesed = idAll[tag]
+        let namepressed = nameAll[tag]
+        print("wiich is now press?? number of row",tag)
+        print("wiich is now press?? dateispreesed",dateispreesed)
+        print("wiich is now press?? name",dateispreesed)
+        
+        let stude = storyboard?.instantiateViewController(withIdentifier: "LectureViewAccepRej") as! LectureViewAccepRej
+//        stude.Takesection = WhatPressed
+//        stude.datePreesed = dateispreesed
+//        print("whatpressed ???" , WhatPressed)
+        stude.datePreesed = dateispreesed
+        stude.namepressed = namepressed
+        stude.sectionNmae = sectionNmae
+        navigationController?.pushViewController(stude, animated: true)
+        
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! studentHave
-      
-      //  my.nameSt.text = all[indexPath.row]
-        my.nameSt.text = nameAll[indexPath.row]
-        my.idSt.text = idAll[indexPath.row]
-        my.StateExec.text = FormStateAll[indexPath.row]
-        my.imageExec.image = UIImage(named: "repor")
-        my.viewExec.tag = indexPath.row
+        my.viewExec.isHidden = true
+        my.ViewExecAfterAccRej.isHidden = true
         
         my.viewExec.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+        my.ViewExecAfterAccRej.addTarget(self, action: #selector(viewFterRejectAccept(sender:)),for: .touchUpInside)
+        
+        my.nameSt.text = nameAll[indexPath.row]
+        my.idSt.text = idAll[indexPath.row]
+        
+      //  my.StateExec.text = FormStateAll[indexPath.row]
+        if FormStateAll[indexPath.row] == "Pending"   {
+           
+            my.StateExec.text = FormStateAll[indexPath.row]
+          my.viewExec.isHidden = false
+            
+        }
+     else   if FormStateAll[indexPath.row] == "accepted"   {
+           
+            my.StateExec.text = FormStateAll[indexPath.row]
+          my.viewExec.isHidden = true
+         my.ViewExecAfterAccRej .isHidden = false
+            
+        }
+        else   if FormStateAll[indexPath.row] == "rejected"   {
+               
+               my.StateExec.text = FormStateAll[indexPath.row]
+             my.viewExec.isHidden = true
+            my.ViewExecAfterAccRej.isHidden = false
+               
+           }
+        
+        my.imageExec.image = UIImage(named: "repor")
+        my.viewExec.tag = indexPath.row
+        my.ViewExecAfterAccRej.tag = indexPath.row
+     
+        
+       
         return my 
         
     }

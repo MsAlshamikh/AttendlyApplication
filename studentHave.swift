@@ -19,4 +19,6 @@ class studentHave: UITableViewCell {
     
     @IBOutlet weak var viewExec: UIButton!
     
+    @IBOutlet weak var ViewExecAfterAccRej: UIButton!
+    
 }

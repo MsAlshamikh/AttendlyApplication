@@ -53,6 +53,7 @@
 		53B59CCC28FAFCDD00977C32 /* studentHave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCB28FAFCDD00977C32 /* studentHave.swift */; };
 		53B59CCE28FB15DE00977C32 /* LectureViewEXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCD28FB15DE00977C32 /* LectureViewEXViewController.swift */; };
 		53B59CD028FC690100977C32 /* StudentViewExec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCF28FC690100977C32 /* StudentViewExec.swift */; };
+		53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
@@ -107,6 +108,7 @@
 		53B59CCB28FAFCDD00977C32 /* studentHave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentHave.swift; sourceTree = "<group>"; };
 		53B59CCD28FB15DE00977C32 /* LectureViewEXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewEXViewController.swift; sourceTree = "<group>"; };
 		53B59CCF28FC690100977C32 /* StudentViewExec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewExec.swift; sourceTree = "<group>"; };
+		53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewAccepRej.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */,
 				53B59CCF28FC690100977C32 /* StudentViewExec.swift */,
 				53B59CCD28FB15DE00977C32 /* LectureViewEXViewController.swift */,
 				53B59CCB28FAFCDD00977C32 /* studentHave.swift */,
@@ -317,6 +320,7 @@
 				34145F3928CFDF3300B073ED /* AppDelegate.swift in Sources */,
 				53AF1B9528E0CF8700F77178 /* customTableviewControolerTableViewCell.swift in Sources */,
 				53415F3A28D1E8A2005DFA19 /* Global.swift in Sources */,
+				53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */,
 				5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
