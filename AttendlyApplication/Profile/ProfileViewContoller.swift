@@ -124,6 +124,7 @@ class ProfileViewContoller: UIViewController {
         }
     }
 }
+// trying to fix this version
 
 extension ProfileViewContoller : MFMailComposeViewControllerDelegate  {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
