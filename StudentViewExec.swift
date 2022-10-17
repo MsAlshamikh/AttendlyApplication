@@ -15,6 +15,7 @@ class StudentViewExec: UIViewController {
     @IBOutlet weak var resonOf: UILabel!
     
     
+    @IBOutlet weak var stateOfex: UILabel!
     
     @IBOutlet weak var viewExecution: UIButton!
     
@@ -33,7 +34,7 @@ class StudentViewExec: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "View Absence Excuse"
         print("wiich is now press?? number of row",datePreesed)
         print("wiich is now press?? dateispreesed",sectionName)
         // Do any additional setup after loading the view.
@@ -58,12 +59,16 @@ class StudentViewExec: UIViewController {
                      print("tit" , titlee)
                      
                      guard let resonn = studentDoc.get("reason") as? String else { continue }
+                     guard let FormState = studentDoc.get("FormState") as? String else { continue }
+                     
                      guard let file = studentDoc.get("file") as? String else { continue }
                      self.fileURL = file
                      print("reson", resonn)
                      
+                     stateOfex.text = FormState
                     titleOf.text = titlee
                       resonOf.text = resonn
+                    
             }
              }
          }
