@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import MessageUI
 
-class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
+class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
     
     
@@ -200,6 +200,17 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
             mailVC.mailComposeDelegate = self
             mailVC.setToRecipients([email])
             self.present(mailVC, animated:true)
+        }
+    }
+}
+extension StudentVC : MFMailComposeViewControllerDelegate  {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let error = error {
+            print("Mail sending error", error.localizedDescription)
+            controller.dismiss(animated: true)
+        } else {
+            controller.dismiss(animated: true)
+            //SHOW and alert that mail was sent
         }
     }
 }
