@@ -131,7 +131,7 @@ class loginController: UIViewController, UITextFieldDelegate {
                         else if await self.checkEmailExist(email: email, collection: "Lectures", field: "EmailLectures") {
                         
                             self.NotificationLec()
-                            self.LectureNotificationForm()
+                            //self.LectureNotificationForm()
                             print("lectures exists")
                             
                           self.performSegue(withIdentifier: "gotoLecturers", sender: self)
@@ -243,29 +243,41 @@ class loginController: UIViewController, UITextFieldDelegate {
 
     
     func LectureNotificationForm(){
-        
+
         var Stuhave : String = "t" // student have upload a form
-        
+
         Task{
-            
+
             let db2 = Firestore.firestore()
             let snapshot = try await db2.collection("studentsByCourse").whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
-            
+
                      for doc in snapshot.documents {
                      let documentID = doc.documentID
-                     
+
                      let snp = try await db2.collection("studentsByCourse").document(documentID).collection("students").whereField("have", isEqualTo: Stuhave).getDocuments()
                          print(snp.documents.count)
-            
+                             
+                         let HaveForm = snp.documents.first!.get("have") as! String
                          let StudName = snp.documents.first!.get("name") as! String
-            
-                         self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "have upload an execution for her/his abbsent ", badge: 1, dleayInterval: nil)
-                           
+
+                         
+                         if(HaveForm == "t" ){
+                             self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "have upload an execution for her/his abbsent ", badge: 1, dleayInterval: nil)
+                         }
+                         else{
+                             print("no notification")
+                         }
+                         
+                         
+                         
+                         
+//                         self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "have upload an execution for her/his abbsent ", badge: 1, dleayInterval: nil)
+
         }// end loop
-        
+
     }// end Task
 }// end func
-    
+
     
     
     func isValidEmail(emailID:String) -> Bool {

@@ -7,9 +7,9 @@
 
 import UIKit
 import FirebaseFirestore
+import MessageUI
 
-
-class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     
     
@@ -40,6 +40,7 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     var sectionName = ""
     var SingleEmail: String = ""
     var SingleName: String = ""
+    var FullEmail : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +54,21 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
         SecName.text = sectionName
         StudnetName.text = SingleName
         StudentEmail.text = SingleEmail
-            
+        
+        
             print("here course is ", sectionName)
             print("here id is ", v)
 
+        
+        
+        
+        let emailBarButton = UIBarButtonItem(image: UIImage(systemName: "envelope"), style: .plain, target: self, action: #selector(emailButtonTouched))
+        self.navigationItem.rightBarButtonItem = emailBarButton
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        
+        
             tableView.delegate = self
             tableView.dataSource = self
             tableView.estimatedRowHeight = 50
@@ -178,4 +190,26 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
 
     
+    @objc func emailButtonTouched(_sender: Any){
+        
+        let email = FullEmail
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setToRecipients([email])
+            self.present(mailVC, animated:true)
+        }
+    }
 }
+
+//extension StudentVC : MFMailComposeViewControllerDelegate {
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        if let error = error {
+//            print("Mail sending error" , error.localizedDescription)
+//            controller.dismiss(animated: true)
+//        } else {
+//            controller.dismiss(animated: true)
+//        }
+//    }
+//}

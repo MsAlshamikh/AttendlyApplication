@@ -154,7 +154,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                stude.sectionName = sectionName
 //               stude.SingleName = NameStu
 //               stude.SingleEmail = EmailStu
-            
+            stude.FullEmail = EmailStu 
             stude.SingleName = String(arrAll[0])
             stude.SingleEmail = String(arrAll[1])
             
