@@ -209,9 +209,9 @@ class StudentInfoViewController: UIViewController {
                                                //
                                            //label.tag = Int(section) ?? 0
                                            label.tag = i;
-                                           label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
-                                           label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
-                                           label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
+//                                           label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
+//                                           label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
+//                                           label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
                                            label.layer.cornerRadius = 0.07 * label.bounds.size.width
                                            self.scroll.addSubview(label)
                                            
@@ -228,59 +228,59 @@ class StudentInfoViewController: UIViewController {
           
                 }}}
         
-        @objc func pressed1(sender:UIButton) {
-            sender.setTitleColor(UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 2), for: .normal)
-           // sender.backgroundColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 0.75)
-            
-        }
+//        @objc func pressed1(sender:UIButton) {
+//            sender.setTitleColor(UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 2), for: .normal)
+//           // sender.backgroundColor = UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 0.75)
+//
+//        }
+//
+//        @objc func pressed2(sender:UIButton) {
+//            sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
+//          //  sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+//
+//        }
         
-        @objc func pressed2(sender:UIButton) {
-            sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-          //  sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-            
-        }
-        
-        @objc func pressed(sender:UIButton) {
-           
-            
-            sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-            //sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
-            
-            //1
-            titleB = sender.title(for: .normal)!
-            //2
-            section = self.sections[sender.tag]
-            selectedIndex = sender.tag
-            
-            
-            let db = Firestore.firestore()
-            db.collection("Sections").whereField("section", isEqualTo: section).getDocuments{
-                (snapshot, error) in
-                if let error = error {
-                    print("FAIL2 ")
-                }
-                else{
-                    print("SUCCESS2")
-                    let id = snapshot!.documents.first!.get("lecturerID") as! String
-                    print(id)
-                    
-                    db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
-                        (snapshot, error) in
-                        if let error = error {
-                            print("FAIL3 ")
-                        }
-                        else{
-                            print("SUCCESS 3")
-                            self.name = snapshot!.documents.first!.get("name") as! String
-                            self.performSegue(withIdentifier: "s1", sender: self)
-                            //3
-                            //print(name)
-                           
-                        }
-                    }
-                }
-            }
-        }
+//        @objc func pressed(sender:UIButton) {
+//
+//
+//            sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
+//            //sender.backgroundColor = UIColor(red: 138/255, green: 176/255, blue: 183/255, alpha: 0.75)
+//
+//            //1
+//            titleB = sender.title(for: .normal)!
+//            //2
+//            section = self.sections[sender.tag]
+//            selectedIndex = sender.tag
+//
+//
+//            let db = Firestore.firestore()
+//            db.collection("Sections").whereField("section", isEqualTo: section).getDocuments{
+//                (snapshot, error) in
+//                if let error = error {
+//                    print("FAIL2 ")
+//                }
+//                else{
+//                    print("SUCCESS2")
+//                    let id = snapshot!.documents.first!.get("lecturerID") as! String
+//                    print(id)
+//
+//                    db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
+//                        (snapshot, error) in
+//                        if let error = error {
+//                            print("FAIL3 ")
+//                        }
+//                        else{
+//                            print("SUCCESS 3")
+//                            self.name = snapshot!.documents.first!.get("name") as! String
+//                            self.performSegue(withIdentifier: "s1", sender: self)
+//                            //3
+//                            //print(name)
+//
+//                        }
+//                    }
+//                }
+//            }
+//        }
         
         @objc func emailButtonTouched(_ sender: Any) {
             

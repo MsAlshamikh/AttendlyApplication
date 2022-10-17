@@ -16,11 +16,19 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
    var coursess: String = ""
     
     var actual = [String]()
+    var semster = String()
     var  fullNameCourse = [String]()
     let imageF = [UIImage(named: "b1"),UIImage(named: "b2"),UIImage(named: "b2")]
         
+    @IBOutlet weak var dataUi: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = " EEEE, MMM d, yyyy‏"
+       dataUi.text = dateFormatter.string(from: date)
+    //    semester.text = semster
         
         tablekeView.delegate = self
         tablekeView.dataSource = self
@@ -39,8 +47,13 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
                 print("SUCCESS??")
                 self.actual = snapshot!.documents.first!.get("coursess") as! [String]
                 self.fullNameCourse = snapshot!.documents.first!.get("fullNameCourse") as! [String]
+             //   self.semster  = snapshot!.documents.first!.get("Semster") as! String
+                        
+
                 print("section:", self.actual)
                 print("fullNameCourse:", self.fullNameCourse)
+              //  print("semster:", self.semster)
+
                 self.tablekeView.reloadData()
     }
         }
@@ -70,7 +83,7 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
      
 
        //  my.courseName.image = imageF[indexPath.row]
-        my.courseName.image = UIImage(named: "open" )
+        my.courseName.image = UIImage(named: "bb" )
 
 
         my.detilasname.text = fullNameCourse[indexPath.row]

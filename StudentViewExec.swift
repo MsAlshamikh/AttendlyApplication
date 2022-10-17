@@ -14,6 +14,7 @@ class StudentViewExec: UIViewController {
     @IBOutlet weak var titleOf: UILabel!
     @IBOutlet weak var resonOf: UILabel!
     
+    @IBOutlet weak var dateOF: UILabel!
     
     @IBOutlet weak var stateOfex: UILabel!
     
@@ -34,7 +35,8 @@ class StudentViewExec: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "View Absence Excuse"
+        navigationItem.title = "Absence Excuse"
+        dateOF.text = datePreesed
         print("wiich is now press?? number of row",datePreesed)
         print("wiich is now press?? dateispreesed",sectionName)
         // Do any additional setup after loading the view.

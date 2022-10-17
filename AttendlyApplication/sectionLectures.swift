@@ -12,6 +12,7 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
   
     
 
+    @IBOutlet weak var dateOF: UILabel!
     
     var Sectionss: String = ""
    var coursess: String = ""
@@ -27,6 +28,10 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = " EEEE, MMM d, yyyy‏"
+      dateOF.text = dateFormatter.string(from: date)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -63,7 +68,7 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
         my.sectionName.text = actual[indexPath.row]
     
  
-        my.imagebbok.image = UIImage(named: "open" )
+        my.imagebbok.image = UIImage(named: "bb" )
         my.sectionFullName.text = fullNameCourse[indexPath.row]
 
         return my

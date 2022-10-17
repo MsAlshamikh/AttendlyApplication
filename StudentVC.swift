@@ -55,8 +55,8 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
         
         SecName.text = sectionName
         StudnetName.text = SingleName
-        //StudentEmail.text = SingleEmail
-        StudentEmail.text = FullEmail
+        StudentEmail.text = SingleEmail
+       // StudentEmail.text = FullEmail
         
         
             

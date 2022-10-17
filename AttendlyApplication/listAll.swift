@@ -19,6 +19,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var zeroStudent: UILabel!
     
+    @IBOutlet weak var dataOf: UILabel!
     
     var nameStudent = [String]()
     var emailStudent = [String]()
@@ -37,7 +38,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        navigationItem.title = "Student in list"
+        navigationItem.title = "Student list"
         zeroStudent.isHidden = true
         
       //  sectionName = nameSection.text!
@@ -61,7 +62,10 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableview.estimatedRowHeight = 50
         tableview.rowHeight = 50
        // navigationController?.navigationItem.title = "ss"
-        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = " EEEE, MMM d, yyyy‏"
+    dataOf.text = dateFormatter.string(from: date)
         
      let text1 = NSMutableAttributedString()
 
@@ -105,6 +109,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
             my.currrentsectionpressed.text = ""+String ( percentagestu[indexPath.row] + "%" ) }
        else if doubles[indexPath.row] >= 0 {   //less than  or equal 7
             my.currrentsectionpressed.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+           
             my.currrentsectionpressed.text = ""+String ( percentagestu[indexPath.row] + "%" ) }
         
         

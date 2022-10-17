@@ -29,7 +29,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         print("new pahe statrt")
         super.viewDidLoad()
-        navigationItem.title = "Student in list"
+        navigationItem.title = "Student excuses"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
@@ -148,21 +148,23 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
       //  my.StateExec.text = FormStateAll[indexPath.row]
         if FormStateAll[indexPath.row] == "Pending"   {
            
-            my.StateExec.text = FormStateAll[indexPath.row]
+         //   my.StateExec.text = FormStateAll[indexPath.row]
           my.viewExec.isHidden = false
             
         }
-     else   if FormStateAll[indexPath.row] == "accepted"   {
+     else   if FormStateAll[indexPath.row] == "Accepted"   {
            
-            my.StateExec.text = FormStateAll[indexPath.row]
+           // my.StateExec.text = FormStateAll[indexPath.row]
           my.viewExec.isHidden = true
+         my.ViewExecAfterAccRej.tintColor =  #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
          my.ViewExecAfterAccRej .isHidden = false
             
         }
-        else   if FormStateAll[indexPath.row] == "rejected"   {
+        else   if FormStateAll[indexPath.row] == "Rejected"   {
                
-               my.StateExec.text = FormStateAll[indexPath.row]
+             //  my.StateExec.text = FormStateAll[indexPath.row]
              my.viewExec.isHidden = true
+            my.ViewExecAfterAccRej.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             my.ViewExecAfterAccRej.isHidden = false
                
            }

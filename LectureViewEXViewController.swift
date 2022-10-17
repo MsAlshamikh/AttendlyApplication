@@ -110,7 +110,7 @@ class LectureViewEXViewController: UIViewController {
           
           try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
              
-            "FormState": "rejected"
+            "FormState": "Rejected"
             //  "State": ""
               
               
@@ -154,8 +154,8 @@ class LectureViewEXViewController: UIViewController {
           
           try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
              
-            "FormState": "accepted" ,
-             "State": "execues"
+            "FormState": "Accepted" ,
+             "State": "excused"
               
               
           ],merge: true) { err in

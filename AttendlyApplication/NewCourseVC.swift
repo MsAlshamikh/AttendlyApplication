@@ -45,7 +45,7 @@ class NewCourseVC: UIViewController {
         
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YY"
+        dateFormatter.dateFormat = " EEEE, MMM d, yyyy‏"
         dateUI.text = dateFormatter.string(from: date)
         let calunder = Calendar.current
         let day = calunder.component(.day , from: date)
