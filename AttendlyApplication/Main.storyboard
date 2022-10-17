@@ -2705,6 +2705,9 @@
                                 <buttonConfiguration key="configuration" style="gray" title="accept">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressAccept:" destination="Vh7-JX-kos" eventType="touchUpInside" id="AE2-lQ-6cE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach Absence Excuse File:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UO-jc-nyo">
                                 <rect key="frame" x="6" y="604" width="246.5" height="24"/>
@@ -2728,6 +2731,9 @@
                                 <buttonConfiguration key="configuration" style="gray" title="reject">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressRej:" destination="Vh7-JX-kos" eventType="touchUpInside" id="O6B-zy-9yr"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyX-Qt-ZTk">
                                 <rect key="frame" x="70" y="202" width="279" height="21"/>
@@ -2796,6 +2802,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressView:" destination="Vh7-JX-kos" eventType="touchUpInside" id="Mrx-ux-yLq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gy8-oe-tLG"/>
