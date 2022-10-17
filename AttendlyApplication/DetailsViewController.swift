@@ -18,11 +18,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    let refreshControl = UIRefreshControl()
+    
     var WhatPressed: String = ""
+   
     var stateAll = [String]()
     var  dateAll = [String]()
     var timeAll = [String]()
     var haveAll = [String]()
+    
     var section: String = ""
     var titleB: String = ""
     var name: String = ""
@@ -59,15 +63,19 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = 60
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+           tableView.addSubview(refreshControl)
+        
         //
         let db = Firestore.firestore()
         Task {
          
             let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: WhatPressed).getDocuments()
            
-         //   let st = t_snapshot.documents.first?.data()["st"] as! String
+           // dateAll.removeAll()
             
-       //     print("st is :" , st)
             for doc in t_snapshot.documents {
                 let documentID = doc.documentID
                 
@@ -78,11 +86,14 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 guard let st  = doc.get("st") as? String else { continue }
 
                 print("st is :" , st)
-                
-                
+//               stateAll.removeAll()
+//              // dateAll.removeAll()
+//                timeAll.removeAll()
+//                haveAll.removeAll()
                 for studentDoc in snp.documents {
                     
-                    
+                   
+
                     guard let state  = studentDoc.get("State") as? String else { continue }
 
                     print("state of student/",state)
@@ -95,22 +106,12 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
                     print("time of student/",have)
                     
-                    
-//                    if await self.checkEexcuction(email: email, collection: "studentsByCourse", field: "StudentEmail") {
-//
-//
-//                        print("student exists")
-//                  self.performSegue(withIdentifier: "gotoStudents", sender: self)
-//                        Global.shared.useremailshare = email
-//                        print("this is the email amani: " + email)
-//                        print("this is the global amani: " + Global.shared.useremailshare)
-//                        // students view
-//                    }
                   
                     stateAll.append(state)
                     dateAll.append(st)
                     timeAll.append(time)
                     haveAll.append(have)
+                   // self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
                 
@@ -152,26 +153,64 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let tg = UITapGestureRecognizer(target: self, action: #selector(lecturerNameTapped(_:)))
                lecturerLabel.isUserInteractionEnabled = true
                lecturerLabel.addGestureRecognizer(tg)
-        //
-        // Do any additional setup after loading the view.
     }
     
-    func checkEexcuction(email: String, collection: String, field: String) async -> Bool {
-       // print("what??")
+    @objc func refresh(_ sender: AnyObject) {
         let db = Firestore.firestore()
-        do {
-            let snapshot = try await db.collection(collection).whereField(field, isEqualTo: email).getDocuments()
-            print("COUNT ", snapshot.count)
-            print("not added")
-            return snapshot.count != 0
-        } catch {
-            print(error.localizedDescription)
-            print("added")
-            return false
+
+        Task
+        {
+         
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: WhatPressed).getDocuments()
+            
+            for doc in t_snapshot.documents {
+                let documentID = doc.documentID
+            
+
+                let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
+                print(snp.documents.count)
+               dateAll.removeAll()
+                
+                guard let st  = doc.get("st") as? String else { continue }
+
+                print("st is :" , st)
+                
+                stateAll.removeAll()
+       
+              timeAll.removeAll()
+              haveAll.removeAll()
+                
+                for studentDoc in snp.documents {
+                    guard let state  = studentDoc.get("State") as? String else { continue }
+
+                    print("state of student/",state)
+                    
+                    guard let time  = studentDoc.get("time") as? String else { continue }
+
+                    print("time of student/",time)
+                    
+                    guard let have  = studentDoc.get("have") as? String else { continue }
+
+                    print("time of student/",have)
+                    
+                  
+                    stateAll.append(state)
+                    dateAll.append(st)
+                    timeAll.append(time)
+                    haveAll.append(have)
+                    self.refreshControl.endRefreshing()
+                    self.tableView.reloadData()
+                }
+                
+                
+            }
+            
+            
+            
         }
         
-        //return false
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
         
