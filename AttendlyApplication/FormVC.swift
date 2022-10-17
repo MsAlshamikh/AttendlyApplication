@@ -11,10 +11,11 @@ import UniformTypeIdentifiers
 import FirebaseFirestore
 import FirebaseStorage
 import UniformTypeIdentifiers
+import SwiftUI
 
 var x = ""
 
-class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate , UIImagePickerControllerDelegate , UIDocumentMenuDelegate {
+class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDocumentPickerDelegate  , UIDocumentMenuDelegate {
     @IBOutlet weak var TitleTixtFeild: UITextField!
     
     @IBOutlet weak var messR: UILabel!
@@ -39,13 +40,66 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
         titleView.layer.cornerRadius = 5
         self.titleView.delegate = self
         self.reasonText.delegate = self
+        
 
        
         let db = Firestore.firestore()
-     
-
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
+            tap.numberOfTapsRequired = 2
+        reasonText.tag = 2
+       reasonText.isUserInteractionEnabled = true
+        titleView.tag = 1
+        titleView.isUserInteractionEnabled = true
+      //  reasonText.addGestureRecognizer(tap)
+    //    reasonText.addTarget(self , action : #selector (ch(t:)), for: .editingChanged)
         // Do any additional setup after loading the view.
     }
+    @objc func doubleTapped(_ recognizer: UITapGestureRecognizer) {
+
+            print(recognizer.view!.tag)
+
+    }
+  /*  @objc func ch (t : UITextView){
+        if(t.text?.count ?? 0 > 0 ){
+            messR.text = "enter"
+        }
+        else{
+            messR.text = ""
+        }
+    }*/
+    func textViewDidChange(_ textView: UITextView) {
+        if(titleView.text?.count ?? 0 > 0 ){
+            messT.text = ""
+            messT.isHidden = true
+            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        }
+    
+        else{
+            
+            if( textView.resignFirstResponder() == true){
+            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            messT.isHidden = false
+                messT.text = "This feild is required"}
+        }
+        if(reasonText.text?.count ?? 0 > 0 ){
+            messR.text = ""
+            messR.isHidden = true
+            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+            textView.becomeFirstResponder()
+        }
+    
+        else{
+            if( reasonText.resignFirstResponder() == true){
+            messR.text = "This feild is required"
+            messR.isHidden = false
+           // messR.text = "Can not be empty!"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            }
+        }
+        
+    }
+   
+    
     func textUITextViewShouldReturn(_ textField: UITextView) -> Bool {
         textField.resignFirstResponder()
  
@@ -62,7 +116,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
       
         guard let res = reasonText.text, !res.isEmpty else {
             messR.isHidden = false
-            messR.text = "Can not be empty!"
+           // messR.text = "Can not be empty!"
             reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             return (false, "", "")
         }
@@ -79,7 +133,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
             messT.text = "Can not be empty!"
             titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             messR.isHidden = false
-            messR.text = "Can not be empty!"
+           // messR.text = "Can not be empty!"
             reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             return (false, "", "")
         }
@@ -145,6 +199,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
         if res.0 == false {
             return
         }
+        
     //   code
         let title = res.1
         let reason = res.2
