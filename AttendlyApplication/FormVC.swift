@@ -79,7 +79,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
             if( textView.resignFirstResponder() == true){
             titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             messT.isHidden = false
-                messT.text = "This feild is required"}
+                messT.text = "This field is required"}
         }
         if(reasonText.text?.count ?? 0 > 0 ){
             messR.text = ""
@@ -90,7 +90,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate, UIDoc
     
         else{
             if( reasonText.resignFirstResponder() == true){
-            messR.text = "This feild is required"
+            messR.text = "This field is required"
             messR.isHidden = false
            // messR.text = "Can not be empty!"
             reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
