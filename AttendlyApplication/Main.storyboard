@@ -764,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAB-j0-XWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4131.884057971015" y="951.5625"/>
+            <point key="canvasLocation" x="6765" y="1359"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QkU-MV-Yi8">
@@ -1858,7 +1858,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlr-a6-J0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4667" y="198"/>
+            <point key="canvasLocation" x="4819" y="210"/>
         </scene>
         <!--Profile View Contoller-->
         <scene sceneID="BeG-Bj-QD4">
@@ -3150,6 +3150,19 @@
             </objects>
             <point key="canvasLocation" x="2083" y="1582"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iT0-Uz-3Es">
+            <objects>
+                <navigationController id="wUJ-GE-kgk" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KOB-OY-76r">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tia-Ff-TAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4265" y="210"/>
+        </scene>
         <!--AdvisorVC-->
         <scene sceneID="gbe-ld-gTx">
             <objects>
@@ -3254,7 +3267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n49-v3-iJv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5006" y="986"/>
+            <point key="canvasLocation" x="4294" y="887"/>
         </scene>
         <!--Student Info View Controller-->
         <scene sceneID="JW5-IU-Phx">
@@ -3414,7 +3427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRY-sH-yru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5842" y="890"/>
+            <point key="canvasLocation" x="5157" y="887"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
