@@ -264,7 +264,7 @@ class loginController: UIViewController, UITextFieldDelegate {
 
                          
                          if(HaveForm == "t" ){
-                             self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "have upload an execution for her/his abbsent in course (\(CourseName) ", badge: 1, dleayInterval: nil)
+                             self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "have upload an execution for her/his abbsent in course (\(CourseName)) ", badge: 1, dleayInterval: nil)
                          }
                          else{
                              print("no notification")
