@@ -112,7 +112,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //  avlabel.attributedText = underlineAttribute‏
       //  avlabel.attributedText = underlineAttribute‏
         
-        //
+        //...
         
         let text2 = NSMutableAttributedString()
         text2.append(NSAttributedString(string: "Section: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));

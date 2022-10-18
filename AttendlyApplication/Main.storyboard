@@ -312,10 +312,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gae-qu-jjs">
-                                <rect key="frame" x="20" y="359" width="384" height="203"/>
+                                <rect key="frame" x="20" y="359" width="460" height="203"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPF-cz-LU1">
-                                <rect key="frame" x="20" y="247" width="374" height="45"/>
+                                <rect key="frame" x="20" y="247" width="450" height="45"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.42352941179999998" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="333" id="9jK-Ow-u1E"/>
@@ -434,7 +434,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title=" "/>
+                                <buttonConfiguration key="configuration" style="plain" image="circlebadge.fill" catalog="system" title=" ">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="meout:" destination="Odv-me-NRa" eventType="touchUpInside" id="qvW-qZ-8qj"/>
                                 </connections>
@@ -1746,7 +1748,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQ2-mQ-ItJ">
-                                <rect key="frame" x="202" y="678" width="212" height="52"/>
+                                <rect key="frame" x="218" y="678" width="197" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.25142624969999999" green="0.57161885499999998" blue="0.6333577037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2159,8 +2161,8 @@
                                     <constraint firstAttribute="height" constant="29.5" id="Chw-WW-RYd"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.3.horizontal.decrease.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qGW-ju-1Nh">
-                                <rect key="frame" x="293" y="380.5" width="52" height="32"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="line.3.horizontal.decrease.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qGW-ju-1Nh">
+                                <rect key="frame" x="292" y="384.5" width="52" height="32"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="cN3-Me-zRE"/>
@@ -2261,7 +2263,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G1y-3w-L4w"/>
-        <segue reference="QwL-F5-Dv4"/>
+        <segue reference="reZ-IS-bBu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -2271,6 +2273,7 @@
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
         <image name="check" width="247" height="252.5"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circlebadge.fill" catalog="system" width="128" height="120"/>
         <image name="clock.badge.checkmark" catalog="system" width="128" height="113"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
