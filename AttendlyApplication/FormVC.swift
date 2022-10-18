@@ -138,19 +138,12 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         return (true, tit, res)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    //
+   
     
     
     @IBAction func importFile(_ sender: Any) {
+        
+        print("before import")
         let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf], asCopy: true)
         
         //change the type ^^^^
@@ -158,7 +151,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         
         documentPicker.allowsMultipleSelection = false // ease of use.only one doc
         documentPicker.shouldShowFileExtensions = true
-        
+        print("after  import")
         present(documentPicker, animated: true, completion: nil)
         
         //  print("")
@@ -301,6 +294,9 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         // Create a root reference
+        print("inside doucoment ")
+        fileURL = urls.first
+        print("inside doucoment fileURL" , fileURL)
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         label.text = urls.first?.lastPathComponent
         // Create new Alert
