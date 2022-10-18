@@ -46,9 +46,52 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         cnacelBtn.layer.borderWidth = 1
         cnacelBtn.layer.borderColor = UIColor.black.cgColor
         
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
+            tap.numberOfTapsRequired = 2
+        reasonText.tag = 2
+       reasonText.isUserInteractionEnabled = true
+        titleView.tag = 1
+        titleView.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
     }
+    @objc func doubleTapped(_ recognizer: UITapGestureRecognizer) {
+
+            print(recognizer.view!.tag)
+
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        if(titleView.text?.count ?? 0 > 0 ){
+            messT.text = ""
+            messT.isHidden = true
+            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        }
+    
+        else{
+            
+            if( textView.resignFirstResponder() == true){
+            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            messT.isHidden = false
+                messT.text = "This field is required"}
+        }
+        if(reasonText.text?.count ?? 0 > 0 ){
+            messR.text = ""
+            messR.isHidden = true
+            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+            textView.becomeFirstResponder()
+        }
+    
+        else{
+            if( reasonText.resignFirstResponder() == true){
+            messR.text = "This field is required"
+            messR.isHidden = false
+           // messR.text = "Can not be empty!"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            }
+        }
+        
+    }
+   
+    
     func textUITextViewShouldReturn(_ textField: UITextView) -> Bool {
         textField.resignFirstResponder()
         
@@ -120,7 +163,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        SendBtn.isEnabled = false
+       // SendBtn.isEnabled = false
         let res = isValid()
         if res.0 == false {
             SendBtn.isEnabled = true
@@ -133,17 +176,17 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         Task {
             
             guard let url = await uploadPDF() else {
-                SendBtn.isEnabled = true
+               // SendBtn.isEnabled = true
                 return
             }
             
             guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
-                SendBtn.isEnabled = true
+               // SendBtn.isEnabled = true
                 return
             }
             
             guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else {
-                SendBtn.isEnabled = true
+                //SendBtn.isEnabled = true
                 return
             }
             
@@ -153,7 +196,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                 "file": url.absoluteString  ,
                 "FormState": "Pending" ,
                 "have":"t"
-                
+               
                 
             ],merge: true) { err in
                 if let err = err {
@@ -161,7 +204,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                 } else {
                     print("Lecturer added sucsseful ")
                 }
-                self.SendBtn.isEnabled = true
+               // self.SendBtn.isEnabled = true
             }
             
             
@@ -225,7 +268,10 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     func uploadPDF() async -> URL? {
-        guard let fileURL = fileURL else { return nil }
+        guard let fileURL = fileURL else {
+            label.text = "please choose a file!"
+            label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            return nil }//here
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child("files/\(UUID().uuidString).pdf")
         do {
@@ -244,8 +290,9 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         // Create a root reference
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        label.text = urls.first?.lastPathComponent
         // Create new Alert
-        var dialogMessage = UIAlertController(title: "Message", message: "uploaded \(urls.first?.lastPathComponent) successfuly", preferredStyle: .alert)
+        var dialogMessage = UIAlertController(title: "Message", message: "file uploaded successfuly", preferredStyle: .alert)
         
         // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
@@ -338,7 +385,9 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        imp.backgroundColor = UIColor( white: 0xD6D6D6, alpha: 0.5)
+        imp.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        label.text = "please choose a file!"
+        label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         
     }
 }
