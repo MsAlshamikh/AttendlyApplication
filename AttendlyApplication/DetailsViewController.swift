@@ -66,7 +66,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-           tableView.addSubview(refreshControl) 
+           tableView.addSubview(refreshControl)
         
         //
         let db = Firestore.firestore()
@@ -277,9 +277,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             my.state.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             my.state.text = stateAll[indexPath.row]
         }
-        else if stateAll[indexPath.row] == "attend" || stateAll[indexPath.row] == "excused"  {
+        else if stateAll[indexPath.row] == "attend"  {
              my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
              my.state.text = stateAll[indexPath.row]
+         }
+        else if stateAll[indexPath.row] == "excused"   {
+             my.state.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+             my.state.text = stateAll[indexPath.row]
+            my.havePending.isHidden = false
+
          }
         
         

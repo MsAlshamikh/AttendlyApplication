@@ -180,6 +180,10 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
              my.state.text = stateAll[indexPath.row]
          }
         
+        else if stateAll[indexPath.row] == "excused"   {
+             my.state.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+             my.state.text = stateAll[indexPath.row]
+         }
         
       
         my.date.text = dateAll[indexPath.row]

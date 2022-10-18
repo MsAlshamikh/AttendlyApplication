@@ -264,7 +264,7 @@ class loginController: UIViewController, UITextFieldDelegate {
             guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
             print("corsN",coursN)
             if(abbsentNumber >= 10 ){
-                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "You exceeded the allowed limit", body: "in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
+                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "", body: "You exceeded the allowed limit in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
             }
             else{
                 print("no notification")
@@ -310,7 +310,7 @@ class loginController: UIViewController, UITextFieldDelegate {
                                             guard let coursN = snapshot.documents.first?.get("courseName") as? String else { continue }
                                             print("corsN",coursN)
                                             if(abbsentNumber >= 10 ){
-                                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "( \(StudName) )", body: "exceeded the allowed limit in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
+                                                self.notificationPublisher.sendNotification(title: "Warning", subtitle: "", body: "\(StudName) has exceeded the allowed limit in course:\(coursN) section:\(sectionNumber)", badge: 1, dleayInterval: nil)
                                             }
                                             else{
                                                 print("no notification")
@@ -346,7 +346,7 @@ class loginController: UIViewController, UITextFieldDelegate {
 
                          
                          if(HaveForm == "t" ){
-                             self.notificationPublisher.sendNotification(title: "Message", subtitle: "(From : \(StudName) )", body: "have upload an execution for her abbsent in course (\(CourseName)) ", badge: 1, dleayInterval: nil)
+                             self.notificationPublisher.sendNotification(title: "Absence Excuse", subtitle: "", body: " \(StudName) has sent an absence excuse in course (\(CourseName)) ", badge: 1, dleayInterval: nil)
                          }
                          else{
                              print("no notification")

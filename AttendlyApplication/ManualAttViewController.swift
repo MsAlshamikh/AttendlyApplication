@@ -231,42 +231,42 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         
         //
         
-//        if state == "attend"  {
-//
-//            if networking {
-//                return
-//            }
-//            let email = emailSt[indexPath.row]
-//
-//
-//
-//            let date = Date()
-//            let calunder = Calendar.current
-//            let day = calunder.component(.day , from: date)
-//            let month = calunder.component(.month , from: date)
-//            let year = calunder.component(.year , from: date)
-//            let thed = "\(day)-\(month)-\(year)"
-//            Task {
-//
-//            //    let db = Firestore.firestore()
-//
-//                networking = true
-//                guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
-//
-//                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
-//
-//                try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
-//
-//                print("done")
-//
-//                stateSt[indexPath.row] = "absent"
-//
-//
-//                tableView.reloadData()
-//            //  cell.backgroundColor = UIColor.black
-//                networking = false
-//            }
-//        }
+        if state == "attend"  {
+
+            if networking {
+                return
+            }
+            let email = emailSt[indexPath.row]
+
+
+
+            let date = Date()
+            let calunder = Calendar.current
+            let day = calunder.component(.day , from: date)
+            let month = calunder.component(.month , from: date)
+            let year = calunder.component(.year , from: date)
+            let thed = "\(day)-\(month)-\(year)"
+            Task {
+
+            //    let db = Firestore.firestore()
+
+                networking = true
+                guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+
+                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+
+                try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+
+                print("done")
+
+                stateSt[indexPath.row] = "absent"
+
+
+                tableView.reloadData()
+            //  cell.backgroundColor = UIColor.black
+                networking = false
+            }
+        }
         
         
         
@@ -300,7 +300,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //
 //        }
 
-        if stateSt[indexPath.row] == "attend" || stateSt[indexPath.row] == "excused"  {
+        if stateSt[indexPath.row] == "attend"   {
             my.name.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
          //   my.AttendToabsent.isHidden = true
         }
@@ -317,6 +317,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
             my.name.textColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
         //    my.AttendToabsent.isHidden = true
         }
+        else if stateSt[indexPath.row] == "excused"   {
+            my.name.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+         }
+        
 
        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
         my.name.text = stateSt[indexPath.row]
