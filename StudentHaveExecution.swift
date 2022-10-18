@@ -158,7 +158,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
            
            // my.StateExec.text = FormStateAll[indexPath.row]
           my.viewExec.isHidden = true
-         my.ViewExecAfterAccRej.tintColor =  #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+         my.ViewExecAfterAccRej.tintColor =  #colorLiteral(red: 0.2394818664, green: 0.486830771, blue: 0.1318500638, alpha: 1)
          my.ViewExecAfterAccRej .isHidden = false
             
         }
@@ -166,7 +166,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                
              //  my.StateExec.text = FormStateAll[indexPath.row]
              my.viewExec.isHidden = true
-            my.ViewExecAfterAccRej.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            my.ViewExecAfterAccRej.tintColor = #colorLiteral(red: 0.909211576, green: 0.4139966071, blue: 0.356043905, alpha: 1)
             my.ViewExecAfterAccRej.isHidden = false
                
            }

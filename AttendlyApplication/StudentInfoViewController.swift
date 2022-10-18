@@ -293,6 +293,12 @@ class StudentInfoViewController: UIViewController {
                 self.present(mailVC, animated:true)
             }
         }
+    
+    
+    @IBAction func unwind(segue: UIStoryboardSegue ){
+        
+    }
+    
     }
 
     extension StudentInfoViewController : MFMailComposeViewControllerDelegate  {

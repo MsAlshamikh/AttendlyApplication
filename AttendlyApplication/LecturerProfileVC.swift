@@ -105,7 +105,8 @@ print("hh")
         
 //   let emailBarButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(emailButtonTouched(_:)))
         let emailBarButton = UIBarButtonItem(
-            image : UIImage (systemName: "envelope.fill" ),style: .plain, target: self, action: #selector(emailButtonTouched(_:)))
+            image : UIImage (systemName: "envelope" ),style: .plain, target: self, action: #selector(emailButtonTouched(_:)))
+        
 //        let emailBarButton = UIBarButtonItem(image: UIImage(named: "message.and.waveform.fill"), style: .plain, target: self, action:#selector(emailButtonTouched(_:)))
 
         

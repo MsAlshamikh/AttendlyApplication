@@ -11,19 +11,31 @@ import PDFKit
 
 class LectureViewAccepRej: UIViewController {
 
-    @IBOutlet weak var stateEXec: UILabel!
+//    @IBOutlet weak var stateEXec: UILabel!
+//
+//   @IBOutlet weak var resonOf: UILabel!
+//    @IBOutlet weak var titleoF: UILabel!
+//
+//    @IBOutlet weak var viewFile: UIButton!
     
-    @IBOutlet weak var resonOf: UILabel!
-    @IBOutlet weak var titleoF: UILabel!
+    @IBOutlet weak var nameOf: UILabel!
+    @IBOutlet weak var dateOf: UILabel!
     
     @IBOutlet weak var viewFile: UIButton!
     
+    @IBOutlet weak var titleoF: UILabel!
+    @IBOutlet weak var stateEXec: UILabel!
+    
+    @IBOutlet weak var resonOf: UILabel!
     var sectionNmae: String = ""
     var   datePreesed: String = ""
     var  namepressed: String = ""
     
     var fileURL: String = ""
     override func viewDidLoad() {
+        
+        nameOf.text = namepressed
+        dateOf.text = datePreesed
         super.viewDidLoad()
         navigationItem.title = "Absence excuse"
         print("sectionNmae",sectionNmae)
@@ -69,15 +81,24 @@ class LectureViewAccepRej: UIViewController {
     }
     
     
+//    @IBAction func pressViewfile(_ sender: UIButton) {
+//        let vc = ViewController()
+//        let pdfView = PDFView(frame: self.view.bounds)
+//        vc.view.addSubview(pdfView)
+//        pdfView.document = PDFDocument(url: URL(string: fileURL)!)
+//     present(vc, animated: true)
+//        return
+//    }
+    
     @IBAction func pressViewfile(_ sender: UIButton) {
         let vc = ViewController()
-        let pdfView = PDFView(frame: self.view.bounds)
-        vc.view.addSubview(pdfView)
-        pdfView.document = PDFDocument(url: URL(string: fileURL)!)
-     present(vc, animated: true)
-        return
+               let pdfView = PDFView(frame: self.view.bounds)
+               vc.view.addSubview(pdfView)
+               pdfView.document = PDFDocument(url: URL(string: fileURL)!)
+            present(vc, animated: true)
+               return
+        
     }
     
-   
 
 }

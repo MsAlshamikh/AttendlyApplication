@@ -370,5 +370,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //    }
     
     
+    @IBAction func unwind(segue: UIStoryboardSegue ){
+        
+    }
+    
+    
     
 }
