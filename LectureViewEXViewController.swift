@@ -11,16 +11,28 @@ import PDFKit
 
 class LectureViewEXViewController: UIViewController {
     
-    @IBOutlet weak var titleOf: UILabel!
+    @IBOutlet weak var nameOf: UILabel!
+    
+    //    @IBOutlet weak var titleOf: UILabel!
+//
+//    @IBOutlet weak var reasonOf: UILabel!
+//
+//    @IBOutlet weak var rejectButton: UIButton!
+//
+//    @IBOutlet weak var accapetButton: UIButton!
+//
+//
+//    @IBOutlet weak var stateExc: UILabel!
     
     @IBOutlet weak var reasonOf: UILabel!
-    
-    @IBOutlet weak var rejectButton: UIButton!
-    
-    @IBOutlet weak var accapetButton: UIButton!
-    
+    @IBOutlet weak var dateOF: UILabel!
     
     @IBOutlet weak var stateExc: UILabel!
+    @IBOutlet weak var accapetButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var titleOf: UILabel!
+    
+    var fileURL: String = ""
     var sectionNmae: String = ""
     var   datePreesed: String = ""
     var  namepressed: String = ""
@@ -28,11 +40,13 @@ class LectureViewEXViewController: UIViewController {
     var titlee:String = ""
     var   reasonn :String = ""
     
-    var fileURL: String = ""
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Absence excuse"
-
+        nameOf.text = namepressed
+        dateOF.text = datePreesed
        // self.tabBarController?.tabBar.isHidden = true
         print("sectionNmae",sectionNmae)
         print("datePreesed",sectionNmae)
@@ -83,93 +97,161 @@ class LectureViewEXViewController: UIViewController {
     
     
     
+//    @IBAction func pressView(_ sender: UIButton) {
+//        let vc = ViewController()
+//        let pdfView = PDFView(frame: self.view.bounds)
+//        vc.view.addSubview(pdfView)
+//        pdfView.document = PDFDocument(url: URL(string: fileURL)!)
+//     present(vc, animated: true)
+//        return
+//    }
+    
     @IBAction func pressView(_ sender: UIButton) {
         let vc = ViewController()
-        let pdfView = PDFView(frame: self.view.bounds)
-        vc.view.addSubview(pdfView)
-        pdfView.document = PDFDocument(url: URL(string: fileURL)!)
-     present(vc, animated: true)
-        return
+              let pdfView = PDFView(frame: self.view.bounds)
+              vc.view.addSubview(pdfView)
+              pdfView.document = PDFDocument(url: URL(string: fileURL)!)
+           present(vc, animated: true)
+              return
     }
     
     
+//    @IBAction func pressRej(_ sender: UIButton) {
+//
+//        let db = Firestore.firestore()
+//
+//      Task  {
+//
+//          guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+//            //  SendBtn.isEnabled = true
+//              return
+//          }
+//                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+//                      return
+//                  }
+//
+//          try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+//
+//            "FormState": "Rejected"
+//            //  "State": ""
+//
+//
+//          ],merge: true) { err in
+//              if let err = err {
+//                  print("Error adding Lecturer  : \(err)")
+//              } else {
+//                  print("Lecturer added sucsseful ")
+//              }
+//
+//          }
+//
+//
+//          }
+//
+//    }
     
     @IBAction func pressRej(_ sender: UIButton) {
-        
         let db = Firestore.firestore()
-
-      Task  {
-          
-          guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
-            //  SendBtn.isEnabled = true
-              return
-          }
-                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
-                      return
-                  }
-          
-          try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
-             
-            "FormState": "Rejected"
-            //  "State": ""
-              
-              
-          ],merge: true) { err in
-              if let err = err {
-                  print("Error adding Lecturer  : \(err)")
-              } else {
-                  print("Lecturer added sucsseful ")
-              }
-              
-          }
-                  
-         
-          }
         
+        Task {
+            
+            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+              //  SendBtn.isEnabled = true
+                return
+            }
+                  guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+                        return
+                    }
+            
+            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+               
+              "FormState": "Rejected"
+              //  "State": ""
+                
+                
+            ],merge: true) { err in
+                if let err = err {
+                    print("Error adding Lecturer  : \(err)")
+                } else {
+                    print("Lecturer added sucsseful ")
+                }
+                
+            }
+                    
+           
+            }
     }
     
+    
+    
     @IBAction func pressAccept(_ sender: UIButton) {
-        // create the alert
-//               let alert = UIAlertController(title: "UIAlertController", message: "Would you like to continue learning how to use iOS alerts?", preferredStyle: UIAlertController.Style.alert)
-//
-//               // add the actions (buttons)
-//               alert.addAction(UIAlertAction(title: "yes", style: UIAlertAction.Style.default, handler: nil))
-//               alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
-
-               // show the alert
-              
-        
         
         let db = Firestore.firestore()
-
-      Task  {
-          
-          guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
-            //  SendBtn.isEnabled = true
-              return
-          }
-                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+        Task{
+        
+                  guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+                    //  SendBtn.isEnabled = true
                       return
                   }
-          
-          try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
-             
-            "FormState": "Accepted" ,
-             "State": "excused"
-              
-              
-          ],merge: true) { err in
-              if let err = err {
-                  print("Error adding Lecturer  : \(err)")
-              } else {
-                  print("Lecturer added sucsseful ")
-              }
- 
-          }
-         // self.present(alert, animated: true, completion: nil)
-                  
-       //   self.performSegue(withIdentifier: "gotoLecturers", sender: self)
-          }
+                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+                              return
+                          }
+        
+                  try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+        
+                    "FormState": "Accepted" ,
+                     "State": "excused"
+        
+        
+                  ],merge: true) { err in
+                      if let err = err {
+                          print("Error adding Lecturer  : \(err)")
+                      } else {
+                          print("Lecturer added sucsseful ")
+                      }
+        
+                  }
+                 // self.present(alert, animated: true, completion: nil)
+        
+               //   self.performSegue(withIdentifier: "gotoLecturers", sender: self)
+                  }
+
     }
+    
+//    @IBAction func pressAccept(_ sender: UIButton) {
+//
+//
+//
+//        let db = Firestore.firestore()
+//
+////      Task  {
+////
+////          guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+////            //  SendBtn.isEnabled = true
+////              return
+////          }
+////                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+////                      return
+////                  }
+////
+////          try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+////
+////            "FormState": "Accepted" ,
+////             "State": "excused"
+////
+////
+////          ],merge: true) { err in
+////              if let err = err {
+////                  print("Error adding Lecturer  : \(err)")
+////              } else {
+////                  print("Lecturer added sucsseful ")
+////              }
+////
+////          }
+////         // self.present(alert, animated: true, completion: nil)
+////
+////       //   self.performSegue(withIdentifier: "gotoLecturers", sender: self)
+////          }
+//    }
     
 }

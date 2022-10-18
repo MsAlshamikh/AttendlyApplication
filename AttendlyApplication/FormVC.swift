@@ -47,8 +47,8 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         self.reasonText.delegate = self
        // self.tabBarController?.tabBar.isHidden = true
         cnacelBtn.layer.borderWidth = 1
-        cnacelBtn.layer.borderColor = UIColor.black.cgColor
-        
+       cnacelBtn.layer.borderColor = UIColor.black.cgColor
+        cnacelBtn.layer.cornerRadius = 10.0
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
 //            tap.numberOfTapsRequired = 2
 //        reasonText.tag = 2
