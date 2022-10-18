@@ -15,6 +15,7 @@ import PDFKit
 var x = ""
 class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDocumentPickerDelegate {
     
+    @IBOutlet weak var nameSection: UILabel!
     
     @IBOutlet weak var messR: UILabel!
     @IBOutlet weak var messT: UILabel!
@@ -32,6 +33,8 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        navigationItem.title = "Excuse Form"
+        nameSection.text = Takesection
         print("Takesection ??",Takesection)
         print("datePreesed ???",datePreesed)
         reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
@@ -46,57 +49,57 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         cnacelBtn.layer.borderWidth = 1
         cnacelBtn.layer.borderColor = UIColor.black.cgColor
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
-            tap.numberOfTapsRequired = 2
-        reasonText.tag = 2
-       reasonText.isUserInteractionEnabled = true
-        titleView.tag = 1
-        titleView.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
+//            tap.numberOfTapsRequired = 2
+//        reasonText.tag = 2
+//       reasonText.isUserInteractionEnabled = true
+//        titleView.tag = 1
+//        titleView.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
     }
-    @objc func doubleTapped(_ recognizer: UITapGestureRecognizer) {
-
-            print(recognizer.view!.tag)
-
-    }
-    func textViewDidChange(_ textView: UITextView) {
-        if(titleView.text?.count ?? 0 > 0 ){
-            messT.text = ""
-            messT.isHidden = true
-            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
-        }
-    
-        else{
-            
-            if( textView.resignFirstResponder() == true){
-            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            messT.isHidden = false
-                messT.text = "This field is required"}
-        }
-        if(reasonText.text?.count ?? 0 > 0 ){
-            messR.text = ""
-            messR.isHidden = true
-            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
-            textView.becomeFirstResponder()
-        }
-    
-        else{
-            if( reasonText.resignFirstResponder() == true){
-            messR.text = "This field is required"
-            messR.isHidden = false
-           // messR.text = "Can not be empty!"
-            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            }
-        }
-        
-    }
+//    @objc func doubleTapped(_ recognizer: UITapGestureRecognizer) {
+//
+//            print(recognizer.view!.tag)
+//
+//    }
+//    func textViewDidChange(_ textView: UITextView) {
+//        if(titleView.text?.count ?? 0 > 0 ){
+//            messT.text = ""
+//            messT.isHidden = true
+//            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+//        }
+//
+//        else{
+//
+//            if( textView.resignFirstResponder() == true){
+//            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+//            messT.isHidden = false
+//                messT.text = "This field is required"}
+//        }
+//        if(reasonText.text?.count ?? 0 > 0 ){
+//            messR.text = ""
+//            messR.isHidden = true
+//            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+//            textView.becomeFirstResponder()
+//        }
+//
+//        else{
+//            if( reasonText.resignFirstResponder() == true){
+//            messR.text = "This field is required"
+//            messR.isHidden = false
+//           // messR.text = "Can not be empty!"
+//            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+//            }
+//        }
+//
+//    }
    
     
-    func textUITextViewShouldReturn(_ textField: UITextView) -> Bool {
-        textField.resignFirstResponder()
-        
-        return(true)
-    }
+//    func textUITextViewShouldReturn(_ textField: UITextView) -> Bool {
+//        textField.resignFirstResponder()
+//
+//        return(true)
+//    }
     //touch out
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -149,6 +152,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     
     @IBAction func importFile(_ sender: Any) {
         let documentPicker  = UIDocumentPickerViewController(forOpeningContentTypes: [.pdf], asCopy: true)
+        
         //change the type ^^^^
         documentPicker.delegate = self
         
@@ -163,33 +167,39 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-       // SendBtn.isEnabled = false
+        
+        print("send is statrt")
+        SendBtn.isEnabled = false
         let res = isValid()
         if res.0 == false {
-            SendBtn.isEnabled = true
+         SendBtn.isEnabled = true
+            print("what is ???? ")
             return
+            
         }
         //   code
         let title = res.1
         let reason = res.2
         let db = Firestore.firestore()
         Task {
-            
+            print("task1")
             guard let url = await uploadPDF() else {
-               // SendBtn.isEnabled = true
+                print("task2")
+               SendBtn.isEnabled = true
+              //  print("url", url)
                 return
             }
-            
+            print("task3")
             guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
-               // SendBtn.isEnabled = true
+               SendBtn.isEnabled = true
                 return
             }
-            
+            print("task4")
             guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else {
-                //SendBtn.isEnabled = true
+                SendBtn.isEnabled = true
                 return
             }
-            
+            print("task5")
             try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
                 "Title": title,
                 "reason": reason ,
@@ -204,7 +214,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                 } else {
                     print("Lecturer added sucsseful ")
                 }
-               // self.SendBtn.isEnabled = true
+               self.SendBtn.isEnabled = true
             }
             
             
@@ -212,36 +222,36 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             
             
         } //task
-        var f = false
-        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
-        // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
-            f = true
-        })
-        //Add OK button to a dialog message
-        dialogMessage.addAction(ok)
-        
-        dialogMessage.addAction(UIAlertAction(title: "Cancel",
-                                              style: .cancel,
-                                              handler: { _ in print("Cancel tap") }))
-        
-        
-        // Present Alert to
-        self.present(dialogMessage, animated: true, completion: nil)
-        if (f == true){
-            var dialogMessage = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
-            
-            // Create OK button with action handler
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                print("Ok button tapped")
-             })
-            
-            //Add OK button to a dialog message
-            dialogMessage.addAction(ok)
-            // Present Alert to
-            self.present(dialogMessage, animated: true, completion: nil)
-        }
+//        var f = false
+//        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
+//        // Create OK button with action handler
+//        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//            print("Ok button tapped")
+//            f = true
+//        })
+//        //Add OK button to a dialog message
+//        dialogMessage.addAction(ok)
+//
+//        dialogMessage.addAction(UIAlertAction(title: "Cancel",
+//                                              style: .cancel,
+//                                              handler: { _ in print("Cancel tap") }))
+//
+//
+//        // Present Alert to
+//        self.present(dialogMessage, animated: true, completion: nil)
+//        if (f == true){
+//            var dialogMessage = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+//
+//            // Create OK button with action handler
+//            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//                print("Ok button tapped")
+//             })
+//
+//            //Add OK button to a dialog message
+//            dialogMessage.addAction(ok)
+//            // Present Alert to
+           // self.present(dialogMessage, animated: true, completion: nil)
+//        }
             
         
     }
@@ -269,6 +279,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     
     func uploadPDF() async -> URL? {
         guard let fileURL = fileURL else {
+            print("fileURL",fileURL)
             label.text = "please choose a file!"
             label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             return nil }//here
@@ -278,6 +289,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             let _ = try await fileRef.putFileAsync(from: fileURL, metadata: nil)
             print("uploaded")
             let url = try await fileRef.downloadURL()
+            print("url", url)
             return url
         } catch {
             print(error.localizedDescription)
@@ -292,17 +304,17 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         label.text = urls.first?.lastPathComponent
         // Create new Alert
-        var dialogMessage = UIAlertController(title: "Message", message: "file uploaded successfuly", preferredStyle: .alert)
-        
-        // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
-         })
-        
-        //Add OK button to a dialog message
-        dialogMessage.addAction(ok)
-        // Present Alert to
-        self.present(dialogMessage, animated: true, completion: nil)
+//        var dialogMessage = UIAlertController(title: "Message", message: "file uploaded successfuly", preferredStyle: .alert)
+//
+//        // Create OK button with action handler
+//        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//            print("Ok button tapped")
+//         })
+//
+//        //Add OK button to a dialog message
+//        dialogMessage.addAction(ok)
+//        // Present Alert to
+//        self.present(dialogMessage, animated: true, completion: nil)
         
         // Create a reference to "mountains.jpg"
         //  let mountainsRef = storageRef.child(UUID().uuidString ".pdf")

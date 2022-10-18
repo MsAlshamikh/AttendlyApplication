@@ -17,6 +17,7 @@ class StudentViewExec: UIViewController {
     @IBOutlet weak var dateOF: UILabel!
     
     @IBOutlet weak var stateOfex: UILabel!
+    @IBOutlet weak var viewSection: UILabel!
     
     @IBOutlet weak var viewExecution: UIButton!
     
@@ -35,12 +36,14 @@ class StudentViewExec: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSection.text = sectionName
         navigationItem.title = "Absence Excuse"
         dateOF.text = datePreesed
         print("wiich is now press?? number of row",datePreesed)
         print("wiich is now press?? dateispreesed",sectionName)
         // Do any additional setup after loading the view.
         let db = Firestore.firestore()
+        
 
        Task {
           
