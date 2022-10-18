@@ -54,7 +54,6 @@
 		53B59CD028FC690100977C32 /* StudentViewExec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCF28FC690100977C32 /* StudentViewExec.swift */; };
 		53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */; };
 		53B59CD428FDA81900977C32 /* StudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD328FDA81900977C32 /* StudentInfoViewController.swift */; };
-		53B59CD628FE271A00977C32 /* just.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD528FE271900977C32 /* just.swift */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
@@ -110,7 +109,6 @@
 		53B59CCF28FC690100977C32 /* StudentViewExec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewExec.swift; sourceTree = "<group>"; };
 		53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewAccepRej.swift; sourceTree = "<group>"; };
 		53B59CD328FDA81900977C32 /* StudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewController.swift; sourceTree = "<group>"; };
-		53B59CD528FE271900977C32 /* just.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = just.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A28E042328D2B087005065D9 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pic1.png; path = ../../pic1.png; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
-				53B59CD528FE271900977C32 /* just.swift */,
 				53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */,
 				53B59CCF28FC690100977C32 /* StudentViewExec.swift */,
 				53B59CCD28FB15DE00977C32 /* LectureViewEXViewController.swift */,
@@ -336,7 +333,6 @@
 				53B59CD028FC690100977C32 /* StudentViewExec.swift in Sources */,
 				5351558A28EDBBD300EFA29D /* SectionController.swift in Sources */,
 				53415F3428D1E88C005DFA19 /* ProfileViewContoller.swift in Sources */,
-				53B59CD628FE271A00977C32 /* just.swift in Sources */,
 				53B59CCE28FB15DE00977C32 /* LectureViewEXViewController.swift in Sources */,
 				56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */,
 				53AF1B8428DAA95000F77178 /* listAll.swift in Sources */,

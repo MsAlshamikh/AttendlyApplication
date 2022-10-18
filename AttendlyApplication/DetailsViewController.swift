@@ -66,7 +66,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-           tableView.addSubview(refreshControl)
+           tableView.addSubview(refreshControl) 
         
         //
         let db = Firestore.firestore()
@@ -157,7 +157,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @objc func refresh(_ sender: AnyObject) {
         let db = Firestore.firestore()
-
         Task
         {
          
@@ -165,8 +164,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             for doc in t_snapshot.documents {
                 let documentID = doc.documentID
-            
-
                 let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
                 print(snp.documents.count)
                dateAll.removeAll()
@@ -176,24 +173,18 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 print("st is :" , st)
                 
                 stateAll.removeAll()
-       
               timeAll.removeAll()
               haveAll.removeAll()
-                
-                for studentDoc in snp.documents {
+            for studentDoc in snp.documents {
                     guard let state  = studentDoc.get("State") as? String else { continue }
 
                     print("state of student/",state)
                     
                     guard let time  = studentDoc.get("time") as? String else { continue }
-
                     print("time of student/",time)
-                    
                     guard let have  = studentDoc.get("have") as? String else { continue }
 
                     print("time of student/",have)
-                    
-                  
                     stateAll.append(state)
                     dateAll.append(st)
                     timeAll.append(time)
@@ -201,14 +192,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.refreshControl.endRefreshing()
                     self.tableView.reloadData()
                 }
-                
-                
+           
             }
-            
-            
-            
         }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
