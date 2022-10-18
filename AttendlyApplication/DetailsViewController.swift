@@ -270,8 +270,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         my.havePending.isHidden = true
     
        my.execution.tag = indexPath.row
-        
     my.execution.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+        
         my.havePending.tag = indexPath.row
         my.havePending.addTarget(self, action: #selector(viewexecu(sender:)),for: .touchUpInside)
 
@@ -291,7 +291,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             my.state.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             my.state.text = stateAll[indexPath.row]
         }
-        else if stateAll[indexPath.row] == "attend"  {
+        else if stateAll[indexPath.row] == "attend" || stateAll[indexPath.row] == "excused"  {
              my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
              my.state.text = stateAll[indexPath.row]
          }

@@ -23,7 +23,7 @@ class StudentViewExec: UIViewController {
     var   datePreesed: String = ""
     var  sectionName: String = ""
     var fileURL: String = ""
-    
+        //sss
     @IBAction func pressView(_ sender: UIButton) {
         let vc = ViewController()
         let pdfView = PDFView(frame: self.view.bounds)

@@ -13,7 +13,7 @@ class studentHave: UITableViewCell {
     @IBOutlet weak var nameSt: UILabel!
     
     @IBOutlet weak var imageExec: UIImageView!
-    @IBOutlet weak var StateExec: UILabel!
+    
     @IBOutlet weak var idSt: UILabel!
     
     

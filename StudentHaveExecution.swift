@@ -115,7 +115,6 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
     }
     @objc func viewFterRejectAccept(sender: UIButton) {
-        
         let tag = sender.tag
         let dateispreesed = idAll[tag]
         let namepressed = nameAll[tag]
@@ -139,7 +138,10 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         my.viewExec.isHidden = true
         my.ViewExecAfterAccRej.isHidden = true
         
+        my.viewExec.tag = indexPath.row
+       
         my.viewExec.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
+        my.ViewExecAfterAccRej.tag = indexPath.row
         my.ViewExecAfterAccRej.addTarget(self, action: #selector(viewFterRejectAccept(sender:)),for: .touchUpInside)
         
         my.nameSt.text = nameAll[indexPath.row]
@@ -170,8 +172,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
            }
         
         my.imageExec.image = UIImage(named: "repor")
-        my.viewExec.tag = indexPath.row
-        my.ViewExecAfterAccRej.tag = indexPath.row
+        
      
         
        

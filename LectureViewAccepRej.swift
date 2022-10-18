@@ -25,6 +25,7 @@ class LectureViewAccepRej: UIViewController {
     var fileURL: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Absence excuse"
         print("sectionNmae",sectionNmae)
         print("datePreesed",sectionNmae)
         print("namepressed",namepressed)

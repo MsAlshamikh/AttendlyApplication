@@ -31,7 +31,7 @@ class LectureViewEXViewController: UIViewController {
     var fileURL: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "View Absence Excuse"
+        navigationItem.title = "Absence excuse"
 
        // self.tabBarController?.tabBar.isHidden = true
         print("sectionNmae",sectionNmae)
