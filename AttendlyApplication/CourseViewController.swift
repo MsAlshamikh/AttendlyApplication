@@ -219,10 +219,10 @@ class CourseViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "s1" {
             if let controller = segue.destination as? DetailsViewController {
-                controller.section = section
-                controller.name = name
-                controller.titleB = titleB
-                controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
+//                controller.section = section
+//                controller.name = name
+//                controller.titleB = titleB
+//                controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
             }
         }
     }

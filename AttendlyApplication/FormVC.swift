@@ -321,37 +321,43 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                      if let err = err {
                          print("Error adding Lecturer  : \(err)")
                      } else {
+                         
+                         var dialogMessagee2 = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+                         // Create OK button with action handler
+                         let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action)  in
+                             print("Ok button tapped")
+                             
+                             
+                             let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                             let vc = storyboard.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+                             self.navigationController?.pushViewController(vc, animated: true)
+                          })
+             
+                         dialogMessagee2.addAction(ok2)
+             
+                         // Present Alert to
+                         self.present(dialogMessagee2, animated: true, completion: nil)
+                         
                          print("Lecturer added sucsseful ")
                        
                      }
                  // self.SendBtn.isEnabled = true
                  }
-                 
-                 
-                 //EmailStudent
-            
-                 
              } //task
 
-                        var dialogMessagee2 = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+//                        var dialogMessagee2 = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+//                        // Create OK button with action handler
+//                        let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//                            print("Ok button tapped")
+//                         })
+//
+//                        dialogMessagee2.addAction(ok2)
+//
+//                        // Present Alert to
+//                        self.present(dialogMessagee2, animated: true, completion: nil)
             
-                        // Create OK button with action handler
-                        let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                            print("Ok button tapped")
-            
-            
-                         })
-            
-                        //Add OK button to a dialog message
-                        dialogMessagee2.addAction(ok2)
-            
-                        // Present Alert to
-                        self.present(dialogMessagee2, animated: true, completion: nil)
-            
-            self.performSegue(withIdentifier: "form", sender: self)
+          //     self.performSegue(withIdentifier: "form", sender: self)
 
-
-          
          })
          //Add OK button to a dialog message
          dialogMessage.addAction(ok)
@@ -393,7 +399,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         
         
         // Present Alert to
-        self.present(dialogMessage, animated: true, completion: nil)
+      //  self.present(dialogMessage, animated: true, completion: nil)
         
     }
     
@@ -542,6 +548,13 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self.navigationController, action:nil)
+        
+    }
+    
+    
 }
 /* func spl(x:String) {
  var str = x

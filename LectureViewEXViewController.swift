@@ -152,7 +152,11 @@ class LectureViewEXViewController: UIViewController {
     
     @IBAction func pressRej(_ sender: UIButton) {
         let db = Firestore.firestore()
-        
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to Reject the form?", preferredStyle: .alert)
+        // Create OK button with action handler
+       let ok = UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
+            print("Ok button tapped")
+           
         Task {
             
             guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
@@ -180,6 +184,14 @@ class LectureViewEXViewController: UIViewController {
                     
            
             }
+       })
+       //Add OK button to a dialog message
+       dialogMessage.addAction(ok)
+        dialogMessage.addAction(UIAlertAction(title: "No",
+                                              style: .cancel,
+                                              handler: { _ in print("Cancel tap") })
+        )
+        self.present(dialogMessage, animated: true, completion: nil)
     }
     
     
@@ -187,6 +199,11 @@ class LectureViewEXViewController: UIViewController {
     @IBAction func pressAccept(_ sender: UIButton) {
         
         let db = Firestore.firestore()
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to Accept the form?", preferredStyle: .alert)
+        // Create OK button with action handler
+       let ok = UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
+            print("Ok button tapped")
+           
         Task{
         
                   guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
@@ -215,6 +232,18 @@ class LectureViewEXViewController: UIViewController {
         
                //   self.performSegue(withIdentifier: "gotoLecturers", sender: self)
                   }
+           let storyboard = UIStoryboard(name: "Main", bundle: .main)
+           let vc = storyboard.instantiateViewController(identifier: "StudentHaveExecution") as! StudentHaveExecution
+           self.navigationController?.pushViewController(vc, animated: true)
+       })
+        
+       //Add OK button to a dialog message
+       dialogMessage.addAction(ok)
+        dialogMessage.addAction(UIAlertAction(title: "No",
+                                              style: .cancel,
+                                              handler: { _ in print("Cancel tap") })
+        )
+        self.present(dialogMessage, animated: true, completion: nil)
 
     }
     

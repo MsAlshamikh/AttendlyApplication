@@ -14,4 +14,15 @@ class Global{
     
     public var sections: [String] = []
     public var coursess: [String] = []
+    
+    
+    public  var section: String = ""
+    public var titleB: String = ""
+    public var name: String = ""
+    
+    public var WhatPressed: String = ""
+  //  public var lecturerCourses : [[String:String]] = [[:]]
+    public var lecturerId : String?
+    
+    public  var sectionName = ""
 }

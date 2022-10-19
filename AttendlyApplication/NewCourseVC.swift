@@ -379,11 +379,16 @@ class NewCourseVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "s1" {
             if let controller = segue.destination as? DetailsViewController {
-                controller.section = section
-                controller.name = name
-                controller.titleB = titleB
-                controller.WhatPressed = WhatPressed
-                controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
+//                controller.Global.shared.section = section
+//                controller.name = name
+//                controller.titleB = titleB
+//                controller.WhatPressed = WhatPressed
+//                controller.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
+         Global.shared.section = section
+                Global.shared.name = name
+                Global.shared.titleB = titleB
+                Global.shared.WhatPressed = WhatPressed
+                Global.shared.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
             }
         }
     }

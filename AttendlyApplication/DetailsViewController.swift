@@ -20,19 +20,19 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let refreshControl = UIRefreshControl()
     
-    var WhatPressed: String = ""
+  //  var WhatPressed: String = ""
    
     var stateAll = [String]()
     var  dateAll = [String]()
     var timeAll = [String]()
     var haveAll = [String]()
     
-    var section: String = ""
-    var titleB: String = ""
-    var name: String = ""
+//    var section: String = ""
+//    var titleB: String = ""
+//    var name: String = ""
     var email: String = ""
     var adv: String = ""
-    var lecturerId : String?
+   // var lecturerId : String?
   var haveExec = false
   //  var buttonTappedAction : ((UITableViewCell) -> Void)?
    // var buttonTappedAction : (() -> Void)? = nil
@@ -72,7 +72,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let db = Firestore.firestore()
         Task {
          
-            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: WhatPressed).getDocuments()
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Global.shared.WhatPressed).getDocuments()
            
            // dateAll.removeAll()
             
@@ -132,7 +132,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let text1 = NSMutableAttributedString()
         text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
-        text1.append(NSAttributedString(string: name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue])) 
+        text1.append(NSAttributedString(string: Global.shared.name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
       
         //  avlabel.attributedText = underlineAttribute‏
       //  avlabel.attributedText = underlineAttribute‏
@@ -141,9 +141,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let text2 = NSMutableAttributedString()
         text2.append(NSAttributedString(string: "Section: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
-        text2.append(NSAttributedString(string: section, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
+        text2.append(NSAttributedString(string: Global.shared.section, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
         
-        courseLabel.text = titleB
+        courseLabel.text = Global.shared.titleB
    
         
         sectionLabel.attributedText = text2
@@ -160,7 +160,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         Task
         {
          
-            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: WhatPressed).getDocuments()
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Global.shared.WhatPressed).getDocuments()
             dateAll.removeAll()
             stateAll.removeAll()
           timeAll.removeAll()
@@ -226,9 +226,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("wiich is now press?? dateispreesed",dateispreesed)
         
         let stude = storyboard?.instantiateViewController(withIdentifier: "FormVC") as! FormVC
-        stude.Takesection = WhatPressed
+        stude.Takesection = Global.shared.WhatPressed
         stude.datePreesed = dateispreesed
-        print("whatpressed ???" , WhatPressed)
+        print("whatpressed ???" , Global.shared.WhatPressed)
         navigationController?.pushViewController(stude, animated: true)
         
     }
@@ -244,7 +244,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let stude = storyboard?.instantiateViewController(withIdentifier: "StudentViewExec") as! StudentViewExec
         stude.datePreesed = dateispreesed
-        stude.sectionName = WhatPressed
+        stude.sectionName = Global.shared.WhatPressed
       //  print("whatpressed ???" , WhatPressed)
         navigationController?.pushViewController(stude, animated: true)
         
@@ -318,7 +318,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
         if segue.identifier == "si_courseDetailToLecturerProfile" {
             if let vc = segue.destination as? LecturerProfileVC {
-                vc.lecturerID = lecturerId;
+                vc.lecturerID = Global.shared.lecturerId;
             }
         }
     }
