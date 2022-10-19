@@ -322,7 +322,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                          print("Error adding Lecturer  : \(err)")
                      } else {
                          
-                         var dialogMessagee2 = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+                         var dialogMessagee2 = UIAlertController(title: "Message", message: "Excuse sent successfully ", preferredStyle: .alert)
                          // Create OK button with action handler
                          let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action)  in
                              print("Ok button tapped")
