@@ -28,7 +28,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var sectionName = ""
     var SingleEmail: String = ""
     var SingleName: String = ""
-    var sectionNmae: String = ""
+    //var sectionNmae: String = ""
     let db = Firestore.firestore()
     
     var percentagestu = [String]()
@@ -276,7 +276,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBAction func pressExecution(_ sender: UIButton) {
         print("goo")
         let stude = storyboard?.instantiateViewController(withIdentifier: "StudentHaveExecution") as! StudentHaveExecution
-    stude.sectionNmae = sectionName
+  //  stude.sectionNmae = sectionName
+        Global.shared.sectionName = sectionName
         print("sectionName ???" , sectionName)
         navigationController?.pushViewController(stude, animated: true)
     }

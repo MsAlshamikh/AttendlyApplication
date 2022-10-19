@@ -152,7 +152,7 @@ class LectureViewEXViewController: UIViewController {
     
     @IBAction func pressRej(_ sender: UIButton) {
         let db = Firestore.firestore()
-        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to Reject the form?", preferredStyle: .alert)
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to reject the excuse?", preferredStyle: .alert)
         // Create OK button with action handler
        let ok = UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
             print("Ok button tapped")
@@ -181,9 +181,11 @@ class LectureViewEXViewController: UIViewController {
                 }
                 
             }
-                    
-           
             }
+           
+           let storyboard = UIStoryboard(name: "Main", bundle: .main)
+           let vc = storyboard.instantiateViewController(identifier: "StudentHaveExecution") as! StudentHaveExecution
+           self.navigationController?.pushViewController(vc, animated: true)
        })
        //Add OK button to a dialog message
        dialogMessage.addAction(ok)
@@ -199,7 +201,7 @@ class LectureViewEXViewController: UIViewController {
     @IBAction func pressAccept(_ sender: UIButton) {
         
         let db = Firestore.firestore()
-        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to Accept the form?", preferredStyle: .alert)
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to accept the excuse?", preferredStyle: .alert)
         // Create OK button with action handler
        let ok = UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
             print("Ok button tapped")

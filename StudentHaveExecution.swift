@@ -20,7 +20,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var nameSection: UILabel!
     @IBOutlet weak var noStudent: UILabel!
     
-    var sectionNmae: String = ""
+   // var sectionNmae: String = ""
     
    
     @IBOutlet weak var tableView: UITableView!
@@ -42,12 +42,12 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         tableView.rowHeight = 80
         
         noStudent.isHidden = true
-        nameSection.text = sectionNmae
+        nameSection.text =  Global.shared.sectionName
         
         let db = Firestore.firestore()
        Task {
          
-           let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
+           let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo:  Global.shared.sectionName).whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
            
             for doc in t_snapshot.documents {
                 let documentID = doc.documentID
@@ -98,7 +98,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         let db = Firestore.firestore()
         Task {
           
-            let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: Global.shared.sectionName).whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
             
             nameAll.removeAll()
             FormStateAll.removeAll()
@@ -159,7 +159,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
 //        print("whatpressed ???" , WhatPressed)
         stude.datePreesed = dateispreesed
         stude.namepressed = namepressed
-        stude.sectionNmae = sectionNmae
+        stude.sectionNmae = Global.shared.sectionName
         navigationController?.pushViewController(stude, animated: true)
         
         
@@ -178,7 +178,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
 //        print("whatpressed ???" , WhatPressed)
         stude.datePreesed = dateispreesed
         stude.namepressed = namepressed
-        stude.sectionNmae = sectionNmae
+        stude.sectionNmae = Global.shared.sectionName
         navigationController?.pushViewController(stude, animated: true)
         
     }
