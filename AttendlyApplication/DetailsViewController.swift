@@ -161,20 +161,20 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         {
          
             let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: WhatPressed).getDocuments()
-            
+            dateAll.removeAll()
+            stateAll.removeAll()
+          timeAll.removeAll()
+          haveAll.removeAll()
             for doc in t_snapshot.documents {
                 let documentID = doc.documentID
                 let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").whereField("EmailStudent", isEqualTo: Global.shared.useremailshare).getDocuments()
                 print(snp.documents.count)
-               dateAll.removeAll()
+               
                 
                 guard let st  = doc.get("st") as? String else { continue }
 
                 print("st is :" , st)
                 
-                stateAll.removeAll()
-              timeAll.removeAll()
-              haveAll.removeAll()
             for studentDoc in snp.documents {
                     guard let state  = studentDoc.get("State") as? String else { continue }
 
@@ -189,12 +189,14 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     dateAll.append(st)
                     timeAll.append(time)
                     haveAll.append(have)
-                    self.refreshControl.endRefreshing()
-                    self.tableView.reloadData()
+                    
                 }
            
             }
+            self.refreshControl.endRefreshing()
+            self.tableView.reloadData()
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -210,7 +212,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return stateAll.count
     }
     
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
     
     @objc func didTapCellButton(sender: UIButton) {
    
@@ -251,6 +255,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
+        
+         my.selectionStyle = .none
         
         my.execution.isHidden = true
         my.havePending.isHidden = true

@@ -25,10 +25,16 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
    
     @IBOutlet weak var tableView: UITableView!
     
+    let refreshControl = UIRefreshControl()
+
     
     override func viewDidLoad() {
-        print("new pahe statrt")
         super.viewDidLoad()
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+           tableView.addSubview(refreshControl)
+        
         navigationItem.title = "Student excuses"
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,17 +44,11 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         noStudent.isHidden = true
         nameSection.text = sectionNmae
         
-        
-      //  var  fullNameCourse = String.self
-        
         let db = Firestore.firestore()
        Task {
          
            let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
            
-         //   let st = t_snapshot.documents.first?.data()["st"] as! String
-            
-       //     print("st is :" , st)
             for doc in t_snapshot.documents {
                 let documentID = doc.documentID
                 
@@ -94,6 +94,56 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
 
     }
     
+    @objc func refresh(_ sender: AnyObject) {
+        let db = Firestore.firestore()
+        Task {
+          
+            let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).getDocuments()
+            
+            nameAll.removeAll()
+            FormStateAll.removeAll()
+            idAll.removeAll()
+            
+            
+             for doc in t_snapshot.documents {
+                 let documentID = doc.documentID
+                 
+                 let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
+             
+                 
+                 for studentDoc in snp.documents {
+                    
+                     guard let FormState = studentDoc.get("FormState") as? String else { continue }
+
+                     print("formState of student/",FormState)
+                     
+                    
+                     guard let name  = studentDoc.get("name") as? String else { continue }
+
+                     print("name of student have exec/",name)
+                    
+                     guard let id  = studentDoc.get("id") as? String else { continue }
+
+                     print("id of student have exec/",id)
+                     
+                   
+                     guard let st  = doc.get("st") as? String else { continue }
+
+                     print("st is222222 :" , st)
+                    
+                     nameAll.append(name)
+                    FormStateAll.append(FormState)
+                     idAll.append(st)
+                    // self.tableView.reloadData()
+                 }
+                 
+                 
+             }
+            self.refreshControl.endRefreshing()
+            self.tableView.reloadData()
+         }
+    }
+    
     @objc func didTapCellButton(sender: UIButton) {
         
         let tag = sender.tag
@@ -133,8 +183,13 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! studentHave
+        my.selectionStyle = .none
         my.viewExec.isHidden = true
         my.ViewExecAfterAccRej.isHidden = true
         
