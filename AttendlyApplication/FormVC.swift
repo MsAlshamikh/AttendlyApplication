@@ -49,89 +49,117 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         cnacelBtn.layer.borderWidth = 1
        cnacelBtn.layer.borderColor = UIColor.black.cgColor
         cnacelBtn.layer.cornerRadius = 10.0
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
-//            tap.numberOfTapsRequired = 2
-//        reasonText.tag = 2
-//       reasonText.isUserInteractionEnabled = true
-//        titleView.tag = 1
-//        titleView.isUserInteractionEnabled = true
-        // Do any additional setup after loading the view.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.doubleTapped(_:)))
+            tap.numberOfTapsRequired = 2
+        reasonText.tag = 2
+       reasonText.isUserInteractionEnabled = true
+        titleView.tag = 1
+        titleView.isUserInteractionEnabled = true
     }
-//    @objc func doubleTapped(_ recognizer: UITapGestureRecognizer) {
-//
-//            print(recognizer.view!.tag)
-//
-//    }
-//    func textViewDidChange(_ textView: UITextView) {
-//        if(titleView.text?.count ?? 0 > 0 ){
-//            messT.text = ""
-//            messT.isHidden = true
-//            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
-//        }
-//
-//        else{
-//
-//            if( textView.resignFirstResponder() == true){
-//            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-//            messT.isHidden = false
-//                messT.text = "This field is required"}
-//        }
-//        if(reasonText.text?.count ?? 0 > 0 ){
-//            messR.text = ""
-//            messR.isHidden = true
-//            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
-//            textView.becomeFirstResponder()
-//        }
-//
-//        else{
-//            if( reasonText.resignFirstResponder() == true){
-//            messR.text = "This field is required"
-//            messR.isHidden = false
-//           // messR.text = "Can not be empty!"
-//            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-//            }
-//        }
-//
-//    }
-   
-    
-//    func textUITextViewShouldReturn(_ textField: UITextView) -> Bool {
-//        textField.resignFirstResponder()
-//
-//        return(true)
-//    }
     //touch out
+    @objc func doubleTapped(_ recognizer: UITapGestureRecognizer) {
+
+            print(recognizer.view!.tag)
+
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    func isValid() -> (Bool, String, String) {
+    func textViewDidChange(_ textView: UITextView) {
+        if(titleView.text?.count ?? 0 > 0 ){
+            messT.text = ""
+            messT.isHidden = true
+            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        }
+    
+        else{
+            
+            if( textView.resignFirstResponder() == true){
+            titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            messT.isHidden = false
+                messT.text = "This field is required"}
+        }
+        if(reasonText.text?.count ?? 0 > 0 ){
+            messR.text = ""
+            messR.isHidden = true
+            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+            textView.becomeFirstResponder()
+        }
+    
+        else{
+            if( reasonText.resignFirstResponder() == true){
+            messR.text = "This field is required"
+            messR.isHidden = false
+           // messR.text = "Can not be empty!"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.7241919041, green: 0.002930019982, blue: 0.06262063235, alpha: 1)
+            }
+        }
+        
+    }
+    func isValid() -> (Bool, String?, String?) {
         messT.isHidden = true   // not show
-        messR.isHidden = true
-        
-        
-        guard let res = reasonText.text, !res.isEmpty else {
+      messR.isHidden = true
+       let res = reasonText.text
+        let tit = titleView.text
+        print("is valid")
+
+        let file = fileURL?.absoluteString
+       let c =  fileURL?.lastPathComponent
+     //   print(c?.isEmpty)
+        print(c)
+
+        var vb = file?.count
+     
+        if let res = reasonText.text, let t = titleView.text , res.isEmpty && t.isEmpty
+         {
+            
+            messT.isHidden = false
+            messT.text = "This field is required"
+            titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             messR.isHidden = false
-            messR.text = "Can not be empty!"
-            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            messR.text = "This field is required"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+        
+
             return (false, "", "")
         }
-        guard let tit = titleView.text?.trimmingCharacters(in: .whitespaces).lowercased() , !tit.isEmpty else {
+        if let res = reasonText.text , res.isEmpty
+         {
+            
+          
+            messR.isHidden = false
+            messR.text = "This field is required"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+         
+
+            return (false, "", "")
+        }
+        if  let t = titleView.text ,  t.isEmpty
+         {
+            
             messT.isHidden = false
-            messT.text = "Can not be empty!"
+            messT.text = "This field is required"
+            titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+           
+            label.text = "please choose a file!"
+            label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+
+            return (false, "", "")
+        }
+        if let res = reasonText.text, res.isEmpty  {
+            messR.isHidden = false
+            messR.text = "This field is required"
+            reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            return (false, "", "")
+        }
+        if let tit = titleView.text , tit.isEmpty  {
+            messT.isHidden = false
+            messT.text = "This field is required!"
             titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             messR.isHidden = false
             return (false, "", "")
         }
-        guard let tit = titleView.text?.trimmingCharacters(in: .whitespaces).lowercased() , !tit.isEmpty, let res = reasonText.text?.trimmingCharacters(in: .whitespaces).lowercased(), !res.isEmpty
-        else {
-            messT.isHidden = false
-            messT.text = "Can not be empty!"
-            titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            messR.isHidden = false
-            messR.text = "Can not be empty!"
-            reasonText.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-            return (false, "", "")
-        }
+        
         
         
         
@@ -160,12 +188,32 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        
+        var f = false
+        var ff = false
+        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+            f = true
+        })
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        if (f==false){
+        dialogMessage.addAction(UIAlertAction(title: "Cancel",
+                                              style: .cancel,
+                                              handler: { _ in print("Cancel tap") }))
+
+
+        // Present Alert to
+          
+         
+        }
+        self.present(dialogMessage, animated: true, completion: nil)
         print("send is statrt")
-        SendBtn.isEnabled = false
+     SendBtn.isEnabled = false
         let res = isValid()
         if res.0 == false {
-         SendBtn.isEnabled = true
+        SendBtn.isEnabled = true
             print("what is ???? ")
             return
             
@@ -176,27 +224,27 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         let db = Firestore.firestore()
         Task {
             print("task1")
-            guard let url = await uploadPDF() else {
+             let url = await uploadPDF()
                 print("task2")
-               SendBtn.isEnabled = true
+              SendBtn.isEnabled = true
               //  print("url", url)
-                return
-            }
+               
+          
             print("task3")
             guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
-               SendBtn.isEnabled = true
+       SendBtn.isEnabled = true
                 return
             }
             print("task4")
             guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else {
-                SendBtn.isEnabled = true
+               SendBtn.isEnabled = true
                 return
             }
             print("task5")
             try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
                 "Title": title,
                 "reason": reason ,
-                "file": url.absoluteString  ,
+                "file": url?.absoluteString  ,
                 "FormState": "Pending" ,
                 "have":"t"
                
@@ -206,8 +254,9 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                     print("Error adding Lecturer  : \(err)")
                 } else {
                     print("Lecturer added sucsseful ")
+                    ff = true
                 }
-               self.SendBtn.isEnabled = true
+             self.SendBtn.isEnabled = true
             }
             
             
@@ -215,46 +264,31 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             
             
         } //task
-//        var f = false
-//        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
-//        // Create OK button with action handler
-//        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-//            print("Ok button tapped")
-//            f = true
-//        })
-//        //Add OK button to a dialog message
-//        dialogMessage.addAction(ok)
-//
-//        dialogMessage.addAction(UIAlertAction(title: "Cancel",
-//                                              style: .cancel,
-//                                              handler: { _ in print("Cancel tap") }))
-//
-//
-//        // Present Alert to
-//        self.present(dialogMessage, animated: true, completion: nil)
-//        if (f == true){
-//            var dialogMessage = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
-//
-//            // Create OK button with action handler
-//            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-//                print("Ok button tapped")
-//             })
-//
-//            //Add OK button to a dialog message
-//            dialogMessage.addAction(ok)
-//            // Present Alert to
-           // self.present(dialogMessage, animated: true, completion: nil)
-//        }
+        
+        if (f == true && ff == true){
+            var dialogMessage = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+
+            // Create OK button with action handler
+            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                print("Ok button tapped")
+             })
+
+            //Add OK button to a dialog message
+            dialogMessage.addAction(ok)
+            // Present Alert to
+            self.present(dialogMessage, animated: true, completion: nil)
+        }
             
         
     }
     @IBAction func cancelPressed(_ sender: Any) {
-        
+        var f = false
 
         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to cancel ", preferredStyle: .alert)
         // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             print("Ok button tapped")
+            f = true
             
         })
         //Add OK button to a dialog message
@@ -262,7 +296,9 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         
         dialogMessage.addAction(UIAlertAction(title: "Cancel",
                                               style: .cancel,
-                                              handler: { _ in print("Cancel tap") }))
+                                              handler: { _ in print("Cancel tap")
+            f = false
+        }))
         
         
         // Present Alert to
@@ -271,16 +307,19 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     func uploadPDF() async -> URL? {
+       
         guard let fileURL = fileURL else {
             print("fileURL",fileURL)
             label.text = "please choose a file!"
-            label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             return nil }//here
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child("files/\(UUID().uuidString).pdf")
         do {
             let _ = try await fileRef.putFileAsync(from: fileURL, metadata: nil)
             print("uploaded")
+            
+                   
             let url = try await fileRef.downloadURL()
             print("url", url)
             return url
@@ -298,7 +337,20 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         fileURL = urls.first
         print("inside doucoment fileURL" , fileURL)
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        
         label.text = urls.first?.lastPathComponent
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        var dialogMessage = UIAlertController(title: "Message", message: "file uploaded successfuly", preferredStyle: .alert)
+       
+               // Create OK button with action handler
+               let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                   print("Ok button tapped")
+                })
+       
+               //Add OK button to a dialog message
+               dialogMessage.addAction(ok)
+               // Present Alert to
+               self.present(dialogMessage, animated: true, completion: nil)
         // Create new Alert
 //        var dialogMessage = UIAlertController(title: "Message", message: "file uploaded successfuly", preferredStyle: .alert)
 //
