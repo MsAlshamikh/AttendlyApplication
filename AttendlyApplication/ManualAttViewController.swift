@@ -314,7 +314,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
       //      my.AttendToabsent.isHidden = false
         }
         else if stateSt[indexPath.row] == "pending" {
-            my.name.textColor =  #colorLiteral(red: 0.6745098039, green: 0.6784313725, blue: 0.6745098039, alpha: 1)
+            my.name.textColor =  #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         //    my.AttendToabsent.isHidden = true
         }
         else if stateSt[indexPath.row] == "excused"   {

@@ -34,6 +34,15 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         
         super.viewDidLoad()
         navigationItem.title = "Excuse Form"
+        
+        
+        
+//        self.navigationItem.hidesBackButton = YES;
+//            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(back:)];
+//            self.navigationItem.leftBarButtonItem = newBackButton;‏
+        
+        
+        
         nameSection.text = Takesection
         print("Takesection ??",Takesection)
         print("datePreesed ???",datePreesed)
@@ -550,9 +559,13 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self.navigationController, action:nil)
+        navigationItem.backBarButtonItem = UIKit.UIBarButtonItem(title: "", style: .plain, target: nil, action: nil )
+      //  navigationItem.backBarButtonItem =
         
+       
     }
+    
+ 
     
     
 }
