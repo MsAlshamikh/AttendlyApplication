@@ -179,6 +179,10 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
              my.state.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
              my.state.text = stateAll[indexPath.row]
          }
+        else if stateAll[indexPath.row] == "pending" {
+             my.state.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+             my.state.text = stateAll[indexPath.row]
+         }
         
         
       
