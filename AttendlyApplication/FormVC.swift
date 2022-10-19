@@ -110,7 +110,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
 
         var vb = file?.count
      
-        if let res = reasonText.text, let t = titleView.text , res.isEmpty && t.isEmpty
+        if let res = reasonText.text?.trimmingCharacters(in: .whitespaces), let t = titleView.text?.trimmingCharacters(in: .whitespaces) , res.isEmpty && t.isEmpty
          {
             
             messT.isHidden = false
@@ -123,7 +123,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
 
             return (false, "", "")
         }
-        if let res = reasonText.text , res.isEmpty
+        if let res = reasonText.text?.trimmingCharacters(in: .whitespaces) , res.isEmpty
          {
             
           
@@ -146,13 +146,13 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
 
             return (false, "", "")
         }
-        if let res = reasonText.text, res.isEmpty  {
+        if let res = reasonText.text?.trimmingCharacters(in: .whitespaces), res.isEmpty  {
             messR.isHidden = false
             messR.text = "This field is required"
             reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             return (false, "", "")
         }
-        if let tit = titleView.text , tit.isEmpty  {
+        if let tit = titleView.text?.trimmingCharacters(in: .whitespaces) , tit.isEmpty  {
             messT.isHidden = false
             messT.text = "This field is required!"
             titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
@@ -188,106 +188,197 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     
     @IBAction func sendPressed(_ sender: Any) {
-        var f = false
-        var ff = false
-        var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
-        // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
-            f = true
-        })
-        //Add OK button to a dialog message
-        dialogMessage.addAction(ok)
-        if (f==false){
-        dialogMessage.addAction(UIAlertAction(title: "Cancel",
-                                              style: .cancel,
-                                              handler: { _ in print("Cancel tap") }))
 
-
-        // Present Alert to
-          
-         
-        }
-        self.present(dialogMessage, animated: true, completion: nil)
         print("send is statrt")
      SendBtn.isEnabled = false
-        let res = isValid()
-        if res.0 == false {
-        SendBtn.isEnabled = true
-            print("what is ???? ")
-            return
+        areYouSure()
+//        let res = isValid()
+//        if res.0 == false {
+//        SendBtn.isEnabled = true
+//            print("what is ???? ")
+//            return
+//
+//        }
+//        //   code
+//        let title = res.1
+//        let reason = res.2
+//        let db = Firestore.firestore()
+//
+//        Task {
+//            print("task1")
+//             let url = await uploadPDF()
+//                print("task2")
+//            areYouSure()
+//              SendBtn.isEnabled = false
+//              //  print("url", url)
+//
+//
+//            print("task3")
+//            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+//       SendBtn.isEnabled = true
+//                return
+//            }
+//            print("task4")
+//            guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else {
+//               SendBtn.isEnabled = true
+//                return
+//            }
+//            print("task5")
+//            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+//                "Title": title,
+//                "reason": reason ,
+//                "file": url?.absoluteString  ,
+//                "FormState": "Pending" ,
+//                "have":"t"
+//
+//
+//            ],merge: true) { err in
+//                if let err = err {
+//                    print("Error adding Lecturer  : \(err)")
+//                } else {
+//                    print("Lecturer added sucsseful ")
+//
+//                }
+//             self.SendBtn.isEnabled = true
+//            }
+//
+//
+//            //EmailStudent
+//
+//
+//        } //task
+
+     
+//            var dialogMessagee2 = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+//
+//            // Create OK button with action handler
+//            let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+//                print("Ok button tapped")
+//
+//
+//             })
+//
+//            //Add OK button to a dialog message
+//            dialogMessagee.addAction(ok2)
+//
+//            // Present Alert to
+//            self.present(dialogMessagee2, animated: true, completion: nil)
+//
             
-        }
-        //   code
-        let title = res.1
-        let reason = res.2
-        let db = Firestore.firestore()
-        Task {
-            print("task1")
-             let url = await uploadPDF()
-                print("task2")
-              SendBtn.isEnabled = true
-              //  print("url", url)
-               
+        
+    }
+    func areYouSure () {
+    var sure = false
+         
+         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
+         // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { [self] (action) in
+             print("Ok button tapped")
+             let res = self.isValid()
+             if res.0 == false {
+            // SendBtn.isEnabled = true
+                 print("what is ???? ")
+                 return
+                 
+             }
+             //   code
+             let title = res.1
+             let reason = res.2
+             let db = Firestore.firestore()
+         
+             Task {
+                 print("task1")
+                 let url = await self.uploadPDF()
+                     print("task2")
+               //  areYouSure()
+                  // SendBtn.isEnabled = false
+                   //  print("url", url)
+                    
+                 if (url == nil){
+                     print("inside task with print url" , url)
+                     return
+                 }
+                 print("task3")
+                 guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: self.datePreesed).getDocuments().documents.first?.documentID else {
+           // SendBtn.isEnabled = true
+                     return
+                 }
+                 print("task4")
+                 guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else {
+                    //SendBtn.isEnabled = true
+                     return
+                 }
+                 print("task5")
+                 try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+                     "Title": title,
+                     "reason": reason ,
+                     "file": url?.absoluteString  ,
+                     "FormState": "Pending" ,
+                     "have":"t"
+                    
+                     
+                 ],merge: true) { err in
+                     if let err = err {
+                         print("Error adding Lecturer  : \(err)")
+                     } else {
+                         print("Lecturer added sucsseful ")
+                       
+                     }
+                 // self.SendBtn.isEnabled = true
+                 }
+                 
+                 
+                 //EmailStudent
+            
+                 
+             } //task
+
+                        var dialogMessagee2 = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+            
+                        // Create OK button with action handler
+                        let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                            print("Ok button tapped")
+            
+            
+                         })
+            
+                        //Add OK button to a dialog message
+                        dialogMessagee2.addAction(ok2)
+            
+                        // Present Alert to
+                        self.present(dialogMessagee2, animated: true, completion: nil)
+            
+            self.performSegue(withIdentifier: "form", sender: self)
+
+
           
-            print("task3")
-            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Takesection).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
-       SendBtn.isEnabled = true
-                return
-            }
-            print("task4")
-            guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo:  Global.shared.useremailshare).getDocuments().documents.first?.documentID else {
-               SendBtn.isEnabled = true
-                return
-            }
-            print("task5")
-            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
-                "Title": title,
-                "reason": reason ,
-                "file": url?.absoluteString  ,
-                "FormState": "Pending" ,
-                "have":"t"
-               
-                
-            ],merge: true) { err in
-                if let err = err {
-                    print("Error adding Lecturer  : \(err)")
-                } else {
-                    print("Lecturer added sucsseful ")
-                    ff = true
-                }
-             self.SendBtn.isEnabled = true
-            }
-            
-            
-            //EmailStudent
-            
-            
-        } //task
-        
-        if (f == true && ff == true){
-            var dialogMessage = UIAlertController(title: "Message", message: "Execution send sucssefully ", preferredStyle: .alert)
+         })
+         //Add OK button to a dialog message
+         dialogMessage.addAction(ok)
+        // self.performSegue(withIdentifier: "goto", sender: self)
+       
+  
+         dialogMessage.addAction(UIAlertAction(title: "Cancel",
+                                               style: .cancel,
+                                               handler: { _ in print("Cancel tap") })
+         )
 
-            // Create OK button with action handler
-            let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-                print("Ok button tapped")
-             })
-
-            //Add OK button to a dialog message
-            dialogMessage.addAction(ok)
-            // Present Alert to
-            self.present(dialogMessage, animated: true, completion: nil)
-        }
-            
-        
+        self.SendBtn.isEnabled = true
+         // Present Alert to
+             
+          
+   
+         self.present(dialogMessage, animated: true, completion: nil)
     }
     @IBAction func cancelPressed(_ sender: Any) {
         var f = false
 
         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to cancel ", preferredStyle: .alert)
         // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
-            print("Ok button tapped")
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action)  in
+            
+            self.performSegue(withIdentifier: "form", sender: self)
+
             f = true
             
         })
@@ -309,6 +400,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     func uploadPDF() async -> URL? {
        
         guard let fileURL = fileURL else {
+          // SendBtn.isEnabled = false
             print("fileURL",fileURL)
             label.text = "please choose a file!"
             label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
