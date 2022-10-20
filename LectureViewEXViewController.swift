@@ -39,7 +39,6 @@ class LectureViewEXViewController: UIViewController {
    
     var titlee:String = ""
     var   reasonn :String = ""
-    
 
     
     override func viewDidLoad() {
@@ -52,6 +51,7 @@ class LectureViewEXViewController: UIViewController {
         print("datePreesed",sectionNmae)
         print("namepressed",namepressed)
         
+     
         let db = Firestore.firestore()
 
        Task {
@@ -185,7 +185,11 @@ class LectureViewEXViewController: UIViewController {
            
            let storyboard = UIStoryboard(name: "Main", bundle: .main)
            let vc = storyboard.instantiateViewController(identifier: "StudentHaveExecution") as! StudentHaveExecution
-           self.navigationController?.pushViewController(vc, animated: true)
+           vc.popTwice = true
+           self.navigationController?.popViewController(animated: false)
+//           DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//               self.navigationController?.pushViewController(vc, animated: true)
+//           }
        })
        //Add OK button to a dialog message
        dialogMessage.addAction(ok)
@@ -236,7 +240,12 @@ class LectureViewEXViewController: UIViewController {
                   }
            let storyboard = UIStoryboard(name: "Main", bundle: .main)
            let vc = storyboard.instantiateViewController(identifier: "StudentHaveExecution") as! StudentHaveExecution
-           self.navigationController?.pushViewController(vc, animated: true)
+           vc.popTwice = true
+           self.navigationController?.popViewController(animated: false)
+//           DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//               self.navigationController?.pushViewController(vc, animated: true)
+//           }
+           //self.navigationController?.pushViewController(vc, animated: true)
        })
         
        //Add OK button to a dialog message

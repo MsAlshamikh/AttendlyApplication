@@ -16,6 +16,8 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     var idAll = [String]()
   
     var  FormStateAll = [String]()
+    
+    var popTwice: Bool?
    
     @IBOutlet weak var nameSection: UILabel!
     @IBOutlet weak var noStudent: UILabel!
@@ -27,9 +29,28 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     
     let refreshControl = UIRefreshControl()
 
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            print("back")
+            
+            if let popTwice = popTwice, popTwice == true {
+                print("pop twice")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+       ///here is tryum
+        ///
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
