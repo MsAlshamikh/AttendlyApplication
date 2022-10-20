@@ -2566,7 +2566,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hMU-yS-VgX">
-                                <rect key="frame" x="0.0" y="210.5" width="414" height="685.5"/>
+                                <rect key="frame" x="0.0" y="180.5" width="414" height="615.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" systemColor="systemIndigoColor"/>
                                 <prototypes>
@@ -2655,7 +2655,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1xg-7q-jxE">
-                                <rect key="frame" x="80" y="173.5" width="40" height="30.5"/>
+                                <rect key="frame" x="80" y="143.5" width="40" height="30.5"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="W0f-vJ-MmL"/>
@@ -2663,7 +2663,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.clock.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Pjr-EX-hRa">
-                                <rect key="frame" x="215.5" y="170.5" width="41.5" height="39"/>
+                                <rect key="frame" x="215.5" y="140.5" width="41.5" height="39"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="lrt-gQ-UtZ"/>
@@ -2678,7 +2678,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc.text.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pmF-od-Q34">
-                                <rect key="frame" x="327" y="175" width="35" height="28.5"/>
+                                <rect key="frame" x="327" y="145" width="35" height="28.5"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="q9g-aA-u4o"/>
@@ -2693,7 +2693,7 @@
                             <constraint firstItem="pmF-od-Q34" firstAttribute="centerY" secondItem="Pjr-EX-hRa" secondAttribute="centerY" id="9bc-2e-mug"/>
                             <constraint firstItem="pmF-od-Q34" firstAttribute="leading" secondItem="Pjr-EX-hRa" secondAttribute="trailing" constant="70" id="BCD-yB-LJV"/>
                             <constraint firstItem="qcm-TL-8X3" firstAttribute="leading" secondItem="r5f-cM-DR6" secondAttribute="leading" constant="5" id="Fcp-YD-YKb"/>
-                            <constraint firstItem="1xg-7q-jxE" firstAttribute="top" secondItem="PS4-Y5-rSo" secondAttribute="bottom" constant="10" id="NLM-ud-Skk"/>
+                            <constraint firstItem="1xg-7q-jxE" firstAttribute="top" secondItem="PS4-Y5-rSo" secondAttribute="bottom" constant="-20" id="NLM-ud-Skk"/>
                             <constraint firstItem="qcm-TL-8X3" firstAttribute="top" secondItem="iY3-sl-wdn" secondAttribute="bottom" constant="120" id="SMJ-hd-U9V"/>
                             <constraint firstItem="hMU-yS-VgX" firstAttribute="leading" secondItem="r5f-cM-DR6" secondAttribute="leading" id="VAT-1Z-T1d"/>
                             <constraint firstAttribute="trailing" secondItem="hMU-yS-VgX" secondAttribute="trailing" id="VEk-ZY-BiS"/>
@@ -2701,7 +2701,7 @@
                             <constraint firstItem="hMU-yS-VgX" firstAttribute="top" secondItem="1xg-7q-jxE" secondAttribute="bottom" constant="5" id="XZU-he-ndy"/>
                             <constraint firstItem="PS4-Y5-rSo" firstAttribute="leading" secondItem="T9T-Ng-2hf" secondAttribute="leading" constant="-65" id="d0p-j1-yZL"/>
                             <constraint firstItem="Pjr-EX-hRa" firstAttribute="leading" secondItem="1xg-7q-jxE" secondAttribute="trailing" constant="97" id="d4n-Cx-BKH"/>
-                            <constraint firstAttribute="bottom" secondItem="hMU-yS-VgX" secondAttribute="bottom" id="dZI-ex-Cdl"/>
+                            <constraint firstAttribute="bottom" secondItem="hMU-yS-VgX" secondAttribute="bottom" constant="100" id="dZI-ex-Cdl"/>
                             <constraint firstItem="iY3-sl-wdn" firstAttribute="leading" secondItem="r5f-cM-DR6" secondAttribute="leading" constant="20" id="iPG-ZR-X0e"/>
                             <constraint firstItem="1xg-7q-jxE" firstAttribute="leading" secondItem="r5f-cM-DR6" secondAttribute="leading" constant="80" id="kxP-MP-yp4"/>
                             <constraint firstItem="iY3-sl-wdn" firstAttribute="top" secondItem="r5f-cM-DR6" secondAttribute="top" constant="20" id="qSU-In-svD"/>
