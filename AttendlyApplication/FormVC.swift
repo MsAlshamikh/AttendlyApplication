@@ -333,13 +333,15 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                          
                          var dialogMessagee2 = UIAlertController(title: "Message", message: "Excuse sent successfully ", preferredStyle: .alert)
                          // Create OK button with action handler
+                         
+                        
                          let ok2 = UIAlertAction(title: "OK", style: .default, handler: { (action)  in
                              print("Ok button tapped")
+                             self.navigationController?.popViewController(animated: true)
                              
-                             
-                             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-                             let vc = storyboard.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
-                             self.navigationController?.pushViewController(vc, animated: true)
+//                             let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//                             let vc = storyboard.instantiateViewController(identifier: "DetailsViewController") as! DetailsViewController
+//                             self.navigationController?.pushViewController(vc, animated: true)
                           })
              
                          dialogMessagee2.addAction(ok2)
