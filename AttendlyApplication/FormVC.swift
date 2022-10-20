@@ -389,7 +389,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     @IBAction func cancelPressed(_ sender: Any) {
         var f = false
-
+print("inside cancel")
         var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to cancel ", preferredStyle: .alert)
         // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action)  in
@@ -406,12 +406,12 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         dialogMessage.addAction(UIAlertAction(title: "Cancel",
                                               style: .cancel,
                                               handler: { _ in print("Cancel tap")
-            f = false
+           
         }))
         
         
         // Present Alert to
-      //  self.present(dialogMessage, animated: true, completion: nil)
+       self.present(dialogMessage, animated: true, completion: nil)
         
     }
     
