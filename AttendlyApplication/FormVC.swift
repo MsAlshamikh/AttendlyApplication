@@ -394,7 +394,8 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action)  in
             
-            self.performSegue(withIdentifier: "form", sender: self)
+           // self.performSegue(withIdentifier: "form", sender: self)
+            self.navigationController?.popViewController(animated: true)
 
             f = true
             
