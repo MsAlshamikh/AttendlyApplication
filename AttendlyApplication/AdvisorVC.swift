@@ -59,7 +59,6 @@ class AdvisorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        get()
         self.searchBar.delegate=self
         // self.passwordTextfiled.delegate = self
         
@@ -69,6 +68,10 @@ class AdvisorVC: UIViewController {
         tableview.estimatedRowHeight = 50
         tableview.rowHeight = 50
        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        get()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
         searchBar.resignFirstResponder()
@@ -168,7 +171,6 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
         my.nostudent.text = Name
         my.idStu.text = studentID
         my.person.image = UIImage(named: "girl" )
-        
         return my
     }
     
@@ -182,6 +184,3 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
 }
 
    
-
-
- 
