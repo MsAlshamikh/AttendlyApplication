@@ -70,7 +70,14 @@ class StudentViewExec: UIViewController {
                      self.fileURL = file
                      print("reson", resonn)
                      
-                     stateOfex.text = FormState
+                     if FormState == "Rejected" {
+                         stateOfex.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                         stateOfex.text = FormState
+                     }
+                     else if FormState == "Accepted" {
+                         stateOfex.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                         stateOfex.text = FormState
+                     }
                     titleOf.text = titlee
                       resonOf.text = resonn
                     
