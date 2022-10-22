@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseFirestore
 import PDFKit
+import UserNotifications //##
 
 class LectureViewEXViewController: UIViewController {
     
@@ -181,6 +182,13 @@ class LectureViewEXViewController: UIViewController {
                 }
                 
             }
+            //######################
+//            let content = UNMutableNotificationContent()
+//            content.title = "Absence excuse answer"
+//            content.body = "Sorry your absence excuse was Rejected ! "
+//            
+//            
+            
             }
            
            let storyboard = UIStoryboard(name: "Main", bundle: .main)
