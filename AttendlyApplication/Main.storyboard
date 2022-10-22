@@ -995,7 +995,7 @@
                                                         <constraint firstAttribute="height" constant="31" id="5Qu-Bg-458"/>
                                                         <constraint firstAttribute="width" constant="45" id="PnJ-dF-sFH"/>
                                                     </constraints>
-                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <color key="tintColor" red="0.197932303" green="0.41848838329999999" blue="0.46275454760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up.on.square" catalog="system"/>
                                                 </button>
@@ -1005,7 +1005,7 @@
                                                         <constraint firstAttribute="height" constant="100" id="Vh5-yO-ofe"/>
                                                         <constraint firstAttribute="width" constant="70" id="xab-EZ-pCd"/>
                                                     </constraints>
-                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <color key="tintColor" red="0.197932303" green="0.41848838329999999" blue="0.46275454760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="ellipsis.circle" catalog="system"/>
                                                 </button>
@@ -2996,7 +2996,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlx-cL-pJG">
-                                <rect key="frame" x="249" y="659.5" width="84" height="23.5"/>
+                                <rect key="frame" x="249" y="708.5" width="84" height="23.5"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="medium">
@@ -3023,7 +3023,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-Ak-pZZ">
-                                <rect key="frame" x="340" y="653.5" width="27" height="29.5"/>
+                                <rect key="frame" x="340" y="702.5" width="27" height="29.5"/>
                                 <color key="tintColor" red="0.2588235438" green="0.5647059083" blue="0.62352943419999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                             </imageView>
