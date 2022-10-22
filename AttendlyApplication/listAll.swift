@@ -64,7 +64,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
        // navigationController?.navigationItem.title = "ss"
         let date = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = " EEEE, MMM d, yyyy‏"
+        dateFormatter.dateFormat = "MMM d, yyyy‏"
     dataOf.text = dateFormatter.string(from: date)
         
      let text1 = NSMutableAttributedString()
