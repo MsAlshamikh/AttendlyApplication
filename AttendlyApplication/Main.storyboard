@@ -2586,7 +2586,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="reF-4x-oZo">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl2.png" translatesAutoresizingMaskIntoConstraints="NO" id="reF-4x-oZo">
                                                     <rect key="frame" x="5" y="23" width="51" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="reF-4x-oZo" secondAttribute="height" multiplier="3:2" id="2Md-3B-3m9"/>
@@ -4053,6 +4053,7 @@
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="envelope" catalog="system" width="128" height="93"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
+        <image name="girl2.png" width="249" height="219"/>
         <image name="grid.circle" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="logow" width="405" height="616"/>
