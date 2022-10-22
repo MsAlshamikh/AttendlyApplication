@@ -182,13 +182,20 @@ class LectureViewEXViewController: UIViewController {
                 }
                 
             }
-            //######################
+//            //######################
+//            let center = UNUserNotificationCenter.current()
 //            let content = UNMutableNotificationContent()
 //            content.title = "Absence excuse answer"
 //            content.body = "Sorry your absence excuse was Rejected ! "
-//            
-//            
-            
+//
+//            let trigger = UNCalendarNotificationTrigger(dateMatching: <#T##DateComponents#>, repeats: false)
+//            let uuid = UUID().uuidString
+//            let result = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+//
+//            center.add(result) {(error) in
+//                //
+//            }
+
             }
            
            let storyboard = UIStoryboard(name: "Main", bundle: .main)
