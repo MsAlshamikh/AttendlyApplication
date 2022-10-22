@@ -31,7 +31,9 @@ class CourseViewController: UIViewController {
      else{
      print("YESSSSSSSSSSS")
      }
+     //add pages here
      }}}*/
+    //export pdf 
     func get(){
         let db = Firestore.firestore()
         db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{

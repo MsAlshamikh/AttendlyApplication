@@ -59,7 +59,7 @@ class ProfileViewContoller: UIViewController {
         majorlabel.text = user.major
         //avlabel.text = user.advn
     }
-    
+    // 
     func loadProfile() {
         guard let uid = Auth.auth().currentUser?.uid else {
             //TODO: inform user that he is not logged in any more and then take him to login page

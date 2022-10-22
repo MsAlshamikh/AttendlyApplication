@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //export pdf
 //        var str = "heellllooooo"
 //        var myMutableString = NSMutableAttributedString(string: str)
 //        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(l ocation:2,length:4))
