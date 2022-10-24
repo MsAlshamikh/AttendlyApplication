@@ -74,7 +74,15 @@ class LectureViewAccepRej: UIViewController {
                       
                    titleoF.text = titlee
                       resonOf.text = resonn
-                      stateEXec.text = FormState
+                      if FormState == "Rejected" {
+                          stateEXec.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                          stateEXec.text = FormState
+                      }
+                      else if FormState == "Accepted" {
+                          stateEXec.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                          stateEXec.text = FormState
+                      }
+                     // stateEXec.text = FormState
              }
               }
           }

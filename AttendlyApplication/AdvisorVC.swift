@@ -12,6 +12,7 @@ class AdvisorVC: UIViewController {
     var Sectionss: String = ""
     var coursess: String = ""
     var students: [[String: Any]] = []
+   // var studentID: String = ""
     var allStudents: [[String: Any]] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -58,7 +59,6 @@ class AdvisorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        get()
         self.searchBar.delegate=self
         // self.passwordTextfiled.delegate = self
         
@@ -68,6 +68,10 @@ class AdvisorVC: UIViewController {
         tableview.estimatedRowHeight = 50
         tableview.rowHeight = 50
        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        get()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
         searchBar.resignFirstResponder()
@@ -136,6 +140,10 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
             let filteredStudents = self.students.filter { student in
                 let fullName = student["Fullname"] as? String ?? ""
                 return fullName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+               // let name = student["name"] as? String ?? ""
+            //    let studentID = student["studentID"] as? String ?? ""
+        
+             //   return name.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
                // guard let email = emailTextfiled.text?.trimmingCharacters(in: .whitespaces)
             }
             self.students = filteredStudents
@@ -158,10 +166,11 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
     print("s ADVISOR")
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! customTableviewControolerTableViewCell
         let student = students[indexPath.row]
-        let fullName = student["Fullname"] as? String ?? ""
-        my.nostudent.text = fullName
+        let Name = student["name"] as? String ?? ""
+        let studentID = student["studentID"] as? String ?? ""
+        my.nostudent.text = Name
+        my.idStu.text = studentID
         my.person.image = UIImage(named: "girl" )
-        
         return my
     }
     
@@ -174,7 +183,6 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-   
 
 
  

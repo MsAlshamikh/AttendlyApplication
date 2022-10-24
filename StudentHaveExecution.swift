@@ -247,7 +247,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                
            }
         
-        my.imageExec.image = UIImage(named: "repor")
+        my.imageExec.image = UIImage(named: "girl")
         
      
         
