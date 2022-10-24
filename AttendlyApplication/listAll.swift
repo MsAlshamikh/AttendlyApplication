@@ -52,7 +52,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         {
         zeroStudent.isHidden = false
             print("no student")
-            
+            //..
          //   self.noC.text = "No courses \n registered!"
           self.zeroStudent.text = "No Student Registered Yet "
         }
