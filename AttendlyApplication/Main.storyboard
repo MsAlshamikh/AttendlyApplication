@@ -490,7 +490,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rania Alaqeel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="TOn-UF-4mn">
-                                                    <rect key="frame" x="59" y="28" width="120" height="24"/>
+                                                    <rect key="frame" x="63" y="28" width="120" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="asg-Tn-P99"/>
                                                     </constraints>
@@ -506,17 +506,23 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.1%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOi-KA-DFS">
-                                                    <rect key="frame" x="324" y="28" width="70" height="24"/>
+                                                    <rect key="frame" x="328" y="28" width="66" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="441200836" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hOr-Ci-aFo">
-                                                    <rect key="frame" x="204" y="30" width="90" height="20.5"/>
+                                                    <rect key="frame" x="208" y="30" width="90" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="TtB-wW-6pY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="289-bg-Ro5">
+                                                    <rect key="frame" x="46" y="29.5" width="20" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -525,11 +531,13 @@
                                                 <constraint firstItem="hOr-Ci-aFo" firstAttribute="leading" secondItem="TOn-UF-4mn" secondAttribute="trailing" constant="25" id="35n-lm-mfD"/>
                                                 <constraint firstItem="BOi-KA-DFS" firstAttribute="centerY" secondItem="tKr-AJ-Pes" secondAttribute="centerY" id="4ND-aP-qRe"/>
                                                 <constraint firstItem="hOr-Ci-aFo" firstAttribute="centerY" secondItem="tKr-AJ-Pes" secondAttribute="centerY" id="D9g-KV-SdI"/>
+                                                <constraint firstItem="289-bg-Ro5" firstAttribute="centerY" secondItem="tKr-AJ-Pes" secondAttribute="centerY" id="ET3-I3-bAV"/>
                                                 <constraint firstAttribute="trailing" secondItem="BOi-KA-DFS" secondAttribute="trailing" constant="20" id="KoU-ba-uNP"/>
                                                 <constraint firstItem="TOn-UF-4mn" firstAttribute="centerY" secondItem="tKr-AJ-Pes" secondAttribute="centerY" id="Njt-UI-bEx"/>
-                                                <constraint firstItem="TOn-UF-4mn" firstAttribute="leading" secondItem="XVi-V4-PTA" secondAttribute="trailing" constant="3" id="c4z-kA-y02"/>
+                                                <constraint firstItem="TOn-UF-4mn" firstAttribute="leading" secondItem="XVi-V4-PTA" secondAttribute="trailing" constant="7" id="c4z-kA-y02"/>
                                                 <constraint firstItem="XVi-V4-PTA" firstAttribute="leading" secondItem="tKr-AJ-Pes" secondAttribute="leading" constant="5" id="lDg-bh-3Kp"/>
                                                 <constraint firstItem="BOi-KA-DFS" firstAttribute="leading" secondItem="hOr-Ci-aFo" secondAttribute="trailing" constant="30" id="rne-nN-K1f"/>
+                                                <constraint firstItem="289-bg-Ro5" firstAttribute="leading" secondItem="XVi-V4-PTA" secondAttribute="trailing" constant="-10" id="vro-BL-gxJ"/>
                                                 <constraint firstItem="XVi-V4-PTA" firstAttribute="centerY" secondItem="tKr-AJ-Pes" secondAttribute="centerY" id="wfD-Mh-Qqo"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -667,7 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tbp-9B-IN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="151"/>
+            <point key="canvasLocation" x="360.86956521739131" y="150.66964285714286"/>
         </scene>
         <!--SectionsVC-->
         <scene sceneID="U9l-fj-NZb">
