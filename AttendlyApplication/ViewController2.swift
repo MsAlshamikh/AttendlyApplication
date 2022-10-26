@@ -195,6 +195,23 @@ print(indexPath)
                       //..
                         let sectss = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
                         
+                            //get day
+                        
+                        guard let start = sectss.documents.first?.get("startTime") as? String else { return }
+                        
+                        if  start.elementsEqual("9:20")
+                        {
+                            //add to array for that day in known index
+                            //ex: Sunday[2] = start
+                        
+                        }
+                        //else  if for all time
+                        
+                        //done :)
+                        
+                        
+                        print("sects",sectsChk.count)
+                        print("START",start)
                   //      let time  = sectss.documents.get("startTime") as  [String]
                         
                         
