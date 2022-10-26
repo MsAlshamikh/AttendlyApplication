@@ -8,14 +8,15 @@
 //this part is basically the fixed part of the table -AD
 
 import UIKit
+import FirebaseFirestore
 
 class ViewController2: UIViewController {
 
-    var Sunday =  ["Sunday", "swe444", "",  "" , "", "csc111",  "", "", "slm108", ""]
-    var Monday =  ["Monday", "csc111", "",  "" , "", "csc111",  "", "", "slm108", ""]
-    var Tuesday =  ["Tuesday", "", "",  "csc111" , "", "csc111", "", "", "slm108", ""]
-    var Wednesday =  ["Wednesday", "swe444", "",  "" , "", "csc111",  "", "", "slm108", ""]
-    var Thursday =  ["Thursday", "slm108", "",  "" , "", "csc111",  "", "", "slm108", ""]
+    var Sunday =  ["Sunday", "SWE444", "SWE444",  "" , "", "Cloud482",  "", "", "", ""]
+    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
+    var Tuesday =  ["Tuesday", "", "",  "Cloud482" , "", "Cloud482", "", "", "", ""]
+    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
+    var Thursday =  ["Thursday", "SWE444", "SWE444",  "" , "", "Cloud482",  "", "", "", ""]
     
     @IBOutlet weak var gridCollectionView: UICollectionView!
     
@@ -173,7 +174,33 @@ print(indexPath)
         return cell
     }
    
-  
+    func course(){
+        let db = Firestore.firestore()
+        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
+            (snapshot, error) in
+            if let error = error {
+                print("FAIL ")
+            }
+            else{
+                let actualChk = snapshot!.documents.first!.get("courses") as! [String]
+                let sectsChk = snapshot!.documents.first!.get("Sections") as! [String]
+              if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
+                {
+                //    self.noC.text = "No courses \n registered!"
+                }
+                else{
+                    for i in 0..<sectsChk.count {
+                      //..
+//                        let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
+//
+                       
+                        
+                    }
+                }
+                
+    }
+        }
+    }
 }
 
 extension ViewController2: UICollectionViewDelegateFlowLayout {
@@ -181,7 +208,7 @@ extension ViewController2: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 110, height: 110)
     }
-    
+  
 }
 
 

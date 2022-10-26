@@ -150,33 +150,5 @@ private extension IndexPath {
         self = IndexPath(item: column, section: row)
     }
     
-    func course(){
-        let db = Firestore.firestore()
-        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
-            (snapshot, error) in
-            if let error = error {
-                print("FAIL ")
-            }
-            else{
-                let actualChk = snapshot!.documents.first!.get("courses") as! [String]
-                let sectsChk = snapshot!.documents.first!.get("Sections") as! [String]
-                
-              //  self.lecturerCourses =  snapshot!.documents.first!.get("lecturerCourses") as! [[String:String]]
-               // self.sections  = snapshot!.documents.first!.get("Sections") as! [String]
-              //  print("self.lecturerId = ", self.lecturerCourses)
-
-                if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
-                {
-                //    self.noC.text = "No courses \n registered!"
-     
-                }
-                else{
-                    for i in 0..<sectsChk.count {
-                      //..
-                    }
-                }
-                
-    }
-        }
-    }
+  
     }
