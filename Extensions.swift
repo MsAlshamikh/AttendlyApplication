@@ -27,7 +27,7 @@ extension View {
         ]
         
         scrollView.addSubview(hostingController)
-        scrollView.addConstraint(constraints)
+        scrollView.addConstraints(constraints)
         
         return scrollView
         

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import SwiftUI
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -38,7 +39,21 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
    // var buttonTappedAction : (() -> Void)? = nil
 
     var Takesection = ""
-    
+    struct SearchView: View  {
+        var body: some View {
+           
+            Button {
+                print(convertToScrollView(content: {
+                    self
+                }))
+            } label: {
+                Image(systemName: "square.and.arrow.up.fill")
+                    .font(.title2)
+                    .foregroundColor(Color.black.opacity(0.7))
+            }
+        }
+    }
+ 
     
     //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //    print("now your exucetion absent // shamma")
@@ -68,6 +83,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
            tableView.addSubview(refreshControl)
         
+   
         //
         let db = Firestore.firestore()
         Task {
@@ -153,6 +169,35 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let tg = UITapGestureRecognizer(target: self, action: #selector(lecturerNameTapped(_:)))
                lecturerLabel.isUserInteractionEnabled = true
                lecturerLabel.addGestureRecognizer(tg)
+    }
+    
+    func convertToScrollView<Content: View>(@ViewBuilder content: @escaping()->Content)->UIScrollView{
+        
+        let scrollView = UIScrollView()
+        
+        //
+        let hostingController = UIHostingController(rootView: content()).view!
+        hostingController.translatesAutoresizingMaskIntoConstraints = false
+        //
+        let constraints = [
+        
+            hostingController.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            hostingController.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            hostingController.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            hostingController.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            //
+            hostingController.widthAnchor.constraint(equalToConstant: screenBounds().width)
+        ]
+        
+        scrollView.addSubview(hostingController)
+        scrollView.addConstraints(constraints)
+        
+        return scrollView
+        
+    }
+    
+    func screenBounds()->CGRect{
+        return UIScreen.main.bounds
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -313,6 +358,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func lecturerNameTapped(_ sender:UITapGestureRecognizer) {
         performSegue(withIdentifier: "si_courseDetailToLecturerProfile", sender: nil)
     }
+    
     
     
     // MARK: - Navigation
