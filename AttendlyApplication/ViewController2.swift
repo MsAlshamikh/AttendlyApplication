@@ -67,47 +67,46 @@ print(indexPath)
             cell.titleLabel.text = "Thursday"
         }
         else if (indexPath.elementsEqual([0, 1])){
-            cell.titleLabel.text = "8:00 - 9:05"
+            cell.titleLabel.text = "8:00 - 9:05" // 9.15-10.20
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 2])){
-            cell.titleLabel.text = "9"
+            cell.titleLabel.text = "9:15 - 10:20"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 3])){
-            cell.titleLabel.text = "10"
+            cell.titleLabel.text = "10:15 - 11:35"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 4])){
-            cell.titleLabel.text = "11"
-           // cell.titleLabel.textAlignment = .left
+            cell.titleLabel.text = "11:45 - 12:50"           // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 5])){
-            cell.titleLabel.text = "12"
+            cell.titleLabel.text = "12:50 - 13:30"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 6])){
-            cell.titleLabel.text = "13"
+            cell.titleLabel.text = "13:30 - 14:35"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 7])){
-            cell.titleLabel.text = "14"
+            cell.titleLabel.text = "14:45 - 15:50"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 8])){
-            cell.titleLabel.text = "15"
+            cell.titleLabel.text = "15:50 - 16:30"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 9])){
-            cell.titleLabel.text = "16"
+            cell.titleLabel.text = "16:30 - 17:35" 
            // cell.titleLabel.textAlignment = .left
             
         }
