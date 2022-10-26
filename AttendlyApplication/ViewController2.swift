@@ -174,19 +174,18 @@ print(indexPath)
 
             }
         }
+        course()
         return cell
     }
    
     func course(){
         let db = Firestore.firestore()
-        db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
-            (snapshot, error) in
-            if let error = error {
-                print("FAIL ")
-            }
-            else{
-                let actualChk = snapshot!.documents.first!.get("courses") as! [String]
-                let sectsChk = snapshot!.documents.first!.get("Sections") as! [String]
+        Task{
+            let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
+            
+            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+            
               if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
                 {
                 //    self.noC.text = "No courses \n registered!"
@@ -194,9 +193,13 @@ print(indexPath)
                 else{
                     for i in 0..<sectsChk.count {
                       //..
-//                        let t_snapshot = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
+                        let sectss = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
+                        
+                  //      let time  = sectss.documents.get("startTime") as  [String]
+                        
+                        
 //
-                       
+                    
                         
                     }
                 }
@@ -204,7 +207,7 @@ print(indexPath)
     }
         }
     }
-}
+
 
 extension ViewController2: UICollectionViewDelegateFlowLayout {
     
