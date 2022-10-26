@@ -11,16 +11,7 @@ import UIKit
 class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
     private var allAttributes: [[UICollectionViewLayoutAttributes]] = []
   //  var allAttributes = []
-   var xx  = [
-        ["May 2020"],
-        ["", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
-        ["Week 1", "26", "27", "28", "29", "30", "1", "2"],
-        ["Week 2", "3", "4", "5", "6", "7", "8", "9"],
-        ["Week 3", "10", "11", "12", "13", "14", "15", "16"],
-        ["Week 4", "17", "18", "19", "20", "21", "22", "23"],
-        ["Week 5", "24", "25", "26", "27", "28", "29", "30"],
-        ["Week 6", "31", "", "", "", "", "", ""]
-    ]
+ 
     
    // let cellAttributes = allAttributes[row][column]
 

@@ -11,6 +11,12 @@ import UIKit
 
 class ViewController2: UIViewController {
 
+    var Sunday =  ["Sunday", "swe444", "",  "" , "", "csc111",  "", "", "slm108", ""]
+    var Monday =  ["Monday", "csc111", "",  "" , "", "csc111",  "", "", "slm108", ""]
+    var Tuesday =  ["Tuesday", "", "",  "csc111" , "", "csc111", "", "", "slm108", ""]
+    var Wednesday =  ["Wednesday", "swe444", "",  "" , "", "csc111",  "", "", "slm108", ""]
+    var Thursday =  ["Thursday", "slm108", "",  "" , "", "csc111",  "", "", "slm108", ""]
+    
     @IBOutlet weak var gridCollectionView: UICollectionView!
     
     @IBOutlet weak var gridLayout: StickyGridCollectionViewLayout!
@@ -121,9 +127,48 @@ print(indexPath)
             cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
+        for i in 1..<Sunday.count{
+            if (indexPath.elementsEqual([1, i]))
+            { cell.titleLabel.text = Sunday[i]
+                if(Sunday[i] != "")
+                {cell.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)}
+            }
+        }
+        for i in 1..<Monday.count{
+            if (indexPath.elementsEqual([2, i]))
+            { cell.titleLabel.text = Monday[i]
+                if(Monday[i] != "")
+                {cell.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)}
+           }
+        }
+        for i in 1..<Tuesday.count{
+            if (indexPath.elementsEqual([3, i]))
+            { cell.titleLabel.text = Tuesday[i]
+                if(Tuesday[i] != "")
+                {cell.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)}
+
+            }
+        }
+        for i in 1..<Wednesday.count{
+            if (indexPath.elementsEqual([4, i]))
+            { cell.titleLabel.text = Wednesday[i]
+                if(Wednesday[i] != "")
+                {cell.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)}
+
+            }
+        }
+        for i in 1..<Thursday.count{
+            if (indexPath.elementsEqual([5, i]))
+            { cell.titleLabel.text = Thursday[i]
+                if(Thursday[i] != "")
+                {cell.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)}
+
+            }
+        }
         return cell
     }
    
+  
 }
 
 extension ViewController2: UICollectionViewDelegateFlowLayout {
