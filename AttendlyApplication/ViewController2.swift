@@ -69,46 +69,46 @@ print(indexPath)
             cell.titleLabel.text = "Thursday"
         }
         else if (indexPath.elementsEqual([0, 1])){
-            cell.titleLabel.text = "8:00 - 9:05" // 9.15-10.20
+            cell.titleLabel.text = "8:00-9:05" // 9.15-10.20
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 2])){
-            cell.titleLabel.text = "9:15 - 10:20"
+            cell.titleLabel.text = "9:15-10:20"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 3])){
-            cell.titleLabel.text = "10:15 - 11:35"
+            cell.titleLabel.text = "10:30-11:35"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 4])){
-            cell.titleLabel.text = "11:45 - 12:50"           // cell.titleLabel.textAlignment = .left
+            cell.titleLabel.text = "11:45-12:50"           // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 5])){
-            cell.titleLabel.text = "12:50 - 13:30"
+            cell.titleLabel.text = "12:50-13:30"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 6])){
-            cell.titleLabel.text = "13:30 - 14:35"
+            cell.titleLabel.text = "13:30-14:35"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 7])){
-            cell.titleLabel.text = "14:45 - 15:50"
+            cell.titleLabel.text = "14:45-15:50"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 8])){
-            cell.titleLabel.text = "15:50 - 16:30"
+            cell.titleLabel.text = "16:00-17:05"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 9])){
-            cell.titleLabel.text = "16:30 - 17:35" 
+            cell.titleLabel.text = "17:15-18:20"
            // cell.titleLabel.textAlignment = .left
             
         }
@@ -120,6 +120,7 @@ print(indexPath)
           cell.layer.borderWidth = 0.3
            cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.titleLabel.font = cell.titleLabel.font.withSize(18)
            
         }
         else{
@@ -127,6 +128,7 @@ print(indexPath)
             cell.layer.borderWidth = 0.4
             cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.titleLabel.font = cell.titleLabel.font.withSize(20)
             
         }
         for i in 1..<Sunday.count{
