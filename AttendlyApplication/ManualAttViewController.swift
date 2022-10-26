@@ -33,6 +33,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     var v: String = ""
     var networking: Bool = false
     
+    let StudentStatus = ["absent" , "late" , "attend"]
+    //var pickerView = UIPickerView()
+    @IBOutlet weak var pickerView: UIPickerView!
+   
     
     let db = Firestore.firestore()
     
@@ -190,17 +194,57 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
       tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
-    
+//        pickerView.delegate = self
+//        pickerView.dataSource = self
+//
+//
+//        let email = emailSt[indexPath.row]
+//
+//                    let date = Date()
+//                    let calunder = Calendar.current
+//                    let day = calunder.component(.day , from: date)
+//                    let month = calunder.component(.month , from: date)
+//                    let year = calunder.component(.year , from: date)
+//                    let thed = "\(day)-\(month)-\(year)"
+//
+//                   Task {
+//
+//
+////                        let picker = pickerView
+//
+//                        guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+//
+//                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+//
+//                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+//
+//                        let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments()
+//
+//                       guard let state  = DocID.documents.first?.get("State") as? String else { return }
+//
+//
+//
+//                        print("done")
+//                       stateSt[indexPath.row] = state
+//                       tableView.reloadData()
+//
+//                    }
+//
+//
+
         
+        
+// absent
+//
         if state == "absent" {
-            
+
             if networking {
                 return
             }
             let email = emailSt[indexPath.row]
-            
-            
-            
+
+
+
             let date = Date()
             let calunder = Calendar.current
             let day = calunder.component(.day , from: date)
@@ -208,30 +252,112 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
             let year = calunder.component(.year , from: date)
             let thed = "\(day)-\(month)-\(year)"
             Task {
-               
+
             //    let db = Firestore.firestore()
-                
+
                 networking = true
                 guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
-                
+
                 guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
-                
+
                 try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "attend"], merge: true)
-                
+
                 print("done")
                 stateSt[indexPath.row] = "attend"
            //     my.AttendToabsent.isHidden = false
-                
-              
+
+
                 tableView.reloadData()
             //  cell.backgroundColor = UIColor.black
                 networking = false
             }
         }
+
+
         
-        //
+        // ###################
         
+//        if state == "attend"  {
+//
+//            if networking {
+//                return
+//            }
+//            let email = emailSt[indexPath.row]
+//
+//
+//
+//            let date = Date()
+//            let calunder = Calendar.current
+//            let day = calunder.component(.day , from: date)
+//            let month = calunder.component(.month , from: date)
+//            let year = calunder.component(.year , from: date)
+//            let thed = "\(day)-\(month)-\(year)"
+//            Task {
+//
+//            //    let db = Firestore.firestore()
+//
+//                networking = true
+//                guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+//
+//                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+//
+//                try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+//
+//                print("done")
+//
+//                stateSt[indexPath.row] = "absent"
+//
+//
+//                tableView.reloadData()
+//            //  cell.backgroundColor = UIColor.black
+//                networking = false
+//            }
+//        }
+
+        
+        
+        // ###################
+        
+        
+    //  attend  - late
         if state == "attend"  {
+
+            if networking {
+                return
+            }
+            let email = emailSt[indexPath.row]
+
+
+
+            let date = Date()
+            let calunder = Calendar.current
+            let day = calunder.component(.day , from: date)
+            let month = calunder.component(.month , from: date)
+            let year = calunder.component(.year , from: date)
+            let thed = "\(day)-\(month)-\(year)"
+            Task {
+
+            //    let db = Firestore.firestore()
+
+                networking = true
+                guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+
+                guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+
+                try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "late"], merge: true)
+
+                print("done")
+
+                stateSt[indexPath.row] = "late"
+
+
+                tableView.reloadData()
+            //  cell.backgroundColor = UIColor.black
+                networking = false
+            }
+        }
+
+        if state == "late"  {
 
             if networking {
                 return
@@ -267,9 +393,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                 networking = false
             }
         }
-        
-        
-        
+
+
         
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -381,3 +506,24 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     
 }
+
+//extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource {
+//
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return StudentStatus.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return StudentStatus[row]
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+////          stateSt[indexPath.row].text = StudentStatus[row]
+////          state.text = StudentStatus[row]
+//    }
+//}
+//
