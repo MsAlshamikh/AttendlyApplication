@@ -4152,6 +4152,74 @@
             </objects>
             <point key="canvasLocation" x="4525" y="901"/>
         </scene>
+        <!--View Controller2-->
+        <scene sceneID="UGo-JK-whA">
+            <objects>
+                <viewController id="usQ-7G-bQv" customClass="ViewController2" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jOX-fd-hbt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xRB-WE-7cM">
+                                <rect key="frame" x="0.0" y="201" width="414" height="661"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qu9-Ql-fHn" customClass="StickyGridCollectionViewLayout" customModule="StickyGridCollectionView_Starter" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="FD6-8O-PiO" customClass="CollectionViewCell" customModule="StickyGridCollectionView_Starter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJF-rM-Zlk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="NJF-rM-Zlk" firstAttribute="leading" secondItem="FD6-8O-PiO" secondAttribute="leading" id="Ao1-eu-101"/>
+                                            <constraint firstAttribute="trailing" secondItem="NJF-rM-Zlk" secondAttribute="trailing" id="NOW-02-Eje"/>
+                                            <constraint firstItem="NJF-rM-Zlk" firstAttribute="top" secondItem="FD6-8O-PiO" secondAttribute="top" id="aeI-nn-6Oe"/>
+                                            <constraint firstAttribute="bottom" secondItem="NJF-rM-Zlk" secondAttribute="bottom" id="sgp-AW-kjE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="NJF-rM-Zlk" id="HPs-14-1pf"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="usQ-7G-bQv" id="xTM-s7-Zvg"/>
+                                    <outlet property="delegate" destination="usQ-7G-bQv" id="NFG-iC-b1y"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7j9-A9-nLd"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xRB-WE-7cM" firstAttribute="top" secondItem="7j9-A9-nLd" secondAttribute="top" id="GFL-10-hmF"/>
+                            <constraint firstItem="7j9-A9-nLd" firstAttribute="trailing" secondItem="xRB-WE-7cM" secondAttribute="trailing" id="RI7-Eb-Hjs"/>
+                            <constraint firstItem="7j9-A9-nLd" firstAttribute="bottom" secondItem="xRB-WE-7cM" secondAttribute="bottom" id="Svg-S0-wEO"/>
+                            <constraint firstItem="xRB-WE-7cM" firstAttribute="leading" secondItem="7j9-A9-nLd" secondAttribute="leading" id="xlC-3N-luQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gridCollectionView" destination="xRB-WE-7cM" id="zCo-YE-vnn"/>
+                        <outlet property="gridLayout" destination="Qu9-Ql-fHn" id="yBS-ja-ZXY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LT0-aA-idT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11463.76811594203" y="-504.91071428571428"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G1y-3w-L4w"/>
