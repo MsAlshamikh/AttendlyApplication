@@ -35,8 +35,8 @@ class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
         // 1
         allAttributes = []
 
-        var xOffset: CGFloat = 100
-        var yOffset: CGFloat = 100
+        var xOffset: CGFloat = 160
+        var yOffset: CGFloat = 160
         // 2
         for row in 0..<rowsCount {
             // 3

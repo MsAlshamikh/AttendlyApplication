@@ -114,14 +114,14 @@ print(indexPath)
             cell.titleLabel.text = "\(indexPath)"}
         cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
         if(cell.backgroundColor == .white){
-            cell.backgroundColor =  #colorLiteral(red: 0.8768938184, green: 0.8879328966, blue: 0.8877387047, alpha: 1)
+            cell.backgroundColor =  #colorLiteral(red: 0.8953151844, green: 0.9132214881, blue: 0.9132214881, alpha: 1)
           cell.layer.borderWidth = 0.3
             cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
            
         }
         else{
-            cell.backgroundColor = #colorLiteral(red: 0.05053991079, green: 0.5733678937, blue: 0.6324701905, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
             cell.layer.borderWidth = 0.4
             cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -130,7 +130,7 @@ print(indexPath)
             if (indexPath.elementsEqual([1, i]))
             { cell.titleLabel.text = Sunday[i]
                 if(Sunday[i] != "")
-                {cell.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)}
+                {cell.backgroundColor = #colorLiteral(red: 0.7230324289, green: 0.6773627903, blue: 0.9686274529, alpha: 1)}
             }
         }
         for i in 1..<Monday.count{
