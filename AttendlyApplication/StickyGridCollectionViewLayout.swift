@@ -172,7 +172,7 @@ private extension IndexPath {
                 }
                 else{
                     for i in 0..<sectsChk.count {
-                        
+                      //..
                     }
                 }
                 
