@@ -36,6 +36,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     let StudentStatus = ["absent" , "late" , "attend"]
     //var pickerView = UIPickerView()
 //    @IBOutlet weak var pickerView: UIPickerView!
+    var whatPick = ""
    
     @IBOutlet weak var pickerView: UIPickerView!
     let db = Firestore.firestore()
@@ -54,7 +55,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
        
 //        let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
 
-      //  my.pickerView.isHidden = true
+     
+        pickerView.isHidden = true
         filterName = nameStudent
         
         //search.delegate = self
@@ -73,8 +75,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         tableview.delegate = self
         tableview.dataSource = self
         //tableview.rowHeight = UITableView.automaticDimension
-        tableview.estimatedRowHeight = 100
-        tableview.rowHeight = 100
+        tableview.estimatedRowHeight = 50
+        tableview.rowHeight = 50
        // navigationController?.navigationItem.title = "ss"
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -213,7 +215,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                    Task {
 
 
-                        picker = "\( pickerView)"
+                       
                      //  pickerView
 
                        print(picker , "picker before")
@@ -221,13 +223,14 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
                         guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
 
-                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
 
                         let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments()
 
                        guard let state  = DocID.documents.first?.get("State") as? String else { return }
 
 
+                       picker = "\(pickerView)"
 
                         print("done")
                        stateSt[indexPath.row] = state
@@ -536,20 +539,30 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //          stateSt[indexPath.row].text = StudentStatus[row]
 //          state.text = StudentStatus[row]
+        
+        
+        
         var chosen = pickerView.selectedRow(inComponent: 0)
         if(chosen == 0 ){
             print("is absent")
+            whatPick = "absent"
         }
         else if(chosen == 1 ){
             print("is late")
+            whatPick = "late"
         }
         else if(chosen == 2){
             print("is attend")
+            whatPick = "attend"
         }
         print(chosen , "picker after")
         picker = "\( pickerView)"
      //  pickerView
        print(picker , "picker after")
+        
+        whatPick = StudentStatus[row]
+        pickerView.isHidden = true
+
     }
 }
 
