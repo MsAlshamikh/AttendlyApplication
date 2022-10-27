@@ -21,9 +21,17 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var dataOf: UILabel!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var nameStudent = [String]()
     var emailStudent = [String]()
     var idStudent = [String]()
+    
+    // Data structure to hold student information for the Table View
+    var tableData = [(String, String)]()
+    var filteredTableData = [(String, String)]()
+    
+    
     var v: String = ""
     var sectionName = ""
     var SingleEmail: String = ""
@@ -37,12 +45,17 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameStudent.enumerated().forEach { index, name in
+            tableData.append((name, idStudent[index]))
+        }
+        self.filteredTableData = tableData
        
         navigationItem.title = "Student list"
         zeroStudent.isHidden = true
         
       //  sectionName = nameSection.text!
-        
+        searchBar.delegate = self
         
         print("what pressed is ")
         print(v)
@@ -88,7 +101,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
-        return nameStudent.count
+        return filteredTableData.count
     }
     
 //    @objc func refresh(_ sender: AnyObject) {
@@ -206,13 +219,12 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print("s")
         let my = tableView.dequeueReusableCell(withIdentifier: "cell") as! customTableviewControolerTableViewCell
       
+        // Use table data structure
+        my.nostudent.text = filteredTableData[indexPath.row].0
+        my.idStu.text = filteredTableData[indexPath.row].1
         
-        
-        my.nostudent.text = nameStudent[indexPath.row]
-        my.idStu.text = idStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
         
         if doubles[indexPath.row]  >= 20 {    // less than or eqaul to 0
@@ -282,4 +294,20 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(stude, animated: true)
     }
     
+}
+// Setup searchbar delegate
+extension listAll: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.filteredTableData = tableData
+            tableview.reloadData()
+        } else {
+            let filteredStudents = self.tableData.filter { (studentName, studentId) in
+                return studentName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+            }
+            
+            self.filteredTableData = filteredStudents
+            self.tableview.reloadData()
+        }
+    }
 }

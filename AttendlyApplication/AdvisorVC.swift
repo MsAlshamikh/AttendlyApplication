@@ -59,7 +59,6 @@ class AdvisorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        self.searchBar.delegate=self
         // self.passwordTextfiled.delegate = self
         
         tableview.delegate = self
@@ -77,7 +76,7 @@ class AdvisorVC: UIViewController {
         searchBar.resignFirstResponder()
     }
     //touch out
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ tmnaouches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
