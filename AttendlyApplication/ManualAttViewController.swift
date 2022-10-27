@@ -35,7 +35,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     let StudentStatus = ["absent" , "late" , "attend"]
     //var pickerView = UIPickerView()
-    @IBOutlet weak var pickerView: UIPickerView!
+//    @IBOutlet weak var pickerView: UIPickerView!
    
     
     let db = Firestore.firestore()
@@ -51,8 +51,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Attend Manually"
-        
-        
+       
+//        let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
+
+      //  my.pickerView.isHidden = true
         filterName = nameStudent
         
         //search.delegate = self
@@ -71,8 +73,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         tableview.delegate = self
         tableview.dataSource = self
         //tableview.rowHeight = UITableView.automaticDimension
-        tableview.estimatedRowHeight = 50
-        tableview.rowHeight = 50
+        tableview.estimatedRowHeight = 100
+        tableview.rowHeight = 100
        // navigationController?.navigationItem.title = "ss"
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -187,15 +189,16 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print(indexPath)
-   
         let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
+        
+        my.pickerView.isHidden = false
 
         
       tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        my.pickerView.delegate = self
+        my.pickerView.dataSource = self
 
 
         let email = emailSt[indexPath.row]

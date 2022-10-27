@@ -193,10 +193,6 @@
                                 <rect key="frame" x="0.0" y="382.5" width="414" height="513.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" systemColor="systemIndigoColor"/>
-                                <pickerView key="tableFooterView" contentMode="scaleToFill" id="BxW-xU-Awj">
-                                    <rect key="frame" x="0.0" y="147" width="414" height="90"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                </pickerView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cll" rowHeight="80" id="Jlt-a7-hWP" customClass="customAttendTable" customModule="AttendlyApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
@@ -236,15 +232,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3d-Ng-zYl">
+                                                    <rect key="frame" x="252" y="-68" width="127" height="216"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="127" id="DaK-9a-Taj"/>
+                                                        <constraint firstAttribute="height" constant="216" id="WYa-gt-ZGN"/>
+                                                    </constraints>
+                                                </pickerView>
                                             </subviews>
                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                             <constraints>
+                                                <constraint firstItem="p3d-Ng-zYl" firstAttribute="leading" secondItem="lzp-iq-dyg" secondAttribute="trailing" constant="206" id="0hz-zb-Joo"/>
                                                 <constraint firstItem="F6P-A3-O7I" firstAttribute="centerY" secondItem="RQN-sP-ueS" secondAttribute="centerY" id="2MK-LO-anZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="v4a-jP-Y00" secondAttribute="trailing" constant="35" id="557-bT-pcz"/>
                                                 <constraint firstItem="iLf-F7-n32" firstAttribute="centerY" secondItem="RQN-sP-ueS" secondAttribute="centerY" id="578-BY-OI1"/>
+                                                <constraint firstAttribute="trailing" secondItem="p3d-Ng-zYl" secondAttribute="trailing" constant="35" id="FyO-LP-EuQ"/>
                                                 <constraint firstItem="v4a-jP-Y00" firstAttribute="centerY" secondItem="RQN-sP-ueS" secondAttribute="centerY" id="MvL-pk-3Co"/>
                                                 <constraint firstItem="lzp-iq-dyg" firstAttribute="centerY" secondItem="RQN-sP-ueS" secondAttribute="centerY" id="NGF-zH-MTv"/>
                                                 <constraint firstItem="iLf-F7-n32" firstAttribute="leading" secondItem="F6P-A3-O7I" secondAttribute="trailing" constant="8" id="WBv-eB-YIS"/>
+                                                <constraint firstItem="p3d-Ng-zYl" firstAttribute="centerY" secondItem="RQN-sP-ueS" secondAttribute="centerY" id="isI-8a-Tzh"/>
                                                 <constraint firstItem="F6P-A3-O7I" firstAttribute="leading" secondItem="lzp-iq-dyg" secondAttribute="trailing" constant="2" id="kPu-Qq-wBC"/>
                                                 <constraint firstItem="v4a-jP-Y00" firstAttribute="leading" secondItem="iLf-F7-n32" secondAttribute="trailing" constant="35" id="q5W-e4-85L"/>
                                                 <constraint firstItem="lzp-iq-dyg" firstAttribute="leading" secondItem="RQN-sP-ueS" secondAttribute="leading" constant="5" id="wGi-pv-ISk"/>
@@ -254,6 +260,7 @@
                                             <outlet property="idStudent" destination="iLf-F7-n32" id="Pef-tM-0Sg"/>
                                             <outlet property="img" destination="lzp-iq-dyg" id="a4S-an-v4O"/>
                                             <outlet property="name" destination="v4a-jP-Y00" id="DtH-LZ-L5M"/>
+                                            <outlet property="pickerView" destination="p3d-Ng-zYl" id="HHY-7l-YuX"/>
                                             <outlet property="state" destination="F6P-A3-O7I" id="jA5-mk-2uF"/>
                                         </connections>
                                     </tableViewCell>
@@ -353,7 +360,6 @@
                     <connections>
                         <outlet property="cuurentDate" destination="FJE-yA-xla" id="trn-Ph-LIL"/>
                         <outlet property="nameCourse" destination="dz7-D2-reh" id="OK4-Vy-Q9X"/>
-                        <outlet property="pickerView" destination="BxW-xU-Awj" id="R3R-BT-L4K"/>
                         <outlet property="tableview" destination="Zoi-MT-cPN" id="eSB-9c-9tS"/>
                     </connections>
                 </viewController>
@@ -3355,7 +3361,7 @@
         <scene sceneID="JW5-IU-Phx">
             <objects>
                 <viewController storyboardIdentifier="StudentInfoViewController" id="KGo-Ta-Utl" customClass="StudentInfoViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="hb3-ZU-gGN">
+                    <view key="view" contentMode="scaleToFill" id="hb3-ZU-gGN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3393,7 +3399,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
                                 <rect key="frame" x="0.0" y="256" width="414" height="557"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e19-nz-wej">
