@@ -51,6 +51,7 @@ print("sucess in APNS rigistry")
             guard let token = token else {
                 return
             }
+            Global.shared.Token = token
             print("Token:",token)
         }
     }
