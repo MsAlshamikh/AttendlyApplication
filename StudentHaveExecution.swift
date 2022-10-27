@@ -26,6 +26,11 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     
    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    // Data structure to hold student information for the Table View
+    var tableData = [(String, String)]()
+    var filteredTableData = [(String, String)]()
     
     let refreshControl = UIRefreshControl()
 

@@ -45,7 +45,7 @@ class loginController: UIViewController, UITextFieldDelegate {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
         
-        self.emailTextfiled.text = "400@student.ksu.edu.sa"
+        self.emailTextfiled.text = " 1232@lecture.ksu.edu.sa"
         self.passwordTextfiled.text = "12345678"
     }
   
