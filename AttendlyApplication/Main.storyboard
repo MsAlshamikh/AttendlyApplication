@@ -202,7 +202,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rania Alaqeel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="F6P-A3-O7I">
-                                                    <rect key="frame" x="66" y="30" width="110" height="20.5"/>
+                                                    <rect key="frame" x="59" y="30" width="110" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="pCI-dw-MAE"/>
                                                     </constraints>
@@ -218,7 +218,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="441200836" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="iLf-F7-n32">
-                                                    <rect key="frame" x="184" y="30" width="90" height="20.5"/>
+                                                    <rect key="frame" x="177" y="30" width="90" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="kSM-LG-m3r"/>
                                                     </constraints>
@@ -227,13 +227,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-jP-Y00">
-                                                    <rect key="frame" x="314" y="30" width="60" height="20.5"/>
+                                                    <rect key="frame" x="307" y="30" width="67" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-zJ-12g">
-                                                    <rect key="frame" x="41" y="29.5" width="27" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="33." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-zJ-12g">
+                                                    <rect key="frame" x="41" y="30" width="35" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                                 <constraint firstItem="ZYc-zJ-12g" firstAttribute="centerY" secondItem="RQN-sP-ueS" secondAttribute="centerY" id="P0n-NE-EJX"/>
                                                 <constraint firstItem="iLf-F7-n32" firstAttribute="leading" secondItem="F6P-A3-O7I" secondAttribute="trailing" constant="8" id="WBv-eB-YIS"/>
                                                 <constraint firstItem="ZYc-zJ-12g" firstAttribute="leading" secondItem="lzp-iq-dyg" secondAttribute="trailing" id="e82-9b-6F5"/>
-                                                <constraint firstItem="F6P-A3-O7I" firstAttribute="leading" secondItem="lzp-iq-dyg" secondAttribute="trailing" constant="25" id="kPu-Qq-wBC"/>
+                                                <constraint firstItem="F6P-A3-O7I" firstAttribute="leading" secondItem="lzp-iq-dyg" secondAttribute="trailing" constant="18" id="kPu-Qq-wBC"/>
                                                 <constraint firstItem="v4a-jP-Y00" firstAttribute="leading" secondItem="iLf-F7-n32" secondAttribute="trailing" constant="40" id="q5W-e4-85L"/>
                                                 <constraint firstItem="lzp-iq-dyg" firstAttribute="leading" secondItem="RQN-sP-ueS" secondAttribute="leading" id="wGi-pv-ISk"/>
                                             </constraints>

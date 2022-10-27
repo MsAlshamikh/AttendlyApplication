@@ -298,7 +298,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
       //  my.AttendToabsent.isHidden = true
 
         my.state.text =  nameStudent[indexPath.row]
-        
+        my.serialN.text = serialNumber[indexPath.row]
 //        if (stateSt[] == "attend"){
 //
 //        }
