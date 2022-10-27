@@ -196,7 +196,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         pickerView.isHidden = false
 
         
-      tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
      pickerView.delegate = self
@@ -215,26 +215,39 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                    Task {
 
 
-                       
+                       print("whatPick" , "-\(whatPick)-" )
+                       print("#1")
+                       picker = "\( pickerView)"
                      //  pickerView
 
                        print(picker , "picker before")
+                       
+                       
+                       
+                       
+                       
                         guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
 
                         guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
 
-                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
-
+                       try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
+                       
                         let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments()
 
                        guard let state  = DocID.documents.first?.get("State") as? String else { return }
+                       
+                       
 
+                       print("whatPick" , "-\(whatPick)-" )
+                       
+                    
 
-                       picker = "\(pickerView)"
+                       print("#2")
 
                         print("done")
                        stateSt[indexPath.row] = state
                        tableView.reloadData()
+                       print("#3")
 
                     }
 
@@ -511,6 +524,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
+   
     
     
 }
@@ -518,15 +532,24 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        
+        print("#4")
         return 1
+       
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        print("#5")
         return StudentStatus.count
+        
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        print("#6")
         return StudentStatus[row]
+  
     }
     
   
@@ -541,8 +564,8 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
 //          state.text = StudentStatus[row]
         
         
-        
-        var chosen = pickerView.selectedRow(inComponent: 0)
+        print("#7")
+        let chosen = pickerView.selectedRow(inComponent: 0)
         if(chosen == 0 ){
             print("is absent")
             whatPick = "absent"
@@ -556,12 +579,16 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
             whatPick = "attend"
         }
         print(chosen , "picker after")
-        picker = "\( pickerView)"
+        
+        
+        print("#8")
+        picker = "\(pickerView)"
      //  pickerView
-       print(picker , "picker after")
+//       print(picker , "picker after")
         
         whatPick = StudentStatus[row]
         pickerView.isHidden = true
+        print("#9")
 
     }
 }
