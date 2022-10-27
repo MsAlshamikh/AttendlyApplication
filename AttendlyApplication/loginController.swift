@@ -164,7 +164,7 @@ class loginController: UIViewController, UITextFieldDelegate {
                                     if let err = err {
                                         print("Lectures not Add token  : \(err)")
                                     } else {
-                                        print(" Lectures Add token sucsseful ")
+                                        print(" Lectures s Add token sucsseful ")
                                     }
                                 }
                           self.performSegue(withIdentifier: "gotoLecturers", sender: self)
