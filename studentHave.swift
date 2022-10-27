@@ -21,4 +21,6 @@ class studentHave: UITableViewCell {
     
     @IBOutlet weak var ViewExecAfterAccRej: UIButton!
     
+    @IBOutlet weak var serial: UILabel!
+    
 }

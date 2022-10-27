@@ -16,7 +16,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     var idAll = [String]()
   
     var  FormStateAll = [String]()
-    
+    var serialAll = [String]()
     var popTwice: Bool?
    
     @IBOutlet weak var nameSection: UILabel!
@@ -90,9 +90,11 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                     guard let id  = studentDoc.get("id") as? String else { continue }
 
                     print("id of student have exec/",id)
-                    
+               
                   
                     guard let st  = doc.get("st") as? String else { continue }
+                    
+                    guard let SerialNum = studentDoc.get("SerialNum") as? String else { continue }
 
                     print("st is222222 :" , st)
                     
@@ -103,6 +105,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                     nameAll.append(name)
                    FormStateAll.append(FormState)
                     idAll.append(st)
+                    serialAll.append(SerialNum)
                     self.tableView.reloadData()
                 }
                 
@@ -124,6 +127,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
             nameAll.removeAll()
             FormStateAll.removeAll()
             idAll.removeAll()
+            serialAll.removeAll()
             
             
              for doc in t_snapshot.documents {
@@ -149,12 +153,16 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                      
                    
                      guard let st  = doc.get("st") as? String else { continue }
+                     
+                     guard let SerialNum = studentDoc.get("SerialNum") as? String else { continue }
+                    
 
                      print("st is222222 :" , st)
                     
                      nameAll.append(name)
                     FormStateAll.append(FormState)
                      idAll.append(st)
+                     serialAll.append(SerialNum)
                     // self.tableView.reloadData()
                  }
                  
@@ -222,7 +230,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
         my.nameSt.text = nameAll[indexPath.row]
         my.idSt.text = idAll[indexPath.row]
-        
+        my.serial.text = serialAll[indexPath.row]
       //  my.StateExec.text = FormStateAll[indexPath.row]
         if FormStateAll[indexPath.row] == "Pending"   {
            

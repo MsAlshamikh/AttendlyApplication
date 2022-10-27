@@ -110,6 +110,7 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
             var emailArry = [String]()
             var studentID = [String]()
             var perecmtageArrya = [String]()
+           var serialStudent = [String]()
 
               for document in t_snapshot.documents {
                // print(course)
@@ -117,7 +118,9 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
              let name = document.get("name") as! String
                   let ID = document.get("studentID") as! String
                   let EMAIL = document.get("StudentEmail") as! String
+                  let  SerialNum = document.get("SerialNum") as! String
 
+                  serialStudent.append(SerialNum)
                   studentArry.append(name)
                   studentID.append(ID)
                   emailArry.append(EMAIL)
@@ -213,6 +216,7 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
            stude.v = v
             stude.emailStudent = emailArry
             stude.percentagestu = perecmtageArrya
+           stude.serialStudent = serialStudent
             navigationController?.pushViewController(stude, animated: true)
           //  present(stude, animated: true)
         }

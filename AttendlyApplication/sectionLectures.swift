@@ -198,6 +198,7 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
                         guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
                         guard let name  = studentDoc.get("name") as? String else { continue }
                         guard let id = studentDoc.get("id") as? String else { continue }
+                        
                         guard let ser = studentDoc.get("SerialNum") as? String else { continue }
 
                         print("name of student/",name)

@@ -21,6 +21,7 @@ class customTableviewControolerTableViewCell: UITableViewCell {
     //@IBOutlet weak var currrentsectionpressed: UILabel!
 
     
+    @IBOutlet weak var serialN: UILabel!
     
 
 }

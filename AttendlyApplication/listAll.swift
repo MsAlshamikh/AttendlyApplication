@@ -26,6 +26,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var nameStudent = [String]()
     var emailStudent = [String]()
     var idStudent = [String]()
+    var serialStudent = [String]()
+
     
     // Data structure to hold student information for the Table View
     var tableData = [(String, String)]()
@@ -225,6 +227,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.nostudent.text = filteredTableData[indexPath.row].0
         my.idStu.text = filteredTableData[indexPath.row].1
         
+        my.serialN.text = serialStudent[indexPath.row]
         my.person.image = UIImage(named: "girl" )
         
         if doubles[indexPath.row]  >= 20 {    // less than or eqaul to 0

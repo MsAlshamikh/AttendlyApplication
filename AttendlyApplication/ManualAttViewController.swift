@@ -142,11 +142,13 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                 emailSt.removeAll()
                 serialNumber.removeAll()
                 idstudent.removeAll()
+                
                 for studentDoc in snp.documents {
                     guard let state  = studentDoc.get("State") as? String else { continue }
                     guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
                     guard let name  = studentDoc.get("name") as? String else { continue }
                     guard let id = studentDoc.get("id") as? String else { continue }
+                    guard let SerialNum = studentDoc.get("SerialNum") as? String else { continue }
                    // guard let ser = studentDoc.get("SerialNum") as? String else { continue }
                     
                     print("name of student/",name)
@@ -161,6 +163,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                    stateSt.append(state)
                     emailSt.append(email)
                    idstudent.append(id)
+                    serialNumber.append(SerialNum)
                   // serialNumber.append(ser)
                     self.refreshControl.endRefreshing()
                     self.tableview.reloadData()
