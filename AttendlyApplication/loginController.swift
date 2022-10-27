@@ -130,15 +130,15 @@ class loginController: UIViewController, UITextFieldDelegate {
                             
                         guard let stidentis = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
                             
-                            try await db.collection("Unistudent").document(stidentis).setData([
-                                "token": Global.shared.Token
-                            ],merge: true) { err in
-                                if let err = err {
-                                    print("not Add token  : \(err)")
-                                } else {
-                                    print(" Add token sucsseful ")
-                                }
-                            }
+//                            try await db.collection("Unistudent").document(stidentis).setData([
+//                                "token": Global.shared.Token
+//                            ],merge: true) { err in
+//                                if let err = err {
+//                                    print("not Add token  : \(err)")
+//                                } else {
+//                                    print(" Add token sucsseful ")
+//                                }
+//                            }
                       self.performSegue(withIdentifier: "gotoStudents", sender: self)
                          
                             print("this is the email amani: " + email)
@@ -156,17 +156,17 @@ class loginController: UIViewController, UITextFieldDelegate {
                           //  if self.isValidEmailLectures(emailID: email) == true  {
                               //  self.storeLecturesInformation() }
                          //MODHI & Y
-                            guard let Lectureis = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
-                                
-                                try await db.collection("Lectures").document(Lectureis).setData([
-                                    "token": Global.shared.Token
-                                ],merge: true) { err in
-                                    if let err = err {
-                                        print("Lectures not Add token  : \(err)")
-                                    } else {
-                                        print(" Lectures s Add token sucsseful ")
-                                    }
-                                }
+//                            guard let Lectureis = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+//
+//                                try await db.collection("Lectures").document(Lectureis).setData([
+//                                    "token": Global.shared.Token
+//                                ],merge: true) { err in
+//                                    if let err = err {
+//                                        print("Lectures not Add token  : \(err)")
+//                                    } else {
+//                                        print(" Lectures s Add token sucsseful ")
+//                                    }
+//                                }
                           self.performSegue(withIdentifier: "gotoLecturers", sender: self)
                             Global.shared.useremailshare = email
                             // lectures view

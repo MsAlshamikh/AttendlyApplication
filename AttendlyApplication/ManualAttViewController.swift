@@ -21,7 +21,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     var nameStudent = [String]()
    
     var filterName : [String]!
-    
+    var picker :String = ""
     
   //  var emailStudent = [String]()
     var stateSt = [String]()
@@ -37,7 +37,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     //var pickerView = UIPickerView()
 //    @IBOutlet weak var pickerView: UIPickerView!
    
-    
+    @IBOutlet weak var pickerView: UIPickerView!
     let db = Firestore.firestore()
     
     let refreshControl = UIRefreshControl()
@@ -191,14 +191,14 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         print(indexPath)
         let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         
-        my.pickerView.isHidden = false
+        pickerView.isHidden = false
 
         
       tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
         
-        my.pickerView.delegate = self
-        my.pickerView.dataSource = self
+     pickerView.delegate = self
+     pickerView.dataSource = self
 
 
         let email = emailSt[indexPath.row]
@@ -213,8 +213,10 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                    Task {
 
 
-//                        let picker = pickerView
+                        picker = "\( pickerView)"
+                     //  pickerView
 
+                       print(picker , "picker before")
                         guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
 
                         guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
@@ -523,10 +525,31 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return StudentStatus[row]
     }
+    
+  
+//        func selectedTitleForComponent(component: Int) -> String? {
+//            let row = selectedRowInComponent(component)
+//            return dataSource.pickerView(pickerView, titleForRow:row, forComponent:component)
+//        }
+//
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //          stateSt[indexPath.row].text = StudentStatus[row]
 //          state.text = StudentStatus[row]
+        var chosen = pickerView.selectedRow(inComponent: 0)
+        if(chosen == 0 ){
+            print("is absent")
+        }
+        else if(chosen == 1 ){
+            print("is late")
+        }
+        else if(chosen == 2){
+            print("is attend")
+        }
+        print(chosen , "picker after")
+        picker = "\( pickerView)"
+     //  pickerView
+       print(picker , "picker after")
     }
 }
 
