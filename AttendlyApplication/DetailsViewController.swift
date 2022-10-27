@@ -11,7 +11,7 @@ import SwiftUI
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+
     
     @IBOutlet weak var courseLabel: UILabel!
     @IBOutlet weak var sectionLabel: UILabel!
@@ -40,21 +40,41 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var Takesection = ""
     struct SearchView: View  {
+        @State var PDFurl : URL?
+        @State var ShowShareSheet: Bool = false
+        
         var body: some View {
            
             Button {
-                print(convertToScrollView(content: {
+                exportPDF {
                     self
-                }))
+                } completion: { status , url in
+                    if let url = url,status{
+                        self.PDFurl = url
+                        self.ShowShareSheet.toggle()
+                    }
+                    else {
+                        print("failed to produce")
+                    }
+                }
+
             } label: {
                 Image(systemName: "square.and.arrow.up.fill")
                     .font(.title2)
                     .foregroundColor(Color.black.opacity(0.7))
             }
+            .sheet(isPresented :$ShowShareSheet) {
+                PDFurl = nil
+            } content: {
+                if let PDFurl = PDFurl {
+                    ShareSheet(urls: [PDFurl])
+                }
+            }
+
         }
     }
- 
     
+      
     //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //    print("now your exucetion absent // shamma")
     
@@ -372,7 +392,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    
-    
-    
+    struct ShareSheet: UIViewControllerRepresentable {
+        var urls: [Any]
+        func makeUIViewController(context: Context) -> UIActivityViewController {
+            let controller = UIActivityViewController(activityItems: urls, applicationActivities: nil)
+            return controller
+        }
+        
+        func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        }
+    }
 }
+
