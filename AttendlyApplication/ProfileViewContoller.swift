@@ -115,7 +115,7 @@ class ProfileViewContoller: UIViewController {
 //    }
     @IBAction func logggouuuu(_ sender: Any) {
         print("pressed")
-            
+        let db = Firestore.firestore()
               let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
 
                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -123,12 +123,22 @@ class ProfileViewContoller: UIViewController {
               do{
 
                   
-
+                  Task{
                      try Auth.auth().signOut()
-
-                  
-
                   print("logout!")
+                  
+                        guard let stidentis = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+                            
+                            try await db.collection("Unistudent").document(stidentis).setData([
+                                "token": "-"
+                            ],merge: true) { err in
+                                if let err = err {
+                                    print("not delete token  : \(err)")
+                                } else {
+                                    print(" delete token sucsseful ")
+                                }
+                            }
+                  }
 
                  self.performSegue(withIdentifier: "logo", sender: self)
 
