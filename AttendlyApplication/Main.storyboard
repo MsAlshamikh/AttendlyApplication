@@ -3355,7 +3355,7 @@
         <scene sceneID="JW5-IU-Phx">
             <objects>
                 <viewController storyboardIdentifier="StudentInfoViewController" id="KGo-Ta-Utl" customClass="StudentInfoViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="hb3-ZU-gGN">
+                    <view key="view" contentMode="scaleToFill" id="hb3-ZU-gGN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3393,7 +3393,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
                                 <rect key="frame" x="0.0" y="256" width="414" height="557"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e19-nz-wej">
@@ -3767,6 +3767,50 @@
                                     <action selector="pressViewfile:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="sDw-No-vyf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpE-Ox-8j8">
+                                <rect key="frame" x="96" y="320" width="53.5" height="42"/>
+                                <color key="tintColor" red="0.20258162595351906" green="0.26126205521718954" blue="0.91976243257522583" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="23"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressEditbutton:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="RNm-6T-Jno"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5m4-cW-6hl">
+                                <rect key="frame" x="122" y="731" width="117" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Accept" cornerStyle="medium">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                    <color key="baseBackgroundColor" red="0.59215688710000003" green="0.73725497719999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="acceptpressed:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="7HZ-K0-pcy"/>
+                                    <action selector="pressAccept:" destination="NkU-BD-4LA" eventType="touchUpInside" id="5C1-Or-yly"/>
+                                    <action selector="pressAccept:" destination="Vh7-JX-kos" eventType="touchUpInside" id="DIK-5i-NtD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzi-D7-e1W">
+                                <rect key="frame" x="124" y="731" width="115" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Reject" cornerStyle="medium">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseBackgroundColor" red="0.87058818339999999" green="0.48627454040000001" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressRej:" destination="Vh7-JX-kos" eventType="touchUpInside" id="DSw-Nt-JCV"/>
+                                    <action selector="pressRej:" destination="NkU-BD-4LA" eventType="touchUpInside" id="pN3-Ot-ovo"/>
+                                    <action selector="rejectpressed:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="6Pi-p6-hg6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2xk-lk-2lk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3776,6 +3820,7 @@
                             <constraint firstItem="uhO-0F-bA0" firstAttribute="leading" secondItem="2xk-lk-2lk" secondAttribute="leading" constant="6" id="8RC-0X-NO1"/>
                             <constraint firstItem="AEM-CJ-0wn" firstAttribute="leading" secondItem="2xk-lk-2lk" secondAttribute="leading" constant="6" id="8YU-Kz-syg"/>
                             <constraint firstItem="1IZ-KM-HcD" firstAttribute="leading" secondItem="HoY-1e-FlW" secondAttribute="trailing" constant="114" id="9bq-Cg-SSa"/>
+                            <constraint firstItem="lpE-Ox-8j8" firstAttribute="leading" secondItem="9kw-7N-AQd" secondAttribute="trailing" constant="-90" id="AzZ-mm-dF4"/>
                             <constraint firstItem="5cn-Oz-GCo" firstAttribute="top" secondItem="Z4D-DK-SY5" secondAttribute="bottom" constant="30" id="D8r-jW-2BG"/>
                             <constraint firstItem="KHf-Pm-Sd4" firstAttribute="top" secondItem="1IZ-KM-HcD" secondAttribute="bottom" constant="19" id="DLM-iI-fRK"/>
                             <constraint firstItem="Dtg-u3-enD" firstAttribute="top" secondItem="Z4D-DK-SY5" secondAttribute="bottom" constant="34" id="ISn-T5-s3P"/>
@@ -3785,6 +3830,7 @@
                             <constraint firstItem="AEM-CJ-0wn" firstAttribute="top" secondItem="9kw-7N-AQd" secondAttribute="bottom" constant="29" id="PkG-0e-Sv3"/>
                             <constraint firstItem="uhO-0F-bA0" firstAttribute="top" secondItem="AEM-CJ-0wn" secondAttribute="bottom" constant="9" id="U8w-wE-cXu"/>
                             <constraint firstItem="Dtg-u3-enD" firstAttribute="leading" secondItem="Q2m-ci-YhZ" secondAttribute="trailing" constant="40" id="WQk-xr-wr7"/>
+                            <constraint firstItem="lpE-Ox-8j8" firstAttribute="top" secondItem="HoY-1e-FlW" secondAttribute="bottom" constant="15" id="aWE-iW-atL"/>
                             <constraint firstItem="scD-tR-fKr" firstAttribute="leading" secondItem="2xk-lk-2lk" secondAttribute="leading" constant="15" id="bxi-ej-S4u"/>
                             <constraint firstItem="HoY-1e-FlW" firstAttribute="leading" secondItem="2xk-lk-2lk" secondAttribute="leading" constant="6" id="cWz-TC-XWa"/>
                             <constraint firstItem="KHf-Pm-Sd4" firstAttribute="leading" secondItem="9kw-7N-AQd" secondAttribute="trailing" constant="9" id="dpe-jW-aCZ"/>
@@ -3799,8 +3845,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Absence Excuse Form" id="2f2-Yl-dwJ"/>
                     <connections>
+                        <outlet property="acceptbutton" destination="5m4-cW-6hl" id="d9X-6S-kky"/>
                         <outlet property="dateOf" destination="KHf-Pm-Sd4" id="6Q3-Jm-02Y"/>
+                        <outlet property="editButton" destination="lpE-Ox-8j8" id="mr1-uU-URw"/>
                         <outlet property="nameOf" destination="scD-tR-fKr" id="ShQ-Xg-wfi"/>
+                        <outlet property="rejectButton" destination="rzi-D7-e1W" id="oln-JL-6ka"/>
                         <outlet property="resonOf" destination="Z4D-DK-SY5" id="EhU-QG-NmF"/>
                         <outlet property="stateEXec" destination="9kw-7N-AQd" id="qVl-Yj-ZmK"/>
                         <outlet property="titleoF" destination="uhO-0F-bA0" id="7d3-Qc-soy"/>
@@ -4189,6 +4238,7 @@
         <image name="grid.circle" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="logow" width="405" height="616"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="percent" catalog="system" width="128" height="121"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
