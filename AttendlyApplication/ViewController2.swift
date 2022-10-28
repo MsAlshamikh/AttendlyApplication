@@ -243,6 +243,155 @@ print(indexPath)
     }
    
     func course(){
+        let db = Firestore.firestore()
+        Task{
+            let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
+            
+//            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+//            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            
+            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
+
+            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            print("sectsChk",sectsChk)
+            print("actualChk",actualChk)
+            
+              if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
+                {
+                //    self.noC.text = "No courses \n registered!"
+                }
+                else{
+                    for i in 0..<sectsChk.count {
+                      
+                        print("sectsChk is i ",sectsChk[i])
+                      //..
+                        let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
+                       
+                      //  let  section =  sectss.documents.first!.get("section") as! String
+                       // print("section",section)
+                        var cdate =  sectss.documents.first!.get("courseDate") as! [String: String]
+                        print("cdate",cdate)
+                        for (key,value) in cdate {
+
+                            if key == "1"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Sunday[1] = value}
+                                else if value == "9:15"
+                                {Sunday[2] = value}
+                                else if value == "10:30"
+                                {Sunday[3] = value}
+                                else if value == "11:45"
+                                {Sunday[4] = value}
+                                else if value == "12:50"
+                                {Sunday[5] = value}
+                                else if value == "1:30"
+                                {Sunday[6] = value}
+                                else if value == "2:45"
+                                {Sunday[7] = value}
+                                else if value == "3:50"
+                                {Sunday[8] = value}
+                                else if value == "4:45"
+                                {Sunday[9] = value}
+                                else{}
+
+                            }
+                            else if  key == "2"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Monday[1] = value}
+                                else if value == "9:15"
+                                {Monday[2] = value}
+                                else if value == "10:30"
+                                {Monday[3] = value}
+                                else if value == "11:45"
+                                {Monday[4] = value}
+                                else if value == "12:50"
+                                {Monday[5] = value}
+                                else if value == "1:30"
+                                {Monday[6] = value}
+                                else if value == "2:45"
+                                {Monday[7] = value}
+                                else if value == "3:50"
+                                {Monday[8] = value}
+                                else if value == "4:45"
+                                {Monday[9] = value}
+                                else{}
+                            }
+                            else if  key == "3"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Tuesday[1] = value}
+                                else if value == "9:15"
+                                {Tuesday[2] = value}
+                                else if value == "10:30"
+                                {Tuesday[3] = value}
+                                else if value == "11:45"
+                                {Tuesday[4] = value}
+                                else if value == "12:50"
+                                {Tuesday[5] = value}
+                                else if value == "1:30"
+                                {Tuesday[6] = value}
+                                else if value == "2:45"
+                                {Tuesday[7] = value}
+                                else if value == "3:50"
+                                {Tuesday[8] = value}
+                                else if value == "4:45"
+                                {Tuesday[9] = value}
+                                else{}
+                            }
+                            else if  key == "4"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Wednesday[1] = value}
+                                else if value == "9:15"
+                                {Wednesday[2] = value}
+                                else if value == "10:30"
+                                {Wednesday[3] = value}
+                                else if value == "11:45"
+                                {Wednesday[4] = value}
+                                else if value == "12:50"
+                                {Wednesday[5] = value}
+                                else if value == "1:30"
+                                {Wednesday[6] = value}
+                                else if value == "2:45"
+                                {Wednesday[7] = value}
+                                else if value == "3:50"
+                                {Wednesday[8] = value}
+                                else if value == "4:45"
+                                {Wednesday[9] = value}
+                                else{}
+                            }
+                            else if  key == "5"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Thursday[1] = value}
+                                else if value == "9:15"
+                                {Thursday[2] = value}
+                                else if value == "10:30"
+                                {Thursday[3] = value}
+                                else if value == "11:45"
+                                {Thursday[4] = value}
+                                else if value == "12:50"
+                                {Thursday[5] = value}
+                                else if value == "1:30"
+                                {Thursday[6] = value}
+                                else if value == "2:45"
+                                {Thursday[7] = value}
+                                else if value == "3:50"
+                                {Thursday[8] = value}
+                                else if value == "4:45"
+                                {Thursday[9] = value}
+                                else{}
+                            }
+                        }
+                    }
+                }}
     }
     }
 
