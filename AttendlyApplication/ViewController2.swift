@@ -12,12 +12,19 @@ import FirebaseFirestore
 
 class ViewController2: UIViewController {
 
-    var Sunday =  ["Sunday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "", "", "SWE321"]
-    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
-    var Tuesday =  ["Tuesday", "", "",  "SWE482" , "", "SWE482", "", "", "SWE321", ""]
-    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
-    var Thursday =  ["Thursday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "SWE321", "", ""]
+//    var Sunday =  ["Sunday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "", "", "SWE321"]
+//    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
+//    var Tuesday =  ["Tuesday", "", "",  "SWE482" , "", "SWE482", "", "", "SWE321", ""]
+//    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
+//    var Thursday =  ["Thursday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "SWE321", "", ""]
     let colorArray = [ #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1),  #colorLiteral(red: 0.7701125145, green: 0.9381597638, blue: 1, alpha: 1),  #colorLiteral(red: 0.9619761109, green: 0.9262647629, blue: 0.6508037448, alpha: 1) ,  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1) ,  #colorLiteral(red: 0.8193834424, green: 0.8202515244, blue: 1, alpha: 1),  #colorLiteral(red: 1, green: 0.8212433457, blue: 0.7032110095, alpha: 1)]
+ 
+    var Sunday =  ["Sunday", "", "",  "" , "", "",  "", "", "", ""]
+    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
+    var Tuesday =  ["Tuesday", "", "",  "" , "", "", "", "", "", ""]
+    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
+    var Thursday =  ["Thursday", "", "",  "" , "", "",  "", "", "", ""]
+   
     
     @IBOutlet weak var gridCollectionView: UICollectionView!
     
@@ -37,22 +44,28 @@ class ViewController2: UIViewController {
 extension ViewController2: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+      
         return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
         return 6
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseID, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
 print(indexPath)
         
         //HERE GET
-        course()
+    //    course()
         
+       
+        
+    
         if (indexPath.elementsEqual([1, 0])){
             cell.titleLabel.text = "8:00"
         }
@@ -130,6 +143,7 @@ print(indexPath)
         }*/
         else{
             cell.titleLabel.text = "\(indexPath)"}
+        
         cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
         if(cell.backgroundColor == .white){
             cell.backgroundColor =  #colorLiteral(red: 0.8953151844, green: 0.9132214881, blue: 0.9132214881, alpha: 1)
@@ -229,190 +243,14 @@ print(indexPath)
     }
    
     func course(){
-        let db = Firestore.firestore()
-        Task{
-            let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
-            
-//            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
-//            let actualChk = snapshot.documents.first!.get("courses") as! [String]
-            
-            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
-
-            let actualChk = snapshot.documents.first!.get("courses") as! [String]
-            print("sectsChk",sectsChk)
-            print("actualChk",actualChk)
-            
-              if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
-                {
-                //    self.noC.text = "No courses \n registered!"
-                }
-                else{
-                    for i in 0..<sectsChk.count {
-                      
-                        print("sectsChk is i ",sectsChk[i])
-                      //..
-                        let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
-                       
-                      //  let  section =  sectss.documents.first!.get("section") as! String
-                       // print("section",section)
-                        var cdate =  sectss.documents.first!.get("courseDate") as! [String: String]
-                        print("cdate",cdate)
-                        for (key,value) in cdate {
-
-                            if key == "1"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Sunday[1] = value}
-                                else if value == "9:15"
-                                {Sunday[2] = value}
-                                else if value == "10:30"
-                                {Sunday[3] = value}
-                                else if value == "11:45"
-                                {Sunday[4] = value}
-                                else if value == "12:50"
-                                {Sunday[5] = value}
-                                else if value == "1:30"
-                                {Sunday[6] = value}
-                                else if value == "2:45"
-                                {Sunday[7] = value}
-                                else if value == "3:50"
-                                {Sunday[8] = value}
-                                else if value == "4:45"
-                                {Sunday[9] = value}
-                                else{}
-
-                            }
-                            else if  key == "2"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Monday[1] = value}
-                                else if value == "9:15"
-                                {Monday[2] = value}
-                                else if value == "10:30"
-                                {Monday[3] = value}
-                                else if value == "11:45"
-                                {Monday[4] = value}
-                                else if value == "12:50"
-                                {Monday[5] = value}
-                                else if value == "1:30"
-                                {Monday[6] = value}
-                                else if value == "2:45"
-                                {Monday[7] = value}
-                                else if value == "3:50"
-                                {Monday[8] = value}
-                                else if value == "4:45"
-                                {Monday[9] = value}
-                                else{}
-                            }
-                            else if  key == "3"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Tuesday[1] = value}
-                                else if value == "9:15"
-                                {Tuesday[2] = value}
-                                else if value == "10:30"
-                                {Tuesday[3] = value}
-                                else if value == "11:45"
-                                {Tuesday[4] = value}
-                                else if value == "12:50"
-                                {Tuesday[5] = value}
-                                else if value == "1:30"
-                                {Tuesday[6] = value}
-                                else if value == "2:45"
-                                {Tuesday[7] = value}
-                                else if value == "3:50"
-                                {Tuesday[8] = value}
-                                else if value == "4:45"
-                                {Tuesday[9] = value}
-                                else{}
-                            }
-                            else if  key == "4"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Wednesday[1] = value}
-                                else if value == "9:15"
-                                {Wednesday[2] = value}
-                                else if value == "10:30"
-                                {Wednesday[3] = value}
-                                else if value == "11:45"
-                                {Wednesday[4] = value}
-                                else if value == "12:50"
-                                {Wednesday[5] = value}
-                                else if value == "1:30"
-                                {Wednesday[6] = value}
-                                else if value == "2:45"
-                                {Wednesday[7] = value}
-                                else if value == "3:50"
-                                {Wednesday[8] = value}
-                                else if value == "4:45"
-                                {Wednesday[9] = value}
-                                else{}
-                            }
-                            else if  key == "5"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Thursday[1] = value}
-                                else if value == "9:15"
-                                {Thursday[2] = value}
-                                else if value == "10:30"
-                                {Thursday[3] = value}
-                                else if value == "11:45"
-                                {Thursday[4] = value}
-                                else if value == "12:50"
-                                {Thursday[5] = value}
-                                else if value == "1:30"
-                                {Thursday[6] = value}
-                                else if value == "2:45"
-                                {Thursday[7] = value}
-                                else if value == "3:50"
-                                {Thursday[8] = value}
-                                else if value == "4:45"
-                                {Thursday[9] = value}
-                                else{}
-                            }
-                        } //here is
-                        
-//                        let sectss = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
-//
-//                            //get day
-//
-//                        guard let start = sectss.documents.first?.get("startTime") as? String else { return }
-//
-//                        if  start.elementsEqual("9:20")
-//                        {
-//                            //add to array for that day in known index
-//                            //ex: Sunday[2] = start
-//
-//                        }
-//                        //else  if for all time
-//
-//                        //done :)
-//
-//
-//                        print("sects",sectsChk.count)
-//                        print("START",start)
-//                  //      let time  = sectss.documents.get("startTime") as  [String]
-                        
-                        
-//
-                    
-                        
-                    }
-                }
-                
     }
-        }
     }
 
 
 extension ViewController2: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
         return CGSize(width: 65, height: 50)
     }
   
