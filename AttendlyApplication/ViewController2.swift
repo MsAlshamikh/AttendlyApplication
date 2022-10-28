@@ -49,6 +49,10 @@ extension ViewController2: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 print(indexPath)
+        
+        //HERE GET
+        course()
+        
         if (indexPath.elementsEqual([1, 0])){
             cell.titleLabel.text = "8:00"
         }
@@ -143,6 +147,8 @@ print(indexPath)
             cell.titleLabel.font = cell.titleLabel.font.withSize(18)
             
         }
+        
+        
         for i in 1..<Sunday.count{
             if (indexPath.elementsEqual([i, 1]))
             { cell.titleLabel.text = Sunday[i]
@@ -218,7 +224,7 @@ print(indexPath)
 
             }
         }
-        course()
+        
         return cell
     }
    
@@ -227,8 +233,8 @@ print(indexPath)
         Task{
             let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
             
-            let actualChk = snapshot.documents.first!.get("courses") as! [String]
             let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+            let actualChk = snapshot.documents.first!.get("courses") as! [String]
             
               if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
                 {
@@ -237,26 +243,150 @@ print(indexPath)
                 else{
                     for i in 0..<sectsChk.count {
                       //..
-                        let sectss = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
+                        let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
                         
-                            //get day
+                         let cdate =  sectss.documents.first!.get("courseDate") as! [Int: String]
+                       
+                        for (key,value) in cdate {
                         
-                        guard let start = sectss.documents.first?.get("startTime") as? String else { return }
-                        
-                        if  start.elementsEqual("9:20")
-                        {
-                            //add to array for that day in known index
-                            //ex: Sunday[2] = start
-                        
+                            if key==1
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Sunday[1] = value}
+                                else if value == "9:15"
+                                {Sunday[2] = value}
+                                else if value == "10:30"
+                                {Sunday[3] = value}
+                                else if value == "11:45"
+                                {Sunday[4] = value}
+                                else if value == "12:50"
+                                {Sunday[5] = value}
+                                else if value == "1:30"
+                                {Sunday[6] = value}
+                                else if value == "2:45"
+                                {Sunday[7] = value}
+                                else if value == "3:50"
+                                {Sunday[8] = value}
+                                else if value == "4:45"
+                                {Sunday[9] = value}
+                                else{}
+                                
+                            }
+                            else if  key == 2
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Monday[1] = value}
+                                else if value == "9:15"
+                                {Monday[2] = value}
+                                else if value == "10:30"
+                                {Monday[3] = value}
+                                else if value == "11:45"
+                                {Monday[4] = value}
+                                else if value == "12:50"
+                                {Monday[5] = value}
+                                else if value == "1:30"
+                                {Monday[6] = value}
+                                else if value == "2:45"
+                                {Monday[7] = value}
+                                else if value == "3:50"
+                                {Monday[8] = value}
+                                else if value == "4:45"
+                                {Monday[9] = value}
+                                else{}
+                            }
+                            else if  key == 3
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Tuesday[1] = value}
+                                else if value == "9:15"
+                                {Tuesday[2] = value}
+                                else if value == "10:30"
+                                {Tuesday[3] = value}
+                                else if value == "11:45"
+                                {Tuesday[4] = value}
+                                else if value == "12:50"
+                                {Tuesday[5] = value}
+                                else if value == "1:30"
+                                {Tuesday[6] = value}
+                                else if value == "2:45"
+                                {Tuesday[7] = value}
+                                else if value == "3:50"
+                                {Tuesday[8] = value}
+                                else if value == "4:45"
+                                {Tuesday[9] = value}
+                                else{}
+                            }
+                            else if  key == 4
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Wednesday[1] = value}
+                                else if value == "9:15"
+                                {Wednesday[2] = value}
+                                else if value == "10:30"
+                                {Wednesday[3] = value}
+                                else if value == "11:45"
+                                {Wednesday[4] = value}
+                                else if value == "12:50"
+                                {Wednesday[5] = value}
+                                else if value == "1:30"
+                                {Wednesday[6] = value}
+                                else if value == "2:45"
+                                {Wednesday[7] = value}
+                                else if value == "3:50"
+                                {Wednesday[8] = value}
+                                else if value == "4:45"
+                                {Wednesday[9] = value}
+                                else{}
+                            }
+                            else if  key == 5
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Thursday[1] = value}
+                                else if value == "9:15"
+                                {Thursday[2] = value}
+                                else if value == "10:30"
+                                {Thursday[3] = value}
+                                else if value == "11:45"
+                                {Thursday[4] = value}
+                                else if value == "12:50"
+                                {Thursday[5] = value}
+                                else if value == "1:30"
+                                {Thursday[6] = value}
+                                else if value == "2:45"
+                                {Thursday[7] = value}
+                                else if value == "3:50"
+                                {Thursday[8] = value}
+                                else if value == "4:45"
+                                {Thursday[9] = value}
+                                else{}
+                            }
                         }
-                        //else  if for all time
                         
-                        //done :)
-                        
-                        
-                        print("sects",sectsChk.count)
-                        print("START",start)
-                  //      let time  = sectss.documents.get("startTime") as  [String]
+//                        let sectss = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
+//
+//                            //get day
+//
+//                        guard let start = sectss.documents.first?.get("startTime") as? String else { return }
+//
+//                        if  start.elementsEqual("9:20")
+//                        {
+//                            //add to array for that day in known index
+//                            //ex: Sunday[2] = start
+//
+//                        }
+//                        //else  if for all time
+//
+//                        //done :)
+//
+//
+//                        print("sects",sectsChk.count)
+//                        print("START",start)
+//                  //      let time  = sectss.documents.get("startTime") as  [String]
                         
                         
 //
