@@ -29,8 +29,8 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar!
     
     // Data structure to hold student information for the Table View
-    var tableData = [(String, String)]()
-    var filteredTableData = [(String, String)]()
+    var tableData = [(String, String, String, String)]()
+    var filteredTableData = [(String, String, String, String)]()
     
     let refreshControl = UIRefreshControl()
 
@@ -54,8 +54,18 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        var  nameAll = [String]()
+//        var idAll = [String]()
+//
+//        var  FormStateAll = [String]()
+//        var serialAll = [String]()
         
+//        nameAll.enumerated().forEach { index, name in
+//            tableData.append((name, idAll[index], serialAll[index], FormStateAll[index]))
+//        }
+//        self.filteredTableData = tableData
         
+        searchBar.delegate = self
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -111,6 +121,13 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                    FormStateAll.append(FormState)
                     idAll.append(st)
                     serialAll.append(SerialNum)
+                    
+                    
+                   nameAll.enumerated().forEach { index, name in
+                       tableData.append((name, idAll[index], serialAll[index], FormStateAll[index]))
+                   }
+                    self.filteredTableData = tableData
+                    
                     self.tableView.reloadData()
                 }
                 
@@ -168,11 +185,16 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                     FormStateAll.append(FormState)
                      idAll.append(st)
                      serialAll.append(SerialNum)
+                     
                     // self.tableView.reloadData()
                  }
                  
                  
              }
+            nameAll.enumerated().forEach { index, name in
+                tableData.append((name, idAll[index], serialAll[index], FormStateAll[index]))
+            }
+            self.filteredTableData = tableData
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
          }
@@ -227,23 +249,25 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         my.viewExec.isHidden = true
         my.ViewExecAfterAccRej.isHidden = true
         
+        let (name, id, serial, form) = filteredTableData[indexPath.row]
+        
         my.viewExec.tag = indexPath.row
        
         my.viewExec.addTarget(self, action: #selector(didTapCellButton(sender:)),for: .touchUpInside)
         my.ViewExecAfterAccRej.tag = indexPath.row
         my.ViewExecAfterAccRej.addTarget(self, action: #selector(viewFterRejectAccept(sender:)),for: .touchUpInside)
         
-        my.nameSt.text = nameAll[indexPath.row]
-        my.idSt.text = idAll[indexPath.row]
-        my.serial.text = serialAll[indexPath.row]
+        my.nameSt.text = name // nameAll[indexPath.row]
+        my.idSt.text = id // idAll[indexPath.row]
+        my.serial.text = serial // serialAll[indexPath.row]
       //  my.StateExec.text = FormStateAll[indexPath.row]
-        if FormStateAll[indexPath.row] == "Pending"   {
+        if form == "Pending"   {
            
          //   my.StateExec.text = FormStateAll[indexPath.row]
           my.viewExec.isHidden = false
             
         }
-     else   if FormStateAll[indexPath.row] == "Accepted"   {
+     else   if form == "Accepted"   {
            
            // my.StateExec.text = FormStateAll[indexPath.row]
           my.viewExec.isHidden = true
@@ -251,7 +275,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
          my.ViewExecAfterAccRej .isHidden = false
             
         }
-        else   if FormStateAll[indexPath.row] == "Rejected"   {
+        else   if form == "Rejected"   {
                
              //  my.StateExec.text = FormStateAll[indexPath.row]
              my.viewExec.isHidden = true
@@ -270,8 +294,27 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nameAll.count
+        return filteredTableData.count
     }
    
 
+}
+
+
+// Setup searchbar delegate
+extension StudentHaveExecution: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.filteredTableData = tableData
+            tableView.reloadData()
+        } else {
+            let filteredStudents = self.tableData.filter { (studentName, studentId, serial, form) in
+                return studentName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                || serial.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+            }
+            
+            self.filteredTableData = filteredStudents
+            self.tableView.reloadData()
+        }
+    }
 }

@@ -8,9 +8,9 @@
 import Firebase
 import UIKit
 
-class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UISearchBarDelegate {
-
-   // @IBOutlet weak var search: UISearchBar!
+class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+    
+    // @IBOutlet weak var search: UISearchBar!
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -18,12 +18,13 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     @IBOutlet weak var cuurentDate: UILabel!
     
+    @IBOutlet weak var searchBar: UISearchBar!
     var nameStudent = [String]()
-   
+    
     var filterName : [String]!
     
     
-  //  var emailStudent = [String]()
+    //  var emailStudent = [String]()
     var stateSt = [String]()
     var emailSt = [String]()
     
@@ -33,6 +34,9 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     var v: String = ""
     var networking: Bool = false
     
+    // Data structure to hold student information for the Table View
+    var tableData = [(String, String, String, String)]()
+    var filteredTableData = [(String, String, String, String)]()
     
     let db = Firestore.firestore()
     
@@ -48,19 +52,24 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         super.viewDidLoad()
         navigationItem.title = "Attend Manually"
         
+        searchBar.delegate = self
         
-        filterName = nameStudent
+        
+        nameStudent.enumerated().forEach { index, name in
+            tableData.append((name, idstudent[index], stateSt[index], serialNumber[index]))
+        }
+        self.filteredTableData = tableData
         
         //search.delegate = self
-     //  nostudent.isHidden = true
-       // self.tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.339857161, green: 0.69448632, blue: 0.8468429446, alpha: 1)
+        //  nostudent.isHidden = true
+        // self.tabBarController?.tabBar.backgroundColor = #colorLiteral(red: 0.339857161, green: 0.69448632, blue: 0.8468429446, alpha: 1)
         print("what pressed is ")
         print(v)
         print("name of student")
         print(nameStudent)
         if ( nameStudent.count == 0 )
         {
-      //      nostudent.isHidden = false
+            //      nostudent.isHidden = false
             
             print("no student")
         }
@@ -69,19 +78,19 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         //tableview.rowHeight = UITableView.automaticDimension
         tableview.estimatedRowHeight = 50
         tableview.rowHeight = 50
-       // navigationController?.navigationItem.title = "ss"
+        // navigationController?.navigationItem.title = "ss"
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-           tableview.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableview.addSubview(refreshControl)
         
         
         
-     let text1 = NSMutableAttributedString()
-       text1.append(NSAttributedString(string: ""
-                                  ));
+        let text1 = NSMutableAttributedString()
+        text1.append(NSAttributedString(string: ""
+                                       ));
         text1.append(NSAttributedString(string: v));
-      //  nameSection.attributedText = text1
+        //  nameSection.attributedText = text1
         
         let currentDateTime = Date()
         let formaater = DateFormatter()
@@ -91,7 +100,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         
         nameCourse.text = v
         
-    cuurentDate.text = dataTimeString
+        cuurentDate.text = dataTimeString
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -102,36 +111,36 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         let year = calunder.component(.year , from: date)
         let thed = "\(day)-\(month)-\(year)"
         print(thed)
-       // let v =   sender.titleLabel?.text
+        // let v =   sender.titleLabel?.text
         
-       // print(v!)
+        // print(v!)
         Task
         {
-         
+            
             let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments()
-           
+            
             let currentTime = getCurrentTime()
             print(currentTime)
             let currentTimeSplit = currentTime.split(separator: ":")
             let timeHourct = currentTimeSplit[0]
             //let timeMinct = Int(currentTimeSplit[1])
-          //  let timeMinct2 = Int(timeMinct ?? 0)
+            //  let timeMinct2 = Int(timeMinct ?? 0)
             print("hour current",timeHourct )
             
             let endTimeF = t_snapshot.documents.first?.data()["endTime"] as! String
             
-           
-        print(t_snapshot.documents.count)
-//            var studentArry = [String]()  //name
-//            var stateArray = [String]()
-//            var emailArray = [String]()
-//            var idArray = [String]()
-//            var seArray = [String]()
-            for doc in t_snapshot.documents {
-               let documentID = doc.documentID
-                  let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
             
-               
+            print(t_snapshot.documents.count)
+            //            var studentArry = [String]()  //name
+            //            var stateArray = [String]()
+            //            var emailArray = [String]()
+            //            var idArray = [String]()
+            //            var seArray = [String]()
+            for doc in t_snapshot.documents {
+                let documentID = doc.documentID
+                let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
+                
+                
                 
                 print("here")
                 print(snp.documents.count)
@@ -149,7 +158,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                     guard let name  = studentDoc.get("name") as? String else { continue }
                     guard let id = studentDoc.get("id") as? String else { continue }
                     guard let SerialNum = studentDoc.get("SerialNum") as? String else { continue }
-                   // guard let ser = studentDoc.get("SerialNum") as? String else { continue }
+                    // guard let ser = studentDoc.get("SerialNum") as? String else { continue }
                     
                     print("name of student/",name)
                     print("state of student/",state)
@@ -157,23 +166,22 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                     print("id of student/",id)
                     print("serial N of student/",id)
                     
-
                     
-                  nameStudent.append(name)
-                   stateSt.append(state)
+                    
+                    nameStudent.append(name)
+                    stateSt.append(state)
                     emailSt.append(email)
-                   idstudent.append(id)
+                    idstudent.append(id)
                     serialNumber.append(SerialNum)
-                  // serialNumber.append(ser)
-                    self.refreshControl.endRefreshing()
-                    self.tableview.reloadData()
-                    
-                    
+                    // serialNumber.append(ser)
                 }
-                        
+                nameStudent.enumerated().forEach { index, name in
+                    tableData.append((name, idstudent[index], stateSt[index], serialNumber[index]))
+                }
+                self.filteredTableData = tableData
                 
-        
-            
+                self.refreshControl.endRefreshing()
+                self.tableview.reloadData()
             }
             
         }
@@ -235,7 +243,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         //
         
         if state == "attend"  {
-
+            
             if networking {
                 return
             }
@@ -278,109 +286,121 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
        // let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         if let my = tableView.cellForRow(at: indexPath) as? customAttendTable {
-        //    my.AttendToabsent.isHidden = true
+            //    my.AttendToabsent.isHidden = true
             print("is didselct???")
-                }
+        }
         print("???")
-      //  my.AttendToabsent.isHidden = true
+        //  my.AttendToabsent.isHidden = true
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
-        return filterName.count
+        /// Return the list after filtering
+        return filteredTableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print("s")
+        print("s")
         let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         
-      //  my.AttendToabsent.isHidden = true
-
-        my.state.text =  nameStudent[indexPath.row]
-        my.serialN.text = serialNumber[indexPath.row]
-//        if (stateSt[] == "attend"){
-//
-//        }
-
-        if stateSt[indexPath.row] == "attend"   {
+        //  my.AttendToabsent.isHidden = true
+        // Pull values from data structure
+        let (name, id, state, serialNumber) = filteredTableData[indexPath.row]
+        
+        my.state.text =  name
+        my.serialN.text = serialNumber // serialNumber[indexPath.row]
+        //        if (stateSt[] == "attend"){
+        //
+        //        }
+        // Use value from data structure
+        if state == "attend"   {
             my.name.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-         //   my.AttendToabsent.isHidden = true
+            //   my.AttendToabsent.isHidden = true
         }
-        else if stateSt[indexPath.row] == "late" {
+        else if state == "late" {
             my.name.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-               
+            
         }
-        else if stateSt[indexPath.row] == "absent" {
+        else if state == "absent" {
             
             my.name.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-      //      my.AttendToabsent.isHidden = false
+            //      my.AttendToabsent.isHidden = false
         }
-        else if stateSt[indexPath.row] == "pending" {
+        else if state == "pending" {
             my.name.textColor =  #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        //    my.AttendToabsent.isHidden = true
+            //    my.AttendToabsent.isHidden = true
         }
         else if stateSt[indexPath.row] == "excused"   {
             my.name.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-         }
+        }
         
-
-       // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
-        my.name.text = stateSt[indexPath.row]
-        my.idStudent.text = idstudent[indexPath.row]
-       // my.serialNnumber.text = serialNumber[indexPath.row]
+        
+        // my.backgroundColor = stateSt[indexPath.row] == "attend" ? .red :
+        my.name.text = state
+        my.idStudent.text = id//  idstudent[indexPath.row]
+        // my.serialNnumber.text = serialNumber[indexPath.row]
         my.img.image = UIImage(named: "girl2" )
         
-     
-    
-        
-      
-
-        
-    
-
         return my
     }
     
     func getCurrentTime() -> String{
-
+        
         let formater = DateFormatter()
-
+        
         formater.dateFormat = "HH:mm"
         let dateString =  formater.string(from: Date())
         print("after formating")
         print(dateString)
         return dateString
-
-        }
+        
+    }
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-////        filterName = []
-////        if searchText == "" {
-////            filterName = nameStudent
-////        }
-////        else{
-////        for name in nameStudent{
-////            if name.lowercased().contains(searchText.lowercased()){
-////                print("yee")
-////                filterName.append(name)
-////            }
-////        }
-////        }
-//        filterName = searchText.isEmpty ? nameStudent : nameStudent.filter({(dataString: String) -> Bool in
-//                // If dataItem matches the searchText, return true to include it
-//                return dataString.range(of: searchText, options: .caseInsensitive) != nil
-//            })
-//
-//
-//        self.tableview.reloadData()
-//    }
+    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    ////        filterName = []
+    ////        if searchText == "" {
+    ////            filterName = nameStudent
+    ////        }
+    ////        else{
+    ////        for name in nameStudent{
+    ////            if name.lowercased().contains(searchText.lowercased()){
+    ////                print("yee")
+    ////                filterName.append(name)
+    ////            }
+    ////        }
+    ////        }
+    //        filterName = searchText.isEmpty ? nameStudent : nameStudent.filter({(dataString: String) -> Bool in
+    //                // If dataItem matches the searchText, return true to include it
+    //                return dataString.range(of: searchText, options: .caseInsensitive) != nil
+    //            })
+    //
+    //
+    //        self.tableview.reloadData()
+    //    }
     
     
     @IBAction func unwind(segue: UIStoryboardSegue ){
         
     }
     
-    
-    
+}
+
+
+// Setup searchbar delegate
+extension ManualAttViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.filteredTableData = tableData
+            tableview.reloadData()
+        } else {
+            let filteredStudents = self.tableData.filter { (studentName, studentId, stateSt, serialNumber) in
+                return studentName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) ||
+                serialNumber.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+            }
+            
+            self.filteredTableData = filteredStudents
+            self.tableview.reloadData()
+        }
+    }
 }

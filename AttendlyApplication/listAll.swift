@@ -30,8 +30,8 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     // Data structure to hold student information for the Table View
-    var tableData = [(String, String)]()
-    var filteredTableData = [(String, String)]()
+    var tableData = [(String, String, String)]()
+    var filteredTableData = [(String, String, String)]()
     
     
     var v: String = ""
@@ -49,7 +49,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         nameStudent.enumerated().forEach { index, name in
-            tableData.append((name, idStudent[index]))
+            tableData.append((name, idStudent[index], serialStudent[index]))
         }
         self.filteredTableData = tableData
        
@@ -227,7 +227,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         my.nostudent.text = filteredTableData[indexPath.row].0
         my.idStu.text = filteredTableData[indexPath.row].1
         
-        my.serialN.text = serialStudent[indexPath.row]
+        my.serialN.text = filteredTableData[indexPath.row].2
         my.person.image = UIImage(named: "girl" )
         
         if doubles[indexPath.row]  >= 20 {    // less than or eqaul to 0
@@ -305,8 +305,9 @@ extension listAll: UISearchBarDelegate {
             self.filteredTableData = tableData
             tableview.reloadData()
         } else {
-            let filteredStudents = self.tableData.filter { (studentName, studentId) in
+            let filteredStudents = self.tableData.filter { (studentName, studentId, serial) in
                 return studentName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                ||  serial.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
             }
             
             self.filteredTableData = filteredStudents
