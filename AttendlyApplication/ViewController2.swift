@@ -233,8 +233,14 @@ print(indexPath)
         Task{
             let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
             
-            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+//            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+//            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            
+            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
+
             let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            print("sectsChk",sectsChk)
+            print("actualChk",actualChk)
             
               if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
                 {
@@ -242,14 +248,18 @@ print(indexPath)
                 }
                 else{
                     for i in 0..<sectsChk.count {
+                      
+                        print("sectsChk is i ",sectsChk[i])
                       //..
                         let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
-                        
-                         let cdate =  sectss.documents.first!.get("courseDate") as! [Int: String]
                        
+                      //  let  section =  sectss.documents.first!.get("section") as! String
+                       // print("section",section)
+                        var cdate =  sectss.documents.first!.get("courseDate") as! [String: String]
+                        print("cdate",cdate)
                         for (key,value) in cdate {
-                        
-                            if key==1
+
+                            if key == "1"
                             {
                                 //no 0
                                 if value == "8:00"
@@ -271,9 +281,9 @@ print(indexPath)
                                 else if value == "4:45"
                                 {Sunday[9] = value}
                                 else{}
-                                
+
                             }
-                            else if  key == 2
+                            else if  key == "2"
                             {
                                 //no 0
                                 if value == "8:00"
@@ -296,7 +306,7 @@ print(indexPath)
                                 {Monday[9] = value}
                                 else{}
                             }
-                            else if  key == 3
+                            else if  key == "3"
                             {
                                 //no 0
                                 if value == "8:00"
@@ -319,7 +329,7 @@ print(indexPath)
                                 {Tuesday[9] = value}
                                 else{}
                             }
-                            else if  key == 4
+                            else if  key == "4"
                             {
                                 //no 0
                                 if value == "8:00"
@@ -342,7 +352,7 @@ print(indexPath)
                                 {Wednesday[9] = value}
                                 else{}
                             }
-                            else if  key == 5
+                            else if  key == "5"
                             {
                                 //no 0
                                 if value == "8:00"
@@ -365,7 +375,7 @@ print(indexPath)
                                 {Thursday[9] = value}
                                 else{}
                             }
-                        }
+                        } //here is
                         
 //                        let sectss = try await db.collection("studentsByCourse").whereField("tag", isEqualTo: sectsChk[i]).getDocuments()
 //
