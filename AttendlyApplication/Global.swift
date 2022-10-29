@@ -15,6 +15,11 @@ class Global{
     public var sections: [String] = []
     public var coursess: [String] = []
     
+    public var Sunday =  ["Sunday", "", "",  "" , "", "",  "", "", "", ""]
+    public var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
+    public var Tuesday =  ["Tuesday", "", "",  "" , "", "", "", "", "", ""]
+    public var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
+    public var Thursday =  ["Thursday", "", "",  "" , "", "",  "", "", "", ""]
     
     public  var section: String = ""
     public var titleB: String = ""

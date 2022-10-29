@@ -19,11 +19,11 @@ class ViewController2: UIViewController {
 //    var Thursday =  ["Thursday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "SWE321", "", ""]
     let colorArray = [ #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1),  #colorLiteral(red: 0.7701125145, green: 0.9381597638, blue: 1, alpha: 1),  #colorLiteral(red: 0.9619761109, green: 0.9262647629, blue: 0.6508037448, alpha: 1) ,  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1) ,  #colorLiteral(red: 0.8193834424, green: 0.8202515244, blue: 1, alpha: 1),  #colorLiteral(red: 1, green: 0.8212433457, blue: 0.7032110095, alpha: 1)]
  
-    var Sunday =  ["Sunday", "", "",  "" , "", "",  "", "", "", ""]
-    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
-    var Tuesday =  ["Tuesday", "", "",  "" , "", "", "", "", "", ""]
-    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
-    var Thursday =  ["Thursday", "", "",  "" , "", "",  "", "", "", ""]
+//    var Sunday =  ["Sunday", "", "",  "" , "", "",  "", "", "", ""]
+//    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
+//    var Tuesday =  ["Tuesday", "", "",  "" , "", "", "", "", "", ""]
+//    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
+//    var Thursday =  ["Thursday", "", "",  "" , "", "",  "", "", "", ""]
    
     
     @IBOutlet weak var gridCollectionView: UICollectionView!
@@ -162,238 +162,288 @@ print(indexPath)
             
         }
         
+        //SHAMMA COLORS
         
-        for i in 1..<Sunday.count{
+        for i in 1..<Global.shared.Sunday.count{
             if (indexPath.elementsEqual([i, 1]))
-            { cell.titleLabel.text = Sunday[i]
-                if(Sunday[i] == "SWE482"){
+            { cell.titleLabel.text = Global.shared.Sunday[i]
+                if(Global.shared.Sunday[i] == "SWE482"){
                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
                }
-                else if(Sunday[i] == "SWE321"){
+                else if(Global.shared.Sunday[i] == "SWE321"){
                    cell.backgroundColor =  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1)
                }
-                else if(Sunday[i] != "")
+                else if(Global.shared.Sunday[i] == "SWE444"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7042651985, green: 0.6803297185, blue: 0.9686274529, alpha: 1)
+               }
+                else if(Global.shared.Sunday[i] == "SWE381"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+               }
+                else if(Global.shared.Sunday[i] == "Cloud482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+               }
+                else
                 {
                     cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
 }
-                
+
             }
         }
-        for i in 1..<Monday.count{
+        for i in 1..<Global.shared.Monday.count{
             if (indexPath.elementsEqual([i, 2]))
-            { cell.titleLabel.text = Monday[i]
-                if(Monday[i] == "SWE482"){
-                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
-                }
-                
-                else if(Monday[i] != "")
-                {cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
-                    
+            { cell.titleLabel.text = Global.shared.Monday[i]
+                if(Global.shared.Monday[i] == "SWE482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
+               }
+                else if(Global.shared.Monday[i] == "SWE321"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1)
+               }
+                else if(Global.shared.Monday[i] == "SWE444"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7042651985, green: 0.6803297185, blue: 0.9686274529, alpha: 1)
+               }
+                else if(Global.shared.Monday[i] == "SWE381"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+               }
+                else if(Global.shared.Monday[i] == "Cloud482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+               }
+                else
+                {
+                    cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
 }
-               
+
            }
         }
-        for i in 1..<Tuesday.count{
+        for i in 1..<Global.shared.Tuesday.count{
             if (indexPath.elementsEqual([i, 3]))
-            { cell.titleLabel.text = Tuesday[i]
-                if(Tuesday[i] == "SWE482"){
-                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
-                }
-                else if(Tuesday[i] == "SWE321"){
+            { cell.titleLabel.text = Global.shared.Tuesday[i]
+                if(Global.shared.Tuesday[i] == "SWE482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
+               }
+                else if(Global.shared.Tuesday[i] == "SWE321"){
                    cell.backgroundColor =  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1)
                }
-                else if(Tuesday[i] != "")
-                {cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
+                else if(Global.shared.Tuesday[i] == "SWE444"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7042651985, green: 0.6803297185, blue: 0.9686274529, alpha: 1)
+               }
+                else if(Global.shared.Tuesday[i] == "SWE381"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+               }
+                else if(Global.shared.Tuesday[i] == "Cloud482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+               }
+                else
+                {
+                    cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
 }
-                
 
             }
         }
-        for i in 1..<Wednesday.count{
+        for i in 1..<Global.shared.Wednesday.count{
             if (indexPath.elementsEqual([i, 4]))
-            { cell.titleLabel.text = Wednesday[i]
-                if(Wednesday[i] == "SWE482"){
-                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
-                }
-                else if(Wednesday[i] != "")
-                {cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
-}
-                
-
-            }
-        }
-        for i in 1..<Thursday.count{
-            if (indexPath.elementsEqual([i, 5]))
-            { cell.titleLabel.text = Thursday[i]
-                if(Thursday[i] == "SWE482"){
-                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
-                }
-                else if(Thursday[i] == "SWE321"){
+            { cell.titleLabel.text = Global.shared.Wednesday[i]
+                if(Global.shared.Wednesday[i] == "SWE482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
+               }
+                else if(Global.shared.Wednesday[i] == "SWE321"){
                    cell.backgroundColor =  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1)
                }
-                 else if(Thursday[i] != "")
-                {cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
+                else if(Global.shared.Wednesday[i] == "SWE444"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7042651985, green: 0.6803297185, blue: 0.9686274529, alpha: 1)
+               }
+                else if(Global.shared.Wednesday[i] == "SWE381"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+               }
+                else if(Global.shared.Wednesday[i] == "Cloud482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+               }
+                else
+                {
+                    cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
 }
-            
-
             }
         }
+        for i in 1..<Global.shared.Thursday.count{
+            if (indexPath.elementsEqual([i, 5]))
+            { cell.titleLabel.text = Global.shared.Thursday[i]
+                if(Global.shared.Thursday[i] == "SWE482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
+               }
+                else if(Global.shared.Thursday[i] == "SWE321"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1)
+               }
+                else if(Global.shared.Thursday[i] == "SWE444"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.7042651985, green: 0.6803297185, blue: 0.9686274529, alpha: 1)
+               }
+                else if(Global.shared.Thursday[i] == "SWE381"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+               }
+                else if(Global.shared.Thursday[i] == "Cloud482"){
+                   cell.backgroundColor =  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+               }
+                else
+                {
+                    cell.backgroundColor = #colorLiteral(red: 0.6223602891, green: 0.7846285701, blue: 0.8139474988, alpha: 1)
+}
+            }}
+
+            
         
         return cell
-    }
+    }}
    
-    func course(){
-        let db = Firestore.firestore()
-        Task{
-            let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
-            
-//            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+//    func course(){
+//        let db = Firestore.firestore()
+//        Task{
+//            let snapshot =  try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: "400@student.ksu.edu.sa").getDocuments()
+//            
+////            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+////            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+//            
+//            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
+//
 //            let actualChk = snapshot.documents.first!.get("courses") as! [String]
-            
-            guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
-
-            let actualChk = snapshot.documents.first!.get("courses") as! [String]
-            print("sectsChk",sectsChk)
-            print("actualChk",actualChk)
-            
-              if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
-                {
-                //    self.noC.text = "No courses \n registered!"
-                }
-                else{
-                    for i in 0..<sectsChk.count {
-                      
-                        print("sectsChk is i ",sectsChk[i])
-                      //..
-                        let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
-                       
-                      //  let  section =  sectss.documents.first!.get("section") as! String
-                       // print("section",section)
-                        var cdate =  sectss.documents.first!.get("courseDate") as! [String: String]
-                        print("cdate",cdate)
-                        for (key,value) in cdate {
-
-                            if key == "1"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Sunday[1] = value}
-                                else if value == "9:15"
-                                {Sunday[2] = value}
-                                else if value == "10:30"
-                                {Sunday[3] = value}
-                                else if value == "11:45"
-                                {Sunday[4] = value}
-                                else if value == "12:50"
-                                {Sunday[5] = value}
-                                else if value == "1:30"
-                                {Sunday[6] = value}
-                                else if value == "2:45"
-                                {Sunday[7] = value}
-                                else if value == "3:50"
-                                {Sunday[8] = value}
-                                else if value == "4:45"
-                                {Sunday[9] = value}
-                                else{}
-
-                            }
-                            else if  key == "2"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Monday[1] = value}
-                                else if value == "9:15"
-                                {Monday[2] = value}
-                                else if value == "10:30"
-                                {Monday[3] = value}
-                                else if value == "11:45"
-                                {Monday[4] = value}
-                                else if value == "12:50"
-                                {Monday[5] = value}
-                                else if value == "1:30"
-                                {Monday[6] = value}
-                                else if value == "2:45"
-                                {Monday[7] = value}
-                                else if value == "3:50"
-                                {Monday[8] = value}
-                                else if value == "4:45"
-                                {Monday[9] = value}
-                                else{}
-                            }
-                            else if  key == "3"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Tuesday[1] = value}
-                                else if value == "9:15"
-                                {Tuesday[2] = value}
-                                else if value == "10:30"
-                                {Tuesday[3] = value}
-                                else if value == "11:45"
-                                {Tuesday[4] = value}
-                                else if value == "12:50"
-                                {Tuesday[5] = value}
-                                else if value == "1:30"
-                                {Tuesday[6] = value}
-                                else if value == "2:45"
-                                {Tuesday[7] = value}
-                                else if value == "3:50"
-                                {Tuesday[8] = value}
-                                else if value == "4:45"
-                                {Tuesday[9] = value}
-                                else{}
-                            }
-                            else if  key == "4"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Wednesday[1] = value}
-                                else if value == "9:15"
-                                {Wednesday[2] = value}
-                                else if value == "10:30"
-                                {Wednesday[3] = value}
-                                else if value == "11:45"
-                                {Wednesday[4] = value}
-                                else if value == "12:50"
-                                {Wednesday[5] = value}
-                                else if value == "1:30"
-                                {Wednesday[6] = value}
-                                else if value == "2:45"
-                                {Wednesday[7] = value}
-                                else if value == "3:50"
-                                {Wednesday[8] = value}
-                                else if value == "4:45"
-                                {Wednesday[9] = value}
-                                else{}
-                            }
-                            else if  key == "5"
-                            {
-                                //no 0
-                                if value == "8:00"
-                                {Thursday[1] = value}
-                                else if value == "9:15"
-                                {Thursday[2] = value}
-                                else if value == "10:30"
-                                {Thursday[3] = value}
-                                else if value == "11:45"
-                                {Thursday[4] = value}
-                                else if value == "12:50"
-                                {Thursday[5] = value}
-                                else if value == "1:30"
-                                {Thursday[6] = value}
-                                else if value == "2:45"
-                                {Thursday[7] = value}
-                                else if value == "3:50"
-                                {Thursday[8] = value}
-                                else if value == "4:45"
-                                {Thursday[9] = value}
-                                else{}
-                            }
-                        }
-                    }
-                }}
-    }
-    }
+//            print("sectsChk",sectsChk)
+//            print("actualChk",actualChk)
+//            
+//              if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
+//                {
+//                //    self.noC.text = "No courses \n registered!"
+//                }
+//                else{
+//                    for i in 0..<sectsChk.count {
+//                      
+//                        print("sectsChk is i ",sectsChk[i])
+//                      //..
+//                        let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
+//                       
+//                      //  let  section =  sectss.documents.first!.get("section") as! String
+//                       // print("section",section)
+//                        var cdate =  sectss.documents.first!.get("courseDate") as! [String: String]
+//                        print("cdate",cdate)
+//                        for (key,value) in cdate {
+//
+//                            if key == "1"
+//                            {
+//                                //no 0
+//                                if value == "8:00"
+//                                {Sunday[1] = value}
+//                                else if value == "9:15"
+//                                {Sunday[2] = value}
+//                                else if value == "10:30"
+//                                {Sunday[3] = value}
+//                                else if value == "11:45"
+//                                {Sunday[4] = value}
+//                                else if value == "12:50"
+//                                {Sunday[5] = value}
+//                                else if value == "1:30"
+//                                {Sunday[6] = value}
+//                                else if value == "2:45"
+//                                {Sunday[7] = value}
+//                                else if value == "3:50"
+//                                {Sunday[8] = value}
+//                                else if value == "4:45"
+//                                {Sunday[9] = value}
+//                                else{}
+//
+//                            }
+//                            else if  key == "2"
+//                            {
+//                                //no 0
+//                                if value == "8:00"
+//                                {Monday[1] = value}
+//                                else if value == "9:15"
+//                                {Monday[2] = value}
+//                                else if value == "10:30"
+//                                {Monday[3] = value}
+//                                else if value == "11:45"
+//                                {Monday[4] = value}
+//                                else if value == "12:50"
+//                                {Monday[5] = value}
+//                                else if value == "1:30"
+//                                {Monday[6] = value}
+//                                else if value == "2:45"
+//                                {Monday[7] = value}
+//                                else if value == "3:50"
+//                                {Monday[8] = value}
+//                                else if value == "4:45"
+//                                {Monday[9] = value}
+//                                else{}
+//                            }
+//                            else if  key == "3"
+//                            {
+//                                //no 0
+//                                if value == "8:00"
+//                                {Tuesday[1] = value}
+//                                else if value == "9:15"
+//                                {Tuesday[2] = value}
+//                                else if value == "10:30"
+//                                {Tuesday[3] = value}
+//                                else if value == "11:45"
+//                                {Tuesday[4] = value}
+//                                else if value == "12:50"
+//                                {Tuesday[5] = value}
+//                                else if value == "1:30"
+//                                {Tuesday[6] = value}
+//                                else if value == "2:45"
+//                                {Tuesday[7] = value}
+//                                else if value == "3:50"
+//                                {Tuesday[8] = value}
+//                                else if value == "4:45"
+//                                {Tuesday[9] = value}
+//                                else{}
+//                            }
+//                            else if  key == "4"
+//                            {
+//                                //no 0
+//                                if value == "8:00"
+//                                {Wednesday[1] = value}
+//                                else if value == "9:15"
+//                                {Wednesday[2] = value}
+//                                else if value == "10:30"
+//                                {Wednesday[3] = value}
+//                                else if value == "11:45"
+//                                {Wednesday[4] = value}
+//                                else if value == "12:50"
+//                                {Wednesday[5] = value}
+//                                else if value == "1:30"
+//                                {Wednesday[6] = value}
+//                                else if value == "2:45"
+//                                {Wednesday[7] = value}
+//                                else if value == "3:50"
+//                                {Wednesday[8] = value}
+//                                else if value == "4:45"
+//                                {Wednesday[9] = value}
+//                                else{}
+//                            }
+//                            else if  key == "5"
+//                            {
+//                                //no 0
+//                                if value == "8:00"
+//                                {Thursday[1] = value}
+//                                else if value == "9:15"
+//                                {Thursday[2] = value}
+//                                else if value == "10:30"
+//                                {Thursday[3] = value}
+//                                else if value == "11:45"
+//                                {Thursday[4] = value}
+//                                else if value == "12:50"
+//                                {Thursday[5] = value}
+//                                else if value == "1:30"
+//                                {Thursday[6] = value}
+//                                else if value == "2:45"
+//                                {Thursday[7] = value}
+//                                else if value == "3:50"
+//                                {Thursday[8] = value}
+//                                else if value == "4:45"
+//                                {Thursday[9] = value}
+//                                else{}
+//                            }
+//                        }
+//                    }
+//                }}
+//    }
+    
 
 
 extension ViewController2: UICollectionViewDelegateFlowLayout {
