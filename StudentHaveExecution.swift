@@ -21,6 +21,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
    
     @IBOutlet weak var nameSection: UILabel!
     @IBOutlet weak var noStudent: UILabel!
+    @IBOutlet weak var noStudentsFoundLabel: UILabel!
     
    // var sectionNmae: String = ""
     
@@ -294,6 +295,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         return filteredTableData.count
     }
    

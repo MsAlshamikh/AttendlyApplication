@@ -20,6 +20,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     @IBOutlet weak var searchBar: UISearchBar!
     var nameStudent = [String]()
+    @IBOutlet weak var noStudentsFoundLabel: UILabel!
     
     var filterName : [String]!
     
@@ -297,6 +298,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
         /// Return the list after filtering
+        noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         return filteredTableData.count
     }
     

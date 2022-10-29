@@ -264,6 +264,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Students Found" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzf-2Z-dHA">
+                                <rect key="frame" x="82.5" y="576.5" width="249" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.2156862745" green="0.56862745100000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="1is-6C-QpB">
                                 <rect key="frame" x="-125" y="-13" width="894" height="358"/>
                             </imageView>
@@ -339,6 +345,7 @@
                         <constraints>
                             <constraint firstItem="mbS-m8-img" firstAttribute="leading" secondItem="PRb-Bm-Leb" secondAttribute="leading" constant="70" id="35x-TC-8TQ"/>
                             <constraint firstItem="PRb-Bm-Leb" firstAttribute="trailing" secondItem="W7L-Cx-CoY" secondAttribute="trailing" constant="15" id="5gF-fy-eqA"/>
+                            <constraint firstItem="uzf-2Z-dHA" firstAttribute="centerY" secondItem="Zoi-MT-cPN" secondAttribute="centerY" constant="-80" id="8zi-m5-hKt"/>
                             <constraint firstItem="dz7-D2-reh" firstAttribute="leading" secondItem="PRb-Bm-Leb" secondAttribute="leading" constant="15" id="ACU-Lo-r30"/>
                             <constraint firstItem="YlL-zX-sCv" firstAttribute="leading" secondItem="Ex7-iY-g23" secondAttribute="leading" constant="5" id="DyE-VS-8Dr"/>
                             <constraint firstItem="1is-6C-QpB" firstAttribute="top" secondItem="Ex7-iY-g23" secondAttribute="top" constant="-13" id="Dz8-sP-eDc"/>
@@ -346,6 +353,7 @@
                             <constraint firstItem="Zoi-MT-cPN" firstAttribute="trailing" secondItem="PRb-Bm-Leb" secondAttribute="trailing" id="E9l-gG-CvF"/>
                             <constraint firstItem="Bc0-UI-TSi" firstAttribute="top" secondItem="PRb-Bm-Leb" secondAttribute="top" constant="20" id="H26-gm-QJ6"/>
                             <constraint firstAttribute="trailing" secondItem="YlL-zX-sCv" secondAttribute="trailing" constant="5" id="KeG-kR-9sM"/>
+                            <constraint firstItem="uzf-2Z-dHA" firstAttribute="centerX" secondItem="Zoi-MT-cPN" secondAttribute="centerX" id="Mu8-M3-uv4"/>
                             <constraint firstItem="1is-6C-QpB" firstAttribute="leading" secondItem="Ex7-iY-g23" secondAttribute="leading" constant="-125" id="Nim-aH-GW1"/>
                             <constraint firstItem="FJE-yA-xla" firstAttribute="leading" secondItem="PRb-Bm-Leb" secondAttribute="leading" constant="20" id="Oif-Dh-atI"/>
                             <constraint firstItem="TjJ-rs-XJy" firstAttribute="top" secondItem="FJE-yA-xla" secondAttribute="bottom" constant="20" id="PBk-Hj-IcR"/>
@@ -370,6 +378,7 @@
                     <connections>
                         <outlet property="cuurentDate" destination="FJE-yA-xla" id="trn-Ph-LIL"/>
                         <outlet property="nameCourse" destination="dz7-D2-reh" id="OK4-Vy-Q9X"/>
+                        <outlet property="noStudentsFoundLabel" destination="uzf-2Z-dHA" id="VjD-dG-2Kb"/>
                         <outlet property="searchBar" destination="W7L-Cx-CoY" id="EZH-jA-0rz"/>
                         <outlet property="tableview" destination="Zoi-MT-cPN" id="eSB-9c-9tS"/>
                     </connections>
@@ -657,12 +666,19 @@
                                 <color key="textColor" red="0.2588235438" green="0.5647059083" blue="0.62352943419999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Students Found" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slu-fW-gkP">
+                                <rect key="frame" x="82.5" y="580" width="249" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.2156862745" green="0.56862745100000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bpC-qh-hX6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bpC-qh-hX6" firstAttribute="trailing" secondItem="LI6-aE-UFz" secondAttribute="trailing" constant="12" id="3Xr-cB-3xA"/>
                             <constraint firstItem="PIE-8y-yN0" firstAttribute="leading" secondItem="GNg-Lm-BAY" secondAttribute="trailing" constant="5" id="3jJ-yR-8De"/>
+                            <constraint firstItem="slu-fW-gkP" firstAttribute="centerX" secondItem="bop-0M-lF6" secondAttribute="centerX" id="3ly-c2-gpe"/>
                             <constraint firstItem="bop-0M-lF6" firstAttribute="top" secondItem="uhf-Xd-J3G" secondAttribute="bottom" constant="10" id="5mT-KM-1OE"/>
                             <constraint firstItem="PIE-8y-yN0" firstAttribute="leading" secondItem="bpC-qh-hX6" secondAttribute="leading" constant="320" id="5qZ-UB-CKX"/>
                             <constraint firstItem="aNa-np-C1k" firstAttribute="top" secondItem="deN-QE-Qgu" secondAttribute="bottom" id="5sc-Vd-ldA"/>
@@ -671,6 +687,7 @@
                             <constraint firstItem="bop-0M-lF6" firstAttribute="leading" secondItem="bpC-qh-hX6" secondAttribute="leading" id="C5q-sT-FZn"/>
                             <constraint firstItem="vkp-el-DYi" firstAttribute="centerY" secondItem="uhf-Xd-J3G" secondAttribute="centerY" id="CJW-KM-8jh"/>
                             <constraint firstItem="vkp-el-DYi" firstAttribute="leading" secondItem="uhf-Xd-J3G" secondAttribute="trailing" constant="110" id="Dxc-kt-LTW"/>
+                            <constraint firstItem="slu-fW-gkP" firstAttribute="centerY" secondItem="bop-0M-lF6" secondAttribute="centerY" constant="-80" id="JgM-wR-aiU"/>
                             <constraint firstItem="GNg-Lm-BAY" firstAttribute="top" secondItem="bpC-qh-hX6" secondAttribute="top" constant="18" id="OX9-Jz-L96"/>
                             <constraint firstItem="uhf-Xd-J3G" firstAttribute="top" secondItem="LI6-aE-UFz" secondAttribute="bottom" constant="4" id="PpR-yN-4KK"/>
                             <constraint firstItem="bpC-qh-hX6" firstAttribute="trailing" secondItem="deN-QE-Qgu" secondAttribute="trailing" constant="80" id="Q8B-1X-MBv"/>
@@ -704,6 +721,7 @@
                     <connections>
                         <outlet property="dataOf" destination="zaM-L0-oPX" id="NNW-h5-Px9"/>
                         <outlet property="nameSection" destination="GNg-Lm-BAY" id="5op-hh-d9e"/>
+                        <outlet property="noStudentsFoundLabel" destination="slu-fW-gkP" id="bzT-ix-N7K"/>
                         <outlet property="searchBar" destination="HeQ-zx-T43" id="n4p-CA-hIb"/>
                         <outlet property="seeExecution" destination="PIE-8y-yN0" id="IgN-4l-Pfr"/>
                         <outlet property="tableview" destination="bop-0M-lF6" id="ZSB-Tz-eA7"/>
@@ -2726,6 +2744,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Students Found" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7k-HJ-Pdq">
+                                <rect key="frame" x="82.5" y="512" width="249" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.2156862745" green="0.56862745100000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Students with their absences excuse" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcm-TL-8X3">
                                 <rect key="frame" x="40" y="341.5" width="334" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -2771,6 +2795,8 @@
                             <constraint firstItem="r5f-cM-DR6" firstAttribute="trailing" secondItem="ScS-hr-Voz" secondAttribute="trailing" constant="15" id="10Q-ht-09b"/>
                             <constraint firstItem="pmF-od-Q34" firstAttribute="centerY" secondItem="Pjr-EX-hRa" secondAttribute="centerY" id="9bc-2e-mug"/>
                             <constraint firstItem="pmF-od-Q34" firstAttribute="leading" secondItem="Pjr-EX-hRa" secondAttribute="trailing" constant="60" id="BCD-yB-LJV"/>
+                            <constraint firstItem="l7k-HJ-Pdq" firstAttribute="centerX" secondItem="hMU-yS-VgX" secondAttribute="centerX" id="BEu-gr-TVT"/>
+                            <constraint firstItem="l7k-HJ-Pdq" firstAttribute="centerY" secondItem="hMU-yS-VgX" secondAttribute="centerY" constant="-80" id="EAm-wX-Sna"/>
                             <constraint firstItem="hMU-yS-VgX" firstAttribute="leading" secondItem="r5f-cM-DR6" secondAttribute="leading" id="VAT-1Z-T1d"/>
                             <constraint firstAttribute="trailing" secondItem="hMU-yS-VgX" secondAttribute="trailing" id="VEk-ZY-BiS"/>
                             <constraint firstAttribute="trailing" secondItem="PS4-Y5-rSo" secondAttribute="trailing" constant="-339" id="WJN-YH-AOX"/>
@@ -2797,6 +2823,7 @@
                     <connections>
                         <outlet property="nameSection" destination="iY3-sl-wdn" id="f8r-ej-OTf"/>
                         <outlet property="noStudent" destination="rth-My-ySh" id="Ylm-fh-TLV"/>
+                        <outlet property="noStudentsFoundLabel" destination="l7k-HJ-Pdq" id="s0b-jg-Mx3"/>
                         <outlet property="searchBar" destination="ScS-hr-Voz" id="XcH-Ti-Xp7"/>
                         <outlet property="tableView" destination="hMU-yS-VgX" id="5mA-bY-bUc"/>
                         <segue destination="Y3q-ta-bh4" kind="show" id="P1X-uM-VCS"/>

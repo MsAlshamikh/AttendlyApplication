@@ -20,6 +20,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var zeroStudent: UILabel!
     
     @IBOutlet weak var dataOf: UILabel!
+    @IBOutlet weak var noStudentsFoundLabel: UILabel!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -103,6 +104,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
+        noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         return filteredTableData.count
     }
     
