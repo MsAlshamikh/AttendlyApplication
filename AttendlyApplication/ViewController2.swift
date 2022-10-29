@@ -12,18 +12,9 @@ import FirebaseFirestore
 
 class ViewController2: UIViewController {
 
-//    var Sunday =  ["Sunday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "", "", "SWE321"]
-//    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
-//    var Tuesday =  ["Tuesday", "", "",  "SWE482" , "", "SWE482", "", "", "SWE321", ""]
-//    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
-//    var Thursday =  ["Thursday", "SWE444", "SWE444",  "" , "", "SWE482",  "", "SWE321", "", ""]
+
     let colorArray = [ #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1),  #colorLiteral(red: 0.7701125145, green: 0.9381597638, blue: 1, alpha: 1),  #colorLiteral(red: 0.9619761109, green: 0.9262647629, blue: 0.6508037448, alpha: 1) ,  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1) ,  #colorLiteral(red: 0.8193834424, green: 0.8202515244, blue: 1, alpha: 1),  #colorLiteral(red: 1, green: 0.8212433457, blue: 0.7032110095, alpha: 1)]
  
-//    var Sunday =  ["Sunday", "", "",  "" , "", "",  "", "", "", ""]
-//    var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
-//    var Tuesday =  ["Tuesday", "", "",  "" , "", "", "", "", "", ""]
-//    var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
-//    var Thursday =  ["Thursday", "", "",  "" , "", "",  "", "", "", ""]
    
     
     @IBOutlet weak var gridCollectionView: UICollectionView!
