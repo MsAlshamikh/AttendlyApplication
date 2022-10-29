@@ -303,13 +303,14 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
 // Setup searchbar delegate
 extension listAll: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
+        let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        if query.isEmpty {
             self.filteredTableData = tableData
             tableview.reloadData()
         } else {
             let filteredStudents = self.tableData.filter { (studentName, studentId, serial) in
-                return studentName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
-                ||  serial.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                return studentName.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces))
+                ||  serial.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces))
             }
             
             self.filteredTableData = filteredStudents

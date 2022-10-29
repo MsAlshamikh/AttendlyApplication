@@ -133,16 +133,20 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
+        let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        if query.isEmpty {
             self.students = self.allStudents
             tableview.reloadData()
             //displayStudents(students: self.students)
         } else {
             let filteredStudents = self.students.filter { student in
-                let fullName = student["Fullname"] as? String ?? ""
-                let serialN = student["Sunm"] as? String ?? ""
-                return fullName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) ||
-                serialN.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                let Name = student["name"] as? String ?? ""
+                let studentID = student["studentID"] as? String ?? ""
+                let serialN = student["Snum"] as? String ?? ""
+                
+                return Name.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces)) ||
+                    serialN.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces)) ||
+                studentID.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces))
                // let name = student["name"] as? String ?? ""
             //    let studentID = student["studentID"] as? String ?? ""
         

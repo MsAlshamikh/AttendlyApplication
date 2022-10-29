@@ -80,7 +80,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
         
         noStudent.isHidden = true
         nameSection.text =  Global.shared.sectionName
-        
+        noStudentsFoundLabel.isHidden = true
         let db = Firestore.firestore()
        Task {
          
@@ -142,6 +142,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     }
     
     @objc func refresh(_ sender: AnyObject) {
+        noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         let db = Firestore.firestore()
         Task {
           
@@ -295,7 +296,6 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         return filteredTableData.count
     }
    
@@ -306,17 +306,20 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
 // Setup searchbar delegate
 extension StudentHaveExecution: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
+        let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        if query.isEmpty {
             self.filteredTableData = tableData
             tableView.reloadData()
+            noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         } else {
             let filteredStudents = self.tableData.filter { (studentName, studentId, serial, form) in
-                return studentName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
-                || serial.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                return studentName.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces)) || studentId.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces))
+                || serial.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces))
             }
             
             self.filteredTableData = filteredStudents
             self.tableView.reloadData()
+            noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
         }
     }
 }
