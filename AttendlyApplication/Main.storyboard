@@ -465,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4u-At-FRv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10671.014492753624" y="770.75892857142856"/>
+            <point key="canvasLocation" x="12220" y="1706"/>
         </scene>
         <!--Students in Section:-->
         <scene sceneID="xjb-JI-Det">
@@ -2213,6 +2213,27 @@
                                 <color key="textColor" red="0.25142624969999999" green="0.57161885499999998" blue="0.6333577037" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loP-lE-zAn">
+                                <rect key="frame" x="103" y="712" width="208" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" cornerStyle="medium">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="View Schedule">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="ArialMT"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseBackgroundColor" red="0.2588235438" green="0.5647059083" blue="0.62352943419999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="sendPressed:" destination="Vka-Gw-ijo" eventType="touchUpInside" id="rdd-qa-4dN"/>
+                                    <segue destination="usQ-7G-bQv" kind="show" id="uG7-1m-7zL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V9U-Yg-BDj"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4260,12 +4281,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LT0-aA-idT" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11463.76811594203" y="-587.27678571428567"/>
+            <point key="canvasLocation" x="10458" y="720"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="uG7-1m-7zL"/>
         <segue reference="G1y-3w-L4w"/>
-        <segue reference="reZ-IS-bBu"/>
+        <segue reference="T27-IC-KYT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
