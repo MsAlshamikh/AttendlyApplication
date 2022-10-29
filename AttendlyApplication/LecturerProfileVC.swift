@@ -35,6 +35,7 @@ class LecturerProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        course()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +56,157 @@ print("hh")
         }
         
 //        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    func course(){
+        let db = Firestore.firestore()
+        Task{
+            let snapshot =  try await db.collection("Lectures").whereField("EmailLectures", isEqualTo: "1232@lecture.ksu.edu.sa").getDocuments()
+            
+//            let sectsChk = snapshot.documents.first!.get("Sections") as! [String]
+//            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            
+          //  guard let sectsChk = snapshot.documents.first?.get("Sections") as? [String] else { return }
+            let sectsChk = snapshot.documents.first!.get("AllsectionID") as! [String]
+            let actualChk = snapshot.documents.first!.get("courses") as! [String]
+            print("sectsChk",sectsChk)
+            print("actualChk",actualChk)
+            
+              if((actualChk.count == 1 && actualChk[0] == "" ) || (sectsChk.count == 1 && sectsChk[0] == "" ) )
+                {
+                //    self.noC.text = "No courses \n registered!"
+                }
+                else{
+                    for i in 0..<sectsChk.count {
+                      
+                        print("sectsChk is i ",sectsChk[i])
+                      //..
+                        let sectss = try await db.collection("Sections").whereField("section", isEqualTo: sectsChk[i]).getDocuments()
+                       
+                      //  let  section =  sectss.documents.first!.get("section") as! String
+                       // print("section",section)
+                        var cdate =  sectss.documents.first!.get("courseDate") as! [String: String]
+                        print("cdate",cdate)
+                        for (key,value) in cdate {
+
+                            if key == "1"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Global.shared.Sunday[1] = actualChk[i]}
+                                else if value == "9:15"
+                                {Global.shared.Sunday[2] = actualChk[i]}
+                                else if value == "10:30"
+                                {Global.shared.Sunday[3] = actualChk[i]}
+                                else if value == "11:45"
+                                {Global.shared.Sunday[4] = actualChk[i]}
+                                else if value == "12:50"
+                                {Global.shared.Sunday[5] = actualChk[i]}
+                                else if value == "1:30"
+                                {Global.shared.Sunday[6] = actualChk[i]}
+                                else if value == "2:45"
+                                {Global.shared.Sunday[7] = actualChk[i]}
+                                else if value == "3:50"
+                                {Global.shared.Sunday[8] = actualChk[i]}
+                                else if value == "4:45"
+                                {Global.shared.Sunday[9] = actualChk[i]}
+                                else{}
+
+                            }
+                            else if  key == "2"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Global.shared.Monday[1] = actualChk[i]}
+                                else if value == "9:15"
+                                {Global.shared.Monday[2] = actualChk[i]}
+                                else if value == "10:30"
+                                {Global.shared.Monday[3] = actualChk[i]}
+                                else if value == "11:45"
+                                {Global.shared.Monday[4] = actualChk[i]}
+                                else if value == "12:50"
+                                {Global.shared.Monday[5] = actualChk[i]}
+                                else if value == "1:30"
+                                {Global.shared.Monday[6] = actualChk[i]}
+                                else if value == "2:45"
+                                {Global.shared.Monday[7] = actualChk[i]}
+                                else if value == "3:50"
+                                {Global.shared.Monday[8] = actualChk[i]}
+                                else if value == "4:45"
+                                {Global.shared.Monday[9] = actualChk[i]}
+                                else{}
+                            }
+                            else if  key == "3"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Global.shared.Tuesday[1] = actualChk[i]}
+                                else if value == "9:15"
+                                {Global.shared.Tuesday[2] = actualChk[i]}
+                                else if value == "10:30"
+                                {Global.shared.Tuesday[3] = actualChk[i]}
+                                else if value == "11:45"
+                                {Global.shared.Tuesday[4] = actualChk[i]}
+                                else if value == "12:50"
+                                {Global.shared.Tuesday[5] = actualChk[i]}
+                                else if value == "1:30"
+                                {Global.shared.Tuesday[6] = actualChk[i]}
+                                else if value == "2:45"
+                                {Global.shared.Tuesday[7] = actualChk[i]}
+                                else if value == "3:50"
+                                {Global.shared.Tuesday[8] = actualChk[i]}
+                                else if value == "4:45"
+                                {Global.shared.Tuesday[9] = actualChk[i]}
+                                else{}
+                            }
+                            else if  key == "4"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Global.shared.Wednesday[1] = actualChk[i]}
+                                else if value == "9:15"
+                                {Global.shared.Wednesday[2] = actualChk[i]}
+                                else if value == "10:30"
+                                {Global.shared.Wednesday[3] = actualChk[i]}
+                                else if value == "11:45"
+                                {Global.shared.Wednesday[4] = actualChk[i]}
+                                else if value == "12:50"
+                                {Global.shared.Wednesday[5] = actualChk[i]}
+                                else if value == "1:30"
+                                {Global.shared.Wednesday[6] = actualChk[i]}
+                                else if value == "2:45"
+                                {Global.shared.Wednesday[7] = actualChk[i]}
+                                else if value == "3:50"
+                                {Global.shared.Wednesday[8] = actualChk[i]}
+                                else if value == "4:45"
+                                {Global.shared.Wednesday[9] = actualChk[i]}
+                                else{}
+                            }
+                            else if  key == "5"
+                            {
+                                //no 0
+                                if value == "8:00"
+                                {Global.shared.Thursday[1] = actualChk[i]}
+                                else if value == "9:15"
+                                {Global.shared.Thursday[2] = actualChk[i]}
+                                else if value == "10:30"
+                                {Global.shared.Thursday[3] = actualChk[i]}
+                                else if value == "11:45"
+                                {Global.shared.Thursday[4] = actualChk[i]}
+                                else if value == "12:50"
+                                {Global.shared.Thursday[5] = actualChk[i]}
+                                else if value == "1:30"
+                                {Global.shared.Thursday[6] = actualChk[i]}
+                                else if value == "2:45"
+                                {Global.shared.Thursday[7] = actualChk[i]}
+                                else if value == "3:50"
+                                {Global.shared.Thursday[8] = actualChk[i]}
+                                else if value == "4:45"
+                                {Global.shared.Thursday[9] = actualChk[i]}
+                                else{}
+                            }
+                        }
+                    }
+                }}
     }
     
     @IBAction func logggoutt(_ sender: Any) {
