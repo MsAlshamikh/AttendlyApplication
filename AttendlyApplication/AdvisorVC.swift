@@ -18,6 +18,8 @@ class AdvisorVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
     
+    var serialStudent = [String]()
+    
     func get() {
             let db = Firestore.firestore()
             db.collection("Lectures").whereField("EmailLectures", isEqualTo: Global.shared.useremailshare ).getDocuments {
@@ -138,7 +140,9 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
         } else {
             let filteredStudents = self.students.filter { student in
                 let fullName = student["Fullname"] as? String ?? ""
-                return fullName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
+                let serialN = student["Sunm"] as? String ?? ""
+                return fullName.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces)) ||
+                serialN.lowercased().contains(searchText.lowercased().trimmingCharacters(in: .whitespaces))
                // let name = student["name"] as? String ?? ""
             //    let studentID = student["studentID"] as? String ?? ""
         
@@ -167,8 +171,10 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
         let student = students[indexPath.row]
         let Name = student["name"] as? String ?? ""
         let studentID = student["studentID"] as? String ?? ""
+        let serialN = student["Snum"] as? String ?? ""
         my.nostudent.text = Name
         my.idStu.text = studentID
+        my.serialN.text = serialN
         my.person.image = UIImage(named: "girl" )
         return my
     }

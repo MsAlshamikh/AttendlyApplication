@@ -4188,15 +4188,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CU-l9-LnQ">
-                                                    <rect key="frame" x="66" y="0.0" width="156" height="45"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMS-eY-Pxv">
+                                                    <rect key="frame" x="220" y="8" width="156" height="45"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMS-eY-Pxv">
-                                                    <rect key="frame" x="212" y="0.0" width="156" height="45"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2y-kt-d1A">
+                                                    <rect key="frame" x="55" y="6" width="18" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CU-l9-LnQ">
+                                                    <rect key="frame" x="72" y="6" width="156" height="45"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
@@ -4210,6 +4217,7 @@
                                             <outlet property="idStu" destination="yMS-eY-Pxv" id="Glo-yD-wep"/>
                                             <outlet property="nostudent" destination="2CU-l9-LnQ" id="bpT-dm-mgt"/>
                                             <outlet property="person" destination="CpF-IF-HMw" id="LSA-UK-lVh"/>
+                                            <outlet property="serialN" destination="v2y-kt-d1A" id="j9O-qS-uwX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -4246,7 +4254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ide-S2-PdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4525" y="901"/>
+            <point key="canvasLocation" x="4524.6376811594209" y="900.66964285714278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
