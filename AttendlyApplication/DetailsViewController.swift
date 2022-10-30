@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import SwiftUI
 
-class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate {
     
 
     
@@ -39,42 +39,22 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
    // var buttonTappedAction : (() -> Void)? = nil
 
     var Takesection = ""
-    struct SearchView: View  {
-        @State var PDFurl : URL?
-        @State var ShowShareSheet: Bool = false
-        
-        var body: some View {
-           
-            Button {
-                exportPDF {
-                    self
-                } completion: { status , url in
-                    if let url = url,status{
-                        self.PDFurl = url
-                        self.ShowShareSheet.toggle()
-                    }
-                    else {
-                        print("failed to produce")
-                    }
-                }
-
-            } label: {
-                Image(systemName: "square.and.arrow.up.fill")
-                    .font(.title2)
-                    .foregroundColor(Color.black.opacity(0.7))
-            }
-            .sheet(isPresented :$ShowShareSheet) {
-                PDFurl = nil
-            } content: {
-                if let PDFurl = PDFurl {
-                    ShareSheet(urls: [PDFurl])
-                }
-            }
-
+  
+    
+    @IBAction func savePDF(_ sender: UIButton) {
+        let path = self.view.exportASPdfFromView()
+        if(path.count > 0) {
+            let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
+            dc.delegate = self
+            dc.presentPreview(animated: true)
         }
     }
     
-      
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self.navigationController!
+        
+    }
+    
     //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //    print("now your exucetion absent // shamma")
     
@@ -189,35 +169,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let tg = UITapGestureRecognizer(target: self, action: #selector(lecturerNameTapped(_:)))
                lecturerLabel.isUserInteractionEnabled = true
                lecturerLabel.addGestureRecognizer(tg)
-    }
-    
-    func convertToScrollView<Content: View>(@ViewBuilder content: @escaping()->Content)->UIScrollView{
-        
-        let scrollView = UIScrollView()
-        
-        //
-        let hostingController = UIHostingController(rootView: content()).view!
-        hostingController.translatesAutoresizingMaskIntoConstraints = false
-        //
-        let constraints = [
-        
-            hostingController.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            hostingController.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            hostingController.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            hostingController.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            //
-            hostingController.widthAnchor.constraint(equalToConstant: screenBounds().width)
-        ]
-        
-        scrollView.addSubview(hostingController)
-        scrollView.addConstraints(constraints)
-        
-        return scrollView
-        
-    }
-    
-    func screenBounds()->CGRect{
-        return UIScreen.main.bounds
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -404,3 +355,26 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 }
 
+extension UIView {
+    func exportASPdfFromView() -> String {
+        let pdfPageFrame = self.bounds
+        let pdfData = NSMutableData()
+        UIGraphicsBeginPDFContextToData(pdfData, pdfPageFrame, nil)
+        UIGraphicsBeginPDFPageWithInfo(pdfPageFrame, nil)
+        guard let pdfContext = UIGraphicsGetCurrentContext() else { return "" }
+        self.layer.render(in: pdfContext)
+        UIGraphicsEndPDFContext()
+        return self.saveViewPdf(data: pdfData)
+    }
+    
+    func saveViewPdf(data: NSMutableData) -> String {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docDirectoryPath = paths[0]
+        let pdfPath = docDirectoryPath.appendingPathComponent("viewPdf.pdf")
+        if data.write(to: pdfPath, atomically: true) {
+            return pdfPath.path
+        } else {
+            return ""
+        }
+    }
+}
