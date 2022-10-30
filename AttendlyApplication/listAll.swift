@@ -7,12 +7,26 @@
 
 import UIKit
 import FirebaseFirestore
-class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate {
     
    
     @IBOutlet weak var seeExecution: UIButton!
     
     @IBOutlet weak var tableview: UITableView!
+    
+    @IBAction func Sapdf(_ sender: UIButton) {
+        let path = self.view.exportASPdfFromView()
+        if(path.count > 0) {
+            let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
+            dc.delegate = self
+            dc.presentPreview(animated: true)
+        }
+    }
+    
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self.navigationController!
+    }
+    
     
     
     @IBOutlet weak var nameSection: UILabel!
