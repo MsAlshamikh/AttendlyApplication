@@ -36,7 +36,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     let StudentStatus = ["absent" , "late" , "attend"]
     //var pickerView = UIPickerView()
 //    @IBOutlet weak var pickerView: UIPickerView!
-    var whatPick = ""
+    var whatPick = "attend"
    
     @IBOutlet weak var pickerView: UIPickerView!
     let db = Firestore.firestore()
@@ -202,7 +202,6 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
      pickerView.delegate = self
      pickerView.dataSource = self
 
-
         let email = emailSt[indexPath.row]
 
                     let date = Date()
@@ -217,11 +216,12 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
                        print("whatPick" , "-\(whatPick)-" )
                        print("#1")
-                       picker = "\( pickerView)"
+                       picker = "\(pickerView)"
                      //  pickerView
 
-                       print(picker , "picker before")
+                     
                        
+                       print(picker , "picker before")
                        
                        
                        
@@ -532,24 +532,17 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-        print("#4")
         return 1
-       
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        print("#5")
         return StudentStatus.count
-        
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        print("#6")
+     
         return StudentStatus[row]
-  
     }
     
   
@@ -562,7 +555,8 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //          stateSt[indexPath.row].text = StudentStatus[row]
 //          state.text = StudentStatus[row]
-        
+      
+//        async
         
         print("#7")
         let chosen = pickerView.selectedRow(inComponent: 0)
@@ -582,11 +576,14 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
         
         
         print("#8")
-        picker = "\(pickerView)"
+        picker = "\( pickerView)"
      //  pickerView
 //       print(picker , "picker after")
+//        my.state.text = StudentStatus[row]
         
         whatPick = StudentStatus[row]
+//        pickerView.reloadAllComponents()
+        pickerView.resignFirstResponder()
         pickerView.isHidden = true
         print("#9")
 
