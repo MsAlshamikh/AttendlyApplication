@@ -9,7 +9,7 @@ import FirebaseFirestore
 import UIKit
 
 class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
-    private var allAttributes: [[UICollectionViewLayoutAttributes]] = []
+     var allAttributes: [[UICollectionViewLayoutAttributes]] = []
   //  var allAttributes = []
  
     
