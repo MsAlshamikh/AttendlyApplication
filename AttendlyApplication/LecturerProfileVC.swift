@@ -59,19 +59,28 @@ print("hh")
     
     @IBAction func logggoutt(_ sender: Any) {
         print("pressed")
-              let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+        let db = Firestore.firestore()
+        let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
 
                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 
               do{
-
-
-
+                  Task{
                      try Auth.auth().signOut()
-
-                  
-
                   print("logout!")
+                      guard let Lectureis = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+
+                                            try await db.collection("Lectures").document(Lectureis).setData([
+                                                "token": "-"
+                                            ],merge: true) { err in
+                                                if let err = err {
+                                                    print("Lectures not delete token  : \(err)")
+                                                } else {
+                                                    print(" Lectures delete token  ")
+                                                }
+                                            }
+                                        }
+
 
                  self.performSegue(withIdentifier: "logo2", sender: self)
 

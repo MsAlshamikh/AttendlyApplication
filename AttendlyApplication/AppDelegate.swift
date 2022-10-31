@@ -64,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate,UNUserN
                 guard let token = token else {
                     return
                 }
+                Global.shared.Token = token
                 print("Token:",token)
             }
         }

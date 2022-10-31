@@ -23,6 +23,6 @@ class Global{
     public var WhatPressed: String = ""
   //  public var lecturerCourses : [[String:String]] = [[:]]
     public var lecturerId : String?
-    
+    public var Token: String = ""
     public  var sectionName = ""
 }
