@@ -3438,7 +3438,7 @@
         <scene sceneID="JW5-IU-Phx">
             <objects>
                 <viewController storyboardIdentifier="StudentInfoViewController" id="KGo-Ta-Utl" customClass="StudentInfoViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="hb3-ZU-gGN">
+                    <view key="view" contentMode="scaleToFill" id="hb3-ZU-gGN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3476,7 +3476,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
                                 <rect key="frame" x="0.0" y="256" width="414" height="557"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e19-nz-wej">
@@ -3786,7 +3786,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kw-7N-AQd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kw-7N-AQd">
                                 <rect key="frame" x="6" y="321" width="180" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="aix-it-gds"/>
@@ -3806,8 +3806,8 @@
                                 <color key="textColor" red="0.1960784314" green="0.41568627450000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHf-Pm-Sd4">
-                                <rect key="frame" x="195" y="324" width="0.0" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHf-Pm-Sd4">
+                                <rect key="frame" x="195" y="324" width="26.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.1960784314" green="0.41568627450000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -3850,6 +3850,50 @@
                                     <action selector="pressViewfile:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="sDw-No-vyf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWS-zh-MKX">
+                                <rect key="frame" x="96" y="319" width="56.5" height="44"/>
+                                <color key="tintColor" red="0.20258162599999999" green="0.26126205520000001" blue="0.91976243260000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressEditbutton:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="urP-lc-jQq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-Dw-bkQ">
+                                <rect key="frame" x="112" y="760" width="115" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Reject" cornerStyle="medium">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseBackgroundColor" red="0.87058818339999999" green="0.48627454040000001" blue="0.40784314269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressRej:" destination="Vh7-JX-kos" eventType="touchUpInside" id="1fo-WC-zWE"/>
+                                    <action selector="pressRej:" destination="NkU-BD-4LA" eventType="touchUpInside" id="QU4-ED-Upz"/>
+                                    <action selector="rejectpressed:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="RWT-6V-h07"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJv-5g-5hP">
+                                <rect key="frame" x="111" y="760" width="117" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Accept" cornerStyle="medium">
+                                    <backgroundConfiguration key="background"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="19"/>
+                                    <color key="baseBackgroundColor" red="0.59215688710000003" green="0.73725497719999999" blue="0.59607845540000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="acceptpressed:" destination="bGo-AZ-Lbz" eventType="touchUpInside" id="YIt-bM-34g"/>
+                                    <action selector="pressAccept:" destination="NkU-BD-4LA" eventType="touchUpInside" id="2T6-WY-pFd"/>
+                                    <action selector="pressAccept:" destination="Vh7-JX-kos" eventType="touchUpInside" id="Ddl-JH-DBY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2xk-lk-2lk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3877,13 +3921,18 @@
                             <constraint firstItem="1IZ-KM-HcD" firstAttribute="top" secondItem="2xk-lk-2lk" secondAttribute="top" constant="187" id="imG-XI-QmR"/>
                             <constraint firstItem="Z4D-DK-SY5" firstAttribute="leading" secondItem="2xk-lk-2lk" secondAttribute="leading" constant="6" id="mvw-7e-Fvr"/>
                             <constraint firstItem="HoY-1e-FlW" firstAttribute="top" secondItem="2xk-lk-2lk" secondAttribute="top" constant="187" id="pMw-Ow-rBo"/>
+                            <constraint firstItem="RWS-zh-MKX" firstAttribute="top" secondItem="2xk-lk-2lk" secondAttribute="top" constant="231" id="scP-9y-ZpO"/>
+                            <constraint firstItem="RWS-zh-MKX" firstAttribute="leading" secondItem="9kw-7N-AQd" secondAttribute="trailing" constant="-90" id="xiq-Lf-qxB"/>
                             <constraint firstItem="5cn-Oz-GCo" firstAttribute="leading" secondItem="Q2m-ci-YhZ" secondAttribute="trailing" constant="4.5" id="xwY-sq-Gp5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Absence Excuse Form" id="2f2-Yl-dwJ"/>
                     <connections>
+                        <outlet property="acceptbutton" destination="vJv-5g-5hP" id="acJ-59-aRm"/>
                         <outlet property="dateOf" destination="KHf-Pm-Sd4" id="6Q3-Jm-02Y"/>
+                        <outlet property="editButton" destination="RWS-zh-MKX" id="h2N-pe-gB3"/>
                         <outlet property="nameOf" destination="scD-tR-fKr" id="ShQ-Xg-wfi"/>
+                        <outlet property="rejectButton" destination="ggQ-Dw-bkQ" id="yXE-Td-rwa"/>
                         <outlet property="resonOf" destination="Z4D-DK-SY5" id="EhU-QG-NmF"/>
                         <outlet property="stateEXec" destination="9kw-7N-AQd" id="qVl-Yj-ZmK"/>
                         <outlet property="titleoF" destination="uhO-0F-bA0" id="7d3-Qc-soy"/>
@@ -4308,6 +4357,7 @@
         <image name="grid.circle" catalog="system" width="128" height="121"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="logow" width="405" height="616"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="percent" catalog="system" width="128" height="121"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>

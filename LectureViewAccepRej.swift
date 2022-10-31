@@ -18,6 +18,7 @@ class LectureViewAccepRej: UIViewController {
 //
 //    @IBOutlet weak var viewFile: UIButton!
     
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var nameOf: UILabel!
     @IBOutlet weak var dateOf: UILabel!
     
@@ -26,14 +27,23 @@ class LectureViewAccepRej: UIViewController {
     @IBOutlet weak var titleoF: UILabel!
     @IBOutlet weak var stateEXec: UILabel!
     
+    @IBOutlet weak var rejectButton: UIButton!
+    
+    @IBOutlet weak var acceptbutton: UIButton!
+    
     @IBOutlet weak var resonOf: UILabel!
     var sectionNmae: String = ""
     var   datePreesed: String = ""
     var  namepressed: String = ""
     
+    var FormStatetake: String = ""
+    
     var fileURL: String = ""
     override func viewDidLoad() {
-        
+        acceptbutton.isHidden = true
+       rejectButton.isHidden = true
+
+      
         nameOf.text = namepressed
         dateOf.text = datePreesed
         super.viewDidLoad()
@@ -65,7 +75,7 @@ class LectureViewAccepRej: UIViewController {
            
                       
                       guard let FormState = studentDoc.get("FormState") as? String else { continue }
-                      
+                      FormStatetake = FormState
                      
                       
                       
@@ -89,7 +99,127 @@ class LectureViewAccepRej: UIViewController {
     }
     
     
-//    @IBAction func pressViewfile(_ sender: UIButton) {
+    
+    @IBAction func pressEditbutton(_ sender: UIButton) {
+        print(FormStatetake)
+                if (FormStatetake == "Rejected" ){
+                    acceptbutton.isHidden = false
+
+                }
+                else if (FormStatetake == "Accepted"){
+                    rejectButton.isHidden = false
+                }
+
+    }
+    
+    
+    
+    @IBAction func rejectpressed(_ sender: UIButton) {
+        let db = Firestore.firestore()
+                   var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to reject the excuse?", preferredStyle: .alert)
+                   // Create OK button with action handler
+                  let ok = UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
+                       print("Ok button tapped")
+                      
+                   Task {
+                       
+                       guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+                         //  SendBtn.isEnabled = true
+                           return
+                       }
+                             guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+                                   return
+                               }
+                       
+                       try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+                          
+                         "FormState": "Rejected"
+                         //  "State": ""
+                           
+                           
+                       ],merge: true) { err in
+                           if let err = err {
+                               print("Error adding Lecturer  : \(err)")
+                           } else {
+                               print("Lecturer added sucsseful ")
+                           }
+                           
+                       }
+
+                       }
+                      
+                      let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                      let vc = storyboard.instantiateViewController(identifier: "StudentHaveExecution") as! StudentHaveExecution
+                      vc.popTwice = true
+                      self.navigationController?.popViewController(animated: false)
+           //           DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+           //               self.navigationController?.pushViewController(vc, animated: true)
+           //           }
+                  })
+                  //Add OK button to a dialog message
+                  dialogMessage.addAction(ok)
+                   dialogMessage.addAction(UIAlertAction(title: "No",
+                                                         style: .cancel,
+                                                         handler: { _ in print("Cancel tap") })
+                   )
+                   self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func acceptpressed(_ sender: UIButton) {
+        let db = Firestore.firestore()
+                   var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to accept the excuse?", preferredStyle: .alert)
+                   // Create OK button with action handler
+                  let ok = UIAlertAction(title: "Yes", style: .default, handler: { [self] (action) in
+                       print("Ok button tapped")
+                      
+                   Task{
+                   
+                             guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionNmae).whereField("email", isEqualTo: Global.shared.useremailshare).whereField("st", isEqualTo: datePreesed).getDocuments().documents.first?.documentID else {
+                               //  SendBtn.isEnabled = true
+                                 return
+                             }
+                                   guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("name", isEqualTo:  namepressed).getDocuments().documents.first?.documentID else {
+                                         return
+                                     }
+                   
+                             try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData([
+                   
+                               "FormState": "Accepted" ,
+                                "State": "excused"
+                   
+                   
+                             ],merge: true) { err in
+                                 if let err = err {
+                                     print("Error adding Lecturer  : \(err)")
+                                 } else {
+                                     print("Lecturer added sucsseful ")
+                                 }
+                   
+                             }
+                            // self.present(alert, animated: true, completion: nil)
+                   
+                          //   self.performSegue(withIdentifier: "gotoLecturers", sender: self)
+                             }
+                      let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                      let vc = storyboard.instantiateViewController(identifier: "StudentHaveExecution") as! StudentHaveExecution
+                      vc.popTwice = true
+                      self.navigationController?.popViewController(animated: false)
+           //           DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+           //               self.navigationController?.pushViewController(vc, animated: true)
+           //           }
+                      //self.navigationController?.pushViewController(vc, animated: true)
+                  })
+                   
+                  //Add OK button to a dialog message
+                  dialogMessage.addAction(ok)
+                   dialogMessage.addAction(UIAlertAction(title: "No",
+                                                         style: .cancel,
+                                                         handler: { _ in print("Cancel tap") })
+                   )
+                   self.present(dialogMessage, animated: true, completion: nil)
+    }
+    //    @IBAction func pressViewfile(_ sender: UIButton) {
 //        let vc = ViewController()
 //        let pdfView = PDFView(frame: self.view.bounds)
 //        vc.view.addSubview(pdfView)

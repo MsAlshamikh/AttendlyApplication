@@ -13,7 +13,7 @@ import FirebaseMessaging
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate,UNUserNotificationCenterDelegate {
 
     private func requestNotifiactionAuthorization(application: UIApplication){
         let center = UNUserNotificationCenter.current()
@@ -29,6 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        
+        UNUserNotificationCenter.current().delegate = self
+        //        let authoption : UNAuthorizationOptions = [.alert, .sound ,.badge ]
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound ,.badge ]){ success , _ in
+                    guard success else{
+                        return
+                    }
+        print("sucess in APNS rigistry")
+                    }
+                        application.registerForRemoteNotifications()
+
+
+               // requestNotifiactionAuthorization(application: application)
        // Firestore.firestore().collection("TEST 123").document().setData(["1" : "1"])
       
 //        UNUserNotificationCenter.current().delegate = self
@@ -58,8 +72,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            messaging.token{token ,_ in
+                guard let token = token else {
+                    return
+                }
+                print("Token:",token)
+            }
+        }
 
 
+
+
+
+    private  func usernoticationconfg(){
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
+            { (isApproved , error ) in
+
+                if isApproved {
+                    print("notification is approved")
+                }else{
+                    if let error  = error {
+                        print("Error:  \(error.localizedDescription)")
+                    }
+                }
+        }
+
+
+
+}
 }
 
 //extension AppDelegate: UNUserNotificationCenterDelegate {
