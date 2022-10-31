@@ -58,6 +58,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate,UNUserN
         requestNotifiactionAuthorization(application: application)
        return true
     }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            messaging.token{token ,_ in
+                guard let token = token else {
+                    return
+                }
+                print("Token:",token)
+            }
+        }
 
     // MARK: UISceneSession Lifecycle
 
@@ -74,17 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate,UNUserN
     }
     
     
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-            messaging.token{token ,_ in
-                guard let token = token else {
-                    return
-                }
-                print("Token:",token)
-            }
-        }
+   
 
 
-
+}
 
 
     private  func usernoticationconfg(){
@@ -102,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate,UNUserN
 
 
 
-}
+
 }
 
 //extension AppDelegate: UNUserNotificationCenterDelegate {
