@@ -8,12 +8,25 @@
 import UIKit
 import FirebaseFirestore
 import MessageUI
+import SwiftUI
 
-class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate {
     
     
+    @IBAction func saveAsPdf(_ sender: UIButton) {
+            let path = self.view.exportASPdfFromView()
+                if(path.count > 0) {
+                    let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
+                    dc.delegate = self
+                    dc.presentPreview(animated: true)
+                }
+        }
     
-
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+           return self.navigationController!
+           
+       }
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var SecName: UILabel!
     @IBOutlet weak var StudnetName: UILabel!
@@ -249,6 +262,7 @@ extension StudentVC : MFMailComposeViewControllerDelegate  {
         }
     }
 }
+
 
 //extension StudentVC : MFMailComposeViewControllerDelegate {
 //    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
