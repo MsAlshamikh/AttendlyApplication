@@ -112,7 +112,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                     
                     guard let SerialNum = studentDoc.get("SerialNum") as? String else { continue }
 
-                    print("st is222222 :" , st)
+                    print("st is222222 :" , st, name)
                     
 //                    stateAll.append(state)
 //                    dateAll.append(st)
@@ -123,7 +123,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                     idAll.append(st)
                     serialAll.append(SerialNum)
                     
-                    
+                    tableData = []
                    nameAll.enumerated().forEach { index, name in
                        tableData.append((name, idAll[index], serialAll[index], FormStateAll[index]))
                    }
@@ -181,7 +181,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                      guard let SerialNum = studentDoc.get("SerialNum") as? String else { continue }
                     
 
-                     print("st is222222 :" , st)
+                     print("st new... :" , st, name)
                     
                      nameAll.append(name)
                     FormStateAll.append(FormState)
@@ -193,7 +193,9 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
                  
                  
              }
+            tableData = []
             nameAll.enumerated().forEach { index, name in
+                print("st new... 22:" , index, name)
                 tableData.append((name, idAll[index], serialAll[index], FormStateAll[index]))
             }
             self.filteredTableData = tableData
