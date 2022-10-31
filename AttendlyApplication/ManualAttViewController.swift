@@ -176,6 +176,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
                     serialNumber.append(SerialNum)
                     // serialNumber.append(ser)
                 }
+                tableData = []
                 nameStudent.enumerated().forEach { index, name in
                     tableData.append((name, idstudent[index], stateSt[index], serialNumber[index]))
                 }
