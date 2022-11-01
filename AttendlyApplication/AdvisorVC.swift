@@ -178,7 +178,7 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
         let serialN = student["Snum"] as? String ?? ""
         my.nostudent.text = Name
         my.idStu.text = studentID
-        my.serialN.text = serialN
+       // my.serialN.text = serialN
         my.person.image = UIImage(named: "girl" )
         return my
     }
