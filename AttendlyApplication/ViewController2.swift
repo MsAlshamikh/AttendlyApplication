@@ -300,7 +300,6 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
 //
 //        }
       let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        print("my data :\(cell.titleLabel.text!)")
         Global.shared.WhatPressed = cell.titleLabel.text!
         Global.shared.titleB = cell.titleLabel.text!
         if(cell.titleLabel.text! != ""){
@@ -318,15 +317,16 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
                         if let error = error {
                         }
                         else{
-                            Global.shared.name = snapshot!.documents.first!.get("name") as! String}
+                            Global.shared.name = snapshot!.documents.first!.get("name") as! String
+                            if true
+                            { let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                                self.navigationController?.pushViewController( vc, animated: true)}
+                        }
                     }
                     }
                 }
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-                self.navigationController?.pushViewController( vc, animated: true)
+            
             }}
-        //Global.shared.section =
-        //Global.shared.name =
 }
 
 
