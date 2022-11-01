@@ -4370,7 +4370,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="titleLabel" destination="iD1-5M-thj" id="f2H-T4-hF1"/>
-                                            <outlet property="titleLabel2" destination="iD1-5M-thj" id="XkM-6J-lrr"/>
+                                            <outlet property="titleLabel2" destination="iD1-5M-thj" id="rpI-3a-oOr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
