@@ -61,6 +61,7 @@
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
 		A2C45EEB291163DA0019659B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C45EEA291163DA0019659B /* CollectionViewCell.swift */; };
 		A2C45EED291164C90019659B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C45EEC291164C90019659B /* ViewController2.swift */; };
+		A2C45EEF291166AE0019659B /* StickyGridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C45EEE291166AE0019659B /* StickyGridCollectionViewLayout.swift */; };
 		F072EB3E28F99DFA005C72F7 /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3D28F99DFA005C72F7 /* StudentVC.swift */; };
 		F072EB4028F99ED0005C72F7 /* StudentCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C45EEA291163DA0019659B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A2C45EEC291164C90019659B /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		A2C45EEE291166AE0019659B /* StickyGridCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyGridCollectionViewLayout.swift; sourceTree = "<group>"; };
 		F072EB3D28F99DFA005C72F7 /* StudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
 		F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCellVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,7 @@
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
+				A2C45EEE291166AE0019659B /* StickyGridCollectionViewLayout.swift */,
 				A2C45EEA291163DA0019659B /* CollectionViewCell.swift */,
 				A2C45EEC291164C90019659B /* ViewController2.swift */,
 				53AF1B8328DAA95000F77178 /* listAll.swift */,
@@ -334,6 +337,7 @@
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				34555B7C28F7DD4000F36FA7 /* FormVC.swift in Sources */,
 				53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */,
+				A2C45EEF291166AE0019659B /* StickyGridCollectionViewLayout.swift in Sources */,
 				5358E22128E329C000F423DB /* notificationHand.swift in Sources */,
 				5358E22328E3651700F423DB /* sectionLectures.swift in Sources */,
 				53415F4E28D8DA54005DFA19 /* readCsv.swift in Sources */,
