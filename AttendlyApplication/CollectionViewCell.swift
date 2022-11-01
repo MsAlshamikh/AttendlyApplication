@@ -24,4 +24,4 @@ class CollectionViewCell: UICollectionViewCell {
     }
     */
 
-}
+
