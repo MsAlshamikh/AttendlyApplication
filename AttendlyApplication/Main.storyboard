@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XKG-dr-tNL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xzg-4I-lT3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -2109,7 +2109,6 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem id="qoA-Wp-uu9"/>
-                        <barButtonItem id="9Df-dW-oT3"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="LmX-dU-odv">
                         <barButtonItem key="backBarButtonItem" title="back" id="yy3-9d-lx5"/>
@@ -2237,7 +2236,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loP-lE-zAn">
-                                <rect key="frame" x="142" y="712" width="169" height="52"/>
+                                <rect key="frame" x="105" y="712" width="206" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -2256,7 +2255,7 @@
                                 <connections>
                                     <action selector="sendPressed:" destination="Vka-Gw-ijo" eventType="touchUpInside" id="rdd-qa-4dN"/>
                                     <action selector="viewProfile:" destination="lqJ-Vg-vD0" eventType="touchUpInside" id="8zt-ke-Pr7"/>
-                                    <segue destination="AMa-wh-4ip" kind="showDetail" id="uG7-1m-7zL"/>
+                                    <segue destination="0v1-mG-cny" kind="showDetail" id="ezy-5K-vVE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4436,9 +4435,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uG7-1m-7zL"/>
-        <segue reference="G1y-3w-L4w"/>
-        <segue reference="T27-IC-KYT"/>
+        <segue reference="ZsB-po-RZ8"/>
+        <segue reference="reZ-IS-bBu"/>
         <segue reference="4Uo-Sh-OTQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

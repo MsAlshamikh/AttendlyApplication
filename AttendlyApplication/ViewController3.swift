@@ -319,7 +319,12 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
                         else{
                             Global.shared.name = snapshot!.documents.first!.get("name") as! String
                             if true
-                            { let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                            { let vc = self.storyboard?.instantiateViewController(withIdentifier: "listAll") as! listAll
+                                //vc.nameStudent = studentArry
+                              //  vc.idStudent = studentID
+                              //  vc.v = v
+                             //   vc.emailStudent = emailArry
+                             //   vc.percentagestu = perecmtageArrya
                                 self.navigationController?.pushViewController( vc, animated: true)}
                         }
                     }

@@ -38,7 +38,7 @@ class LecturerProfileVC: UIViewController {
         course()
     }
     @IBAction func viewProfile(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable2") as! ViewController2
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable2") as! ViewController3
           navigationController?.pushViewController( vc, animated: true)
     }
     
