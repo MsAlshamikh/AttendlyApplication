@@ -56,6 +56,7 @@
 		53B59CD028FC690100977C32 /* StudentViewExec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCF28FC690100977C32 /* StudentViewExec.swift */; };
 		53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */; };
 		53B59CD428FDA81900977C32 /* StudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD328FDA81900977C32 /* StudentInfoViewController.swift */; };
+		53EDF55C2911C3EA0017E20A /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDF55B2911C3EA0017E20A /* ViewController3.swift */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
@@ -114,6 +115,7 @@
 		53B59CCF28FC690100977C32 /* StudentViewExec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewExec.swift; sourceTree = "<group>"; };
 		53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewAccepRej.swift; sourceTree = "<group>"; };
 		53B59CD328FDA81900977C32 /* StudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewController.swift; sourceTree = "<group>"; };
+		53EDF55B2911C3EA0017E20A /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C45EEA291163DA0019659B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				53EDF55B2911C3EA0017E20A /* ViewController3.swift */,
 				53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */,
 				53B59CCF28FC690100977C32 /* StudentViewExec.swift */,
 				53B59CCD28FB15DE00977C32 /* LectureViewEXViewController.swift */,
@@ -333,6 +336,7 @@
 				53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */,
 				5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */,
 				A2C45EED291164C90019659B /* ViewController2.swift in Sources */,
+				53EDF55C2911C3EA0017E20A /* ViewController3.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				34555B7C28F7DD4000F36FA7 /* FormVC.swift in Sources */,
