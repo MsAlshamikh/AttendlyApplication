@@ -50,7 +50,7 @@ extension ViewController2: UICollectionViewDataSource {
             return UICollectionViewCell()
             
         }
-print(indexPath)
+//print(indexPath)
    
         //HERE GET
     //    course()
@@ -136,7 +136,7 @@ print(indexPath)
         else{
             cell.titleLabel.text = "\(indexPath)"}
         
-        cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
+        //cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
         if(cell.backgroundColor == .white){
             cell.backgroundColor =  #colorLiteral(red: 0.8953151844, green: 0.9132214881, blue: 0.9132214881, alpha: 1)
           cell.layer.borderWidth = 0.3
@@ -295,8 +295,20 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
     }
   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseID, for: indexPath) as? CollectionViewCell else {
+//           return
+//
+//        }
+      let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        print("my data :\(cell.titleLabel.text!)")
+        Global.shared.WhatPressed = cell.titleLabel.text!
+        if(cell.titleLabel.text! != ""){
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+              navigationController?.pushViewController( vc, animated: true)
+        }
+        //Global.shared.section =
+        //Global.shared.name =
         
-          
        }
     
     

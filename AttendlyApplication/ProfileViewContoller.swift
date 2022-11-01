@@ -44,12 +44,18 @@ class ProfileViewContoller: UIViewController {
         let tg = UITapGestureRecognizer(target: self, action: #selector(adviserNameTapped(_:)))
         avlabel.isUserInteractionEnabled = true
         avlabel.addGestureRecognizer(tg)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         loadProfile()
+    }
+    @IBAction func viewProfile(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable") as! ViewController2
+          navigationController?.pushViewController( vc, animated: true)
     }
     
     func course(){
