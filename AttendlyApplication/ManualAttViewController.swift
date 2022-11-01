@@ -9,7 +9,7 @@ import Firebase
 import UIKit
 import SwiftUI
 
-class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UISearchBarDelegate {
+class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UISearchBarDelegate ,UIPickerViewDelegate , UIPickerViewDataSource {
 
    // @IBOutlet weak var search: UISearchBar!
     
@@ -188,7 +188,8 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     
     @IBAction func AttendPress(_ sender: UIButton) {
     }
-    
+    var selectedEmail = ""
+    var selectedrow = 0
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
         
         print(indexPath)
@@ -199,59 +200,61 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
         
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let state = stateSt[indexPath.row]
+//        let state = stateSt[indexPath.row]
         
      pickerView.delegate = self
      pickerView.dataSource = self
 
         let email = emailSt[indexPath.row]
 
-                    let date = Date()
-                    let calunder = Calendar.current
-                    let day = calunder.component(.day , from: date)
-                    let month = calunder.component(.month , from: date)
-                    let year = calunder.component(.year , from: date)
-                    let thed = "\(day)-\(month)-\(year)"
-
-                   Task {
-
-                       
-                       print("whatPick" , "-\(whatPick)-" )
-                       print("#1")
-                       picker = "\(pickerView)"
-                     //  pickerView
-
-                     
-                       
-                       print(picker , "picker before")
-                       
-                       
-                       
-                       
-                        guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
-
-                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
-
-                       try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
-                       
-                        let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments()
-
-                       guard let state  = DocID.documents.first?.get("State") as? String else { return }
-                       
-                       
-
-                       print("whatPick" , "-\(whatPick)-" )
-                       
-                    
-
-                       print("#2")
-
-                        print("done")
-                       stateSt[indexPath.row] = state
-                       tableView.reloadData()
-                       print("#3")
-
-                    }
+        selectedEmail = emailSt[indexPath.row]
+        selectedrow = indexPath.row
+//                    let date = Date()
+//                    let calunder = Calendar.current
+//                    let day = calunder.component(.day , from: date)
+//                    let month = calunder.component(.month , from: date)
+//                    let year = calunder.component(.year , from: date)
+//                    let thed = "\(day)-\(month)-\(year)"
+//
+//                   Task {
+//
+//
+//                       print("whatPick" , "-\(whatPick)-" )
+//                       print("#1")
+//                       picker = "\(pickerView)"
+//                     //  pickerView
+//
+//
+//
+//                       print(picker , "picker before")
+//
+//
+//
+//
+//                        guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+//
+//                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+//
+//                       try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
+//
+//                        let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments()
+//
+//                       guard let state  = DocID.documents.first?.get("State") as? String else { return }
+//
+//
+//
+//                       print("whatPick" , "-\(whatPick)-" )
+//
+//
+//
+//                       print("#2")
+//
+//                        print("done")
+//                       stateSt[indexPath.row] = state
+//                       tableView.reloadData()
+//                       print("#3")
+//
+//                    }
 
 
 
@@ -528,12 +531,6 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
    
-    
-    
-}
-
-extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource {
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -558,25 +555,25 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
         print("#7")
-        let chosen = pickerView.selectedRow(inComponent: 0)
-        if(chosen == 0 ){
-            print("is absent")
-            whatPick = "absent"
-        }
-        else if(chosen == 1 ){
-            print("is late")
-            whatPick = "late"
-        }
-        else if(chosen == 2){
-            print("is attend")
-            whatPick = "attend"
-        }
-        print(chosen , "picker after")
-        
+//        let chosen = pickerView.selectedRow(inComponent: 0)
+//        if(chosen == 0 ){
+//            print("is absent")
+//            whatPick = "absent"
+//        }
+//        else if(chosen == 1 ){
+//            print("is late")
+//            whatPick = "late"
+//        }
+//        else if(chosen == 2){
+//            print("is attend")
+//            whatPick = "attend"
+//        }
+//        print(chosen , "picker after")
+//
         
         print("#8")
         
-        picker = "\( pickerView)"
+//        picker = "\( pickerView)"
      //  pickerView
 //       print(picker , "picker after")
 //        my.state.text = StudentStatus[row]
@@ -587,7 +584,165 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
         pickerView.isHidden = true
         print("#9")
         print("whatPick" , whatPick)
+        
+        let date = Date()
+        let calunder = Calendar.current
+        let day = calunder.component(.day , from: date)
+        let month = calunder.component(.month , from: date)
+        let year = calunder.component(.year , from: date)
+        let thed = "\(day)-\(month)-\(year)"
+
+       Task {
+
+           
+           print("whatPick" , "-\(whatPick)-" )
+           print("#1")
+           picker = "\(pickerView)"
+         //  pickerView
+
+         
+           
+           print(picker , "picker before")
+           
+           
+           
+           
+            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+
+            guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: selectedEmail).getDocuments().documents.first?.documentID else { return }
+
+           try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
+           
+            let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: selectedEmail).getDocuments()
+
+           guard let state  = DocID.documents.first?.get("State") as? String else { return }
+           
+           
+
+           print("whatPick" , "-\(whatPick)-" )
+           
+        
+
+           print("#2")
+
+            print("done")
+           stateSt[selectedrow] = state
+           DispatchQueue.main.async {
+               self.tableview.reloadData()
+           }
+           print("#3")
+
+        }
+
 
     }
+    
 }
+
+//extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource {
+//
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//
+//        return StudentStatus.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//
+//        return StudentStatus[row]
+//    }
+//
+//
+////        func selectedTitleForComponent(component: Int) -> String? {
+////            let row = selectedRowInComponent(component)
+////            return dataSource.pickerView(pickerView, titleForRow:row, forComponent:component)
+////        }
+////
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//
+//        print("#7")
+////        let chosen = pickerView.selectedRow(inComponent: 0)
+////        if(chosen == 0 ){
+////            print("is absent")
+////            whatPick = "absent"
+////        }
+////        else if(chosen == 1 ){
+////            print("is late")
+////            whatPick = "late"
+////        }
+////        else if(chosen == 2){
+////            print("is attend")
+////            whatPick = "attend"
+////        }
+////        print(chosen , "picker after")
+////
+//
+//        print("#8")
+//
+////        picker = "\( pickerView)"
+//     //  pickerView
+////       print(picker , "picker after")
+////        my.state.text = StudentStatus[row]
+//
+//        whatPick = StudentStatus[row]
+////        pickerView.reloadAllComponents()
+//        pickerView.resignFirstResponder()
+//        pickerView.isHidden = true
+//        print("#9")
+//        print("whatPick" , whatPick)
+//
+//        let date = Date()
+//        let calunder = Calendar.current
+//        let day = calunder.component(.day , from: date)
+//        let month = calunder.component(.month , from: date)
+//        let year = calunder.component(.year , from: date)
+//        let thed = "\(day)-\(month)-\(year)"
+//
+//       Task {
+//
+//
+//           print("whatPick" , "-\(whatPick)-" )
+//           print("#1")
+//           picker = "\(pickerView)"
+//         //  pickerView
+//
+//
+//
+//           print(picker , "picker before")
+//
+//
+//
+//
+//            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+//
+//            guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: selectedEmail).getDocuments().documents.first?.documentID else { return }
+//
+//           try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": whatPick], merge: true)
+//
+//            let DocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: selectedEmail).getDocuments()
+//
+//           guard let state  = DocID.documents.first?.get("State") as? String else { return }
+//
+//
+//
+//           print("whatPick" , "-\(whatPick)-" )
+//
+//
+//
+//           print("#2")
+//
+//            print("done")
+//           stateSt[selectedrow] = state
+//           tableView.reloadData()
+//           print("#3")
+//
+//        }
+//
+//
+//    }
+//}
 
