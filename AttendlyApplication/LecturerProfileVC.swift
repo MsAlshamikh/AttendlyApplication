@@ -39,7 +39,7 @@ class LecturerProfileVC: UIViewController {
     
     @IBAction func viewLecSch(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable2") as! ViewController3
-                  navigationController?.pushViewController( vc, animated: true)‏
+        navigationController?.pushViewController( vc, animated: true) 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
