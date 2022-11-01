@@ -109,13 +109,13 @@ class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
                 // 4
                 if row < stickyRowsCount {
                     var frame = attributes.frame
-                    frame.origin.y += collectionView!.contentOffset.y
+                   // frame.origin.y += collectionView!.contentOffset.y
                     attributes.frame = frame
                 }
 
                 if col < stickyColumnsCount {
                     var frame = attributes.frame
-                    frame.origin.x += collectionView!.contentOffset.x
+                   // frame.origin.x += collectionView!.contentOffset.x
                     attributes.frame = frame
                 }
 

@@ -23,7 +23,7 @@ class ViewController2: UIViewController {
     {
         didSet {
             gridLayout.stickyRowsCount = 1
-            gridLayout.stickyColumnsCount = 1
+         gridLayout.stickyColumnsCount = 1
         }
     }
     
@@ -136,13 +136,13 @@ extension ViewController2: UICollectionViewDataSource {
         else{
             cell.titleLabel.text = "\(indexPath)"}
         
-        //cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
+     cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
         if(cell.backgroundColor == .white){
             cell.backgroundColor =  #colorLiteral(red: 0.8953151844, green: 0.9132214881, blue: 0.9132214881, alpha: 1)
           cell.layer.borderWidth = 0.3
            cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            cell.titleLabel.font = cell.titleLabel.font.withSize(15)
+            cell.titleLabel.font = cell.titleLabel.font.withSize(14)
            
         }
         else{
@@ -150,7 +150,7 @@ extension ViewController2: UICollectionViewDataSource {
             cell.layer.borderWidth = 0.4
             cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            cell.titleLabel.font = cell.titleLabel.font.withSize(18)
+            cell.titleLabel.font = cell.titleLabel.font.withSize(17)
             
         }
         
@@ -291,7 +291,7 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: 65, height: 50)
+        return CGSize(width: 66, height: 50)
     }
   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
