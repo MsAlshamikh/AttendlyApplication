@@ -11,13 +11,30 @@ import SwiftUI
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate  {
     
+    @IBOutlet weak var savePDF: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var logoo: UIImageView!
+    @IBOutlet weak var courseLabel2: UILabel!
+    
+    
     @IBAction func savePDF(_ sender: UIButton) {
+        backgroundImage.isHidden = true
+        savePDF.isHidden = true
+        courseLabel.isHidden = true
+        courseLabel2.isHidden = false
+        courseLabel2.textColor = #colorLiteral(red: 0.05490196078, green: 0.568627451, blue: 0.631372549, alpha: 1)
+        logoo.isHidden = false
         let path = self.view.exportASPdfFromView()
             if(path.count > 0) {
                 let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
                 dc.delegate = self
                 dc.presentPreview(animated: true)
             }
+        backgroundImage.isHidden = false
+        savePDF.isHidden = false
+        courseLabel2.isHidden = true
+        logoo.isHidden = true
+        courseLabel.isHidden = false
     }
     
     func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
@@ -67,8 +84,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Course Details"
+        logoo.isHidden = true
+        courseLabel2.isHidden = true
+        //navigationItem.title = "Course Details"
         Takesection = courseLabel.text!
+        Takesection = courseLabel2.text!
         
        print("Takesection is it  ", Takesection )
 
@@ -157,6 +177,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         text2.append(NSAttributedString(string: Global.shared.section, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
         
         courseLabel.text = Global.shared.titleB
+        courseLabel2.text = Global.shared.titleB
+        
    
         
         sectionLabel.attributedText = text2
@@ -172,7 +194,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let db = Firestore.firestore()
         Task
         {
-         
+            logoo.isHidden = true
+            courseLabel2.isHidden = true
             let t_snapshot = try await db.collection("studentsByCourse").whereField("nameC", isEqualTo: Global.shared.WhatPressed).getDocuments()
             dateAll.removeAll()
             stateAll.removeAll()
@@ -214,7 +237,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
-        
+        logoo.isHidden = true
+        courseLabel2.isHidden = true
     }
     
     
@@ -222,11 +246,15 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
         print("befor",stateAll.count)
+        logoo.isHidden = true
+        courseLabel2.isHidden = true
         return stateAll.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        logoo.isHidden = true
+        courseLabel2.isHidden = true
     }
     
     @objc func didTapCellButton(sender: UIButton) {
@@ -270,7 +298,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! TableViewhistoryStu
         
          my.selectionStyle = .none
-        
+        logoo.isHidden = true
+        courseLabel2.isHidden = true
         my.execution.isHidden = true
         my.havePending.isHidden = true
     

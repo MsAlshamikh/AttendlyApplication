@@ -11,15 +11,30 @@ import MessageUI
 import SwiftUI
 
 class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate {
+    @IBOutlet weak var backgroundimg: UIImageView!
+    @IBOutlet weak var saveAsPdf: UIButton!
+    @IBOutlet weak var logoo1: UIImageView!
     
+    @IBOutlet weak var SecName1: UILabel!
     
     @IBAction func saveAsPdf(_ sender: UIButton) {
+        backgroundimg.isHidden = true
+        saveAsPdf.isHidden = true
+        SecName.isHidden = true
+        SecName1.isHidden = false
+        SecName1.textColor = #colorLiteral(red: 0.05490196078, green: 0.568627451, blue: 0.631372549, alpha: 1)
+        logoo1.isHidden = false
             let path = self.view.exportASPdfFromView()
                 if(path.count > 0) {
                     let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
                     dc.delegate = self
                     dc.presentPreview(animated: true)
                 }
+        backgroundimg.isHidden = false
+        saveAsPdf.isHidden = false
+        SecName.isHidden = false
+        SecName1.isHidden = true
+        logoo1.isHidden = true
         }
     
     func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
@@ -59,19 +74,21 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SecName1.isHidden = true
+        logoo1.isHidden = true
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
            tableView.addSubview(refreshControl)
         
-        navigationItem.title = "Course details"
+       // navigationItem.title = "Course details"
 
         print("sectionName" , sectionName )
         print("SingleName" , SingleName )
         print("SingleEmail" , SingleEmail )
         
         SecName.text = sectionName
+        SecName1.text = sectionName
         StudnetName.text = SingleName
         StudentEmail.text = SingleEmail
         
@@ -140,7 +157,8 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     @objc func refresh(_ sender: AnyObject) {
         let db = Firestore.firestore()
         Task {
-         
+            SecName1.isHidden = true
+            logoo1.isHidden = true
             let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionName).getDocuments()
            
             dateAll.removeAll()
@@ -191,15 +209,20 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
         print("befor",stateAll.count)
+        SecName1.isHidden = true
+        logoo1.isHidden = true
         return stateAll.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        SecName1.isHidden = true
+        logoo1.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        SecName1.isHidden = true
+        logoo1.isHidden = true
         let my = tableView.dequeueReusableCell(withIdentifier: "newc") as! StudentCellVC
         
         
