@@ -302,17 +302,31 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
       let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         print("my data :\(cell.titleLabel.text!)")
         Global.shared.WhatPressed = cell.titleLabel.text!
+        Global.shared.titleB = cell.titleLabel.text!
         if(cell.titleLabel.text! != ""){
+            
+            let db = Firestore.firestore()
+            db.collection("Sections").whereField("courseName", isEqualTo: cell.titleLabel.text!).getDocuments{
+                (snapshot, error) in
+                if let error = error {
+                }
+                else{
+                    let id = snapshot!.documents.first!.get("lecturerID") as! String
+                    Global.shared.section = snapshot!.documents.first!.get("section") as! String
+                    db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
+                        (snapshot, error) in
+                        if let error = error {
+                        }
+                        else{
+                            Global.shared.name = snapshot!.documents.first!.get("name") as! String}
+                    }
+                    }
+                }
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-              navigationController?.pushViewController( vc, animated: true)
-        }
+                self.navigationController?.pushViewController( vc, animated: true)
+            }}
         //Global.shared.section =
         //Global.shared.name =
-        
-       }
-    
-    
-  
 }
 
 
