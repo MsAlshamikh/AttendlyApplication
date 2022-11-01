@@ -2182,6 +2182,7 @@
                         <barButtonItem id="9Df-dW-oT3"/>
                         <barButtonItem id="qoA-Wp-uu9">
                             <connections>
+                                <action selector="viewSCH:" destination="NFn-Ta-qlb" id="wZb-kr-dJS"/>
                                 <segue destination="OGr-dc-LPU" kind="show" id="QUb-ve-6f1"/>
                             </connections>
                         </barButtonItem>
@@ -2324,6 +2325,7 @@
                                     <color key="baseBackgroundColor" red="0.077350206670000005" green="0.42394316199999998" blue="0.46974343060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="viewLecSch:" destination="lqJ-Vg-vD0" eventType="touchUpInside" id="yg8-Uf-Qqx"/>
                                     <segue destination="OGr-dc-LPU" kind="show" id="TCp-Pd-NxT"/>
                                 </connections>
                             </button>
@@ -4543,9 +4545,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QUb-ve-6f1"/>
+        <segue reference="TCp-Pd-NxT"/>
         <segue reference="G1y-3w-L4w"/>
-        <segue reference="reZ-IS-bBu"/>
+        <segue reference="T27-IC-KYT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

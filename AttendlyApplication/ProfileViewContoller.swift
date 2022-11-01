@@ -22,6 +22,10 @@ class ProfileViewContoller: UIViewController {
     
     let firestore = Firestore.firestore()
     
+    @IBAction func viewSCH(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable") as! ViewController2
+                  navigationController?.pushViewController( vc, animated: true)‏
+    }
     var student : User! {
         didSet {
             updateUI(forStudent: student)
