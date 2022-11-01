@@ -2255,7 +2255,6 @@
                                 <connections>
                                     <action selector="sendPressed:" destination="Vka-Gw-ijo" eventType="touchUpInside" id="rdd-qa-4dN"/>
                                     <action selector="viewProfile:" destination="lqJ-Vg-vD0" eventType="touchUpInside" id="8zt-ke-Pr7"/>
-                                    <segue destination="0v1-mG-cny" kind="showDetail" id="ezy-5K-vVE"/>
                                 </connections>
                             </button>
                         </subviews>
