@@ -294,23 +294,76 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
         return CGSize(width: 65, height: 50)
     }
   
+   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseID, for: indexPath) as? CollectionViewCell else {
-//           return
-//
-//        }
-      let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        print("my data :\(cell.titleLabel.text!)")
-        Global.shared.WhatPressed = cell.titleLabel.text!
-        if(cell.titleLabel.text! != ""){
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-              navigationController?.pushViewController( vc, animated: true)
-        }
-        //Global.shared.section =
-        //Global.shared.name =
-        
-       }
-    
+
+   //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseID, for: indexPath) as? CollectionViewCell else {
+
+   //           return
+
+   //
+
+   //        }
+
+         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+
+           Global.shared.WhatPressed = cell.titleLabel.text!
+
+           Global.shared.titleB = cell.titleLabel.text!
+
+           if(cell.titleLabel.text! != ""){
+
+               
+
+               let db = Firestore.firestore()
+
+               db.collection("Sections").whereField("courseName", isEqualTo: cell.titleLabel.text!).getDocuments{
+
+                   (snapshot, error) in
+
+                   if let error = error {
+
+                   }
+
+                   else{
+
+                       let id = snapshot!.documents.first!.get("lecturerID") as! String
+
+                       Global.shared.section = snapshot!.documents.first!.get("section") as! String
+
+                       db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
+
+                           (snapshot, error) in
+
+                           if let error = error {
+
+                           }
+
+                           else{
+
+                               Global.shared.name = snapshot!.documents.first!.get("name") as! String
+
+                               if true
+
+                               { let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+
+                                   self.navigationController?.pushViewController( vc, animated: true)}
+
+                           }
+
+                       }
+
+                       }
+
+                   }
+
+               
+
+               }}
+
+   }
+
+
     
   
-}
+
