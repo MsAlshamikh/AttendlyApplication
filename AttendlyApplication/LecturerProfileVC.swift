@@ -37,6 +37,10 @@ class LecturerProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         course()
     }
+    @IBAction func viewProfile(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable2") as! ViewController2
+          navigationController?.pushViewController( vc, animated: true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
