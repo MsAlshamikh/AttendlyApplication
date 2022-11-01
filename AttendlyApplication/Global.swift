@@ -20,6 +20,13 @@ class Global{
     public var titleB: String = ""
     public var name: String = ""
     
+    public var Sunday =  ["Sunday", "", "",  "" , "", "",  "", "", "", ""]
+    public var Monday =  ["Monday", "", "",  "" , "", "",  "", "", "", ""]
+    public var Tuesday =  ["Tuesday", "", "",  "" , "", "", "", "", "", ""]
+    public var Wednesday =  ["Wednesday", "", "",  "" , "", "",  "", "", "", ""]
+    public var Thursday =  ["Thursday", "", "",  "" , "", "",  "", "", "", ""]
+    
+    
     public var WhatPressed: String = ""
   //  public var lecturerCourses : [[String:String]] = [[:]]
     public var lecturerId : String?
