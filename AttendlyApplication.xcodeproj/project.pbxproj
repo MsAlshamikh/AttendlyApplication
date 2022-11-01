@@ -60,6 +60,7 @@
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
 		A2C45EEB291163DA0019659B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C45EEA291163DA0019659B /* CollectionViewCell.swift */; };
+		A2C45EED291164C90019659B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C45EEC291164C90019659B /* ViewController2.swift */; };
 		F072EB3E28F99DFA005C72F7 /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3D28F99DFA005C72F7 /* StudentVC.swift */; };
 		F072EB4028F99ED0005C72F7 /* StudentCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +116,7 @@
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C45EEA291163DA0019659B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A2C45EEC291164C90019659B /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		F072EB3D28F99DFA005C72F7 /* StudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
 		F072EB3F28F99ED0005C72F7 /* StudentCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCellVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
 				A2C45EEA291163DA0019659B /* CollectionViewCell.swift */,
+				A2C45EEC291164C90019659B /* ViewController2.swift */,
 				53AF1B8328DAA95000F77178 /* listAll.swift */,
 				34555B7B28F7DD4000F36FA7 /* FormVC.swift */,
 				5358E22A28E3897100F423DB /* ManualAttViewController.swift */,
@@ -326,6 +329,7 @@
 				53B59CD428FDA81900977C32 /* StudentInfoViewController.swift in Sources */,
 				53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */,
 				5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */,
+				A2C45EED291164C90019659B /* ViewController2.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				34555B7C28F7DD4000F36FA7 /* FormVC.swift in Sources */,
