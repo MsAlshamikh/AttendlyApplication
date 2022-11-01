@@ -21,6 +21,7 @@
 		34555B7C28F7DD4000F36FA7 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34555B7B28F7DD4000F36FA7 /* FormVC.swift */; };
 		349927672904657D003AA9D8 /* pic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 349927662904657D003AA9D8 /* pic1.png */; };
 		349927692904658D003AA9D8 /* pic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 349927682904658D003AA9D8 /* pic2.png */; };
+		34ABD2892911D63B00AFCD43 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ABD2882911D63B00AFCD43 /* ViewController3.swift */; };
 		34FCA43828EABFBB0011CB46 /* girl2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FCA43728EABFBB0011CB46 /* girl2.png */; };
 		53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2D28D1E878005DFA19 /* AdvisorVC.swift */; };
 		53415F3028D1E87E005DFA19 /* CurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53415F2F28D1E87E005DFA19 /* CurrentVC.swift */; };
@@ -80,6 +81,7 @@
 		34555B7B28F7DD4000F36FA7 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		349927662904657D003AA9D8 /* pic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic1.png; sourceTree = "<group>"; };
 		349927682904658D003AA9D8 /* pic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic2.png; sourceTree = "<group>"; };
+		34ABD2882911D63B00AFCD43 /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		34FCA43728EABFBB0011CB46 /* girl2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl2.png; sourceTree = "<group>"; };
 		53415F2D28D1E878005DFA19 /* AdvisorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvisorVC.swift; sourceTree = "<group>"; };
 		53415F2F28D1E87E005DFA19 /* CurrentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentVC.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				53415F3D28D1E8C3005DFA19 /* SectionsVC.swift */,
 				5358E22228E3651700F423DB /* sectionLectures.swift */,
 				53415F4128D1E923005DFA19 /* Main.storyboard */,
+				34ABD2882911D63B00AFCD43 /* ViewController3.swift */,
 				A2C45EEE291166AE0019659B /* StickyGridCollectionViewLayout.swift */,
 				A2C45EEA291163DA0019659B /* CollectionViewCell.swift */,
 				A2C45EEC291164C90019659B /* ViewController2.swift */,
@@ -333,6 +336,7 @@
 				53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */,
 				5358E21B28E31C9200F423DB /* Notificationpublisher.swift in Sources */,
 				A2C45EED291164C90019659B /* ViewController2.swift in Sources */,
+				34ABD2892911D63B00AFCD43 /* ViewController3.swift in Sources */,
 				53415F3228D1E886005DFA19 /* CheckInVC.swift in Sources */,
 				53415F2E28D1E878005DFA19 /* AdvisorVC.swift in Sources */,
 				34555B7C28F7DD4000F36FA7 /* FormVC.swift in Sources */,

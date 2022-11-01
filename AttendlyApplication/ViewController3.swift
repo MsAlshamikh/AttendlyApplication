@@ -10,7 +10,7 @@
 import UIKit
 import FirebaseFirestore
 
-class ViewController2: UIViewController {
+class ViewController3: UIViewController {
     var numbersArray = [String]()
 
     let colorArray = [ #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1),  #colorLiteral(red: 0.7701125145, green: 0.9381597638, blue: 1, alpha: 1),  #colorLiteral(red: 0.9619761109, green: 0.9262647629, blue: 0.6508037448, alpha: 1) ,  #colorLiteral(red: 0.7984707952, green: 0.9665120244, blue: 0.6857665181, alpha: 1) ,  #colorLiteral(red: 0.8193834424, green: 0.8202515244, blue: 1, alpha: 1),  #colorLiteral(red: 1, green: 0.8212433457, blue: 0.7032110095, alpha: 1)]
@@ -32,7 +32,7 @@ class ViewController2: UIViewController {
 
 // MARK: - Collection view data source and delegate methods
 
-extension ViewController2: UICollectionViewDataSource {
+extension ViewController3: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
       
@@ -59,57 +59,57 @@ extension ViewController2: UICollectionViewDataSource {
         
     
         if (indexPath.elementsEqual([1, 0])){
-            cell.titleLabel.text = "8:00"
+            cell.titleLabel2.text = "8:00"
         }
         else if (indexPath.elementsEqual([2, 0])){
-            cell.titleLabel.text = "9:15"
+            cell.titleLabel2.text = "9:15"
         }
         else if (indexPath.elementsEqual([0, 0])){
-            cell.titleLabel.text = ""
+            cell.titleLabel2.text = ""
         }
 
         else if (indexPath.elementsEqual([3, 0])){
-            cell.titleLabel.text = "10:30"
+            cell.titleLabel2.text = "10:30"
         }
         else if (indexPath.elementsEqual([4, 0])){
-            cell.titleLabel.text = "11:45"
+            cell.titleLabel2.text = "11:45"
         }
         else if (indexPath.elementsEqual([5, 0])){
-            cell.titleLabel.text = "12:50"
+            cell.titleLabel2.text = "12:50"
         }//days
         else if (indexPath.elementsEqual([6, 0])){
-            cell.titleLabel.text = "1:30"
+            cell.titleLabel2.text = "1:30"
         }
         else if (indexPath.elementsEqual([7, 0])){
-            cell.titleLabel.text = "2:45"
+            cell.titleLabel2.text = "2:45"
         }
         else if (indexPath.elementsEqual([8, 0])){
-            cell.titleLabel.text = "3:50"
+            cell.titleLabel2.text = "3:50"
         }
         else if (indexPath.elementsEqual([9, 0])){
-            cell.titleLabel.text = "4:45"
+            cell.titleLabel2.text = "4:45"
         }
         else if (indexPath.elementsEqual([0, 1])){
-            cell.titleLabel.text = "Sun" // 9.15-10.20
+            cell.titleLabel2.text = "Sun" // 9.15-10.20
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 2])){
-            cell.titleLabel.text = "Mon"
+            cell.titleLabel2.text = "Mon"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 3])){
-            cell.titleLabel.text = "Tue"
+            cell.titleLabel2.text = "Tue"
            // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 4])){
-            cell.titleLabel.text = "Wed"           // cell.titleLabel.textAlignment = .left
+            cell.titleLabel2.text = "Wed"           // cell.titleLabel.textAlignment = .left
             
         }
         else if (indexPath.elementsEqual([0, 5])){
-            cell.titleLabel.text = "Thur"
+            cell.titleLabel2.text = "Thur"
            // cell.titleLabel.textAlignment = .left
             
         }
@@ -134,23 +134,23 @@ extension ViewController2: UICollectionViewDataSource {
             
         }*/
         else{
-            cell.titleLabel.text = "\(indexPath)"}
+            cell.titleLabel2.text = "\(indexPath)"}
         
      cell.backgroundColor = gridLayout.isItemSticky(at: indexPath)  ? .groupTableViewBackground : .white
         if(cell.backgroundColor == .white){
             cell.backgroundColor =  #colorLiteral(red: 0.8953151844, green: 0.9132214881, blue: 0.9132214881, alpha: 1)
           cell.layer.borderWidth = 0.3
            cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            cell.titleLabel.font = cell.titleLabel.font.withSize(14)
+            cell.titleLabel2.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.titleLabel2.font = cell.titleLabel2.font.withSize(14)
            
         }
         else{
             cell.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             cell.layer.borderWidth = 0.4
             cell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            cell.titleLabel.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            cell.titleLabel.font = cell.titleLabel.font.withSize(17)
+            cell.titleLabel2.textColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.titleLabel2.font = cell.titleLabel2.font.withSize(17)
             
         }
         
@@ -158,7 +158,7 @@ extension ViewController2: UICollectionViewDataSource {
         
         for i in 1..<Global.shared.Sunday.count{
             if (indexPath.elementsEqual([i, 1]))
-            { cell.titleLabel.text = Global.shared.Sunday[i]
+            { cell.titleLabel2.text = Global.shared.Sunday[i]
                 if(Global.shared.Sunday[i] == "SWE482"){
                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
                }
@@ -183,7 +183,7 @@ extension ViewController2: UICollectionViewDataSource {
         }
         for i in 1..<Global.shared.Monday.count{
             if (indexPath.elementsEqual([i, 2]))
-            { cell.titleLabel.text = Global.shared.Monday[i]
+            { cell.titleLabel2.text = Global.shared.Monday[i]
                 if(Global.shared.Monday[i] == "SWE482"){
                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
                }
@@ -208,7 +208,7 @@ extension ViewController2: UICollectionViewDataSource {
         }
         for i in 1..<Global.shared.Tuesday.count{
             if (indexPath.elementsEqual([i, 3]))
-            { cell.titleLabel.text = Global.shared.Tuesday[i]
+            { cell.titleLabel2.text = Global.shared.Tuesday[i]
                 if(Global.shared.Tuesday[i] == "SWE482"){
                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
                }
@@ -233,7 +233,7 @@ extension ViewController2: UICollectionViewDataSource {
         }
         for i in 1..<Global.shared.Wednesday.count{
             if (indexPath.elementsEqual([i, 4]))
-            { cell.titleLabel.text = Global.shared.Wednesday[i]
+            { cell.titleLabel2.text = Global.shared.Wednesday[i]
                 if(Global.shared.Wednesday[i] == "SWE482"){
                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
                }
@@ -257,7 +257,7 @@ extension ViewController2: UICollectionViewDataSource {
         }
         for i in 1..<Global.shared.Thursday.count{
             if (indexPath.elementsEqual([i, 5]))
-            { cell.titleLabel.text = Global.shared.Thursday[i]
+            { cell.titleLabel2.text = Global.shared.Thursday[i]
                 if(Global.shared.Thursday[i] == "SWE482"){
                    cell.backgroundColor =  #colorLiteral(red: 0.9827464223, green: 0.8374974728, blue: 0.9789015651, alpha: 1)
                }
@@ -287,7 +287,7 @@ extension ViewController2: UICollectionViewDataSource {
 
 
 
-extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionViewDelegate {
+extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
@@ -300,12 +300,12 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
 //
 //        }
       let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        Global.shared.WhatPressed = cell.titleLabel.text!
-        Global.shared.titleB = cell.titleLabel.text!
-        if(cell.titleLabel.text! != ""){
+        Global.shared.WhatPressed = cell.titleLabel2.text!
+        Global.shared.titleB = cell.titleLabel2.text!
+        if(cell.titleLabel2.text! != ""){
             
             let db = Firestore.firestore()
-            db.collection("Sections").whereField("courseName", isEqualTo: cell.titleLabel.text!).getDocuments{
+            db.collection("Sections").whereField("courseName", isEqualTo: cell.titleLabel2.text!).getDocuments{
                 (snapshot, error) in
                 if let error = error {
                 }
@@ -319,7 +319,12 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
                         else{
                             Global.shared.name = snapshot!.documents.first!.get("name") as! String
                             if true
-                            { let vc = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+                            { let vc = self.storyboard?.instantiateViewController(withIdentifier: "listAll") as! listAll
+                                //vc.nameStudent = studentArry
+                              //  vc.idStudent = studentID
+                              //  vc.v = v
+                             //   vc.emailStudent = emailArry
+                             //   vc.percentagestu = perecmtageArrya
                                 self.navigationController?.pushViewController( vc, animated: true)}
                         }
                     }
@@ -328,5 +333,6 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
             
             }}
 }
+
 
 
