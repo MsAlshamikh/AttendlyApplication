@@ -7,6 +7,7 @@
 
 import Firebase
 import UIKit
+import SwiftUI
 
 class ManualAttViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , UISearchBarDelegate {
 
@@ -188,13 +189,14 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
     @IBAction func AttendPress(_ sender: UIButton) {
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)  {
         
         print(indexPath)
         let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         
         pickerView.isHidden = false
 
+        
         
         tableView.deselectRow(at: indexPath, animated: true)
         let state = stateSt[indexPath.row]
@@ -213,7 +215,7 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 
                    Task {
 
-
+                       
                        print("whatPick" , "-\(whatPick)-" )
                        print("#1")
                        picker = "\(pickerView)"
@@ -416,8 +418,9 @@ class ManualAttViewController: UIViewController,UITableViewDelegate, UITableView
 //        }
 
 
-        
     }
+    
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
        // let my = tableView.dequeueReusableCell(withIdentifier: "cll") as! customAttendTable
         if let my = tableView.cellForRow(at: indexPath) as? customAttendTable {
@@ -553,11 +556,7 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
 //
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//          stateSt[indexPath.row].text = StudentStatus[row]
-//          state.text = StudentStatus[row]
-      
-//        async
-        
+
         print("#7")
         let chosen = pickerView.selectedRow(inComponent: 0)
         if(chosen == 0 ){
@@ -576,6 +575,7 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
         
         
         print("#8")
+        
         picker = "\( pickerView)"
      //  pickerView
 //       print(picker , "picker after")
@@ -586,6 +586,7 @@ extension ManualAttViewController: UIPickerViewDelegate , UIPickerViewDataSource
         pickerView.resignFirstResponder()
         pickerView.isHidden = true
         print("#9")
+        print("whatPick" , whatPick)
 
     }
 }
