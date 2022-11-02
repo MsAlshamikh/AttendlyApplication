@@ -305,6 +305,8 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
                             var emailArry = [String]()
                             var studentID = [String]()
                             var perecmtageArrya = [String]()
+                            var serialStudent = [String]()
+
             var  v =  ""
             var  i  =  0
          if(cell.titleLabel2.text! != ""){
@@ -330,7 +332,8 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
                  let EMAIL = documents.get("StudentEmail") as! String
                  print("AMANI  GOT EMAIL", EMAIL)
                  emailArry.append(EMAIL)
-                 
+                 let ser = documents.get("SerialNum") as! String
+                 serialStudent.append(ser)
                  var SA = documents.get("co") as! [String]
                  var numsec = SA[i+1].split(separator: "-")[1]
                  
@@ -415,6 +418,7 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
                                    vc1.v = v
                                    vc1.emailStudent = emailArry
                                    vc1.percentagestu = perecmtageArrya
+             vc1.serialStudent = serialStudent
                                     self.navigationController?.pushViewController( vc1, animated: true)}
      }}}}
 
