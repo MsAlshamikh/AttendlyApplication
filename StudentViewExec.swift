@@ -40,7 +40,7 @@ class StudentViewExec: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
         
         viewSection.text = sectionName
-        navigationItem.title = "Absence Excuse"
+      //  navigationItem.title = "Absence Excuse"
         dateOF.text = datePreesed
         print("wiich is now press?? number of row",datePreesed)
         print("wiich is now press?? dateispreesed",sectionName)
@@ -79,6 +79,10 @@ class StudentViewExec: UIViewController {
                      }
                      else if FormState == "Accepted" {
                          stateOfex.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                         stateOfex.text = FormState
+                     }
+                     else if FormState == "Pending" {
+                         stateOfex.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
                          stateOfex.text = FormState
                      }
                     titleOf.text = titlee

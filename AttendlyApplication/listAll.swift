@@ -54,7 +54,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         self.filteredTableData = tableData
        
-        navigationItem.title = "Student list"
+        //navigationItem.title = "Student list"
 //        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
 //
 //        navigationController?.navigationBar.titleTextAttributes = textAttributes

@@ -683,6 +683,13 @@
                                 <color key="textColor" red="0.2156862745" green="0.56862745100000001" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Student list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjo-gK-zMt">
+                                <rect key="frame" x="59" y="33" width="316" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bpC-qh-hX6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1269,7 +1276,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Send">
                                             <attributes>
-                                                <font key="NSFont" size="18" name="ArialMT"/>
+                                                <font key="NSFont" size="18" name="Arial-BoldMT"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1329,6 +1336,13 @@
                                 <rect key="frame" x="-132" y="-13" width="894" height="358"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Excuse Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyr-fB-CUc">
+                                <rect key="frame" x="60" y="15" width="300" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dwo-SL-DOQ">
                                 <rect key="frame" x="20" y="437" width="360" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1353,7 +1367,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Cancel">
                                             <attributes>
-                                                <font key="NSFont" metaFont="system" size="18"/>
+                                                <font key="NSFont" size="18" name="Arial-BoldMT"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -2597,6 +2611,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZt-EN-iDi">
+                                <rect key="frame" x="76" y="31" width="270" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.clock.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Rel-mG-guD">
                                 <rect key="frame" x="87.5" y="326.5" width="34" height="29"/>
                                 <color key="tintColor" systemColor="labelColor"/>
@@ -2647,10 +2668,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logow" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-t7-pZ5">
-                                <rect key="frame" x="97" y="60" width="230" height="124"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOA-MQ-CKe">
                                 <rect key="frame" x="60" y="192" width="304" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2671,6 +2688,10 @@
                                     <action selector="saveAsPdf:" destination="5ak-FC-7ci" eventType="touchUpInside" id="Pb5-WX-bRe"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logow" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-t7-pZ5">
+                                <rect key="frame" x="89" y="65" width="230" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="auG-Fq-GFq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2767,6 +2788,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic2.png" translatesAutoresizingMaskIntoConstraints="NO" id="PS4-Y5-rSo">
                                 <rect key="frame" x="-65" y="-17" width="818" height="358"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Student excuses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzZ-Zt-TJI">
+                                <rect key="frame" x="69" y="33" width="281" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY3-sl-wdn">
                                 <rect key="frame" x="20" y="108" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
@@ -3135,7 +3163,7 @@
             </objects>
             <point key="canvasLocation" x="6" y="1825"/>
         </scene>
-        <!--Absence Excuse Form-->
+        <!--Student View Exec-->
         <scene sceneID="jFr-iv-oxL">
             <objects>
                 <viewController storyboardIdentifier="StudentViewExec" id="TYD-9r-ON6" customClass="StudentViewExec" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -3190,6 +3218,13 @@
                                 <rect key="frame" x="-123" y="0.0" width="894" height="358"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Absence Excuse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPm-Bd-Pwq">
+                                <rect key="frame" x="70" y="12" width="279" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reason for Absence:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ht-3z-GmF">
                                 <rect key="frame" x="6" y="519" width="221" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -3296,7 +3331,7 @@
                             <constraint firstItem="LqC-4B-ecg" firstAttribute="top" secondItem="bqn-id-ktx" secondAttribute="top" constant="187" id="xgh-iM-zMw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Absence Excuse Form" id="909-tB-9G3"/>
+                    <navigationItem key="navigationItem" id="909-tB-9G3"/>
                     <connections>
                         <outlet property="dateOF" destination="AiJ-7i-iaB" id="rFV-fQ-2SI"/>
                         <outlet property="resonOf" destination="NbU-LB-11T" id="5rv-WB-b0i"/>
@@ -3567,7 +3602,7 @@
         <scene sceneID="JW5-IU-Phx">
             <objects>
                 <viewController storyboardIdentifier="StudentInfoViewController" id="KGo-Ta-Utl" customClass="StudentInfoViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="hb3-ZU-gGN">
+                    <view key="view" contentMode="scaleToFill" id="hb3-ZU-gGN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3605,7 +3640,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-kY-p1n">
                                 <rect key="frame" x="0.0" y="256" width="414" height="557"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e19-nz-wej">
@@ -3848,7 +3883,7 @@
             </objects>
             <point key="canvasLocation" x="5523" y="874"/>
         </scene>
-        <!--Absence Excuse Form-->
+        <!--Lecture View Accep Rej-->
         <scene sceneID="Qo0-Ps-T7V">
             <objects>
                 <viewController storyboardIdentifier="LectureViewAccepRej" id="bGo-AZ-Lbz" customClass="LectureViewAccepRej" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -3903,6 +3938,13 @@
                                 <rect key="frame" x="-123" y="0.0" width="894" height="358"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Absence excuse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZx-gk-DhC">
+                                <rect key="frame" x="31" y="14" width="341" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Reason for Absence:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deb-Lh-fd0">
                                 <rect key="frame" x="6" y="519" width="221" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -4100,7 +4142,7 @@
                             <constraint firstItem="5cn-Oz-GCo" firstAttribute="leading" secondItem="Q2m-ci-YhZ" secondAttribute="trailing" constant="4.5" id="xwY-sq-Gp5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Absence Excuse Form" id="2f2-Yl-dwJ"/>
+                    <navigationItem key="navigationItem" id="2f2-Yl-dwJ"/>
                     <connections>
                         <outlet property="acceptbutton" destination="vJv-5g-5hP" id="acJ-59-aRm"/>
                         <outlet property="cancellButon" destination="VZF-vR-TJV" id="e8d-jz-v3i"/>
@@ -4304,6 +4346,13 @@
                                 <color key="tintColor" red="0.2588235438" green="0.5647059083" blue="0.62352943419999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Absence excuse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYs-j2-aym">
+                                <rect key="frame" x="74" y="27" width="270" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7CR-OF-7hI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

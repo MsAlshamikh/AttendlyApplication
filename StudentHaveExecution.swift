@@ -74,7 +74,7 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
            tableView.addSubview(refreshControl)
         
-        navigationItem.title = "Student excuses"
+      //  navigationItem.title = "Student excuses"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80

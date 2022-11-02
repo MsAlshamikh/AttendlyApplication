@@ -24,17 +24,21 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         courseLabel2.isHidden = false
         courseLabel2.textColor = #colorLiteral(red: 0.05490196078, green: 0.568627451, blue: 0.631372549, alpha: 1)
         logoo.isHidden = false
+        
         let path = self.view.exportASPdfFromView()
             if(path.count > 0) {
                 let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
                 dc.delegate = self
                 dc.presentPreview(animated: true)
             }
+        
+        
         backgroundImage.isHidden = false
         savePDF.isHidden = false
         courseLabel2.isHidden = true
         logoo.isHidden = true
         courseLabel.isHidden = false
+        
     }
     
     func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {

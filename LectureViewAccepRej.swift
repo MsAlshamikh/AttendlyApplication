@@ -50,7 +50,7 @@ class LectureViewAccepRej: UIViewController {
         nameOf.text = namepressed
         dateOf.text = datePreesed
         super.viewDidLoad()
-        navigationItem.title = "Absence excuse"
+       // navigationItem.title = "Absence excuse"
         print("sectionNmae",sectionNmae)
         print("datePreesed",sectionNmae)
         print("namepressed",namepressed)

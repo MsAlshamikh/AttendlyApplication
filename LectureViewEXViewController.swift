@@ -43,7 +43,7 @@ class LectureViewEXViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Absence excuse"
+      //  navigationItem.title = "Absence excuse"
         nameOf.text = namepressed
         dateOF.text = datePreesed
        // self.tabBarController?.tabBar.isHidden = true

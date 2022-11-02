@@ -36,7 +36,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        navigationItem.title = "Excuse Form"
+      //  navigationItem.title = "Excuse Form"
         
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
