@@ -55,6 +55,8 @@ class StudentHaveExecution: UIViewController ,UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
+        
 //        var  nameAll = [String]()
 //        var idAll = [String]()
 //

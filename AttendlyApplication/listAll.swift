@@ -65,7 +65,7 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
 
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36), NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
 
         
         zeroStudent.isHidden = true

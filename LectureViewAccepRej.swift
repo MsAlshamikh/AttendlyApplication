@@ -22,6 +22,9 @@ class LectureViewAccepRej: UIViewController {
     @IBOutlet weak var nameOf: UILabel!
     @IBOutlet weak var dateOf: UILabel!
     
+    @IBOutlet weak var cancellButon: UIButton!
+    
+    
     @IBOutlet weak var viewFile: UIButton!
     
     @IBOutlet weak var titleoF: UILabel!
@@ -42,7 +45,7 @@ class LectureViewAccepRej: UIViewController {
     override func viewDidLoad() {
         acceptbutton.isHidden = true
        rejectButton.isHidden = true
-
+        cancellButon.isHidden = true
       
         nameOf.text = namepressed
         dateOf.text = datePreesed
@@ -102,16 +105,27 @@ class LectureViewAccepRej: UIViewController {
     
     @IBAction func pressEditbutton(_ sender: UIButton) {
         print(FormStatetake)
+        editButton.isHidden = true
                 if (FormStatetake == "Rejected" ){
                     acceptbutton.isHidden = false
+                    cancellButon.isHidden = false
 
                 }
                 else if (FormStatetake == "Accepted"){
                     rejectButton.isHidden = false
+                    cancellButon.isHidden = false
                 }
 
     }
     
+    
+    @IBAction func canceelpressed(_ sender: UIButton) {
+       cancellButon.isHidden = true
+        rejectButton.isHidden = true
+        acceptbutton.isHidden = true
+        editButton.isHidden = false
+        
+    }
     
     
     @IBAction func rejectpressed(_ sender: UIButton) {

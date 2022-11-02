@@ -24,6 +24,10 @@ class SectionsVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = " EEEE, MMM d, yyyy‏"

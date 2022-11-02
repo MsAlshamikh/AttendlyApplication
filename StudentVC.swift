@@ -74,6 +74,9 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+        
         SecName1.isHidden = true
         logoo1.isHidden = true
         
