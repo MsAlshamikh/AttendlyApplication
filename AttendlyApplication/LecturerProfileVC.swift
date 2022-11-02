@@ -32,16 +32,25 @@ class LecturerProfileVC: UIViewController {
         }
     }
     
+    
+    @IBAction func viewLecSch(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable2") as! ViewController3
+             navigationController?.pushViewController( vc, animated: true)
+    }
+    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         course()
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func viewLecSch(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "timetable2") as! ViewController3
-        navigationController?.pushViewController( vc, animated: true)
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+        
     }
+    
     func course(){
             let db = Firestore.firestore()
             Task{
@@ -215,53 +224,102 @@ print("hh")
 //        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    @IBAction func logggoutt(_ sender: Any) {
-        print("pressed")
-        let db = Firestore.firestore()
-        let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+    @IBAction func logoutnew(_ sender: UIButton) {
+        
+            print("pressed")
+            let db = Firestore.firestore()
+            let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
 
-               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                   alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
 
-              do{
-                  Task{
-                     try Auth.auth().signOut()
-                  print("logout!")
-                      guard let Lectureis = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+                  do{
+                      Task{
+                         try Auth.auth().signOut()
+                      print("logout!")
+                          guard let Lectureis = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
 
-                                            try await db.collection("Lectures").document(Lectureis).setData([
-                                                "token": "-"
-                                            ],merge: true) { err in
-                                                if let err = err {
-                                                    print("Lectures not delete token  : \(err)")
-                                                } else {
-                                                    print(" Lectures delete token  ")
+                                                try await db.collection("Lectures").document(Lectureis).setData([
+                                                    "token": "-"
+                                                ],merge: true) { err in
+                                                    if let err = err {
+                                                        print("Lectures not delete token  : \(err)")
+                                                    } else {
+                                                        print(" Lectures delete token  ")
+                                                    }
                                                 }
                                             }
-                                        }
 
 
-                 self.performSegue(withIdentifier: "logo2", sender: self)
+                     self.performSegue(withIdentifier: "logo2", sender: self)
 
-                  } //do
+                      } //do
 
-               
+                   
 
-               catch let signOutError as NSError{
+                   catch let signOutError as NSError{
 
-                   print("error",signOutError)
+                       print("error",signOutError)
 
-                }
+                    }
 
-                      
+                          
 
-               }))
+                   }))
 
-                  alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+                      alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
 
-                       self.present(alert, animated: true, completion: nil)
+                           self.present(alert, animated: true, completion: nil)
 
-            //   self.performSegue(withIdentifier: "logo2", sender: self)
-    }
+                //   self.performSegue(withIdentifier: "logo2", sender: self)
+        }
+    
+//    @IBAction func logggoutt(_ sender: Any) {
+//        print("pressed")
+//        let db = Firestore.firestore()
+//        let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+//
+//               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//
+//              do{
+//                  Task{
+//                     try Auth.auth().signOut()
+//                  print("logout!")
+//                      guard let Lectureis = try await db.collection("Lectures").whereField("EmailLectures", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+//
+//                                            try await db.collection("Lectures").document(Lectureis).setData([
+//                                                "token": "-"
+//                                            ],merge: true) { err in
+//                                                if let err = err {
+//                                                    print("Lectures not delete token  : \(err)")
+//                                                } else {
+//                                                    print(" Lectures delete token  ")
+//                                                }
+//                                            }
+//                                        }
+//
+//
+//                 self.performSegue(withIdentifier: "logo2", sender: self)
+//
+//                  } //do
+//
+//
+//
+//               catch let signOutError as NSError{
+//
+//                   print("error",signOutError)
+//
+//                }
+//
+//
+//
+//               }))
+//
+//                  alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+//
+//                       self.present(alert, animated: true, completion: nil)
+//
+//            //   self.performSegue(withIdentifier: "logo2", sender: self)
+//    }
     
     func setUIForOtherlecturerProfile () {
       //logoutButton.isHidden = true

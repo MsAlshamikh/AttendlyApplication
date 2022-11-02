@@ -26,6 +26,10 @@ class ViewController3: UIViewController {
          gridLayout.stickyColumnsCount = 1
         }
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+        
+    }
     
 }
 
@@ -311,7 +315,22 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
             var  i  =  0
          if(cell.titleLabel2.text! != ""){
              v = cell.titleLabel2.text!
+             
+            var v1 = ""
               let db = Firestore.firestore()
+             
+             db.collection("Sections").whereField("courseName", isEqualTo: v).getDocuments{
+                 (shot, error) in
+                 if let error = error {
+                 }
+                 else{
+    let couseN = shot!.documents.first!.get("fullCourse") as! String
+                     v1 = couseN
+print("v1 ",v1)
+                 }
+             }
+             
+             
              
      db.collection("Unistudent").whereField("courses", arrayContains: v).getDocuments{
          (snapshot, error) in
@@ -335,9 +354,21 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
                  let ser = documents.get("SerialNum") as! String
                  print("ser",ser)
                  serialStudent.append(ser)
-                 var SA = documents.get("co") as! [String]
-                 var numsec = SA[i+1].split(separator: "-")[1]
                  
+                 var SA = documents.get("Sections") as! [String]
+                 var numsec = ""
+                 var SA1 = documents.get("courses") as! [String]
+                 for i in 0 ..< SA1.count {
+                     if( SA1[i] == v ){
+                    numsec = SA[i]
+                         print("numsec",numsec)
+                         
+                     }
+                     
+                     print("After numsec",numsec)
+                     
+                 }
+               //  var numsec = SA[i+1].split(separator: "-")[1]
                  var abbsencest = documents.get("abbsencest") as! [String: Int]
                  var sectionH = documents.get("sectionH") as! [String: Int]
                  var percentage = documents.get("percentage") as! [String: Int]
@@ -416,7 +447,7 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
              
                                 vc1.nameStudent = studentArry
                                  vc1.idStudent = studentID
-                                   vc1.v = v
+                                   vc1.v = v1
                                    vc1.emailStudent = emailArry
                                    vc1.percentagestu = perecmtageArrya
              vc1.serialStudent = serialStudent

@@ -113,8 +113,9 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
             tableView.rowHeight = 60
             //
             let db = Firestore.firestore()
+        print("hi")
             Task {
-             
+                print("hi2222 ")
                 let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: sectionName).getDocuments()
                
            

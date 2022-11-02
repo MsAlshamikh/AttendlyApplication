@@ -18,6 +18,7 @@ class ProfileViewContoller: UIViewController {
     @IBOutlet weak var sid: UILabel!
     @IBOutlet weak var majorlabel: UILabel!
     @IBOutlet weak var avlabel: UILabel!
+
     @IBOutlet weak var looggg: UIButton!
     
     let firestore = Firestore.firestore()
@@ -38,6 +39,11 @@ class ProfileViewContoller: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         course()
@@ -46,6 +52,8 @@ class ProfileViewContoller: UIViewController {
         let tg = UITapGestureRecognizer(target: self, action: #selector(adviserNameTapped(_:)))
         avlabel.isUserInteractionEnabled = true
         avlabel.addGestureRecognizer(tg)
+        
+        
         
     }
     func course(){
@@ -269,53 +277,106 @@ class ProfileViewContoller: UIViewController {
 //        }
 //        self.performSegue(withIdentifier: "logo2", sender: self)
 //    }
-    @IBAction func logggouuuu(_ sender: Any) {
-        print("pressed")
-        let db = Firestore.firestore()
-              let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+    
+    
+    @IBAction func logggonew(_ sender: UIButton) {
 
-               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("pressed")
+            let db = Firestore.firestore()
+                  let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
 
-              do{
-                  Task{
-                     try Auth.auth().signOut()
-                  print("logout!")
-                      
-                      guard let stidentis = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
-                                                  
-                                                  try await db.collection("Unistudent").document(stidentis).setData([
-                                                      "token": "-"
-                                                  ],merge: true) { err in
-                                                      if let err = err {
-                                                          print("not delete token  : \(err)")
-                                                      } else {
-                                                          print(" delete token sucsseful ")
+                   alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+                  do{
+                      Task{
+                         try Auth.auth().signOut()
+                      print("logout!")
+                          
+                          guard let stidentis = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+                                                      
+                                                      try await db.collection("Unistudent").document(stidentis).setData([
+                                                          "token": "-"
+                                                      ],merge: true) { err in
+                                                          if let err = err {
+                                                              print("not delete token  : \(err)")
+                                                          } else {
+                                                              print(" delete token sucsseful ")
+                                                          }
                                                       }
-                                                  }
-                                        }
+                                            }
 
-                 self.performSegue(withIdentifier: "logo", sender: self)
+                     self.performSegue(withIdentifier: "logo", sender: self)
 
-                  } //do
+                      } //do
 
-               
+                   
 
-               catch let signOutError as NSError{
+                   catch let signOutError as NSError{
 
-                   print("error",signOutError)
+                       print("error",signOutError)
 
-                }
+                    }
 
-                      
+                          
 
-               }))
+                   }))
 
-                  alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+                      alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
 
-                       self.present(alert, animated: true, completion: nil)
+                           self.present(alert, animated: true, completion: nil)
 
-            //   self.performSegue(withIdentifier: "logo2", sender: self)
-    }
+                //   self.performSegue(withIdentifier: "logo2", sender: self)
+        }
+        
+        
+    
+//    @IBAction func logggouuuu(_ sender: Any) {
+//        print("pressed")
+//        let db = Firestore.firestore()
+//              let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
+//
+//               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//
+//              do{
+//                  Task{
+//                     try Auth.auth().signOut()
+//                  print("logout!")
+//
+//                      guard let stidentis = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
+//
+//                                                  try await db.collection("Unistudent").document(stidentis).setData([
+//                                                      "token": "-"
+//                                                  ],merge: true) { err in
+//                                                      if let err = err {
+//                                                          print("not delete token  : \(err)")
+//                                                      } else {
+//                                                          print(" delete token sucsseful ")
+//                                                      }
+//                                                  }
+//                                        }
+//
+//                 self.performSegue(withIdentifier: "logo", sender: self)
+//
+//                  } //do
+//
+//
+//
+//               catch let signOutError as NSError{
+//
+//                   print("error",signOutError)
+//
+//                }
+//
+//
+//
+//               }))
+//
+//                  alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
+//
+//                       self.present(alert, animated: true, completion: nil)
+//
+//            //   self.performSegue(withIdentifier: "logo2", sender: self)
+//    }
     
     @objc func adviserNameTapped(_ sender:UITapGestureRecognizer) {
         guard let adviser = adviser else {return}

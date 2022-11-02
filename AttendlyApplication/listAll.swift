@@ -55,6 +55,19 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.filteredTableData = tableData
        
         navigationItem.title = "Student list"
+//        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+//
+//        navigationController?.navigationBar.titleTextAttributes = textAttributes
+//
+//        let titleAttributes = [
+//            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36)
+//         ]
+//         self.navigationController?.navigationBar.titleTextAttributes = titleAttributes
+
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36), NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        
         zeroStudent.isHidden = true
         
       //  sectionName = nameSection.text!
@@ -102,6 +115,9 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
        // var converDou = Double(percentagestu)
     }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("enter")
         noStudentsFoundLabel.isHidden = !(filteredTableData.count == 0)
@@ -260,13 +276,27 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let v = currentCell.idStu!.text!
                 print("is preeesed", v)
         
-        Task{
-               let snapshot = try await db.collection("Unistudent").whereField("studentID", isEqualTo: v).getDocuments()
-               guard let EmailStu = snapshot.documents.first?.get("StudentEmail") as? String else { return }
-               guard let NameStu = snapshot.documents.first?.get("Fullname") as? String else { return }
+       // Task{
+        
+        
+        
+        let db = Firestore.firestore()
+        
+        
+        db.collection("Unistudent").whereField("studentID", isEqualTo: v).getDocuments{
+            (snapshot, error) in
+            if let error = error {
+            }
+            else{
+                let EmailStu = snapshot!.documents.first!.get("StudentEmail") as! String
+                
+                let NameStu = snapshot!.documents.first!.get("Fullname") as! String
+//               let snapshot = try await db.collection("Unistudent").whereField("studentID", isEqualTo: v).getDocuments()
+//               guard let EmailStu = snapshot.documents.first?.get("StudentEmail") as? String else { return }
+//               guard let NameStu = snapshot.documents.first?.get("Fullname") as? String else { return }
                
             
-               let stude = storyboard?.instantiateViewController(withIdentifier: "StudentVC") as! StudentVC
+                let stude = self.storyboard?.instantiateViewController(withIdentifier: "StudentVC") as! StudentVC
         
                print("Email  ssssss" , EmailStu )
 //            
@@ -274,19 +304,21 @@ class listAll: UIViewController, UITableViewDelegate, UITableViewDataSource {
               var arrAll = NameStu.split(separator: "-")
                print("TRRRRYYY SPLLLIITTT", arrAll)
                stude.v = v // id student
-               stude.sectionName = sectionName
+                stude.sectionName = self.sectionName
 //               stude.SingleName = NameStu
 //               stude.SingleEmail = EmailStu
             stude.FullEmail = EmailStu
             stude.SingleName = String(arrAll[0])
             stude.SingleEmail = String(arrAll[1])
             
-               print("here course is ", sectionName)
+                print("here course is ", self.sectionName)
        
         
-        navigationController?.pushViewController(stude, animated: true)
-        }
+                self.navigationController?.pushViewController(stude, animated: true)
+       // }
+            }
     
+    }
     }
     
 
