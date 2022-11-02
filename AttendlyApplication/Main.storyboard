@@ -4179,7 +4179,7 @@
             </objects>
             <point key="canvasLocation" x="3296" y="1610"/>
         </scene>
-        <!--Absence Excuse Form-->
+        <!--Lecture ViewEX View Controller-->
         <scene sceneID="QtG-Iq-tv8">
             <objects>
                 <viewController storyboardIdentifier="LectureViewEXViewController" id="NkU-BD-4LA" customClass="LectureViewEXViewController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -4385,7 +4385,6 @@
                             <constraint firstItem="lxo-wD-lhg" firstAttribute="leading" secondItem="KdF-aR-gkv" secondAttribute="trailing" constant="114" id="xPb-Y0-wvl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Absence Excuse Form" id="ob2-W8-XcH"/>
                     <connections>
                         <outlet property="accapetButton" destination="p97-8t-CCb" id="0cf-gj-bul"/>
                         <outlet property="dateOF" destination="IEU-wm-3cj" id="32C-ib-PEn"/>
