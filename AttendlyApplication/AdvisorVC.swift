@@ -142,7 +142,7 @@ extension AdvisorVC: UISearchResultsUpdating, UISearchBarDelegate {
             let filteredStudents = self.students.filter { student in
                 let Name = student["name"] as? String ?? ""
                 let studentID = student["studentID"] as? String ?? ""
-                let serialN = student["Snum"] as? String ?? ""
+                let serialN = student["SerialNum"] as? String ?? ""
                 
                 return Name.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces)) ||
                     serialN.lowercased().contains(query.lowercased().trimmingCharacters(in: .whitespaces)) ||
@@ -175,7 +175,7 @@ extension AdvisorVC: UITableViewDelegate, UITableViewDataSource {
         let student = students[indexPath.row]
         let Name = student["name"] as? String ?? ""
         let studentID = student["studentID"] as? String ?? ""
-        let serialN = student["Snum"] as? String ?? ""
+        let serialN = student["SerialNum"] as? String ?? ""
         my.nostudent.text = Name
         my.idStu.text = studentID
         my.serialN.text = serialN
