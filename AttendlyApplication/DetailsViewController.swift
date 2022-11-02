@@ -24,7 +24,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         courseLabel2.isHidden = false
         courseLabel2.textColor = #colorLiteral(red: 0.05490196078, green: 0.568627451, blue: 0.631372549, alpha: 1)
         logoo.isHidden = false
-        
+        self.navigationController?.navigationBar.tintColor = .black
+
         let path = self.view.exportASPdfFromView()
             if(path.count > 0) {
                 let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
@@ -85,6 +86,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
        
 
       //  my.courseName.image = imageF[indexPath.row]
+    
+    override func viewWillAppear(_ animated: Bool) {
+            self.navigationController?.navigationBar.tintColor = .white
+            // self.tabBarController?.tabBar.isHidden = false
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
