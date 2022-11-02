@@ -75,6 +75,7 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "History"
        
         
         SecName1.isHidden = true
