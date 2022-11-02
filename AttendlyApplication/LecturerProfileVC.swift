@@ -20,6 +20,7 @@ class LecturerProfileVC: UIViewController {
    // @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var MyProfile: UILabel!
     
+    @IBOutlet weak var sculde: UIButton!
     
     @IBOutlet weak var logoutnow: UIButton!
     
@@ -42,7 +43,7 @@ class LecturerProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        course()
+      //  course()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
         
@@ -215,6 +216,7 @@ class LecturerProfileVC: UIViewController {
             loadProfile(letctrerID: lecturerID)
             setUIForOtherlecturerProfile()
         } else {
+            course()
             guard let uid = Auth.auth().currentUser?.uid else {
                 return
             }
@@ -336,7 +338,9 @@ print("hh")
     func setUIForOtherlecturerProfile () {
       //logoutButton.isHidden = true
         logoutnow.isHidden = true
-        MyProfile.isHidden = true 
+        MyProfile.isHidden = true
+        sculde.isHidden = true
+        
       //  sendEmail.isHidden = true
         titleLable.text = "Lecturer Profile"
         

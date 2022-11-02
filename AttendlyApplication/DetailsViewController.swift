@@ -25,6 +25,23 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         courseLabel2.textColor = #colorLiteral(red: 0.05490196078, green: 0.568627451, blue: 0.631372549, alpha: 1)
         logoo.isHidden = false
         self.navigationController?.navigationBar.tintColor = .black
+        
+        let text1 = NSMutableAttributedString()
+
+               text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+
+               text1.append(NSAttributedString(string: Global.shared.name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2)]))
+
+               lecturerLabel.attributedText = text1
+
+               let tg = UITapGestureRecognizer(target: self, action: #selector(lecturerNameTapped(_:)))
+
+                      lecturerLabel.isUserInteractionEnabled = true
+
+                      lecturerLabel.addGestureRecognizer(tg)
+        
+        
+        
 
         let path = self.view.exportASPdfFromView()
             if(path.count > 0) {
@@ -90,6 +107,19 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
             self.navigationController?.navigationBar.tintColor = .white
             // self.tabBarController?.tabBar.isHidden = false
+        
+        let text1 = NSMutableAttributedString()
+
+               text1.append(NSAttributedString(string: "Lecturer: ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 29)]));
+
+               text1.append(NSAttributedString(string: Global.shared.name, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 14/255, green: 145/255, blue: 161/255, alpha: 2),NSAttributedString.Key.underlineStyle:NSUnderlineStyle.single.rawValue]))
+
+                  lecturerLabel.attributedText = text1
+
+
+        
+        
+        
         }
 
     override func viewDidLoad() {
