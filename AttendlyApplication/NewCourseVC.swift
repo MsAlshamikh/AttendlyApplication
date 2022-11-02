@@ -385,7 +385,12 @@ class NewCourseVC: UIViewController {
                 Global.shared.name = name
                 Global.shared.titleB = titleB
                 Global.shared.WhatPressed = WhatPressed
+                
+                print(Global.shared.lecturerId ,"Befor Global.shared.lecturerId ")
+
                 Global.shared.lecturerId = self.lecturerCourses[selectedIndex]["lecturerID"]
+                
+                print(Global.shared.lecturerId ,"Global.shared.lecturerId ")
             }
         }
     }
