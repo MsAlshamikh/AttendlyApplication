@@ -94,6 +94,32 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     
         
         }
+        if(reasonText.text?.count ?? 0 > 0 ){
+            messR.text = ""
+            messR.isHidden = true
+            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+            textView.becomeFirstResponder()
+//
+//            if (my == false){
+//                label.text = "please choose a file!"
+//                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+//                SendBtn.isEnabled = false
+//            }
+            //else{    SendBtn.isEnabled = true}
+        }
+    
+        else{
+            if(reasonText.resignFirstResponder() == true){
+                reasonText.layer.borderColor = #colorLiteral(red: 0.7241919041, green: 0.002930019982, blue: 0.06262063235, alpha: 1)
+                messR.isHidden = false
+            messR.text = "This field is required9"
+          
+           // messR.text = "Can not be empty!"
+        
+                SendBtn.isEnabled = false
+//
+            }
+        }
         if(textView.text?.count ?? 0 > 0){
             
             if(TCount ?? 0 >= 20){
@@ -121,42 +147,13 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             if( textView.resignFirstResponder() == true){
             titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             messT.isHidden = false
-                messT.text = "This field is required"
+                messT.text = "This field is required5"
                 SendBtn.isEnabled = false
-//                if (my == false){
-//                    label.text = "please choose a file!"
-//                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-//                }
+//
                 
             }
         }
-        if(reasonText.text?.count ?? 0 > 0 ){
-            messR.text = ""
-            messR.isHidden = true
-            reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
-            textView.becomeFirstResponder()
-//
-//            if (my == false){
-//                label.text = "please choose a file!"
-//                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-//                SendBtn.isEnabled = false
-//            }
-            //else{    SendBtn.isEnabled = true}
-        }
-    
-        else{
-            if( reasonText.resignFirstResponder() == true){
-            messR.text = "This field is required"
-            messR.isHidden = false
-           // messR.text = "Can not be empty!"
-            reasonText.layer.borderColor = #colorLiteral(red: 0.7241919041, green: 0.002930019982, blue: 0.06262063235, alpha: 1)
-                SendBtn.isEnabled = false
-//                if (my == false){
-//                    label.text = "please choose a file!"
-//                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-//                }
-            }
-        }
+       
         
     }
     func isValid() -> (Bool, String?, String?) {
