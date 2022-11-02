@@ -24,6 +24,9 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
         SecName1.isHidden = false
         SecName1.textColor = #colorLiteral(red: 0.05490196078, green: 0.568627451, blue: 0.631372549, alpha: 1)
         logoo1.isHidden = false
+        
+        self.navigationController?.navigationBar.tintColor = .black
+        
             let path = self.view.exportASPdfFromView()
                 if(path.count > 0) {
                     let dc = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
@@ -72,6 +75,10 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
     var SingleName: String = ""
     var FullEmail : String = ""
     
+    override func viewWillAppear(_ animated: Bool) {
+            self.navigationController?.navigationBar.tintColor = .white
+            // self.tabBarController?.tabBar.isHidden = false
+        }
     override func viewDidLoad() {
         super.viewDidLoad()
         

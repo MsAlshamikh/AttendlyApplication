@@ -2385,6 +2385,7 @@
                         <outlet property="emailLabel" destination="NCZ-1G-5u7" id="bDF-Qg-pqs"/>
                         <outlet property="logoutnow" destination="eEz-Qv-ZFU" id="udf-P7-tFm"/>
                         <outlet property="nameLabel" destination="KMf-Vq-poL" id="k48-5I-hMm"/>
+                        <outlet property="sculde" destination="Blq-lQ-ciI" id="tld-eS-u4f"/>
                         <outlet property="titleLable" destination="SgK-tI-qJ2" id="NHA-Gg-iQV"/>
                         <segue destination="S1e-Zt-ruJ" kind="show" identifier="logo2" id="T27-IC-KYT"/>
                     </connections>
@@ -4786,7 +4787,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G1y-3w-L4w"/>
-        <segue reference="reZ-IS-bBu"/>
+        <segue reference="T27-IC-KYT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
