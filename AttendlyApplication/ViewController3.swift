@@ -333,6 +333,7 @@ extension ViewController3: UICollectionViewDelegateFlowLayout , UICollectionView
                  print("AMANI  GOT EMAIL", EMAIL)
                  emailArry.append(EMAIL)
                  let ser = documents.get("SerialNum") as! String
+                 print("ser",ser)
                  serialStudent.append(ser)
                  var SA = documents.get("co") as! [String]
                  var numsec = SA[i+1].split(separator: "-")[1]
