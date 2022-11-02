@@ -11,16 +11,18 @@ import UniformTypeIdentifiers
 import FirebaseFirestore
 import FirebaseStorage
 import PDFKit
-
+var my = false
 var x = ""
 class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDocumentPickerDelegate {
     
     @IBOutlet weak var nameSection: UILabel!
     
+    @IBOutlet weak var counter: UILabel!
     @IBOutlet weak var messR: UILabel!
     @IBOutlet weak var messT: UILabel!
     @IBOutlet weak var imp: UIButton!
     
+    @IBOutlet weak var messC: UILabel!
     @IBOutlet weak var reasonText: UITextView!
     @IBOutlet weak var titleView: UITextView!
     
@@ -30,6 +32,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     var Takesection: String = ""
     var   datePreesed: String = ""
     var fileURL: URL?
+   // var fileURL = nil
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -75,10 +78,29 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         self.view.endEditing(true)
     }
     func textViewDidChange(_ textView: UITextView) {
-        if(titleView.text?.count ?? 0 > 0 ){
+        let TCount = self.titleView.text?.count
+           
+
+        self.counter.text = "\((0) + (TCount ?? 0))/20"
+
+        if(TCount ?? 0 >= 20){
+            self.counter.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            messC.isHidden = false
+            messC.text = "Must be 20 charachter"
+            messC.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            SendBtn.isEnabled = false
+            }
+        if(titleView.text?.count ?? 0 < 21 ){
             messT.text = ""
             messT.isHidden = true
+           messC.isHidden = true
+           self.counter.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        
+        
+    
+        
         }
     
         else{
@@ -86,13 +108,27 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             if( textView.resignFirstResponder() == true){
             titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             messT.isHidden = false
-                messT.text = "This field is required"}
+                messT.text = "This field is required"
+                SendBtn.isEnabled = false
+                if (my == false){
+                    label.text = "please choose a file!"
+                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+                }
+                
+            }
         }
         if(reasonText.text?.count ?? 0 > 0 ){
             messR.text = ""
             messR.isHidden = true
             reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
             textView.becomeFirstResponder()
+        
+            if (my == false){
+                label.text = "please choose a file!"
+                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+                SendBtn.isEnabled = false
+            }
+            else{    SendBtn.isEnabled = true}
         }
     
         else{
@@ -101,6 +137,11 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             messR.isHidden = false
            // messR.text = "Can not be empty!"
             reasonText.layer.borderColor = #colorLiteral(red: 0.7241919041, green: 0.002930019982, blue: 0.06262063235, alpha: 1)
+                SendBtn.isEnabled = false
+                if (my == false){
+                    label.text = "please choose a file!"
+                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+                }
             }
         }
         
@@ -111,6 +152,11 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
        let res = reasonText.text
         let tit = titleView.text
         print("is valid")
+        if (my == false){
+            label.text = "please choose a file!"
+            label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            SendBtn.isEnabled = false
+        }
 
         let file = fileURL?.absoluteString
        let c =  fileURL?.lastPathComponent
@@ -123,13 +169,16 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
          {
             
             messT.isHidden = false
-            messT.text = "This field is required"
+            messT.text = "This% field is required"
             titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             messR.isHidden = false
             messR.text = "This field is required"
             reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-        
-
+            SendBtn.isEnabled = false
+            if (my == false){
+                label.text = "please choose a file!"
+                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            }
             return (false, "", "")
         }
         if let res = reasonText.text?.trimmingCharacters(in: .whitespaces) , res.isEmpty
@@ -140,7 +189,11 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             messR.text = "This field is required"
             reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
          
-
+            SendBtn.isEnabled = false
+            if (my == false){
+                label.text = "please choose a file!"
+                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            }
             return (false, "", "")
         }
         if  let t = titleView.text ,  t.isEmpty
@@ -152,13 +205,22 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
            
             label.text = "please choose a file!"
             label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-
+            SendBtn.isEnabled = false
+            if (my == false){
+                label.text = "please choose a file!"
+                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            }
             return (false, "", "")
         }
         if let res = reasonText.text?.trimmingCharacters(in: .whitespaces), res.isEmpty  {
             messR.isHidden = false
             messR.text = "This field is required"
             reasonText.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            SendBtn.isEnabled = false
+            if (my == false){
+                label.text = "please choose a file!"
+                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            }
             return (false, "", "")
         }
         if let tit = titleView.text?.trimmingCharacters(in: .whitespaces) , tit.isEmpty  {
@@ -166,12 +228,17 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             messT.text = "This field is required!"
             titleView.layer.borderColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             messR.isHidden = false
+            SendBtn.isEnabled = false
+            if (my == false){
+                label.text = "please choose a file!"
+                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            }
             return (false, "", "")
         }
         
         
         
-        
+        SendBtn.isEnabled = true
         return (true, tit, res)
     }
     
@@ -199,7 +266,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     @IBAction func sendPressed(_ sender: Any) {
 
         print("send is statrt")
-     SendBtn.isEnabled = false
+    // SendBtn.isEnabled = false
         areYouSure()
 //        let res = isValid()
 //        if res.0 == false {
@@ -278,18 +345,19 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     }
     func areYouSure () {
     var sure = false
-         
+        let res = self.isValid()
+        if res.0 == false {
+        //SendBtn.isEnabled = false
+            print("what is ???? ")
+            return
+            
+        }
+        //SendBtn.isEnabled = true
          var dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to send the form?", preferredStyle: .alert)
          // Create OK button with action handler
         let ok = UIAlertAction(title: "OK", style: .default, handler: { [self] (action) in
              print("Ok button tapped")
-             let res = self.isValid()
-             if res.0 == false {
-            // SendBtn.isEnabled = true
-                 print("what is ???? ")
-                 return
-                 
-             }
+            
              //   code
              let title = res.1
              let reason = res.2
@@ -350,6 +418,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                          self.present(dialogMessagee2, animated: true, completion: nil)
                          
                          print("Lecturer added sucsseful ")
+                         SendBtn.isEnabled = true
                        
                      }
                  // self.SendBtn.isEnabled = true
@@ -370,7 +439,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
           //     self.performSegue(withIdentifier: "form", sender: self)
 
          })
-         //Add OK button to a dialog message
+    //Add OK button to a dialog message
          dialogMessage.addAction(ok)
         // self.performSegue(withIdentifier: "goto", sender: self)
        
@@ -379,13 +448,13 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                                                style: .cancel,
                                                handler: { _ in print("Cancel tap") })
          )
-
+        
         self.SendBtn.isEnabled = true
          // Present Alert to
              
           
    
-         self.present(dialogMessage, animated: true, completion: nil)
+            self.present(dialogMessage, animated: true, completion: nil)
     }
     @IBAction func cancelPressed(_ sender: Any) {
         var f = false
@@ -418,11 +487,12 @@ print("inside cancel")
     func uploadPDF() async -> URL? {
        
         guard let fileURL = fileURL else {
-          // SendBtn.isEnabled = false
+           SendBtn.isEnabled = false
             print("fileURL",fileURL)
             label.text = "please choose a file!"
             label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             return nil }//here
+        SendBtn.isEnabled = true
         let storageRef = Storage.storage().reference()
         let fileRef = storageRef.child("files/\(UUID().uuidString).pdf")
         do {
@@ -447,7 +517,8 @@ print("inside cancel")
         fileURL = urls.first
         print("inside doucoment fileURL" , fileURL)
         imp.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        
+        my = true
+        SendBtn.isEnabled = true
         label.text = urls.first?.lastPathComponent
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         var dialogMessage = UIAlertController(title: "Message", message: "file uploaded successfuly", preferredStyle: .alert)
