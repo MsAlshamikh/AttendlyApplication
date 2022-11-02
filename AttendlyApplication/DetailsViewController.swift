@@ -96,7 +96,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = 60
-        
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
            refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
            tableView.addSubview(refreshControl)

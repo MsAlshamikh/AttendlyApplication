@@ -36,6 +36,9 @@ class StudentViewExec: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         viewSection.text = sectionName
         navigationItem.title = "Absence Excuse"
         dateOF.text = datePreesed

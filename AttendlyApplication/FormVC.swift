@@ -39,7 +39,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
         navigationItem.title = "Excuse Form"
         
         
-        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
 //        self.navigationItem.hidesBackButton = YES;
 //            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(back:)];
 //            self.navigationItem.leftBarButtonItem = newBackButton;‏

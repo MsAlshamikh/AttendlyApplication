@@ -43,13 +43,16 @@ class LecturerProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         course()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "bbb", style: .plain, target: nil, action:nil)
+        
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
-        
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
+//
+//    }
     
     func course(){
             let db = Firestore.firestore()
@@ -224,9 +227,16 @@ print("hh")
 //        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+        
+    
+    
+    
+    
+    
     @IBAction func logoutnew(_ sender: UIButton) {
         
             print("pressed")
+        
             let db = Firestore.firestore()
             let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
 

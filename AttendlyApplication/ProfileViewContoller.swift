@@ -53,7 +53,7 @@ class ProfileViewContoller: UIViewController {
         avlabel.isUserInteractionEnabled = true
         avlabel.addGestureRecognizer(tg)
         
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "bbb", style: .plain, target: nil, action:nil)
         
     }
     func course(){
@@ -280,20 +280,17 @@ class ProfileViewContoller: UIViewController {
     
     
     @IBAction func logggonew(_ sender: UIButton) {
-
             print("pressed")
             let db = Firestore.firestore()
                   let alert = UIAlertController(title: "Alert", message: "Are you Sure You want to Logout", preferredStyle: .alert)
 
                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-
                   do{
                       Task{
                          try Auth.auth().signOut()
                       print("logout!")
                           
                           guard let stidentis = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo:  Global.shared.useremailshare ).getDocuments().documents.first?.documentID else {return}
-                                                      
                                                       try await db.collection("Unistudent").document(stidentis).setData([
                                                           "token": "-"
                                                       ],merge: true) { err in
@@ -301,31 +298,21 @@ class ProfileViewContoller: UIViewController {
                                                               print("not delete token  : \(err)")
                                                           } else {
                                                               print(" delete token sucsseful ")
-                                                          }
-                                                      }
-                                            }
-
+                                                          }}}
                      self.performSegue(withIdentifier: "logo", sender: self)
 
                       } //do
-
-                   
-
                    catch let signOutError as NSError{
 
                        print("error",signOutError)
 
                     }
 
-                          
-
                    }))
 
                       alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil))
 
                            self.present(alert, animated: true, completion: nil)
-
-                //   self.performSegue(withIdentifier: "logo2", sender: self)
         }
         
         
