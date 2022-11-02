@@ -303,8 +303,14 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.reuseID, for: indexPath) as? CollectionViewCell else {
 //           return
+        
 //
 //        }
+        print(Global.shared.lecturerId ,"before shared.lecturerId ")
+
+        Global.shared.lecturerId = "Qxt98zR4rherRE6kHAFh9OEjslr2"
+        print(Global.shared.lecturerId ,"Global.shared.lecturerId ")
+        
       let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         Global.shared.WhatPressed = cell.titleLabel.text!
         Global.shared.titleB = cell.titleLabel.text!
