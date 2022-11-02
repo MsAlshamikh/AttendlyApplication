@@ -1593,7 +1593,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bIG-MJ-fGN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xzg-4I-lT3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="logoutnew" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="xzg-4I-lT3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="otf-h5-uZJ"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -4735,7 +4735,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G1y-3w-L4w"/>
-        <segue reference="T27-IC-KYT"/>
+        <segue reference="QwL-F5-Dv4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

@@ -53,7 +53,7 @@ class ProfileViewContoller: UIViewController {
         avlabel.isUserInteractionEnabled = true
         avlabel.addGestureRecognizer(tg)
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "bbb", style: .plain, target: nil, action:nil)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
         
     }
     func course(){
@@ -299,7 +299,9 @@ class ProfileViewContoller: UIViewController {
                                                           } else {
                                                               print(" delete token sucsseful ")
                                                           }}}
-                     self.performSegue(withIdentifier: "logo", sender: self)
+                //     self.performSegue(withIdentifier: "logo", sender: self)
+                      let viewController = self.storyboard!.instantiateViewController(withIdentifier: "logoutnew")
+                      self.present(viewController, animated: true, completion: nil)
 
                       } //do
                    catch let signOutError as NSError{

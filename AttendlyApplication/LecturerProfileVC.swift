@@ -44,7 +44,7 @@ class LecturerProfileVC: UIViewController {
         super.viewDidLoad()
         course()
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "bbb", style: .plain, target: nil, action:nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action:nil)
         
         // Do any additional setup after loading the view.
     }
@@ -260,7 +260,9 @@ print("hh")
                                             }
 
 
-                     self.performSegue(withIdentifier: "logo2", sender: self)
+                  //   self.performSegue(withIdentifier: "logo2", sender: self)
+                      let viewController = self.storyboard!.instantiateViewController(withIdentifier: "logoutnew")
+                      self.present(viewController, animated: true, completion: nil)
 
                       } //do
 
