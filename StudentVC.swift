@@ -94,7 +94,7 @@ class StudentVC: UIViewController , UITableViewDelegate, UITableViewDataSource, 
         
        // navigationItem.title = "Course details"
 
-        print("sectionName" , sectionName )
+        print("sectionName is " , sectionName )
         print("SingleName" , SingleName )
         print("SingleEmail" , SingleEmail )
         
