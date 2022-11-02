@@ -494,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4u-At-FRv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13961" y="901"/>
+            <point key="canvasLocation" x="14871.014492753624" y="900.66964285714278"/>
         </scene>
         <!--Students in Section:-->
         <scene sceneID="xjb-JI-Det">
@@ -904,7 +904,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAB-j0-XWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10578.260869565218" y="1610.4910714285713"/>
+            <point key="canvasLocation" x="11488.40579710145" y="1610.4910714285713"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="QkU-MV-Yi8">
@@ -918,7 +918,7 @@
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <tabBarAppearance key="standardAppearance" backgroundEffect="systemChromeMaterialDark">
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.2588235438" green="0.5647059083" blue="0.62352943419999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <tabBarItemAppearance key="stackedLayoutAppearance">
                                 <tabBarItemStateAppearance key="normal">
                                     <textAttributes key="titleTextAttributes">
@@ -2032,7 +2032,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlr-a6-J0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11274" y="2006"/>
+            <point key="canvasLocation" x="12184.057971014494" y="2005.5803571428571"/>
         </scene>
         <!--Profile View Contoller-->
         <scene sceneID="BeG-Bj-QD4">
@@ -2330,7 +2330,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="viewLecSch:" destination="lqJ-Vg-vD0" eventType="touchUpInside" id="yg8-Uf-Qqx"/>
-                                    <segue destination="OGr-dc-LPU" kind="show" id="TCp-Pd-NxT"/>
+                                    <segue destination="4Ce-28-0GR" kind="show" id="zTf-dU-PHF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2346,17 +2346,7 @@
                             <constraint firstItem="g5M-v8-SwG" firstAttribute="leading" secondItem="DSJ-cs-Q8B" secondAttribute="leading" constant="120" id="zzU-Me-1rJ"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" id="9Ed-uv-yw7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="i7f-7H-CZ9">
-                                <rect key="frame" x="20" y="10" width="374" height="34.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system" title="  Logout"/>
-                            </button>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="mgZ-BJ-f0o"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -4526,7 +4516,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVQ-3x-IXC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11275" y="901"/>
+            <point key="canvasLocation" x="12184.057971014494" y="900.66964285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pPO-Rw-huf">
@@ -4545,7 +4535,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sts-aa-VTj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10365" y="901"/>
+            <point key="canvasLocation" x="11033" y="959"/>
         </scene>
         <!--View Controller3-->
         <scene sceneID="56p-bL-9h4">
@@ -4630,31 +4620,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQ1-b7-G6I" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9430" y="1438"/>
+            <point key="canvasLocation" x="10339.13043478261" y="1437.7232142857142"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="p9y-3J-oAW">
+        <scene sceneID="Pti-Jj-wmk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Igh-2Z-VgN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Ce-28-0GR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="BbN-xH-wai"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K16-Nr-Yh3">
+                    <navigationItem key="navigationItem" id="y3W-dZ-b8j"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GOn-da-cRk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LyB-7f-gnc" kind="relationship" relationship="rootViewController" id="dn3-T4-wf3"/>
+                        <segue destination="LyB-7f-gnc" kind="relationship" relationship="rootViewController" id="NC1-By-j1U"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yka-wy-Aya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oct-Oa-dr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8362" y="1438"/>
+            <point key="canvasLocation" x="9428.9855072463779" y="1437.7232142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QUb-ve-6f1"/>
-        <segue reference="G1y-3w-L4w"/>
+        <segue reference="ZsB-po-RZ8"/>
         <segue reference="reZ-IS-bBu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

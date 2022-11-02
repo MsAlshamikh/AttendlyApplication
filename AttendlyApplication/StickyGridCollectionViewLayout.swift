@@ -11,7 +11,7 @@ import UIKit
 class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
      var allAttributes: [[UICollectionViewLayoutAttributes]] = []
   //  var allAttributes = []
- 
+  
     
    // let cellAttributes = allAttributes[row][column]
 
@@ -26,6 +26,7 @@ class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
 
         return layoutAttributes
     }
+  
     override func prepare() {
         setupAttributes()
         updateStickyItemsPositions()
@@ -124,7 +125,7 @@ class StickyGridCollectionViewLayout: UICollectionViewFlowLayout {
                 //attributes [0] = ""
             }
         }
-        
+    
     }
     private func zIndex(forRow row: Int, column col: Int) -> Int {
         if row < stickyRowsCount && col < stickyColumnsCount {

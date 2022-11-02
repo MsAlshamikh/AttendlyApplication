@@ -33,7 +33,7 @@ class ViewController2: UIViewController {
 // MARK: - Collection view data source and delegate methods
 
 extension ViewController2: UICollectionViewDataSource {
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
       
         return 10
