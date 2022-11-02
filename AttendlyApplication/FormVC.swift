@@ -83,14 +83,6 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
 
         self.counter.text = "\((0) + (TCount ?? 0))/20"
 
-        if(TCount ?? 0 >= 20){
-            self.counter.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-            messC.isHidden = false
-            messC.text = "Must be 20 charachter"
-            messC.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-            titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-            SendBtn.isEnabled = false
-            }
         if(titleView.text?.count ?? 0 < 21 ){
             messT.text = ""
             messT.isHidden = true
@@ -102,6 +94,27 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
     
         
         }
+        if(textView.text?.count ?? 0 > 0){
+            
+            if(TCount ?? 0 >= 20){
+                self.counter.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+                messC.isHidden = false
+                messC.text = "Must be 20 charachter"
+                messC.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+                titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+                SendBtn.isEnabled = false
+                }
+            else{
+            messT.text = ""
+            messT.isHidden = true
+           messC.isHidden = true
+           self.counter.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
+        
+        }
+    
+        
+        }
     
         else{
             
@@ -110,10 +123,10 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             messT.isHidden = false
                 messT.text = "This field is required"
                 SendBtn.isEnabled = false
-                if (my == false){
-                    label.text = "please choose a file!"
-                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-                }
+//                if (my == false){
+//                    label.text = "please choose a file!"
+//                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+//                }
                 
             }
         }
@@ -122,13 +135,13 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             messR.isHidden = true
             reasonText.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
             textView.becomeFirstResponder()
-        
-            if (my == false){
-                label.text = "please choose a file!"
-                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-                SendBtn.isEnabled = false
-            }
-            else{    SendBtn.isEnabled = true}
+//
+//            if (my == false){
+//                label.text = "please choose a file!"
+//                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+//                SendBtn.isEnabled = false
+//            }
+            //else{    SendBtn.isEnabled = true}
         }
     
         else{
@@ -138,10 +151,10 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
            // messR.text = "Can not be empty!"
             reasonText.layer.borderColor = #colorLiteral(red: 0.7241919041, green: 0.002930019982, blue: 0.06262063235, alpha: 1)
                 SendBtn.isEnabled = false
-                if (my == false){
-                    label.text = "please choose a file!"
-                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-                }
+//                if (my == false){
+//                    label.text = "please choose a file!"
+//                    label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+//                }
             }
         }
         
@@ -169,7 +182,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
          {
             
             messT.isHidden = false
-            messT.text = "This% field is required"
+            messT.text = "This field is required"
             titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
             messR.isHidden = false
             messR.text = "This field is required"
@@ -267,6 +280,12 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
 
         print("send is statrt")
     // SendBtn.isEnabled = false
+       print("my",my)
+        if (my == false){
+                           label.text = "please choose a file!"
+                           label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
+            SendBtn.isEnabled = false
+                       }
         areYouSure()
 //        let res = isValid()
 //        if res.0 == false {
