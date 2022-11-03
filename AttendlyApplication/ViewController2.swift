@@ -306,10 +306,8 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
         
 //
 //        }
-        print(Global.shared.lecturerId ,"before shared.lecturerId ")
-
-        Global.shared.lecturerId = "Qxt98zR4rherRE6kHAFh9OEjslr2"
-        print(Global.shared.lecturerId ,"Global.shared.lecturerId ")
+        
+     
         
       let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         Global.shared.WhatPressed = cell.titleLabel.text!
@@ -324,6 +322,20 @@ extension ViewController2: UICollectionViewDelegateFlowLayout , UICollectionView
                 else{
                     let id = snapshot!.documents.first!.get("lecturerID") as! String
                     Global.shared.section = snapshot!.documents.first!.get("section") as! String
+                    
+                    if(Global.shared.section == "46467" ){
+                Global.shared.lecturerId = "6PSOGAoDL5gT4uNLQkSlF2ipgLB3"
+                        
+                    }
+                    else if(Global.shared.section == "1235" ){
+                        Global.shared.lecturerId = "Qxt98zR4rherRE6kHAFh9OEjslr2"
+                                
+                            }
+                    else if(Global.shared.section == "3342" ){
+                        Global.shared.lecturerId = "6PSOGAoDL5gT4uNLQkSlF2ipgLB3"
+                                
+                            }
+                    
                     db.collection("Lecturer").whereField("id", isEqualTo: id).getDocuments{
                         (snapshot, error) in
                         if let error = error {
