@@ -89,7 +89,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
            messC.isHidden = true
            self.counter.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             titleView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 2.0).cgColor
-        
+            SendBtn.isEnabled = true
         
     
         
@@ -128,7 +128,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
                 messC.text = "Must be 20 charachter"
                 messC.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
                 titleView.layer.borderColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-                SendBtn.isEnabled = false
+               SendBtn.isEnabled = false
                 }
             else{
             messT.text = ""
@@ -216,10 +216,7 @@ class FormVC: UIViewController , UITextFieldDelegate , UITextViewDelegate , UIDo
             label.text = "please choose a file!"
             label.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
             SendBtn.isEnabled = false
-            if (my == false){
-                label.text = "please choose a file!"
-                label.textColor = #colorLiteral(red: 0.662745098, green: 0.1333333333, blue: 0.1176470588, alpha: 1)
-            }
+          
             return (false, "", "")
         }
         if let res = reasonText.text?.trimmingCharacters(in: .whitespaces), res.isEmpty  {
