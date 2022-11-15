@@ -4,15 +4,21 @@ import FirebaseFirestore
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var timeris: UILabel!
+    
+   
+    
     let helper = NFChelper()
     //var payloadLabel: UILabel!
     
     var result = ""
     //var press =Global.shared.Pressedsection
+    var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateTime2), userInfo: nil, repeats: true) // Repeat "func Update() " every second and update the label
       //  let button = UIButton(type: .system)
         
 //        button.setTitle("Press to attend", for: .normal)
@@ -37,6 +43,22 @@ class ViewController: UIViewController {
 
         self.view.addSubview(button)
     }
+    
+    @objc func UpdateTime2(){
+    let todayy = Date()
+    // 2. Pick the date components
+    let hourss  = (Calendar.current.component(.hour, from: todayy))
+    let minutess = (Calendar.current.component(.minute, from: todayy))
+    let secondss = (Calendar.current.component(.second, from: todayy))
+    // 3. Show the time
+    
+        timeris.text = "\(hourss)Hr:\(minutess)Min:\(secondss)Sec"
+        
+        //= "\(hourss)H:\(minutess)M:\(secondss)S"
+  //  print("\(hours):\(minutes):\(seconds)")
+       //     .setTitle("my text here", for: .normal)
+}
+    
     
     
     func onNFCResult(success: Bool, msg: String) {

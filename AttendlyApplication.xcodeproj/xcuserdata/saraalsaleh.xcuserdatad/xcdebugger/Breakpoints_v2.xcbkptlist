@@ -14,9 +14,9 @@
             filePath = "AttendlyApplication/LecturerProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -146,6 +146,54 @@
             endingLineNumber = "351"
             landmarkName = "pressed(sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03154580-7351-4AB1-A017-46F6206A8BC1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendlyApplication/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "03154580-7351-4AB1-A017-46F6206A8BC1 - 91200850c2ae0eb2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; AttendlyApplication.ViewController"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalsaleh/Desktop/AttendlyApplication/AttendlyApplication/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "03154580-7351-4AB1-A017-46F6206A8BC1 - 1d59a7604ee8b47d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendlyApplication.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;AttendlyApplication.ViewController&gt;"
+                  moduleName = "AttendlyApplication"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalsaleh/Desktop/AttendlyApplication/AttendlyApplication/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
