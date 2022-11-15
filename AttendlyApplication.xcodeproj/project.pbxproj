@@ -57,6 +57,9 @@
 		53B59CD028FC690100977C32 /* StudentViewExec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CCF28FC690100977C32 /* StudentViewExec.swift */; };
 		53B59CD228FD9C4300977C32 /* LectureViewAccepRej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */; };
 		53B59CD428FDA81900977C32 /* StudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B59CD328FDA81900977C32 /* StudentInfoViewController.swift */; };
+		53EDF562291FC7C80017E20A /* splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDF561291FC7C80017E20A /* splash.swift */; };
+		53EDF564291FD4250017E20A /* lunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDF563291FD4250017E20A /* lunchScreen.swift */; };
+		53EDF566291FD4A50017E20A /* logoo.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EDF565291FD4A50017E20A /* logoo.png */; };
 		56C49E7328E8074B00C236CD /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 56C49E7228E8074B00C236CD /* CodableFirebase */; };
 		56C49E7528E807C300C236CD /* CodableFirebaseSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */; };
 		56D7607028E8549B00D7E885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7606F28E8549B00D7E885 /* User.swift */; };
@@ -116,6 +119,9 @@
 		53B59CCF28FC690100977C32 /* StudentViewExec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewExec.swift; sourceTree = "<group>"; };
 		53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewAccepRej.swift; sourceTree = "<group>"; };
 		53B59CD328FDA81900977C32 /* StudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewController.swift; sourceTree = "<group>"; };
+		53EDF561291FC7C80017E20A /* splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splash.swift; sourceTree = "<group>"; };
+		53EDF563291FD4250017E20A /* lunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lunchScreen.swift; sourceTree = "<group>"; };
+		53EDF565291FD4A50017E20A /* logoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoo.png; sourceTree = "<group>"; };
 		56C49E7428E807C300C236CD /* CodableFirebaseSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFirebaseSupport.swift; sourceTree = "<group>"; };
 		56D7606F28E8549B00D7E885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2C45EEA291163DA0019659B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 		34145F2C28CFDF3200B073ED = {
 			isa = PBXGroup;
 			children = (
+				53EDF563291FD4250017E20A /* lunchScreen.swift */,
+				53EDF561291FC7C80017E20A /* splash.swift */,
 				53B59CD128FD9C4200977C32 /* LectureViewAccepRej.swift */,
 				53B59CCF28FC690100977C32 /* StudentViewExec.swift */,
 				53B59CCD28FB15DE00977C32 /* LectureViewEXViewController.swift */,
@@ -212,6 +220,7 @@
 				34FCA43728EABFBB0011CB46 /* girl2.png */,
 				53AF1B8B28DE46D500F77178 /* girl.png */,
 				53415F4728D23720005DFA19 /* Att.jpg */,
+				53EDF565291FD4A50017E20A /* logoo.png */,
 				34145F4328CFDF3400B073ED /* LaunchScreen.storyboard */,
 				34145F4628CFDF3400B073ED /* Info.plist */,
 				34145F5528CFE15F00B073ED /* GoogleService-Info.plist */,
@@ -292,6 +301,7 @@
 			files = (
 				5351559028EE2F9C00EFA29D /* b1.png in Resources */,
 				349927692904658D003AA9D8 /* pic2.png in Resources */,
+				53EDF566291FD4A50017E20A /* logoo.png in Resources */,
 				34145F4528CFDF3400B073ED /* LaunchScreen.storyboard in Resources */,
 				349927672904657D003AA9D8 /* pic1.png in Resources */,
 				34FCA43828EABFBB0011CB46 /* girl2.png in Resources */,
@@ -321,6 +331,7 @@
 				A2C45EEB291163DA0019659B /* CollectionViewCell.swift in Sources */,
 				53B59CCC28FAFCDD00977C32 /* studentHave.swift in Sources */,
 				53415F3E28D1E8C3005DFA19 /* SectionsVC.swift in Sources */,
+				53EDF562291FC7C80017E20A /* splash.swift in Sources */,
 				34145F3D28CFDF3300B073ED /* ViewController.swift in Sources */,
 				5351559828F4D33F00EFA29D /* currentClassTableview.swift in Sources */,
 				F072EB3E28F99DFA005C72F7 /* StudentVC.swift in Sources */,
@@ -343,6 +354,7 @@
 				53415F4028D1E8E3005DFA19 /* DetailsViewController.swift in Sources */,
 				A2C45EEF291166AE0019659B /* StickyGridCollectionViewLayout.swift in Sources */,
 				5358E22128E329C000F423DB /* notificationHand.swift in Sources */,
+				53EDF564291FD4250017E20A /* lunchScreen.swift in Sources */,
 				5358E22328E3651700F423DB /* sectionLectures.swift in Sources */,
 				53415F4E28D8DA54005DFA19 /* readCsv.swift in Sources */,
 				34145F3B28CFDF3300B073ED /* SceneDelegate.swift in Sources */,

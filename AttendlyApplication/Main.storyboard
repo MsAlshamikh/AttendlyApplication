@@ -416,18 +416,39 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press the button to check into the class and mark your attendance‏" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-Zd-bmH">
-                                <rect key="frame" x="44" y="273" width="327" height="99"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attendance‏ request will be sent once you are near NFC tag" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-Zd-bmH">
+                                <rect key="frame" x="54" y="357" width="327" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.22460327520000001" green="0.47796692480000003" blue="0.5332000804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.19607843137254902" green="0.41176470588235292" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-xe-a9U">
-                                <rect key="frame" x="87" y="412" width="240" height="242"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jjj" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-xe-a9U">
+                                <rect key="frame" x="17" y="430" width="381" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avL-3W-4c0">
+                                <rect key="frame" x="85" y="218" width="236" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attend at the right time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7o-HU-HOp">
+                                <rect key="frame" x="117" y="280" width="186" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tab the button to send attendance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1F-G1-S5V">
+                                <rect key="frame" x="62" y="633" width="307" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.22460327520000001" green="0.47796692480000003" blue="0.5332000804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.1960784314" green="0.41176470590000003" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mDj-Hp-8ac"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -443,10 +464,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ze6-n9-npQ"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="timeris" destination="avL-3W-4c0" id="uyG-Df-bL5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADh-1X-K91" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9690" y="-20"/>
+            <point key="canvasLocation" x="9688.4057971014499" y="-20.089285714285712"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="pmz-cb-fqq">
@@ -1462,10 +1486,38 @@
             </objects>
             <point key="canvasLocation" x="7428.985507246377" y="-1686.1607142857142"/>
         </scene>
+        <!--Lunch Screen-->
+        <scene sceneID="Wnl-Ge-5Jt">
+            <objects>
+                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hvk-ip-XQ7" customClass="lunchScreen" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n5U-Kr-GdF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logow" translatesAutoresizingMaskIntoConstraints="NO" id="Zc7-aP-0qa">
+                                <rect key="frame" x="76" y="92" width="263" height="326"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attend Today Achieve Tomorrow" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idi-Fo-LZD">
+                                <rect key="frame" x="20" y="462" width="374" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JEL-Nf-wdY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0P-bG-zG3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540.57971014492762" y="-1418.3035714285713"/>
+        </scene>
         <!--Login Controller-->
         <scene sceneID="HJM-LR-wSk">
             <objects>
-                <viewController id="S1e-Zt-ruJ" customClass="loginController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginController" id="S1e-Zt-ruJ" customClass="loginController" customModule="AttendlyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RDc-dc-RFi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1602,7 +1654,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuM-U3-iNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="449.27536231884062" y="-1257.5892857142856"/>
+            <point key="canvasLocation" x="-323" y="-1517"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIG-MJ-fGN">
@@ -4784,14 +4836,13 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G1y-3w-L4w"/>
-        <segue reference="T27-IC-KYT"/>
+        <segue reference="QwL-F5-Dv4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrow.up.and.person.rectangle.portrait" catalog="system" width="128" height="100"/>
         <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
-        <image name="check" width="247" height="252.5"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock.badge.checkmark" catalog="system" width="128" height="113"/>
         <image name="doc" catalog="system" width="115" height="128"/>
@@ -4802,6 +4853,7 @@
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="girl2.png" width="249" height="219"/>
         <image name="grid.circle" catalog="system" width="128" height="121"/>
+        <image name="jjj" width="592" height="475.5"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="logow" width="405" height="616"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
