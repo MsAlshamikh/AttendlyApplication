@@ -147,19 +147,19 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
       tableView.deselectRow(at: indexPath, animated: true)
         
         let currentCell = tableView.cellForRow(at: indexPath)! as! currentClassTableview
-        let v = currentCell.sectionName!.text!
-        print("is preeesed", v)
+        let DateFromFirebase = currentCell.sectionName!.text!
+        print("is preeesed", DateFromFirebase)
         
         let date = Date()
         let calunder = Calendar.current
         let day = calunder.component(.day , from: date)
         let month = calunder.component(.month , from: date)
         let year = calunder.component(.year , from: date)
-        let thed = "\(day)-\(month)-\(year)"
-        print(thed)
+        let CureentDay = "\(day)-\(month)-\(year)"
+        print(CureentDay)
         let db = Firestore.firestore()
         Task{
-            await Cureentpress(v: v, thed: thed) }
+            await Cureentpress(v: DateFromFirebase, thed: CureentDay) }
     }
     
     func Cureentpress(v:String ,thed:String ) async{
