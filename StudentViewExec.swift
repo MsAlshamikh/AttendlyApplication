@@ -34,6 +34,21 @@ class StudentViewExec: UIViewController {
         return
     }
     
+    fileprivate func extractedFunc(_ FormState: String) {
+        if FormState == "Rejected" {
+            stateOfex.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            stateOfex.text = FormState
+        }
+        else if FormState == "Accepted" {
+            stateOfex.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            stateOfex.text = FormState
+        }
+        else if FormState == "Pending" {
+            stateOfex.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            stateOfex.text = FormState
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,18 +88,7 @@ class StudentViewExec: UIViewController {
                      self.fileURL = file
                      print("reson", resonn)
                      
-                     if FormState == "Rejected" {
-                         stateOfex.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-                         stateOfex.text = FormState
-                     }
-                     else if FormState == "Accepted" {
-                         stateOfex.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-                         stateOfex.text = FormState
-                     }
-                     else if FormState == "Pending" {
-                         stateOfex.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-                         stateOfex.text = FormState
-                     }
+                     extractedFunc(FormState)
                     titleOf.text = titlee
                       resonOf.text = resonn
                     
