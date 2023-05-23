@@ -119,11 +119,12 @@ class NewCourseVC: UIViewController {
                                    if ( key == section)
                             { print("LETS GOOOOO")
                                        
-                                    var step1 = value * 0.25
-                                       var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
-                                            var final = step2 * 0.25
-                                       
-                              //         totalp[section] = final
+//                                    var step1 = value * 0.25
+//                                       var step2 = ( Double(globalAbbsencen) /  step1 ) * 100
+//                                            var final = step2 * 0.25
+//
+//                              //         totalp[section] = final
+                            var final = self.CalculatePersentage(globalAbbsencen: Double(globalAbbsencen), value: value)*0.25
                                        
                                        print(final)
                                        
@@ -217,6 +218,10 @@ class NewCourseVC: UIViewController {
                     }
       
             }}}
+    
+    func CalculatePersentage(globalAbbsencen: Double , value: Double) -> Double{
+        return (Double(globalAbbsencen) / (value * 0.25) ) * 100
+    }
     
     func get() {
         
