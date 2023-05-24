@@ -25,7 +25,7 @@ class CourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        get()
+        RetrievedCourses()
         percentage()
     }
     
@@ -107,9 +107,7 @@ class CourseViewController: UIViewController {
     
     
     
-    
-    
-    func get(){
+    func RetrievedCourses(){
         let db = Firestore.firestore()
         db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
             (snapshot, error) in
