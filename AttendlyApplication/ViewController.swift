@@ -86,7 +86,8 @@ class ViewController: UIViewController {
             }
             if (success==true){
             if !msg.hasPrefix("First"){
-                self.spl(x: msg)
+               // self.Mar(x: msg)
+                self.MarkAttendance(x: msg)
                 
             }
         }
@@ -104,7 +105,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func spl(x:String) {
+    func MarkAttendance(x:String) {
         var str = x
         var result = str.split(separator: "-")
         result.removeFirst()
@@ -272,6 +273,8 @@ class ViewController: UIViewController {
         } // else
         }//loop
         }//task
+        
+        
     }// split
     
     func getCurrentTime() -> String{
