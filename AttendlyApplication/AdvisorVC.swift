@@ -96,26 +96,25 @@ class AdvisorVC: UIViewController {
                 self.view.addSubview(label)
             }
         } else {
-            let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 340 + ( Double(0) * 90 ), width: 350, height: 60))
-            label.setTitle(" No Student Found", for: .normal)
-            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
-            label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-            label.tag = 999
-            self.view.addSubview(label)
+            showNoStudentsFound()
         }
     }
     
     func toggleNoStudentsFound(show: Bool) {
         if(show) {
-            let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 500 + ( Double(0) * 90 ), width: 350, height: 60))
-            label.setTitle(" No Student Found", for: .normal)
-            label.titleLabel?.font = label.titleLabel?.font.withSize(30)
-            label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
-            label.tag = 999
-            self.view.addSubview(label)
+            showNoStudentsFound()
         } else {
             removeStudents()
         }
+    }
+    
+    func showNoStudentsFound() {
+        let label = UIButton(frame: .init(x: self.view.frame.midX-175 , y: 500 + ( Double(0) * 90 ), width: 350, height: 60))
+        label.setTitle(" No Student Found", for: .normal)
+        label.titleLabel?.font = label.titleLabel?.font.withSize(30)
+        label.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
+        label.tag = 999
+        self.view.addSubview(label)
     }
     
     func removeStudents() {
