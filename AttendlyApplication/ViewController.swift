@@ -133,7 +133,7 @@ class ViewController: UIViewController {
             let thed = "\(day)-\(month)-\(year)"
             let snapshot = try await db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments()
             let sections: [String] = snapshot.documents.first?.data()["Sections"] as! [String]
-            let name: String = snapshot.documents.first?.data()["name"] as! String
+            // let name: String = snapshot.documents.first?.data()["name"] as! String
             let email:String = snapshot.documents.first?.data()["StudentEmail"] as! String
             
             for section in sections {
