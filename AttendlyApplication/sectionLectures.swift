@@ -11,6 +11,7 @@ import FirebaseFirestore
 class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     
+    let db = Firestore.firestore()
 
     @IBOutlet weak var dateOF: UILabel!
     
@@ -141,113 +142,118 @@ class sectionLectures: UIViewController, UITableViewDelegate, UITableViewDataSou
 //
 //    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)   {
         print(indexPath)
       tableView.deselectRow(at: indexPath, animated: true)
         
         let currentCell = tableView.cellForRow(at: indexPath)! as! currentClassTableview
-        let v = currentCell.sectionName!.text!
-        print("is preeesed", v)
+        let DateFromFirebase = currentCell.sectionName!.text!
+        print("is preeesed", DateFromFirebase)
         
         let date = Date()
         let calunder = Calendar.current
         let day = calunder.component(.day , from: date)
         let month = calunder.component(.month , from: date)
         let year = calunder.component(.year , from: date)
-        let thed = "\(day)-\(month)-\(year)"
-        print(thed)
+        let CureentDay = "\(day)-\(month)-\(year)"
+        print(CureentDay)
         let db = Firestore.firestore()
-        Task {
-            
-            //
-            
-            
-             //   sender.isEnabled = false
-              //  let t_snapshot = try await db.collection("Unistudent").whereField("co", arrayContains: v!).getDocuments()
-                let t_snapshot = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments()
-
-                let currentTime = getCurrentTime()
-                print(currentTime)
-                let currentTimeSplit = currentTime.split(separator: ":")
-                let timeHourct = currentTimeSplit[0]
-                //let timeMinct = Int(currentTimeSplit[1])
-              //  let timeMinct2 = Int(timeMinct ?? 0)
-                print("hour current",timeHourct )
-
-                let endTimeF = t_snapshot.documents.first?.data()["endTime"] as! String
-
-
-            print(t_snapshot.documents.count)
-                var studentArry = [String]()  //name
-                var stateArray = [String]()
-                var emailArray = [String]()
-                var idArray = [String]()
-                var seArray = [String]()
-                for doc in t_snapshot.documents {
-                   let documentID = doc.documentID
-                      let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
-
-
-
-                    print("here")
-                    print(snp.documents.count)
-                    print(snp.documents)
-
-                    for studentDoc in snp.documents {
-                        guard let state  = studentDoc.get("State") as? String else { continue }
-                        guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
-                        guard let name  = studentDoc.get("name") as? String else { continue }
-                        guard let id = studentDoc.get("id") as? String else { continue }
-                        
-                        guard let ser = studentDoc.get("SerialNum") as? String else { continue }
-
-                        print("name of student/",name)
-                        print("state of student/",state)
-                        print("email of student/",email)
-                        print("id of student/",id)
-                        print("serial N of student/",id)
-
+        Task{
+            await Cureentpress(v: DateFromFirebase, thed: CureentDay) }
+    }
     
+    func Cureentpress(v:String ,thed:String ) async{
+        print("cuu")
+        do{
+      let   t_snapshot =    try await self.db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments()
+            
+            print("t_snapshot.documents",t_snapshot.documents)
+            if (t_snapshot.documents != [] ){
+            let currentTime = getCurrentTime()
+            print(currentTime)
+            let currentTimeSplit = currentTime.split(separator: ":")
+            let timeHourct = currentTimeSplit[0]
+            print("hour current",timeHourct )
 
-                        studentArry.append(name)
-                        stateArray.append(state)
-                        emailArray.append(email)
-                        idArray.append(id)
-                        seArray.append(ser)
-
-
-                        if(endTimeF < timeHourct && state == "pending" ){
-                          //  if(state == "pending")
-
-                            guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
-
-                            guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
-
-                            try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
+            let endTimeF = t_snapshot.documents.first?.data()["endTime"] as! String
 
 
-                        }
+        print(t_snapshot.documents.count)
+            var studentArry = [String]()  //name
+            var stateArray = [String]()
+            var emailArray = [String]()
+            var idArray = [String]()
+            var seArray = [String]()
+            for doc in t_snapshot.documents {
+               let documentID = doc.documentID
+                  let snp = try await db.collection("studentsByCourse").document(documentID).collection("students").getDocuments()
 
+
+
+                print("here")
+                print(snp.documents.count)
+                print(snp.documents)
+
+                for studentDoc in snp.documents {
+                    guard let state  = studentDoc.get("State") as? String else { continue }
+                    guard let email  = studentDoc.get("EmailStudent") as? String else { continue }
+                    guard let name  = studentDoc.get("name") as? String else { continue }
+                    guard let id = studentDoc.get("id") as? String else { continue }
+                    
+                    guard let ser = studentDoc.get("SerialNum") as? String else { continue }
+
+                    print("name of student/",name)
+                    print("state of student/",state)
+                    print("email of student/",email)
+                    print("id of student/",id)
+                    print("serial N of student/",id)
+
+
+
+                    studentArry.append(name)
+                    stateArray.append(state)
+                    emailArray.append(email)
+                    idArray.append(id)
+                    seArray.append(ser)
+
+
+                    if(endTimeF < timeHourct && state == "pending" ){
+                      //  if(state == "pending")
+
+                        guard let sectionDocID = try await db.collection("studentsByCourse").whereField("courseN", isEqualTo: v).whereField("st", isEqualTo: thed).getDocuments().documents.first?.documentID else { return }
+
+                        guard let studentDocID = try await db.collection("studentsByCourse").document(sectionDocID).collection("students").whereField("EmailStudent", isEqualTo: email).getDocuments().documents.first?.documentID else { return }
+
+                        try await db.collection("studentsByCourse").document(sectionDocID).collection("students").document(studentDocID).setData(["State": "absent"], merge: true)
                     }
-
-
-
-
                 }
-                let Lecture = storyboard?.instantiateViewController(withIdentifier: "ManualAttViewController") as! ManualAttViewController
-                Lecture.nameStudent = studentArry
-                Lecture.stateSt = stateArray
-                Lecture.emailSt = emailArray
-                Lecture.v = v
-                Lecture.idstudent = idArray
-                Lecture.serialNumber = seArray
-          navigationController?.pushViewController(Lecture, animated: true)
-              //
+            }
+            let Lecture = storyboard?.instantiateViewController(withIdentifier: "ManualAttViewController") as! ManualAttViewController
+            Lecture.nameStudent = studentArry
+            Lecture.stateSt = stateArray
+            Lecture.emailSt = emailArray
+            Lecture.v = v
+            Lecture.idstudent = idArray
+            Lecture.serialNumber = seArray
+      navigationController?.pushViewController(Lecture, animated: true)
+          //
+   // }
+    
+// }
+            } else{
+                print("????there is no day current at now ")
+                
+                var refreshAlert = UIAlertController(title: "Check!", message: "There is no class at this current time", preferredStyle: UIAlertController.Style.alert)
+
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                  print("Handle Ok logic here")
+                  }))
+                present(refreshAlert, animated: true, completion: nil)
+            }
             
-            
-            
-        }
-        
+        } catch let error as NSError{
+            print("there is no day current at now ")
+    } 
     }
     
 //    @objc func pressed(sender:UIButton)  {

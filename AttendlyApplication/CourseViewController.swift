@@ -25,7 +25,7 @@ class CourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        get()
+        RetrievedCourses()
         percentage()
     }
     
@@ -107,9 +107,7 @@ class CourseViewController: UIViewController {
     
     
     
-    
-    
-    func get(){
+    func RetrievedCourses(){
         let db = Firestore.firestore()
         db.collection("Unistudent").whereField("StudentEmail", isEqualTo: Global.shared.useremailshare).getDocuments{
             (snapshot, error) in
@@ -150,7 +148,7 @@ class CourseViewController: UIViewController {
                         //label.params["course"] = actual[i]
                         //!!!!!!
                         label.tag = Int(sects[i]) ?? 0
-                        label.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
+                        label.addTarget(self, action: #selector(self.MoveToSection), for: .touchUpInside)
                         label.addTarget(self, action: #selector(self.pressed1), for: .touchDown)
                         label.addTarget(self, action: #selector(self.pressed2), for: .touchDragExit)
                         label.layer.cornerRadius = 0.07 * label.bounds.size.width
@@ -173,7 +171,7 @@ class CourseViewController: UIViewController {
         
     }
     
-    @objc func pressed(sender:UIButton) {
+    @objc func MoveToSection(sender:UIButton) {
         
         
         sender.setTitleColor(UIColor(red: 20/255, green: 108/255, blue: 120/255, alpha: 2), for: .normal)
